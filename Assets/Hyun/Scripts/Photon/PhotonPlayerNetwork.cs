@@ -18,7 +18,6 @@ public class PhotonPlayerNetwork : MonoBehaviourPunCallbacks
 
 
     public bool isLobby = false;
-    public StageCtrl stage;
     public Text player1Name;
     public Text player2Name;
 
@@ -37,19 +36,7 @@ public class PhotonPlayerNetwork : MonoBehaviourPunCallbacks
 
     private void Awake()
     {
-        if (!isLobby)
-        {
-            if (PhotonNetwork.IsMasterClient)
-            {
-                spawn_P1 = PhotonNetwork.Instantiate(Player1Level.name, stage.playerFirstLocations[0].position, Quaternion.identity);
-                StartCoroutine(Set_ReadyOption(spawn_P1));
-            }
-            else
-            {
-                spawn_P2 = PhotonNetwork.Instantiate(Player2Level.name, stage.playerFirstLocations[1].position, Quaternion.identity);
-                StartCoroutine(Set_ReadyOption(spawn_P2));
-            }
-        }
+        
     }
 
     IEnumerator Set_ReadyOption(GameObject spawnPlayer)
