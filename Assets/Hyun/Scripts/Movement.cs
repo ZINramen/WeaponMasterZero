@@ -79,13 +79,13 @@ public class Movement : MonoBehaviour
         float ve,he;
 
         if (is2P)
-            he = Input.GetAxis("Horizontal_2P");
+            he = Input.GetAxisRaw("Horizontal_2P");
         else
-            he = Input.GetAxis("Horizontal");
+            he = Input.GetAxisRaw("Horizontal");
         if (is2P)
-            ve = Input.GetAxis("Vertical2P");
+            ve = Input.GetAxisRaw("Vertical2P");
         else
-            ve = Input.GetAxis("Vertical");
+            ve = Input.GetAxisRaw("Vertical");
 
         body.AddForce((Vector3.up * ve * 3f) + Vector3.right * he * 3);
     }
@@ -94,9 +94,9 @@ public class Movement : MonoBehaviour
     {
         body.sharedMaterial = pMaterial;
         if (is2P) 
-            h = Input.GetAxis("Horizontal_2P");
+            h = Input.GetAxisRaw("Horizontal_2P");
         else 
-            h = Input.GetAxis("Horizontal");
+            h = Input.GetAxisRaw("Horizontal");
         body.velocity = new Vector2(h * 100 * speed * Time.deltaTime, body.velocity.y);
 
         if (h != 0)
