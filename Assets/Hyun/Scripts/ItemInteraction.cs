@@ -1,9 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Photon.Pun;
-using Photon.Realtime;
-
 public class ItemInteraction : MonoBehaviour
 {
     public bool isOnline = true;
@@ -26,8 +23,7 @@ public class ItemInteraction : MonoBehaviour
     {
         if (itemName == "")
         {
-            if ((PhotonNetwork.InRoom && PhotonNetwork.IsMasterClient) || !isOnline)
-                StartCoroutine(SpawnItem());
+            StartCoroutine(SpawnItem());
         }
     }
     private void OnTriggerEnter2D(Collider2D coll)
@@ -86,14 +82,9 @@ public class ItemInteraction : MonoBehaviour
                         itemName = "SKILL-ITEM (Potion)";
                         break;
                 }
-                if (isOnline)
-                    target = PhotonNetwork.Instantiate("Item/" + itemName, transform.position, Quaternion.identity);
-                else
-                {
-                    target = GameObject.Instantiate(Resources.Load<GameObject>("Item/" + itemName));
-                    target.transform.position = transform.position;
-                    target.transform.rotation = Quaternion.identity;
-                }   
+                target = GameObject.Instantiate(Resources.Load<GameObject>("Item/" + itemName));
+                target.transform.position = transform.position;
+                target.transform.rotation = Quaternion.identity;
             }
         }
     }

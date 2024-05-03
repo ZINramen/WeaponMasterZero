@@ -2,15 +2,14 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Photon.Pun;
-using Photon.Realtime;
 
 public class AnimationManager : MonoBehaviour
 {
     [HideInInspector] public SkillManager skillManager;
-    PhotonPlayer network;
+    
     public Entity owner;
     public GameObject temp;
+    public bool additionalJump = false;
     public bool onGround = true;
     public bool GetOnGround() { return onGround; }
 
@@ -55,11 +54,8 @@ public class AnimationManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        network = GetComponent<PhotonPlayer>();
         ani = GetComponent<Animator>();
         skillManager = GetComponent<SkillManager>();
-        if (network)
-            network.am = this;
     }
 
     // Update is called once per frame
@@ -81,8 +77,6 @@ public class AnimationManager : MonoBehaviour
                 {
                     ani.ResetTrigger("Jump");
                     ani.SetTrigger("Landing");
-                    if (network)
-                        network.RunTriggerRpc("Landing");
                 }
                 if (Ec && ecActive)
                 {
@@ -100,13 +94,12 @@ public class AnimationManager : MonoBehaviour
                 {
                     ani.SetTrigger("fall");
 
-                    if (network)
-                        network.RunTriggerRpc("fall");
                 }
             }
             if (onGround)
             {
                 onGround = false;
+                additionalJump = false;
                 if (isHuman)
                 {
                     ani.ResetTrigger("Landing");
@@ -120,15 +113,11 @@ public class AnimationManager : MonoBehaviour
                     {
                         ani.SetTrigger("Kick");
 
-                        if (network)
-                            network.RunTriggerRpc("Kick");
                         ecActive = true;
                     }
                     if (Input.GetKeyDown(Punch))
                     {
                         ani.SetTrigger("Punch");
-                        if (network)
-                            network.RunTriggerRpc("Punch");
                     }
                 }
             }
@@ -180,15 +169,11 @@ public class AnimationManager : MonoBehaviour
             if (!owner.stun)
             {
                 ani.SetTrigger("Hit_Upgrade");
-                if (network)
-                    network.RunTriggerRpc("Hit_Upgrade");
             }
             else 
             {
 
                 ani.SetTrigger("Stun");
-                if (network)
-                    network.RunTriggerRpc("Stun");
                 owner.stun = false;
             }
         }
@@ -199,14 +184,10 @@ public class AnimationManager : MonoBehaviour
             if (!owner.stun) 
             {
                 ani.SetTrigger("Hit");
-                if (network)
-                    network.RunTriggerRpc("Hit"); 
             }
             else
             {
                 ani.SetTrigger("Stun");
-                if (network)
-                    network.RunTriggerRpc("Stun");
                 owner.stun = false;
             }
         }
@@ -216,15 +197,11 @@ public class AnimationManager : MonoBehaviour
     public void FallDown()
     {
         ani.SetTrigger("ComboEnd");
-        if (network)
-            network.RunTriggerRpc("ComboEnd");
     }
 
     public void Die()
     {
         ani.SetTrigger("Death");
-        if (network)
-            network.RunTriggerRpc("Death");
     }
 
     public void Network_SetTrigger(string name) 
@@ -264,13 +241,13 @@ public class AnimationManager : MonoBehaviour
 
     void PlayerAnimation() // 조종하는 플레이어 캐릭터의 애니메이션 관리 -> 입력에 반응
     {
-        if (Physics2D.Raycast(transform.position - new Vector3(0, transform.localScale.y/2), Vector3.down, 0.2f) && Input.GetKeyDown(Jump) && !Input.GetKey(DownArrow))
+        if ((Physics2D.Raycast(transform.position - new Vector3(0, transform.localScale.y/2), Vector3.down, 0.2f) || !additionalJump) && Input.GetKeyDown(Jump) && !Input.GetKey(DownArrow))
         {
+            if (!onGround)
+                additionalJump = true;
+
             State = AnimationState.Jump;
             ani.SetTrigger("Jump");
-            if (network)
-                network.RunTriggerRpc("Jump");
-                
         }
         if (State == AnimationState.Normal) 
         {
@@ -278,29 +255,21 @@ public class AnimationManager : MonoBehaviour
             {
                 State = AnimationState.Emotion;
                 ani.SetTrigger("Breaktime");
-                if (network)
-                    network.RunTriggerRpc("Breaktime");
             }
             if (Input.GetKeyDown(Punch))
             {
                 if (Input.GetKey(UpArrow))
                 {
                     ani.SetTrigger("Punch_Up");
-                    if (network)
-                        network.RunTriggerRpc("Punch_Up");
                 }
                 else if (!ani.GetBool("Down"))
                 {
                     ani.SetTrigger("Punch");
-                    if (network)
-                        network.RunTriggerRpc("Punch");
                 }
             }
             if (Input.GetKeyDown(Kick))
             {
                 ani.SetTrigger("Kick");
-                if (network)
-                    network.RunTriggerRpc("Kick");
             }
             if (!owner.movement.is2P && !owner.mpLock)
             {
@@ -335,8 +304,6 @@ public class AnimationManager : MonoBehaviour
                     if (skillManager.skills[skillNumberKey] != "")
                     {
                         ani.SetTrigger(skillManager.skills[skillNumberKey]);
-                        if (network)
-                            network.RunTriggerRpc(skillManager.skills[skillNumberKey]);
                     }
                 }
             }
@@ -350,8 +317,6 @@ public class AnimationManager : MonoBehaviour
                             if(skillManager.skills[i] != "") 
                             {
                                 ani.SetTrigger(skillManager.skills[i]);
-                                if (network)
-                                    network.RunTriggerRpc(skillManager.skills[i]);
                             }
                         }
                     } 
@@ -375,20 +340,14 @@ public class AnimationManager : MonoBehaviour
             if (Input.GetKeyDown(Dash) && !ani.GetBool("Down"))
             {
                 ani.SetTrigger("Dash");
-                if (network)
-                    network.RunTriggerRpc("Dash");
             }
             if (Input.GetKeyUp(Catch))
             {
                 ani.SetTrigger("Catch");
-                if (network)
-                    network.RunTriggerRpc("Catch");
             }
             if (Input.GetKeyUp(Backstep))
             {
                 ani.SetTrigger("Dodge");
-                if (network)
-                    network.RunTriggerRpc("Dodge");
             }
             if (Input.GetKey(Heal))
             {

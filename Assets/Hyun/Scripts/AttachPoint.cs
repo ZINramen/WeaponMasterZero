@@ -1,11 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Photon.Pun;
 
 public class AttachPoint : MonoBehaviour
 {
-    PhotonPlayer network;
     public bool noCatch = false;
     public Entity owner;
     public Entity target;
@@ -15,7 +13,6 @@ public class AttachPoint : MonoBehaviour
 
     private void Start()
     {
-        network = GetComponent<PhotonPlayer>();
     }
     private void OnTriggerStay2D(Collider2D other)
     {
@@ -58,8 +55,6 @@ public class AttachPoint : MonoBehaviour
                     {
                         target.Damaged(UltDamage, 10);
                         owner.ResetMp();
-                        if (network)
-                            network.MpChange();
                     }
 
                 }
@@ -75,8 +70,6 @@ public class AttachPoint : MonoBehaviour
                 if (Ult) 
                 {
                     owner.aManager.ani.SetTrigger("Start");
-                    if(owner.network)
-                        owner.network.RunTriggerRpc("Start");
                 }
             } 
     }

@@ -4,13 +4,11 @@ using UnityEngine;
 public class EffectCreator : MonoBehaviour
 {
     DynamicCamera cam;
-    PhotonPlayer network;
 
     public Transform HammerEffect;
 
     private void Start()
     {
-        network = GetComponent<PhotonPlayer>();
         cam = Camera.main.GetComponent<DynamicCamera>();
     }
 
@@ -51,10 +49,6 @@ public class EffectCreator : MonoBehaviour
         if (hitAction)
         {
             temp.GetComponent<HitColider>().owner = gameObject.GetComponent<Entity>();
-        }
-        if (network) 
-        {
-            network.NetworkSyncEffect(hit.point);
         }
     }
 }

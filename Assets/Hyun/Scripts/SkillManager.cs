@@ -37,43 +37,28 @@ public class SkillManager : MonoBehaviour
         if(name == "Gun") 
         {
             skills[0] = newName;
-            if (owner.network)
-            {
-                NetworkProcess(newName, 0);
-            }
+
 
         }
         if (name == "Sword")
         {
             skills[1] = newName;
-            if (owner.network)
-            {
-                NetworkProcess(newName, 1);
-            }
+
         }
         if (name == "Kunai")
         {
             skills[2] = newName;
-            if (owner.network)
-            {
-                NetworkProcess(newName, 2);
-            }
+
         }
         if (name == "Hammer")
         {
             skills[3] = newName;
-            if (owner.network)
-            {
-                NetworkProcess(newName, 3);
-            }
+
         }
         if (name == "Potion")
         {
             skills[4] = newName;
-            if (owner.network)
-            {
-                NetworkProcess(newName, 4);
-            }
+
         }
     }
     public void RemoveSKill(string value) 
@@ -82,17 +67,5 @@ public class SkillManager : MonoBehaviour
         ModifySkill(value, "");
     }
 
-    void NetworkProcess(string newName, int value)
-    {
-        if (newName != "")
-        {
-            owner.network.SkillActive[value] = true;
-            owner.network.SkillIconChange(value, true);
-        }
-        else
-        {
-            owner.network.SkillActive[value] = false;
-            owner.network.SkillIconChange(value, false);
-        }
-    }
+
 }

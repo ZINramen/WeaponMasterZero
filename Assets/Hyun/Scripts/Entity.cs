@@ -2,14 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using Photon.Pun;
 
 public class Entity : MonoBehaviour
 {
     public bool stun = false;
     private int[] keyValues;
 
-    public PhotonPlayer network;
     public bool Network_Catch = false;
 
     [SerializeField] private float hp;
@@ -61,7 +59,6 @@ public class Entity : MonoBehaviour
     {
         keyValues = (int[])System.Enum.GetValues(typeof(KeyCode));
      
-        network = GetComponent<PhotonPlayer>();
         movement = GetComponent<Movement>();
         aManager = GetComponent<AnimationManager>();
         
@@ -91,21 +88,7 @@ public class Entity : MonoBehaviour
         }
         if (maxHP == 9999)
             hp = 9999;
-        if (emoticon && network && network.pv.IsMine)
-            foreach (KeyCode key in keyValues)
-            {
-                if (Input.GetKeyDown(key))
-                {
-                    if ((int)key >= 282 && (int)key <= 292)
-                    {
-                        int keyValue = (int)key - 281;
-                        emoticon.SetValue(keyValue);
-                        if(network)
-                            network.pv.RPC("ShowEmoticon", RpcTarget.Others, keyValue);
-                        break;
-                    }
-                }
-            }
+
         if (attackPos)
         {
             Vector3 start = attackPos.transform.position;
@@ -142,8 +125,6 @@ public class Entity : MonoBehaviour
     {
         mp = 0;
 
-        if (network)
-            network.MpChange();
     }
     public void SetPower(float powerValue) 
     {
@@ -175,10 +156,6 @@ public class Entity : MonoBehaviour
                     if (temp > enemy.GetHp())
                     {
                         AddMp(5);
-                        if (network) 
-                        {
-                            network.MpChange();
-                        }
                     }
                 }
             }
@@ -212,17 +189,10 @@ public class Entity : MonoBehaviour
     {
         if (DamageBlock == DefenseStatus.invincible) return;
         AddMp(5);
-        if (network)
-            network.MpChange();
-        if (!network || PhotonNetwork.IsMasterClient)
+        if (waitTime == 0)
         {
-            if (waitTime == 0)
-            {
-                hp -= damageValue;
-                waitTime = 0.2f;
-                if (network)
-                    network.HpChange();
-            }
+            hp -= damageValue;
+            waitTime = 0.2f;
         }
     }
     public void SetHpNetwork(float value)
@@ -245,18 +215,11 @@ public class Entity : MonoBehaviour
         {
             PlayHitEffect(10);
             AddMp(2);
-            if (network)
-                network.MpChange();
         }
-        if (!network || PhotonNetwork.IsMasterClient)
-        {
-            if (value > maxHP)
-                hp = maxHP;
-            else hp = value;
+        if (value > maxHP)
+            hp = maxHP;
+        else hp = value;
 
-            if (network)
-                network.HpChange();
-        }
     }
     public float GetHp()
     {
@@ -273,8 +236,6 @@ public class Entity : MonoBehaviour
     {
         if (DamageBlock == DefenseStatus.invincible) return;
         AddMp(10);
-        if (network)
-            network.MpChange();
         if (currentCombo < maxcombo && damageValue != 0)
         {
             currentCombo++;
@@ -302,8 +263,6 @@ public class Entity : MonoBehaviour
                 if (ComboUI)
                 {
                     Instantiate(ComboUI);
-                    if (network)
-                        network.ComboShow();
                 }
 
                 // 맞는 방향으로 회전
@@ -316,36 +275,21 @@ public class Entity : MonoBehaviour
                 {
                     PlayHitEffect(damageValue);
                 }
+                hp -= damageValue;
 
-                if (!network || PhotonNetwork.IsMasterClient)
-                {
-                    hp -= damageValue;
-
-                    if (network)
-                        network.HpChange();
-                }
             }
             else
             {
-                if (!network || PhotonNetwork.IsMasterClient)
-                {
-                    hp -= (float)damageValue / 2;
 
-                    if (network)
-                        network.HpChange();
-                }
-                if(damageValue != 0)
+                hp -= (float)damageValue / 2;
+                if (damageValue != 0)
                     Instantiate(CoolTextEffect).transform.position = transform.position;
             }
             if (DamageBlock == DefenseStatus.Warning)
             {
-                if (!network || PhotonNetwork.IsMasterClient)
-                {
-                    hp -= 10;
 
-                    if (network)
-                        network.HpChange();
-                }
+                hp -= 10;
+
             }
             waitTime = 0.2f;
             movement.StopMove = true;
@@ -359,8 +303,6 @@ public class Entity : MonoBehaviour
         if (movement)
         {
             movement.SetThrustForceX(thrustValue);
-            if (network)
-                network.Thrust(thrustValue);
         }
     }
 

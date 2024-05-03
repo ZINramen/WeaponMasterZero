@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using UnityEngine.UI;
 using UnityEngine;
 
-using Photon.Pun;
+//using Photon.Pun;
 
-public class Mingyu_SoundManager : MonoBehaviourPun
+public class Mingyu_SoundManager : MonoBehaviour//Pun
 {
     public static float s_volume = 1;
 
@@ -57,11 +57,11 @@ public class Mingyu_SoundManager : MonoBehaviourPun
 
     public void BtnClick_SettingUI()
     {
-        if (PhotonNetwork.IsMasterClient)
+        /*if (PhotonNetwork.IsMasterClient)
             masterUI.SetActive(true);
 
         else
-            soundUI.SetActive(true);
+            soundUI.SetActive(true);*/
     }
 
     // 슬라이더의 값을 조절했을 때, 호출
