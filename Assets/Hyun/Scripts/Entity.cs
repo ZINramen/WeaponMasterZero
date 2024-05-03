@@ -234,6 +234,12 @@ public class Entity : MonoBehaviour
     
     public void Damaged(float damageValue, float thrustValue)
     {
+        if (this.gameObject.tag == "Boss")
+        {
+            thrustValue = 0;
+            flyingAttackForce = 0;
+        }
+        
         if (DamageBlock == DefenseStatus.invincible) return;
         AddMp(10);
         if (currentCombo < maxcombo && damageValue != 0)
@@ -242,7 +248,8 @@ public class Entity : MonoBehaviour
         }
         if(currentCombo == maxcombo)
         {
-            aManager.FallDown();
+            if(aManager)
+                aManager.FallDown();
             currentCombo = 0;
         }
 
@@ -266,15 +273,20 @@ public class Entity : MonoBehaviour
                 }
 
                 // 맞는 방향으로 회전
-                if (thrustValue < 0)
-                    transform.localEulerAngles = new Vector3(0, 0, 0);
-                else
-                    transform.localEulerAngles = new Vector3(0, 180, 0);
+
+                if (this.gameObject.tag != "Boss")
+                {
+                    if (thrustValue < 0)
+                        transform.localEulerAngles = new Vector3(0, 0, 0);
+                    else
+                        transform.localEulerAngles = new Vector3(0, 180, 0);
+                }
 
                 if (HitEffect && damageValue > 0)
                 {
                     PlayHitEffect(damageValue);
                 }
+
                 hp -= damageValue;
 
             }

@@ -69,7 +69,7 @@ public class AnimationManager : MonoBehaviour
                 ani.SetTrigger("Landing");
                 State = AnimationState.Normal;
             }
-            if (hit.collider.transform.parent != transform && (!hit.collider.GetComponent<EffectCreator>() || owner.movement.StopMove))
+            //if (hit.collider.transform.parent != transform && (!hit.collider.GetComponent<EffectCreator>() || owner.movement.StopMove))
             if (State == AnimationState.Fall)
             {
                 onGround = true;
