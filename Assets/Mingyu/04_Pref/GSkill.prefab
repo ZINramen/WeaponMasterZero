@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 3381992462808665875}
   - component: {fileID: 5302864986624819737}
   - component: {fileID: 8972238455915089625}
+  - component: {fileID: 7260005731521248239}
   m_Layer: 0
   m_Name: GSkill
   m_TagString: Untagged
@@ -142,7 +143,7 @@ Animator:
   m_GameObject: {fileID: 6626768178652176019}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: d0e4b0051b95f764a896dbf0ae24e6f9, type: 2}
+  m_Controller: {fileID: 9100000, guid: 68e38b3f3f7d56e4eb00a8532ac5e0f7, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -171,3 +172,15 @@ MonoBehaviour:
   attackForce: 10
   thrustValue: 0.5
   owner: {fileID: 0}
+--- !u!114 &7260005731521248239
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6626768178652176019}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 00838dd7337f4514cb2f3eaaf3c8ecbf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

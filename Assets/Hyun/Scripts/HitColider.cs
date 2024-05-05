@@ -17,6 +17,8 @@ public class HitColider : MonoBehaviour
         {
             thrustValue = 0;
             flyingAttackForce = 0;
+            
+            other.gameObject.GetComponent<Boss_Move>().HitEffect();
         }
         
         Entity entity = other.GetComponent<Entity>();

@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.AI;
 using UnityEngine.UIElements;
 
 public class Boss_Move : MonoBehaviour
@@ -62,12 +63,16 @@ public class Boss_Move : MonoBehaviour
 
     [SerializeField] private Transform skillSpon_Pos;
     [SerializeField] private GameObject GSkill_Pref;
+
+    private Material origin_Mat;
+    [SerializeField] private Material hit_Mat;
     
     // Start is ca
     // lled before the first frame update
     void Start()
     {
         player = GameObject.FindWithTag("Player").gameObject;
+        origin_Mat = this.gameObject.GetComponent<SpriteRenderer>().material;
         
         if (player != null)
         {
@@ -85,7 +90,9 @@ public class Boss_Move : MonoBehaviour
     {
         player_pos = player.GetComponent<Transform>().position;
         flapX= (this.transform.position.x - player_pos.x) > 0 ? true : false;
-        this.GetComponent<SpriteRenderer>().flipX = flapX;
+
+        if (!flapX) this.transform.rotation = Quaternion.Euler(0, 180, 0);
+        else this.transform.rotation = Quaternion.Euler(0, 0, 0);
 
         if (current_State == Boss_State.trace && isAttack == false)
         {
@@ -185,18 +192,54 @@ public class Boss_Move : MonoBehaviour
     {
         if (current_State == Boss_State.DefaultAtt)
         {
+            float thrustValue = DA_HitArea[index].gameObject.GetComponent<HitColider>().thrustValue;
+            if (!flapX)
+            {
+                if(thrustValue < 0) DA_HitArea[index].gameObject.GetComponent<HitColider>().thrustValue = thrustValue * -1;
+            }
+            
             DA_HitArea[index].gameObject.GetComponent<BoxCollider2D>().enabled = true;
         }
         else if (current_State == Boss_State.p1_Skill1)
         {
+            float thrustValue = P1Skill1_HitArea[index].gameObject.GetComponent<HitColider>().thrustValue;
+            if (!flapX){
+                if (thrustValue < 0)
+                    P1Skill1_HitArea[index].gameObject.GetComponent<HitColider>().thrustValue = thrustValue * -1;
+            }
+            else {
+                if(thrustValue > 0) 
+                    P1Skill1_HitArea[index].gameObject.GetComponent<HitColider>().thrustValue = thrustValue * -1;
+            }
+            
             P1Skill1_HitArea[index].gameObject.GetComponent<BoxCollider2D>().enabled = true;
         }
         else if (current_State == Boss_State.p1_Skill2)
         {
+            float thrustValue = P1Skill2_HitArea[index].gameObject.GetComponent<HitColider>().thrustValue;
+            if (!flapX){
+                if (thrustValue < 0)
+                    P1Skill2_HitArea[index].gameObject.GetComponent<HitColider>().thrustValue = thrustValue * -1;
+            }
+
+            else{
+                if (thrustValue > 0)
+                    P1Skill2_HitArea[index].gameObject.GetComponent<HitColider>().thrustValue = thrustValue * -1;
+            }
+
             P1Skill2_HitArea[index].gameObject.GetComponent<BoxCollider2D>().enabled = true;
         }
         else if (current_State == Boss_State.p2_Skill2)
         {
+            float thrustValue = P2Skill2_HitArea[index].gameObject.GetComponent<HitColider>().thrustValue;
+            if (!flapX){
+                if (thrustValue < 0)
+                    P2Skill2_HitArea[index].gameObject.GetComponent<HitColider>().thrustValue = thrustValue * -1;
+            }else{
+                if (thrustValue > 0)
+                    P2Skill2_HitArea[index].gameObject.GetComponent<HitColider>().thrustValue = thrustValue * -1;
+            }
+
             P2Skill2_HitArea[index].gameObject.GetComponent<BoxCollider2D>().enabled = true;
         }
         else return;
@@ -221,6 +264,17 @@ public class Boss_Move : MonoBehaviour
             P2Skill2_HitArea[index].gameObject.GetComponent<BoxCollider2D>().enabled = false;
         }
         else return;
+    }
+
+    public void HitEffect()
+    {
+        this.gameObject.GetComponent<SpriteRenderer>().material = hit_Mat;
+        Invoke("Off_Effect", 0.3f);
+    }
+
+    private void Off_Effect()
+    {
+        this.gameObject.GetComponent<SpriteRenderer>().material = origin_Mat;
     }
     
     private Boss_State Change_IntToState(int selectedBossSkill_int, ref float skillDist)
@@ -260,14 +314,12 @@ public class Boss_Move : MonoBehaviour
         
         if (current_State == Boss_State.p1_Skill1)
         {
-            Debug.Log("SEX");
-            
             Instantiate(GSkill_Pref, skillSpon_Pos.position, Quaternion.identity);
-            GSkill_Pref.GetComponent<SpriteRenderer>().flipX = !flapX;
+            if(flapX) this.transform.rotation = Quaternion.Euler(0, 180, 0);
+            else this.transform.rotation = Quaternion.Euler(0, 0, 0);
+            
             GSkill_Pref.GetComponent<BoxCollider2D>().enabled = true;
             GSkill_Pref.GetComponent<HitColider>().owner = this.gameObject.GetComponent<Entity>();
-            
-            Destroy(GSkill_Pref, 1.0f);
         }
         
         current_State = Boss_State.idle;
