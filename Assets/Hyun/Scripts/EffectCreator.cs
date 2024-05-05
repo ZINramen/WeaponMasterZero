@@ -5,6 +5,7 @@ public class EffectCreator : MonoBehaviour
 {
     DynamicCamera cam;
 
+    public GameObject jumpDustEffectPrefab;
     public Transform HammerEffect;
 
     private void Start()

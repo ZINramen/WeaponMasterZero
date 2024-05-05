@@ -92,7 +92,6 @@ public class Movement : MonoBehaviour
 
     private void Move()
     {
-        body.sharedMaterial = pMaterial;
         if (is2P) 
             h = Input.GetAxis("Horizontal_2P");
         else 
@@ -119,7 +118,6 @@ public class Movement : MonoBehaviour
             return; 
         }
         
-        body.sharedMaterial = pMaterial;
 
         if (owner.ai.player.transform.position.x < transform.position.x)
             h = -1;

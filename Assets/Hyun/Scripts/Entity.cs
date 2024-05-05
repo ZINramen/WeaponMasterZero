@@ -234,6 +234,11 @@ public class Entity : MonoBehaviour
     
     public void Damaged(float damageValue, float thrustValue)
     {
+        if (gameObject.CompareTag("Boss")) 
+        {
+            flyingDamagedPower = 0;
+            thrustValue = 0;
+        }
         if (DamageBlock == DefenseStatus.invincible) return;
         AddMp(10);
         if (currentCombo < maxcombo && damageValue != 0)
@@ -242,7 +247,8 @@ public class Entity : MonoBehaviour
         }
         if(currentCombo == maxcombo)
         {
-            aManager.FallDown();
+            if(aManager)
+                aManager.FallDown();
             currentCombo = 0;
         }
 
@@ -291,7 +297,7 @@ public class Entity : MonoBehaviour
                 hp -= 10;
 
             }
-            waitTime = 0.2f;
+            waitTime = 0.05f;
             movement.StopMove = true;
             StartCoroutine(ThrustPlayer(thrustValue));
         }

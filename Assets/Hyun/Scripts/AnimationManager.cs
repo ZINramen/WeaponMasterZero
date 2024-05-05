@@ -69,7 +69,7 @@ public class AnimationManager : MonoBehaviour
                 ani.SetTrigger("Landing");
                 State = AnimationState.Normal;
             }
-            if (hit.collider.transform.parent != transform && (!hit.collider.GetComponent<EffectCreator>() || owner.movement.StopMove))
+            
             if (State == AnimationState.Fall)
             {
                 onGround = true;
@@ -109,15 +109,11 @@ public class AnimationManager : MonoBehaviour
             {
                 if (isPlayer)
                 {
-                    if (Input.GetKeyDown(Kick))
-                    {
-                        ani.SetTrigger("Kick");
-
-                        ecActive = true;
-                    }
                     if (Input.GetKeyDown(Punch))
                     {
                         ani.SetTrigger("Punch");
+
+                        ecActive = true;
                     }
                 }
             }
@@ -244,7 +240,14 @@ public class AnimationManager : MonoBehaviour
         if ((Physics2D.Raycast(transform.position - new Vector3(0, transform.localScale.y/2), Vector3.down, 0.2f) || !additionalJump) && Input.GetKeyDown(Jump) && !Input.GetKey(DownArrow))
         {
             if (!onGround)
+            {
                 additionalJump = true;
+                if (Ec && Ec.jumpDustEffectPrefab) 
+                {
+                    GameObject eff = GameObject.Instantiate(Ec.jumpDustEffectPrefab);
+                    eff.transform.position = gameObject.transform.position - new Vector3(0,0.5f,0);
+                }
+            }
 
             State = AnimationState.Jump;
             ani.SetTrigger("Jump");
