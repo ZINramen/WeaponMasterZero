@@ -258,6 +258,18 @@ public class Boss_Move : MonoBehaviour
         isOnSkill = false;
         animCtrl.SetInteger("Attack_Type", (int)Boss_State.idle);
         
+        if (current_State == Boss_State.p1_Skill1)
+        {
+            Debug.Log("SEX");
+            
+            Instantiate(GSkill_Pref, skillSpon_Pos.position, Quaternion.identity);
+            GSkill_Pref.GetComponent<SpriteRenderer>().flipX = !flapX;
+            GSkill_Pref.GetComponent<BoxCollider2D>().enabled = true;
+            GSkill_Pref.GetComponent<HitColider>().owner = this.gameObject.GetComponent<Entity>();
+            
+            Destroy(GSkill_Pref, 1.0f);
+        }
+        
         current_State = Boss_State.idle;
         animCtrl.SetBool("isAttack", false);
         animCtrl.SetBool("isTrace", false);
@@ -270,15 +282,5 @@ public class Boss_Move : MonoBehaviour
     {
         isAttack = false;
         animCtrl.SetInteger("Attack_Type", (int)Boss_State.idle);
-
-        if (current_State == Boss_State.p1_Skill1)
-        {
-            Instantiate(GSkill_Pref, skillSpon_Pos.position, Quaternion.identity);
-            GSkill_Pref.GetComponent<SpriteRenderer>().flipX = !flapX;
-            GSkill_Pref.GetComponent<BoxCollider2D>().enabled = true;
-            GSkill_Pref.GetComponent<HitColider>().owner = this.gameObject.GetComponent<Entity>();
-            
-            Destroy(GSkill_Pref, 1.0f);
-        }
     }
 }
