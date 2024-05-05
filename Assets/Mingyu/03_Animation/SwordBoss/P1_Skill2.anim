@@ -30,16 +30,18 @@ AnimationClip:
       value: {fileID: 1798212470, guid: 42941bf9cdf49444bb1268e6cc2ac4d7, type: 3}
     - time: 0.33333334
       value: {fileID: -858338051, guid: 42941bf9cdf49444bb1268e6cc2ac4d7, type: 3}
-    - time: 0.41666666
-      value: {fileID: 1064381007, guid: 42941bf9cdf49444bb1268e6cc2ac4d7, type: 3}
-    - time: 0.5
-      value: {fileID: 1009101659, guid: 42941bf9cdf49444bb1268e6cc2ac4d7, type: 3}
     - time: 0.5833333
-      value: {fileID: -926208448, guid: 42941bf9cdf49444bb1268e6cc2ac4d7, type: 3}
-    - time: 0.6666667
-      value: {fileID: 1742248429, guid: 42941bf9cdf49444bb1268e6cc2ac4d7, type: 3}
+      value: {fileID: 1064381007, guid: 42941bf9cdf49444bb1268e6cc2ac4d7, type: 3}
     - time: 0.75
+      value: {fileID: 1009101659, guid: 42941bf9cdf49444bb1268e6cc2ac4d7, type: 3}
+    - time: 0.9166667
+      value: {fileID: -926208448, guid: 42941bf9cdf49444bb1268e6cc2ac4d7, type: 3}
+    - time: 1
+      value: {fileID: 1742248429, guid: 42941bf9cdf49444bb1268e6cc2ac4d7, type: 3}
+    - time: 1.0833334
       value: {fileID: 937653213, guid: 42941bf9cdf49444bb1268e6cc2ac4d7, type: 3}
+    - time: 1.1666666
+      value: {fileID: -914330650, guid: 42941bf9cdf49444bb1268e6cc2ac4d7, type: 3}
     attribute: m_Sprite
     path: 
     classID: 212
@@ -72,12 +74,13 @@ AnimationClip:
     - {fileID: -926208448, guid: 42941bf9cdf49444bb1268e6cc2ac4d7, type: 3}
     - {fileID: 1742248429, guid: 42941bf9cdf49444bb1268e6cc2ac4d7, type: 3}
     - {fileID: 937653213, guid: 42941bf9cdf49444bb1268e6cc2ac4d7, type: 3}
+    - {fileID: -914330650, guid: 42941bf9cdf49444bb1268e6cc2ac4d7, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 0.8333333
+    m_StopTime: 1.25
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0
@@ -96,4 +99,46 @@ AnimationClip:
   m_EulerEditorCurves: []
   m_HasGenericRootTransform: 0
   m_HasMotionFloatCurves: 0
-  m_Events: []
+  m_Events:
+  - time: 0.5833333
+    functionName: On_HitArea
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 0.6666667
+    functionName: Off_HitArea
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 0.75
+    functionName: On_HitArea
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 1
+    messageOptions: 0
+  - time: 0.9166667
+    functionName: Off_HitArea
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 1
+    messageOptions: 0
+  - time: 0.9166667
+    functionName: EndSkill
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 1
+    functionName: EndAttack
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0

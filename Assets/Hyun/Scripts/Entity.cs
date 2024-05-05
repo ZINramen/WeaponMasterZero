@@ -238,6 +238,9 @@ public class Entity : MonoBehaviour
         {
             thrustValue = 0;
             flyingAttackForce = 0;
+
+            this.gameObject.GetComponent<SpriteRenderer>().color = new Color(1, 0, 0, 1f);
+            Invoke("OffDamage", 0.1f);
         }
         
         if (DamageBlock == DefenseStatus.invincible) return;
@@ -349,5 +352,10 @@ public class Entity : MonoBehaviour
                 strongHit.transform.localEulerAngles = new Vector3(0, -180, 0);
             Instantiate(StrongHitTextEffect).transform.position = transform.position;
         }
+    }
+
+    private void OffDamage()
+    {
+        this.gameObject.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 1f);
     }
 }

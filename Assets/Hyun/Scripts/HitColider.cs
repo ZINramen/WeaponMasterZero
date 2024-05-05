@@ -13,6 +13,12 @@ public class HitColider : MonoBehaviour
     public Entity owner;
     private void OnTriggerEnter2D(Collider2D other)
     {
+        if (other.gameObject.tag == "Boss")
+        {
+            thrustValue = 0;
+            flyingAttackForce = 0;
+        }
+        
         Entity entity = other.GetComponent<Entity>();
         if(entity)
         if(entity != owner)
