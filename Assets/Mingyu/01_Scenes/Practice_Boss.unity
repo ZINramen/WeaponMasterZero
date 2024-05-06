@@ -1171,7 +1171,7 @@ Transform:
   m_GameObject: {fileID: 207553903}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.08, y: 0.78, z: 0}
+  m_LocalPosition: {x: -0.08, y: 0.34, z: 0}
   m_LocalScale: {x: 1.4633597, y: 2.3938687, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1292,37 +1292,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!1 &235614629
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 235614630}
-  m_Layer: 0
-  m_Name: Min_SkillXPos
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &235614630
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 235614629}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -7.68, y: 5.3045473, z: -0.008609233}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &295219064
 GameObject:
   m_ObjectHideFlags: 0
@@ -1376,37 +1345,6 @@ Transform:
   - {fileID: 2047902516}
   - {fileID: 776466581}
   m_Father: {fileID: 1698266129202727075}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &370677970
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 370677971}
-  m_Layer: 0
-  m_Name: Max_SkillXPos
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &370677971
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 370677970}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 7.22, y: 5.3045473, z: -0.008609233}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &378518687
 GameObject:
@@ -2491,8 +2429,13 @@ MonoBehaviour:
   GSkill_Pref: {fileID: 6626768178652176019, guid: 314bfef4e974b3948a57977739f2cb74, type: 3}
   p2_Skill1_MoonPos: {fileID: 698031015}
   Curr_BossPos_Pref: {fileID: 7783963316370124347, guid: 44f18f0286e681747a051b5c2b36f290, type: 3}
-  Max_SkillX: {fileID: 370677971}
-  Min_SkillX: {fileID: 235614630}
+  BladePref: {fileID: 5925929291915557867, guid: 8f0de5e519690514fa8d603945b18127, type: 3}
+  Blade_SponPos: {fileID: 1141179687}
+  minAngle: -100
+  maxAngle: -30
+  minSize: 0.3
+  maxSize: 0.7
+  p2s2Att_force: 40
   DA_HitArea:
   - {fileID: 1841850083}
   - {fileID: 133789215}
@@ -3689,6 +3632,37 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &1141179686
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1141179687}
+  m_Layer: 0
+  m_Name: BladeSponPos
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1141179687
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1141179686}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -6.18, y: 5.17, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1155888248
 GameObject:
   m_ObjectHideFlags: 0
@@ -36546,8 +36520,13 @@ MonoBehaviour:
   GSkill_Pref: {fileID: 0}
   p2_Skill1_MoonPos: {fileID: 0}
   Curr_BossPos_Pref: {fileID: 0}
-  Max_SkillX: {fileID: 0}
-  Min_SkillX: {fileID: 0}
+  BladePref: {fileID: 0}
+  Blade_SponPos: {fileID: 0}
+  minAngle: 30
+  maxAngle: 70
+  minSize: 1
+  maxSize: 3
+  p2s2Att_force: 0
   DA_HitArea: []
   P1Skill1_HitArea: []
   P1Skill2_HitArea: []
@@ -39049,5 +39028,4 @@ SceneRoots:
   - {fileID: 833820677}
   - {fileID: 819132797}
   - {fileID: 698031015}
-  - {fileID: 370677971}
-  - {fileID: 235614630}
+  - {fileID: 1141179687}

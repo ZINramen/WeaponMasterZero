@@ -9,7 +9,6 @@ public class Boss_Move : MonoBehaviour
 {
     private GameObject player;
     private Vector2 player_pos;
-    private Rigidbody myRd;
 
     public float move_Speed;
 
@@ -58,6 +57,8 @@ public class Boss_Move : MonoBehaviour
     private float skillDist;
     private bool flapX;
 
+    [SerializeField] private float waitTime = 1f;
+
     #region p1_Skill1_변수 모음
     [SerializeField] private Transform skillSpon_Pos;
     [SerializeField] private GameObject GSkill_Pref;
@@ -67,12 +68,21 @@ public class Boss_Move : MonoBehaviour
     [SerializeField] private Transform p2_Skill1_MoonPos;
     [SerializeField] private GameObject Curr_BossPos_Pref;
     private GameObject dummy_Obj;
+
+    [SerializeField] private GameObject BladePref;
+    [SerializeField] private Transform Blade_SponPos;
+    private GameObject bladeDummy;
+    
+    [SerializeField] public float minAngle = -70f;
+    [SerializeField] public float maxAngle = -20f;
+    
+    [SerializeField] public float minSize = 0.3f;
+    [SerializeField] public float maxSize = 0.6f;
     #endregion
 
     #region p2_Skill2_변수 모음
     private bool isHit_Player_fromP2S2;
-    [SerializeField] private Transform Max_SkillX;
-    [SerializeField] private Transform Min_SkillX;
+    [SerializeField] private float p2s2Att_force;
     
     public void Set_HitPlayer_fromP2S2(bool isHit)
     {
@@ -133,9 +143,9 @@ public class Boss_Move : MonoBehaviour
             if (bossHP_per >= 0.5f)
                 iBossSkill = Random.Range((int)Boss_State.p1_Skill1, (int)Boss_State.p1_Skill2 + 1);
             else
-                iBossSkill = Random.Range((int)Boss_State.p2_Skill1, (int)Boss_State.p2_Skill3 + 1);
+                iBossSkill = Random.Range((int)Boss_State.p2_Skill1, (int)Boss_State.p2_Skill3);
 
-            iBossSkill = 5;
+            iBossSkill = 3;
 
             sBossSkill = Change_IntToState(iBossSkill, ref skillDist);
             isCoolTime = false;
@@ -227,8 +237,27 @@ public class Boss_Move : MonoBehaviour
 
     public void Attack_P2Skill1()
     {
-        
-        
+        for (int i = 0; i < 6; i++)
+        {
+            float RandomData = (Random.insideUnitSphere).x;
+
+            // -20 ~ -5
+            // -35 ~ -20
+            // -50 ~ -35
+            // -65 ~ -50
+            // -80 ~ -65
+            // -95 ~ -80
+            float randomAngle = Random.Range(minAngle + (i * 15), maxAngle + (i * 15));
+            Quaternion randomRotation = Quaternion.Euler(0, 0, randomAngle);
+            Debug.Log(randomAngle);
+            
+            float randomSize = Random.Range(minSize, maxSize);
+            
+            // 프리팹 생성
+            bladeDummy = Instantiate(BladePref, Blade_SponPos.position, randomRotation);
+            bladeDummy.transform.localScale = new Vector3(randomSize, randomSize, 1);
+        }
+
         this.GetComponent<SpriteRenderer>().enabled = false;
         Invoke("End_P2Skill1", 2f);
     }
@@ -253,17 +282,7 @@ public class Boss_Move : MonoBehaviour
     public void SetPos_P2S2()
     {
         this.GetComponent<Rigidbody2D>().simulated = false;
-
-        // 6 - 6 = 0
-        // 6 - (-6) = 12
-        float skillMax_Around = Max_SkillX.position.x - this.transform.position.x;
-        
-        // -6 -> -6 - (-6) = 0
-        // 6 -> -6 - 6 = -12
-        float skillMin_Around = Min_SkillX.position.x - this.transform.position.x;
-        float random_XPos = Random.Range(skillMax_Around, skillMin_Around);
-        
-        this.transform.Translate(random_XPos, p2_Skill1_MoonPos.transform.position.y, 0);
+        this.transform.position = new Vector2(player_pos.x, p2_Skill1_MoonPos.transform.position.y);
     }
     
     public void HitCheck_2PSkill2()
@@ -271,6 +290,8 @@ public class Boss_Move : MonoBehaviour
         // 플레이어가 맞았다면, 모션 끝
         if (!isHit_Player_fromP2S2)
         {
+            Debug.Log("맞았음");
+            
             animCtrl.SetBool("isFixed", false);
             Invoke("EndSetting", 0.5f);
         }
@@ -278,6 +299,8 @@ public class Boss_Move : MonoBehaviour
         // 플레이어가 맞지 않았다면, 스스로 기절
         else
         {
+            Debug.Log("안 맞았음");
+            
             animCtrl.SetBool("isFixed", true);
         }
     }
@@ -338,13 +361,13 @@ public class Boss_Move : MonoBehaviour
             if (!flapX){
                 if (thrustValue < 0)
                     P2Skill2_HitArea[index].gameObject.GetComponent<HitColider>().thrustValue = thrustValue * -1;
-            }else{
+            }
+            else{
                 if (thrustValue > 0)
                     P2Skill2_HitArea[index].gameObject.GetComponent<HitColider>().thrustValue = thrustValue * -1;
             }
-            
-            this.GetComponent<Rigidbody2D>().simulated = false;
-            this.transform.Translate(0, -1.3f, 0);
+            this.GetComponent<Rigidbody2D>().simulated = true;
+            this.gameObject.GetComponent<Rigidbody2D>().AddForce(transform.up * -p2s2Att_force, ForceMode2D.Impulse);
             P2Skill2_HitArea[index].gameObject.GetComponent<BoxCollider2D>().enabled = true;
         }
         else return;
@@ -418,6 +441,11 @@ public class Boss_Move : MonoBehaviour
     #region 스킬 종료및 전투 종료 함수
     public void EndSkill()
     {
+        Real_EndSkill();
+    }
+
+    private void Real_EndSkill()
+    {
         isOnSkill = false;
         animCtrl.SetBool("isLanding", false);
         animCtrl.SetInteger("Attack_Type", (int)Boss_State.idle);
@@ -432,15 +460,20 @@ public class Boss_Move : MonoBehaviour
             GSkill_Pref.GetComponent<HitColider>().owner = this.gameObject.GetComponent<Entity>();
         }
         
-        current_State = Boss_State.idle;
+        current_State = Boss_State.trace;
         animCtrl.SetBool("isAttack", false);
-        animCtrl.SetBool("isTrace", false);
+        animCtrl.SetBool("isTrace", true);
 
         isCoolTime = true;
         skill_CountTime = 0f;
     }
 
     public void EndAttack()
+    {
+        Real_EndAttack();
+    }
+
+    private void Real_EndAttack()
     {
         isAttack = false;
         animCtrl.SetInteger("Attack_Type", (int)Boss_State.idle);
