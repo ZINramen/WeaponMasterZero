@@ -171,11 +171,11 @@ public class AnimationManager : MonoBehaviour
     public void Hit(float power)
     {
         DynamicCamera actionCam = Camera.main.GetComponent<DynamicCamera>();
+
         if (Math.Abs(power) > 10)
         {
-            if(actionCam)
-                actionCam.ShakeScreen(10);
-
+            if (actionCam)
+                actionCam.ShakeScreen(1f);
             if (!owner.stun)
             {
                 ani.SetTrigger("Hit_Upgrade");
@@ -190,7 +190,7 @@ public class AnimationManager : MonoBehaviour
         else
         {
             if (actionCam)
-                actionCam.ShakeScreen(20);
+                actionCam.ShakeScreen(0.5f);
             if (!owner.stun) 
             {
                 ani.SetTrigger("Hit");

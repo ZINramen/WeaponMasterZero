@@ -131,14 +131,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 4388115088744480764, guid: e2f03ac0e90d84f4083d3f9121ad8f5f, type: 3}
-      propertyPath: speed
-      value: 2.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 4388115088744480764, guid: e2f03ac0e90d84f4083d3f9121ad8f5f, type: 3}
-      propertyPath: JumpPower
-      value: 4
-      objectReference: {fileID: 0}
     - target: {fileID: 6227755902309650506, guid: e2f03ac0e90d84f4083d3f9121ad8f5f, type: 3}
       propertyPath: m_Name
       value: APO
@@ -755,7 +747,7 @@ MonoBehaviour:
   offsetY: 0
   downOffsetY: 0
   shakePowerTemp: 0
-  shakeReductionSpeed: 10
+  shakeReductionSpeed: 5
   moveSpeed: 1
 --- !u!1 &520702899
 GameObject:

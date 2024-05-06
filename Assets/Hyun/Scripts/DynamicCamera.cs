@@ -18,18 +18,13 @@ public class DynamicCamera : MonoBehaviour
     [Header("Camera Shake Control")]
     /// Camera Shake Power;
     public float shakePowerTemp = 0;
-    public float shakeReductionSpeed = 10;
+    public float shakeReductionSpeed = 5;
 
     [Space]
 
     [Header("Camera Speed Control")]
     // Camera Move Speed
     public float moveSpeed = 1;
-
-    Vector3 targetingPoint;
-    float targetingPointX;
-    float targetingPointY;
-    float farAmount;
 
     void Update()
     {   
@@ -50,7 +45,7 @@ public class DynamicCamera : MonoBehaviour
         offsetX = Random.Range(-shakePowerTemp, shakePowerTemp);
         offsetY = Random.Range(-shakePowerTemp, shakePowerTemp);
 
-        CamOffset.m_Offset = Vector3.Lerp(CamOffset.m_Offset, new Vector3(originCamOffset.x + offsetX, originCamOffset.y + offsetY, 0), Time.deltaTime);
+        CamOffset.m_Offset = new Vector3(originCamOffset.x + offsetX, originCamOffset.y + offsetY);
     }
     
     // Camera Vibration
