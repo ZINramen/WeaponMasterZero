@@ -174,7 +174,7 @@ public class AnimationManager : MonoBehaviour
         if (Math.Abs(power) > 10)
         {
             if(actionCam)
-                actionCam.ShakeScreen(5);
+                actionCam.ShakeScreen(10);
 
             if (!owner.stun)
             {
@@ -190,7 +190,7 @@ public class AnimationManager : MonoBehaviour
         else
         {
             if (actionCam)
-                actionCam.ShakeScreen(5);
+                actionCam.ShakeScreen(20);
             if (!owner.stun) 
             {
                 ani.SetTrigger("Hit");
