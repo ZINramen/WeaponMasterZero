@@ -44,6 +44,7 @@ public class Entity : MonoBehaviour
     public ComboView ComboUI;
 
     [Header("Additional Effect")]
+    bool isShaking = false;
     public GameObject HitEffect;
     public GameObject StrongHitEffect;
 
@@ -234,6 +235,8 @@ public class Entity : MonoBehaviour
     
     public void Damaged(float damageValue, float thrustValue)
     {
+        if(!isShaking)
+            StartCoroutine(ShakingEntity(0.15f,0.5f));
         if (gameObject.CompareTag("Boss")) 
         {
             flyingDamagedPower = 0;
@@ -301,6 +304,26 @@ public class Entity : MonoBehaviour
             movement.StopMove = true;
             StartCoroutine(ThrustPlayer(thrustValue));
         }
+    }
+
+    IEnumerator ShakingEntity(float shakingForce, float reduceSpeed) 
+    {
+        isShaking = true;
+
+        Vector3 Origin;
+        float offsetX;
+        
+        while (shakingForce > 0) 
+        {
+            Origin = transform.position;
+            offsetX = Random.Range(-shakingForce, shakingForce);
+            transform.position = Origin + new Vector3(offsetX, 0);
+            shakingForce -= reduceSpeed * Time.deltaTime;
+            yield return new WaitForSeconds(0.01f);
+            transform.position = Origin;
+            yield return new WaitForSeconds(0.01f);
+        }
+        isShaking = false;
     }
 
     IEnumerator ThrustPlayer(float thrustValue) 
