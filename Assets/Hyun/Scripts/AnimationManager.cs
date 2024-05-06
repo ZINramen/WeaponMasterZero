@@ -65,7 +65,7 @@ public class AnimationManager : MonoBehaviour
     {
         if (groundCheck)
         {
-            Debug.Log(groundCheck.GetOnGround);
+            //Debug.Log(groundCheck.GetOnGround);
             if (groundCheck.GetOnGround)
             {
                 if (onGround && State != AnimationState.Normal)
