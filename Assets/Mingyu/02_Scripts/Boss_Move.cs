@@ -187,17 +187,13 @@ public class Boss_Move : MonoBehaviour
         animCtrl.SetBool("isAttack", bossState.isAttacking);
         animCtrl.SetInteger("Attack_Type", (int)bossState.currentState);
         
-        if (bossState.currentState == Boss_State.State.trace || 
-            (!bossState.isStopTurn && bossState.currentState == Boss_State.State.DefaultAtt))
+        if (bossState.currentState == Boss_State.State.trace)
         {
             this.transform.rotation = Quaternion.Euler(0, this.transform.position.x > player_pos.x ? 0 : 180, 0);
 
-            if (bossState.currentState == Boss_State.State.trace)
-            {
-                Vector2 velo = Vector2.zero;
-                this.transform.position = Vector2.SmoothDamp(this.transform.position, player_pos,
-                    ref velo, move_Speed);
-            }
+            Vector2 velo = Vector2.zero;
+            this.transform.position = Vector2.SmoothDamp(this.transform.position, player_pos,
+                ref velo, move_Speed);
         }
     }
     
@@ -219,8 +215,8 @@ public class Boss_Move : MonoBehaviour
 
     public void Make_GSkill()
     {
-        float current_TrunValue = (this.transform.rotation.y == 1 ? -1 : 1);
-        Debug.Log(this.transform.rotation.y);
+        float current_TrunValue = (this.transform.rotation.y == -1 ? 0 : -1);
+        Debug.Log("플레이어 방향 : " + this.transform.rotation.y);
         // 왼쪽 = 0 <-> 오른쪽 1
 
         GSkill_Pref.GetComponent<HitColider>().owner = this.gameObject.GetComponent<Entity>();
@@ -232,6 +228,7 @@ public class Boss_Move : MonoBehaviour
         
         GSkill_dummyObj = Instantiate(GSkill_Pref, skillSpon_Pos.position, Quaternion.identity);
         GSkill_dummyObj.gameObject.GetComponent<Transform>().rotation = Quaternion.Euler(0, current_TrunValue * 180, 0);
+        Debug.Log("충격파 방향 : " + current_TrunValue * 180);
         
         Invoke("Delete_GSkillDummyObj", 1f);
     }
@@ -302,12 +299,12 @@ public class Boss_Move : MonoBehaviour
     public void HitCheck_2PSkill2()
     {
         // 플레이어가 맞았다면, 모션 끝
-        if (!isHit_Player_fromP2S2)
+        if (isHit_Player_fromP2S2)
         {
             Debug.Log("맞았음");
             
             animCtrl.SetBool("isFixed", false);
-            Invoke("EndSetting", 0.5f);
+            EndSkill();
         }
 
         // 플레이어가 맞지 않았다면, 스스로 기절
@@ -362,6 +359,9 @@ public class Boss_Move : MonoBehaviour
 
             P2Skill2_HitArea[index].gameObject.GetComponent<HitColider>().thrustValue = thrustValue;
             P2Skill2_HitArea[index].gameObject.GetComponent<BoxCollider2D>().enabled = true;
+
+            this.gameObject.GetComponent<Rigidbody2D>().simulated = true;
+            this.gameObject.GetComponent<Rigidbody2D>().AddForce(-this.transform.up * p2s2Att_force, ForceMode2D.Impulse);
         }
         else return;
     }
