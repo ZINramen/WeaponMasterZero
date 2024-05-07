@@ -8,7 +8,7 @@ public class Entity : MonoBehaviour
     public bool stun = false;
     private int[] keyValues;
 
-    public bool Network_Catch = false;
+    //public bool Network_Catch = false;
 
     [SerializeField] private float hp;
     [SerializeField] private int mp;
@@ -87,7 +87,7 @@ public class Entity : MonoBehaviour
             }
 
         }
-        if (maxHP == 9999)
+        if (maxHP == 9999) // 무제한 체력
             hp = 9999;
 
         if (attackPos)
