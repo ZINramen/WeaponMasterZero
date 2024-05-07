@@ -76,7 +76,7 @@ public class Entity : MonoBehaviour
 
     private void Update()
     {
-        if(!isDamaged)
+        if(!isDamaged && ai)
             movement.StopMove = false;
         if (ultScreen) 
         {
