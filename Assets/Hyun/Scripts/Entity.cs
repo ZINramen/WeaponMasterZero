@@ -44,7 +44,6 @@ public class Entity : MonoBehaviour
     public ComboView ComboUI;
 
     [Header("Additional Effect")]
-    bool isShaking = false;
     public GameObject HitEffect;
     public GameObject StrongHitEffect;
 
@@ -235,13 +234,15 @@ public class Entity : MonoBehaviour
     
     public void Damaged(float damageValue, float thrustValue)
     {
-        if(!isShaking)
-            StartCoroutine(ShakingEntity(0.15f,0.5f));
-        if (gameObject.CompareTag("Boss")) 
+        if (this.gameObject.tag == "Boss")
         {
-            flyingDamagedPower = 0;
             thrustValue = 0;
+            flyingAttackForce = 0;
+
+            this.gameObject.GetComponent<SpriteRenderer>().color = new Color(1, 0, 0, 1f);
+            Invoke("OffDamage", 0.1f);
         }
+        
         if (DamageBlock == DefenseStatus.invincible) return;
         AddMp(10);
         if (currentCombo < maxcombo && damageValue != 0)
@@ -275,15 +276,20 @@ public class Entity : MonoBehaviour
                 }
 
                 // 맞는 방향으로 회전
-                if (thrustValue < 0)
-                    transform.localEulerAngles = new Vector3(0, 0, 0);
-                else
-                    transform.localEulerAngles = new Vector3(0, 180, 0);
+
+                if (this.gameObject.tag != "Boss")
+                {
+                    if (thrustValue < 0)
+                        transform.localEulerAngles = new Vector3(0, 0, 0);
+                    else
+                        transform.localEulerAngles = new Vector3(0, 180, 0);
+                }
 
                 if (HitEffect && damageValue > 0)
                 {
                     PlayHitEffect(damageValue);
                 }
+
                 hp -= damageValue;
 
             }
@@ -300,30 +306,10 @@ public class Entity : MonoBehaviour
                 hp -= 10;
 
             }
-            waitTime = 0.05f;
+            waitTime = 0.2f;
             movement.StopMove = true;
             StartCoroutine(ThrustPlayer(thrustValue));
         }
-    }
-
-    IEnumerator ShakingEntity(float shakingForce, float reduceSpeed) 
-    {
-        isShaking = true;
-
-        Vector3 Origin;
-        float offsetX;
-        
-        while (shakingForce > 0) 
-        {
-            Origin = transform.position;
-            offsetX = Random.Range(-shakingForce, shakingForce);
-            transform.position = Origin + new Vector3(offsetX, 0);
-            shakingForce -= reduceSpeed * Time.deltaTime;
-            yield return new WaitForSeconds(0.01f);
-            transform.position = Origin;
-            yield return new WaitForSeconds(0.01f);
-        }
-        isShaking = false;
     }
 
     IEnumerator ThrustPlayer(float thrustValue) 
@@ -366,5 +352,10 @@ public class Entity : MonoBehaviour
                 strongHit.transform.localEulerAngles = new Vector3(0, -180, 0);
             Instantiate(StrongHitTextEffect).transform.position = transform.position;
         }
+    }
+
+    private void OffDamage()
+    {
+        this.gameObject.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 1f);
     }
 }
