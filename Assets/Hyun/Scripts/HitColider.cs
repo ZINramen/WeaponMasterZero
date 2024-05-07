@@ -25,10 +25,12 @@ public class HitColider : MonoBehaviour
         // 보스가 특정 스킬에 플레이어에게 타격을 입혔는지 체크
         if (owner && owner.GetComponent<Boss_Move>())
         {
-            if (owner.GetComponent<Boss_Move>().Get_CurrBossState() == Boss_Move.Boss_State.p2_Skill2)
+            if (owner.GetComponent<Boss_Move>().Get_CurrBossState().currentState == Boss_State.State.p2_Skill2)
             {
-                if(other.gameObject.tag == "Player")
+                if (other.gameObject.tag == "Player")
+                {
                     owner.GetComponent<Boss_Move>().Set_HitPlayer_fromP2S2(true);
+                }
             }
         }
         
