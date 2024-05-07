@@ -44,7 +44,7 @@ public class Entity : MonoBehaviour
     public ComboView ComboUI;
 
     [Header("Additional Effect")]
-    bool isShaking = false;
+    protected bool isDamaged = false;
     public GameObject HitEffect;
     public GameObject StrongHitEffect;
 
@@ -61,6 +61,8 @@ public class Entity : MonoBehaviour
         keyValues = (int[])System.Enum.GetValues(typeof(KeyCode));
      
         movement = GetComponent<Movement>();
+        if (!movement)
+            movement = gameObject.AddComponent<Movement>();
         aManager = GetComponent<AnimationManager>();
         
         if(aManager)
@@ -74,7 +76,8 @@ public class Entity : MonoBehaviour
 
     private void Update()
     {
-
+        if(!isDamaged)
+            movement.StopMove = false;
         if (ultScreen) 
         {
             if(transform.localEulerAngles.y != 0) 
@@ -132,7 +135,7 @@ public class Entity : MonoBehaviour
         attackForce = powerValue;
         thrustpower = powerValue * 0.5f;
     }
-    public void Attack()
+    public void Instant_Attack() // 기존 이름 : Attack => 그러므로 애니메이션 이벤트로 해당 함수 호출한 캐릭터의 이전 애니메이션은 사용 시 수정해야 함.
     {
         bool attackAlready = false;
         Vector2 start = attackPos.transform.position;
@@ -233,10 +236,24 @@ public class Entity : MonoBehaviour
         Damaged(damageValue, thrustValue);
     }
     
-    public void Damaged(float damageValue, float thrustValue)
+    public void Damaged(float damageValue, float thrustValue = 0.5f)
     {
-        if(!isShaking)
+        if(!isDamaged)
             StartCoroutine(ShakingEntity(0.15f,0.5f));
+
+        DynamicCamera actionCam = Camera.main.GetComponent<DynamicCamera>();
+
+        if (Mathf.Abs(damageValue) > 10)
+        {
+            if (actionCam)
+                actionCam.ShakeScreen(1f);
+        }
+        else
+        {
+            if (actionCam)
+                actionCam.ShakeScreen(0.5f);
+        }
+
         if (gameObject.CompareTag("Boss")) 
         {
             flyingDamagedPower = 0;
@@ -308,7 +325,7 @@ public class Entity : MonoBehaviour
 
     IEnumerator ShakingEntity(float shakingForce, float reduceSpeed) 
     {
-        isShaking = true;
+        isDamaged = true;
 
         Vector3 Origin;
         float offsetX;
@@ -323,7 +340,7 @@ public class Entity : MonoBehaviour
             transform.position = Origin;
             yield return new WaitForSeconds(0.01f);
         }
-        isShaking = false;
+        isDamaged = false;
     }
 
     IEnumerator ThrustPlayer(float thrustValue) 

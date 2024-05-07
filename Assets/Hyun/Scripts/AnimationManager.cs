@@ -24,7 +24,7 @@ public class AnimationManager : MonoBehaviour
     public Animator ani;
     public AnimationState State = AnimationState.Normal;
 
-    [Header("PlayerSet")] 
+    [Header("PlayerSet")]
     [Tooltip("조종할 플레이어 캐릭터의 경우 True")]
     public bool isPlayer = false;
     public bool isHuman = false;
@@ -170,12 +170,8 @@ public class AnimationManager : MonoBehaviour
     }
     public void Hit(float power)
     {
-        DynamicCamera actionCam = Camera.main.GetComponent<DynamicCamera>();
-
         if (Math.Abs(power) > 10)
         {
-            if (actionCam)
-                actionCam.ShakeScreen(1f);
             if (!owner.stun)
             {
                 ani.SetTrigger("Hit_Upgrade");
@@ -189,8 +185,6 @@ public class AnimationManager : MonoBehaviour
         }
         else
         {
-            if (actionCam)
-                actionCam.ShakeScreen(0.5f);
             if (!owner.stun) 
             {
                 ani.SetTrigger("Hit");
