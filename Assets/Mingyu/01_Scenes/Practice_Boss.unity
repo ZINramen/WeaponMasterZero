@@ -931,7 +931,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   telp: 0
-  stunTarget: 0
+  stunTarget: 1
   flyingAttackForce: 5
   attackForce: 5
   thrustValue: 0.5
@@ -1866,7 +1866,7 @@ GameObject:
   - component: {fileID: 819132794}
   - component: {fileID: 819132792}
   - component: {fileID: 819132789}
-  - component: {fileID: 819132788}
+  - component: {fileID: 819132799}
   - component: {fileID: 819132798}
   - component: {fileID: 819132790}
   m_Layer: 3
@@ -1911,42 +1911,6 @@ CapsuleCollider2D:
   m_Offset: {x: 0, y: -0.2}
   m_Size: {x: 1, y: 1.4}
   m_Direction: 0
---- !u!114 &819132788
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 819132786}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d625cba913d664d41af8470e6e5641ea, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  move_Speed: 0.2
-  skillSpon_Pos: {fileID: 1827003077}
-  GSkill_Pref: {fileID: 6626768178652176019, guid: 314bfef4e974b3948a57977739f2cb74, type: 3}
-  p2_Skill1_MoonPos: {fileID: 698031015}
-  Curr_BossPos_Pref: {fileID: 7783963316370124347, guid: 44f18f0286e681747a051b5c2b36f290, type: 3}
-  BladePref: {fileID: 5925929291915557867, guid: 8f0de5e519690514fa8d603945b18127, type: 3}
-  Blade_SponPos: {fileID: 1141179687}
-  minAngle: -100
-  maxAngle: -30
-  minSize: 0.3
-  maxSize: 0.7
-  p2s2Att_force: 40
-  DA_HitArea:
-  - {fileID: 1841850083}
-  - {fileID: 133789215}
-  - {fileID: 1086304093}
-  P1Skill1_HitArea:
-  - {fileID: 1549940623}
-  P1Skill2_HitArea:
-  - {fileID: 1301145115}
-  - {fileID: 175138584}
-  P2Skill2_HitArea:
-  - {fileID: 207553903}
-  hit_Mat: {fileID: 2100000, guid: 9a312534a97aeb14e89b5c7cc149b470, type: 2}
 --- !u!114 &819132789
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2186,7 +2150,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: -1
-  m_Sprite: {fileID: -697939041, guid: 9bf1022f9113b514f96b57c78388e48d, type: 3}
+  m_Sprite: {fileID: -978461643, guid: 42941bf9cdf49444bb1268e6cc2ac4d7, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 1
   m_FlipY: 0
@@ -2240,6 +2204,45 @@ MonoBehaviour:
   StopMove: 0
   is2P: 0
   pMaterial: {fileID: 0}
+--- !u!114 &819132799
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 819132786}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2af3f7c914eb9974b9d0fa676c512c7e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  move_Speed: 0.2
+  DA_HitArea:
+  - {fileID: 1841850083}
+  - {fileID: 133789215}
+  - {fileID: 1086304093}
+  P1Skill1_HitArea:
+  - {fileID: 1549940623}
+  P1Skill2_HitArea:
+  - {fileID: 1301145115}
+  - {fileID: 175138584}
+  P2Skill1_HitArea: []
+  P2Skill2_HitArea:
+  - {fileID: 207553903}
+  P2Skill3_HitArea: []
+  hit_Mat: {fileID: 2100000, guid: 9a312534a97aeb14e89b5c7cc149b470, type: 2}
+  bossType: 0
+  skillSpon_Pos: {fileID: 1827003077}
+  GSkill_Pref: {fileID: 6626768178652176019, guid: 314bfef4e974b3948a57977739f2cb74, type: 3}
+  p2_Skill1_MoonPos: {fileID: 698031015}
+  Curr_BossPos_Pref: {fileID: 7783963316370124347, guid: 44f18f0286e681747a051b5c2b36f290, type: 3}
+  BladePref: {fileID: 5925929291915557867, guid: 8f0de5e519690514fa8d603945b18127, type: 3}
+  Blade_SponPos: {fileID: 1141179687}
+  minAngle: -100
+  maxAngle: -30
+  minSize: 0.3
+  maxSize: 0.7
+  p2s2Att_force: 40
 --- !u!1 &833820676
 GameObject:
   m_ObjectHideFlags: 0
@@ -4404,7 +4407,7 @@ Transform:
   m_GameObject: {fileID: 1827003076}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.73, y: -0.89, z: 0}
+  m_LocalPosition: {x: -1.33, y: -0.89, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
