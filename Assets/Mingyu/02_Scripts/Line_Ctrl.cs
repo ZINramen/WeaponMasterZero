@@ -11,7 +11,7 @@ public class Line_Ctrl : MonoBehaviour
     private Vector2 anim_StartPos;
 
     private Vector2 randomPos;
-    private float animationDuration = 0.5f;
+    [SerializeField] private float animationDuration = 0.5f;
     
     // Start is called before the first frame update
     void Start()
