@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Mathematics;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.AI;
@@ -39,6 +40,13 @@ public class SwordBoss : Boss
     {
         isHit_Player_fromP2S2 = isHit;
     }
+    #endregion
+
+    #region p2_Skill3_변수 모음
+
+    [SerializeField] private GameObject LinePref;
+    private GameObject dummy_linePref;
+
     #endregion
     
     // Start is ca
@@ -162,6 +170,37 @@ public class SwordBoss : Boss
     }
     #endregion
 
+    #region MyRegion
+    public void Attack_P2Skill3()
+    {
+        // for (int i = 0; i < 6; i++)
+        // {
+        //     float RandomData = (Random.insideUnitSphere).x;
+        //
+        //     // -20 ~ -5
+        //     // -35 ~ -20
+        //     // -50 ~ -35
+        //     // -65 ~ -50
+        //     // -80 ~ -65
+        //     // -95 ~ -80
+        //     float randomAngle = Random.Range(minAngle + (i * 15), maxAngle + (i * 15));
+        //     Quaternion randomRotation = Quaternion.Euler(0, 0, randomAngle);
+        //     
+        //     float randomSize = Random.Range(minSize, maxSize);
+        //     
+        //     // 프리팹 생성
+        //     bladeDummy = Instantiate(BladePref, Blade_SponPos.position, randomRotation);
+        //     bladeDummy.transform.localScale = new Vector3(randomSize, randomSize, 1);
+        // }
+        dummy_linePref = Instantiate(LinePref, new Vector3(0, 0, 0), quaternion.identity);
+
+        this.GetComponent<SpriteRenderer>().enabled = false;
+        Invoke("End_P2Skill1", 2f);
+    }
+    
+
+    #endregion
+    
     #region 히트 박스 생성 및 삭제
 
     protected override void EachBoss_OnHitSetting()
