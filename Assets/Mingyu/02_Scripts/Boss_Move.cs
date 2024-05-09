@@ -141,7 +141,7 @@ public class Boss_Move : MonoBehaviour
             iBossSkill = Random.Range((int)Boss_State.State.p1_Skill1, (int)Boss_State.State.p1_Skill2 + 1);
         else
             iBossSkill = Random.Range((int)(int)Boss_State.State.p2_Skill1, (int)Boss_State.State.p2_Skill3);
-        iBossSkill = 2;
+        iBossSkill = 5;
         
         sBossSkill = Change_IntToState(iBossSkill, ref skillDist);
         
@@ -302,12 +302,12 @@ public class Boss_Move : MonoBehaviour
     public void HitCheck_2PSkill2()
     {
         // 플레이어가 맞았다면, 모션 끝
-        if (!isHit_Player_fromP2S2)
+        if (isHit_Player_fromP2S2)
         {
             Debug.Log("맞았음");
             
             animCtrl.SetBool("isFixed", false);
-            Invoke("EndSetting", 0.5f);
+            EndSkill();
         }
 
         // 플레이어가 맞지 않았다면, 스스로 기절
@@ -331,6 +331,8 @@ public class Boss_Move : MonoBehaviour
     public void On_HitArea(int index)
     {
         float thrustValue;
+        this.gameObject.GetComponent<Rigidbody2D>().simulated = true;
+        
         if (bossState.currentState == Boss_State.State.DefaultAtt)
         {
             thrustValue = DA_HitArea[index].gameObject.GetComponent<HitColider>().thrustValue;
@@ -362,6 +364,8 @@ public class Boss_Move : MonoBehaviour
 
             P2Skill2_HitArea[index].gameObject.GetComponent<HitColider>().thrustValue = thrustValue;
             P2Skill2_HitArea[index].gameObject.GetComponent<BoxCollider2D>().enabled = true;
+            
+            this.gameObject.GetComponent<Rigidbody2D>().AddForce(-this.transform.up * p2s2Att_force, ForceMode2D.Impulse);
         }
         else return;
     }

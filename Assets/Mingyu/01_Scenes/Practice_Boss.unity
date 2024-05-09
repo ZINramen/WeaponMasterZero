@@ -2757,7 +2757,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1141179686}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -6.18, y: 5.17, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -5181,9 +5181,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   skillManager: {fileID: 0}
+  groundCheck: {fileID: 0}
   owner: {fileID: 0}
   temp: {fileID: 0}
-  additionalJump: 0
   onGround: 1
   ecActive: 0
   rotationZ: 0
@@ -6973,9 +6973,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   skillManager: {fileID: 0}
+  groundCheck: {fileID: 0}
   owner: {fileID: 0}
   temp: {fileID: 0}
-  additionalJump: 0
   onGround: 1
   ecActive: 0
   rotationZ: 0
@@ -8538,9 +8538,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   skillManager: {fileID: 0}
+  groundCheck: {fileID: 0}
   owner: {fileID: 0}
   temp: {fileID: 0}
-  additionalJump: 0
   onGround: 1
   ecActive: 0
   rotationZ: 0
@@ -13285,6 +13285,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f775fbd5041ae8a4dad2101adc6ffd6d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  jumpDustEffectPrefab: {fileID: 0}
   HammerEffect: {fileID: 0}
 --- !u!1 &3940357837111278917
 GameObject:
@@ -19595,6 +19596,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f775fbd5041ae8a4dad2101adc6ffd6d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  jumpDustEffectPrefab: {fileID: 0}
   HammerEffect: {fileID: 3625968949250664297}
 --- !u!212 &4526207382701145138
 SpriteRenderer:
@@ -33990,6 +33992,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f775fbd5041ae8a4dad2101adc6ffd6d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  jumpDustEffectPrefab: {fileID: 0}
   HammerEffect: {fileID: 0}
 --- !u!114 &8266854932642347383
 MonoBehaviour:
