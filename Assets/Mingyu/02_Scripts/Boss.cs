@@ -21,16 +21,16 @@ public class Boss_State
     public State currentState;
 
     public float traceDistance = 5000f;
-    public float defaultAtt_dist = 1f;
+    public float defaultAtt_dist;
 
-    public float skill_CoolTime = 4.0f;
+    public float skill_CoolTime;
+
+    public float p1_Skill1_dist;
+    public float p1_Skill2_dist;
     
-    public float p1_Skill1_dist = 1.5f;
-    public float p1_Skill2_dist = 1.8f;
-    
-    public float p2_Skill1_dist = 5000f;
-    public float p2_Skill2_dist = 5000f;
-    public float p2_Skill3_dist = 5000f;
+    public float p2_Skill1_dist;
+    public float p2_Skill2_dist;
+    public float p2_Skill3_dist;
 
     public bool isAttacking = false;
     public bool isSkillReady = false;
@@ -79,6 +79,7 @@ public abstract class Boss : MonoBehaviour
     [SerializeField] protected Material hit_Mat;
 
     public BossType bossType;
+    public bool isDie;
     
     // Start is ca
     // lled before the first frame update
@@ -95,12 +96,18 @@ public abstract class Boss : MonoBehaviour
         animCtrl = GetComponent<Animator>();
     }
 
+    protected abstract void Init_StateValueData(ref Boss_State state);
+
     // Update is called once per frame
     protected void Update()
     {
-        UpdateState();
-        UpdateAnimation();
-        UpdateSkillCooldown();
+        if (this.gameObject.GetComponent<Entity>().GetHp() > 0)
+        {
+            UpdateState();
+            UpdateAnimation();
+            UpdateSkillCooldown();
+            EachBoss_UpdateSetting();
+        }
     }
 
     private void UpdateState()
@@ -122,9 +129,7 @@ public abstract class Boss : MonoBehaviour
             if (bossHP_per >= 0.5f)
                 iBossSkill = Random.Range((int)Boss_State.State.p1_Skill1, (int)Boss_State.State.p1_Skill2 + 1);
             else
-                iBossSkill = Random.Range((int)(int)Boss_State.State.p2_Skill1, (int)Boss_State.State.p2_Skill3);
-
-            iBossSkill = (int)Boss_State.State.p2_Skill3;
+                iBossSkill = Random.Range((int)Boss_State.State.p2_Skill1, (int)Boss_State.State.p2_Skill3 + 1);
         
             sBossSkill = Change_IntToState(iBossSkill, ref skillDist);
             
@@ -170,6 +175,8 @@ public abstract class Boss : MonoBehaviour
                 ref velo, move_Speed);
         }
     }
+
+    protected virtual void EachBoss_UpdateSetting() { }
     
     private void UpdateSkillCooldown()
     {
@@ -232,29 +239,35 @@ public abstract class Boss : MonoBehaviour
         hitArea.gameObject.GetComponent<BoxCollider2D>().enabled = true;
     }
 
-    protected abstract void EachBoss_OnHitSetting();
+    protected virtual void EachBoss_OnHitSetting() {}
     
     public void Off_HitArea(int index)
     {
         if (bossState.currentState == Boss_State.State.DefaultAtt)
         {
             DA_HitArea[index].gameObject.GetComponent<BoxCollider2D>().enabled = false;
+            EachBoss_OffHitSetting();
         }
         else if (bossState.currentState == Boss_State.State.p1_Skill1)
         {
             P1Skill1_HitArea[index].gameObject.GetComponent<BoxCollider2D>().enabled = false;
+            EachBoss_OffHitSetting();
         }
         else if (bossState.currentState == Boss_State.State.p1_Skill2)
         {
             P1Skill2_HitArea[index].gameObject.GetComponent<BoxCollider2D>().enabled = false;
+            EachBoss_OffHitSetting();
         }
         else if (bossState.currentState == Boss_State.State.p2_Skill2)
         {
             P2Skill2_HitArea[index].gameObject.GetComponent<BoxCollider2D>().enabled = false;
+            EachBoss_OffHitSetting();
         }
         else return;
     }
     #endregion
+    
+    protected virtual void EachBoss_OffHitSetting() {}
 
     #region 피격 모션 생성
     public void HitEffect()
@@ -315,7 +328,7 @@ public abstract class Boss : MonoBehaviour
         animCtrl.SetInteger("Attack_Type", (int)Boss_State.State.idle);
     }
 
-    protected abstract void EachBoss_EndSkill();
+    protected virtual void EachBoss_EndSkill() {}
 
     public void EndAttack()
     {

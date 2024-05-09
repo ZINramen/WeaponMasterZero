@@ -1677,7 +1677,7 @@ Transform:
   m_GameObject: {fileID: 698031013}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -7.43, y: 6.59, z: 0}
+  m_LocalPosition: {x: -7.43, y: 7.56, z: 0}
   m_LocalScale: {x: 1.5127, y: 1.5127, z: 1.5127}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2150,7 +2150,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: -1
-  m_Sprite: {fileID: -978461643, guid: 42941bf9cdf49444bb1268e6cc2ac4d7, type: 3}
+  m_Sprite: {fileID: -83474180, guid: 449d25a148ba55d44a0e0b02641a57ad, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 1
   m_FlipY: 0
@@ -2170,7 +2170,7 @@ Transform:
   m_GameObject: {fileID: 819132786}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.98, y: 0.03, z: 0}
+  m_LocalPosition: {x: 1.53, y: 0.1, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -2232,6 +2232,7 @@ MonoBehaviour:
   P2Skill3_HitArea: []
   hit_Mat: {fileID: 2100000, guid: 9a312534a97aeb14e89b5c7cc149b470, type: 2}
   bossType: 0
+  isDie: 0
   skillSpon_Pos: {fileID: 1827003077}
   GSkill_Pref: {fileID: 6626768178652176019, guid: 314bfef4e974b3948a57977739f2cb74, type: 3}
   p2_Skill1_MoonPos: {fileID: 698031015}
@@ -2243,7 +2244,11 @@ MonoBehaviour:
   minSize: 0.3
   maxSize: 0.7
   p2s2Att_force: 40
-  LinePref: {fileID: 400998881470783629, guid: a5680686b98b6d24081ad9582ed94a87, type: 3}
+  bossHit_Area: {fileID: 5380510675326920505, guid: 7367002df9ae4044da5c2033429bad56, type: 3}
+  Horizontal_LinePref: {fileID: 400998881470783629, guid: a5680686b98b6d24081ad9582ed94a87, type: 3}
+  Vertical_LinePref: {fileID: 400998881470783629, guid: 311382d06d142d846920b85ba56ed94b, type: 3}
+  delete_LineTime: 0.3
+  lineAnim_Time: 0.15
 --- !u!1 &833820676
 GameObject:
   m_ObjectHideFlags: 0
@@ -2798,7 +2803,7 @@ Transform:
   m_GameObject: {fileID: 1141179686}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -6.18, y: 5.17, z: 0}
+  m_LocalPosition: {x: -6.18, y: 6.02, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

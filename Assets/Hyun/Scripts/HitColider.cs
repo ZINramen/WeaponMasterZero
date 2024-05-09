@@ -16,7 +16,7 @@ public class HitColider : MonoBehaviour
         Entity entity = other.GetComponent<Entity>();
         
         // 보스에게 피격할 시, 날라가는 힘을 없앰
-        if (other.gameObject.tag == "Boss")
+        if (other.gameObject.tag == "Boss" && other.gameObject.GetComponent<Entity>().GetHp() > 0)
         {
             thrustValue = 0;
             flyingAttackForce = 0;

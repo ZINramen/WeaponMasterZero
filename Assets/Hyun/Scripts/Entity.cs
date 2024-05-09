@@ -106,7 +106,16 @@ public class Entity : MonoBehaviour
         if (hp <= 0 && !isDie)
         {
             DamageBlock = DefenseStatus.invincible;
-            aManager.Die();
+            if (aManager)
+            {
+                aManager.Die();
+            }
+            else
+            {
+                this.gameObject.GetComponent<Animator>().SetTrigger("Die");
+            }
+
+            isDie = true;
             hp = 0;
         }
     }

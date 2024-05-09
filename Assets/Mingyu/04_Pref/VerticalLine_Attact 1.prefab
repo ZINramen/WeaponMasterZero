@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 3173511017552736425}
   - component: {fileID: 5613307542458509000}
   m_Layer: 0
-  m_Name: Line_Attact
+  m_Name: VerticalLine_Attact 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -193,8 +193,8 @@ EdgeCollider2D:
   m_Offset: {x: 0, y: 0}
   m_EdgeRadius: 0
   m_Points:
-  - {x: 10, y: 1}
-  - {x: -10, y: 3}
+  - {x: 0, y: 0}
+  - {x: 0, y: 0}
   m_AdjacentStartPoint: {x: 0, y: 0}
   m_AdjacentEndPoint: {x: 0, y: 0}
   m_UseAdjacentStartPoint: 0
@@ -232,4 +232,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f2d4628ff9fffb40bc1150842aab2bb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  animationDuration: 0.1
+  linetype: 1
+  maxXPos: 10
+  minXPos: -10
+  maxYPos: 12
+  minYPos: -2
+  HitMaterial: {fileID: 0}
+  animationDuration: 0.15
