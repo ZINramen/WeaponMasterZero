@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: c83826f2969fece4884323134391dc96
+guid: a86ecc75d61c5f344903462c070312bf
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -34,7 +34,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 0
+    filterMode: 1
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -48,7 +48,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 16
+  spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -65,14 +65,14 @@ TextureImporter:
   ignorePngGamma: 0
   applyGammaDecoding: 0
   swizzle: 50462976
-  cookieLightType: 1
+  cookieLightType: 0
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 0
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -82,6 +82,32 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
     buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: iPhone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -106,136 +132,173 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
-    buildTarget: iPhone
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 0
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
-    buildTarget: Android
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 0
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Raindrop Animation_0
+      name: p1_skill2_BoomShoot_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 9
-        height: 9
-      alignment: 9
-      pivot: {x: 0.5, y: 0.11111111}
+        width: 300
+        height: 200
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 20e0d0eadfce6644091257015c2e2e26
-      internalID: -1410742806
+      spriteID: e6834d408715cb3459f8a5fce73916e9
+      internalID: -698100391
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Raindrop Animation_1
+      name: p1_skill2_BoomShoot_1
       rect:
         serializedVersion: 2
-        x: 9
+        x: 300
         y: 0
-        width: 9
-        height: 9
-      alignment: 9
-      pivot: {x: 0.5, y: 0.11111111}
+        width: 300
+        height: 200
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 23b95d61c37eb6a4e80928e3b4a00caf
-      internalID: -1697366085
+      spriteID: 97f0cac59723b3a43a70914d25f76796
+      internalID: 1894868113
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Raindrop Animation_2
+      name: p1_skill2_BoomShoot_2
       rect:
         serializedVersion: 2
-        x: 18
+        x: 600
         y: 0
-        width: 9
-        height: 9
-      alignment: 9
-      pivot: {x: 0.5, y: 0.11111111}
+        width: 300
+        height: 200
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3d82e4c612a223e48b15070ea7c1f45f
-      internalID: 418477844
+      spriteID: d5530f30b806f6c40a2d1196c712e25b
+      internalID: -643407906
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Raindrop Animation_3
+      name: p1_skill2_BoomShoot_3
       rect:
         serializedVersion: 2
-        x: 27
+        x: 900
         y: 0
-        width: 9
-        height: 9
-      alignment: 9
-      pivot: {x: 0.5, y: 0.11111111}
+        width: 300
+        height: 200
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4773b8dc00c5b9947a66326ba1512dba
-      internalID: -231293683
+      spriteID: 07785bd816438b34199caa6a78419f75
+      internalID: 2021657243
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Raindrop Animation_4
+      name: p1_skill2_BoomShoot_4
       rect:
         serializedVersion: 2
-        x: 36
+        x: 1200
         y: 0
-        width: 9
-        height: 9
-      alignment: 9
-      pivot: {x: 0.5, y: 0.11111111}
+        width: 300
+        height: 200
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5a4f9e08c74d02d42af3d1f2bb88b968
-      internalID: 1476257828
+      spriteID: c636e0bb1641bc241bcce0771ceb6a3d
+      internalID: 179808105
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: p1_skill2_BoomShoot_5
+      rect:
+        serializedVersion: 2
+        x: 1500
+        y: 0
+        width: 300
+        height: 200
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9ecf697ba0c1d684e9e4abb7de877382
+      internalID: -1192815868
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: p1_skill2_BoomShoot_6
+      rect:
+        serializedVersion: 2
+        x: 1800
+        y: 0
+        width: 300
+        height: 200
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 57bb78610cac9ea46bb158331098861d
+      internalID: -51689266
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: p1_skill2_BoomShoot_7
+      rect:
+        serializedVersion: 2
+        x: 2100
+        y: 0
+        width: 300
+        height: 200
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f4adc41d8bc482f45b74d0f131013dfc
+      internalID: 1003746641
       vertices: []
       indices: 
       edges: []
@@ -251,11 +314,14 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Raindrop Animation_0: -1410742806
-      Raindrop Animation_1: -1697366085
-      Raindrop Animation_2: 418477844
-      Raindrop Animation_3: -231293683
-      Raindrop Animation_4: 1476257828
+      p1_skill2_BoomShoot_0: -698100391
+      p1_skill2_BoomShoot_1: 1894868113
+      p1_skill2_BoomShoot_2: -643407906
+      p1_skill2_BoomShoot_3: 2021657243
+      p1_skill2_BoomShoot_4: 179808105
+      p1_skill2_BoomShoot_5: -1192815868
+      p1_skill2_BoomShoot_6: -51689266
+      p1_skill2_BoomShoot_7: 1003746641
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

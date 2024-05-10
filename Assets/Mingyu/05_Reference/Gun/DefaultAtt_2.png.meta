@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 668cb0632f80ed241ae235dc22e9d58b
+guid: c8e380f2f24990345b94602bf93853ca
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -34,7 +34,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 0
+    filterMode: 1
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -45,10 +45,10 @@ TextureImporter:
   compressionQuality: 50
   spriteMode: 2
   spriteExtrude: 1
-  spriteMeshType: 0
+  spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 16
+  spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -65,14 +65,14 @@ TextureImporter:
   ignorePngGamma: 0
   applyGammaDecoding: 0
   swizzle: 50462976
-  cookieLightType: 1
+  cookieLightType: 0
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 0
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -82,6 +82,32 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
     buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: iPhone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -106,212 +132,278 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
-    buildTarget: WebGL
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 0
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
-    buildTarget: iPhone
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 0
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
-    buildTarget: Android
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 0
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Trees without leaves_0
+      name: DefaultAtt_2_0
       rect:
         serializedVersion: 2
-        x: 6
+        x: 0
         y: 0
-        width: 33
-        height: 44
-      alignment: 9
-      pivot: {x: 0.5151515, y: 0.18181819}
+        width: 300
+        height: 200
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2471b9f58026580429387b8547605be8
-      internalID: -333780
+      spriteID: c8bdbee983cda5947b353a91b8e1d76d
+      internalID: 1473416972
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Trees without leaves_1
+      name: DefaultAtt_2_1
       rect:
         serializedVersion: 2
-        x: 52
+        x: 300
         y: 0
-        width: 26
-        height: 36
-      alignment: 9
-      pivot: {x: 0.5, y: 0.22222222}
+        width: 300
+        height: 200
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9a11f9fc27607834d90db38e8440c2ea
-      internalID: 251170470
+      spriteID: 9db21aca4cc0cc749b95efe24878ef48
+      internalID: 162081376
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Trees without leaves_2
+      name: DefaultAtt_2_2
       rect:
         serializedVersion: 2
-        x: 83
+        x: 600
         y: 0
-        width: 28
-        height: 41
-      alignment: 9
-      pivot: {x: 0.46428573, y: 0.19512194}
+        width: 300
+        height: 200
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e37f1ca9c8251fd4f88494e521e705d9
-      internalID: -865638437
+      spriteID: ea28cc0ae68e4fd44b390f98ec048fb8
+      internalID: 1448723506
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Trees without leaves_3
+      name: DefaultAtt_2_3
       rect:
         serializedVersion: 2
-        x: 115
+        x: 900
         y: 0
-        width: 24
-        height: 34
-      alignment: 9
-      pivot: {x: 0.5, y: 0.23529412}
+        width: 300
+        height: 200
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ba010275d39e4aa4d80541964776044e
-      internalID: -427861553
+      spriteID: b43f80908e4cb98468d85ffe3a442ae8
+      internalID: 137571706
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Trees without leaves_4
+      name: DefaultAtt_2_4
       rect:
         serializedVersion: 2
-        x: 152
+        x: 1200
         y: 0
-        width: 30
-        height: 47
-      alignment: 9
-      pivot: {x: 0.5, y: 0.17021276}
+        width: 300
+        height: 200
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 73f0d87bc3fea204fa7312bef0724e5f
-      internalID: 700595419
+      spriteID: d99bfae3e9ec9c84384bcdd080006390
+      internalID: 1880591696
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Trees without leaves_5
+      name: DefaultAtt_2_5
       rect:
         serializedVersion: 2
-        x: 195
+        x: 1500
         y: 0
-        width: 28
-        height: 42
-      alignment: 9
-      pivot: {x: 0.5, y: 0.1904762}
+        width: 300
+        height: 200
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7d6b08eb74467f54694dba467e2fa089
-      internalID: -1218712507
+      spriteID: 76beeb77a0b12c24f94325cbcff968fe
+      internalID: 786503302
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Trees without leaves_6
+      name: DefaultAtt_2_6
       rect:
         serializedVersion: 2
-        x: 229
+        x: 1800
         y: 0
-        width: 23
-        height: 41
-      alignment: 9
-      pivot: {x: 0.47826087, y: 0.19512194}
+        width: 300
+        height: 200
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 64fd643b423912b4d9cbb85bcd3134c7
-      internalID: 1465337711
+      spriteID: 574e751cb3a6c174dbd495763afbd593
+      internalID: 1847629648
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Trees without leaves_7
+      name: DefaultAtt_2_7
       rect:
         serializedVersion: 2
-        x: 262
+        x: 2100
         y: 0
-        width: 22
-        height: 38
-      alignment: 9
-      pivot: {x: 0.5, y: 0.21052632}
+        width: 300
+        height: 200
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: fb89194444d17174d806720f93ced725
-      internalID: -1391809929
+      spriteID: e66bd665bf227a14283fc5a7bd04903b
+      internalID: -1716891820
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DefaultAtt_2_8
+      rect:
+        serializedVersion: 2
+        x: 2400
+        y: 0
+        width: 300
+        height: 200
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aef3c0ef89a54e14dbe48a00eea74bac
+      internalID: 1841168685
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DefaultAtt_2_9
+      rect:
+        serializedVersion: 2
+        x: 2700
+        y: 0
+        width: 300
+        height: 200
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b3a6101e4af3c6d4fae69bb0ec89e5b3
+      internalID: -630986306
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DefaultAtt_2_10
+      rect:
+        serializedVersion: 2
+        x: 3000
+        y: 0
+        width: 300
+        height: 200
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 803b7809dae73104bbd3fcc2aad7c624
+      internalID: 835107160
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DefaultAtt_2_11
+      rect:
+        serializedVersion: 2
+        x: 3300
+        y: 0
+        width: 300
+        height: 200
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: af5273cec8915584eae3d89b92b93b74
+      internalID: -1873758527
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DefaultAtt_2_12
+      rect:
+        serializedVersion: 2
+        x: 3600
+        y: 0
+        width: 300
+        height: 200
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b05df81180ee4d2469b079c711013e06
+      internalID: 1712869496
       vertices: []
       indices: 
       edges: []
@@ -327,14 +419,19 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Trees without leaves_0: -333780
-      Trees without leaves_1: 251170470
-      Trees without leaves_2: -865638437
-      Trees without leaves_3: -427861553
-      Trees without leaves_4: 700595419
-      Trees without leaves_5: -1218712507
-      Trees without leaves_6: 1465337711
-      Trees without leaves_7: -1391809929
+      DefaultAtt_2_0: 1473416972
+      DefaultAtt_2_1: 162081376
+      DefaultAtt_2_10: 835107160
+      DefaultAtt_2_11: -1873758527
+      DefaultAtt_2_12: 1712869496
+      DefaultAtt_2_2: 1448723506
+      DefaultAtt_2_3: 137571706
+      DefaultAtt_2_4: 1880591696
+      DefaultAtt_2_5: 786503302
+      DefaultAtt_2_6: 1847629648
+      DefaultAtt_2_7: -1716891820
+      DefaultAtt_2_8: 1841168685
+      DefaultAtt_2_9: -630986306
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

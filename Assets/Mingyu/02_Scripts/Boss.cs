@@ -130,7 +130,7 @@ public abstract class Boss : MonoBehaviour
                 iBossSkill = Random.Range((int)Boss_State.State.p1_Skill1, (int)Boss_State.State.p1_Skill2 + 1);
             else
                 iBossSkill = Random.Range((int)Boss_State.State.p2_Skill1, (int)Boss_State.State.p2_Skill3 + 1);
-        
+
             sBossSkill = Change_IntToState(iBossSkill, ref skillDist);
             
             if (distFrom_Player >= skillDist)
