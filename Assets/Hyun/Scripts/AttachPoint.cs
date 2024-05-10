@@ -23,7 +23,7 @@ public class AttachPoint : MonoBehaviour
             {
                 target = entity;
                 target.DamageBlock = Entity.DefenseStatus.invincible;
-                entity.Network_Catch = true;
+                
             }
     }
     private void Update()
@@ -65,7 +65,7 @@ public class AttachPoint : MonoBehaviour
                 target = null;
                 entity.movement.UnFreeze();
                 entity.transform.parent = null; 
-                entity.Network_Catch = false;
+                
 
                 if (Ult) 
                 {

@@ -35,7 +35,7 @@ public class ComboView : MonoBehaviour
     }
     IEnumerator CheckCombo() 
     {
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(1.5f);
         if (waitNumber > 0)
             waitNumber--;
         if (waitNumber == 0)

@@ -6,10 +6,12 @@ using UnityEngine;
 public class AnimationManager : MonoBehaviour
 {
     [HideInInspector] public SkillManager skillManager;
-    
+
+    public GroundChecker groundCheck;
     public Entity owner;
     public GameObject temp;
-    public bool additionalJump = false;
+    bool additionalJump = false;
+    bool airDash = false;
     public bool onGround = true;
     public bool GetOnGround() { return onGround; }
 
@@ -22,7 +24,7 @@ public class AnimationManager : MonoBehaviour
     public Animator ani;
     public AnimationState State = AnimationState.Normal;
 
-    [Header("PlayerSet")] 
+    [Header("PlayerSet")]
     [Tooltip("조종할 플레이어 캐릭터의 경우 True")]
     public bool isPlayer = false;
     public bool isHuman = false;
@@ -61,63 +63,71 @@ public class AnimationManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        RaycastHit2D hit;
-        if (hit = Physics2D.Raycast(transform.position - new Vector3(0, transform.localScale.y / 2), Vector3.down, 0.04f))
+        if (groundCheck)
         {
-            if (onGround && State != AnimationState.Normal)
+            //Debug.Log(groundCheck.GetOnGround);
+            if (groundCheck.GetOnGround)
             {
-                ani.SetTrigger("Landing");
-                State = AnimationState.Normal;
-            }
-            //if (hit.collider.transform.parent != transform && (!hit.collider.GetComponent<EffectCreator>() || owner.movement.StopMove))
-            if (State == AnimationState.Fall)
-            {
-                onGround = true;
-                if (isHuman)
+                if (onGround && State != AnimationState.Normal)
                 {
-                    ani.ResetTrigger("Jump");
                     ani.SetTrigger("Landing");
+                    State = AnimationState.Normal;
                 }
-                if (Ec && ecActive)
-                {
-                    Ec.PlayEffect("bang", hit);
 
-                    ecActive = false;
-                }
-            }
-        }
-        else
-        {
-            if (State == AnimationState.Normal)
-            {
-                if (isHuman)
+                if (State == AnimationState.Fall)
                 {
-                    ani.SetTrigger("fall");
+                    onGround = true;
+                    if (isHuman)
+                    {
+                        ani.ResetTrigger("Jump");
+                        ani.SetTrigger("Landing");
+                    }
+                    if (Ec && ecActive)
+                    {
+                        Ec.PlayEffect("bang", groundCheck.transform.position);
 
-                }
-            }
-            if (onGround)
-            {
-                onGround = false;
-                additionalJump = false;
-                if (isHuman)
-                {
-                    ani.ResetTrigger("Landing");
+                        ecActive = false;
+                    }
                 }
             }
             else
             {
-                if (isPlayer)
+                if (State == AnimationState.Normal)
                 {
-                    if (Input.GetKeyDown(Kick))
+                    if (isHuman)
                     {
-                        ani.SetTrigger("Kick");
+                        ani.SetTrigger("fall");
 
-                        ecActive = true;
                     }
-                    if (Input.GetKeyDown(Punch))
+                }
+                if (onGround)
+                {
+                    onGround = false;
+                    airDash = false;
+                    additionalJump = false;
+                    if (isHuman)
                     {
-                        ani.SetTrigger("Punch");
+                        ani.ResetTrigger("Landing");
+                    }
+                }
+                else
+                {
+                    if (isPlayer)
+                    {
+                        if (Input.GetKeyDown(Punch))
+                        {
+                            ani.SetTrigger("Punch");
+                        }
+                        if (Input.GetKeyDown(Kick))
+                        {
+                            ecActive = true;
+                            ani.SetTrigger("Kick");
+                        }
+                        if (Input.GetKeyDown(Dash) && !airDash)
+                        {
+                            airDash = true;
+                            ani.SetTrigger("Dash");
+                        }
                     }
                 }
             }
@@ -160,12 +170,8 @@ public class AnimationManager : MonoBehaviour
     }
     public void Hit(float power)
     {
-        DynamicCamera actionCam = Camera.main.GetComponent<DynamicCamera>();
         if (Math.Abs(power) > 10)
         {
-            if(actionCam)
-                actionCam.ShakeScreen(5);
-
             if (!owner.stun)
             {
                 ani.SetTrigger("Hit_Upgrade");
@@ -179,8 +185,6 @@ public class AnimationManager : MonoBehaviour
         }
         else
         {
-            if (actionCam)
-                actionCam.ShakeScreen(5);
             if (!owner.stun) 
             {
                 ani.SetTrigger("Hit");
@@ -241,10 +245,17 @@ public class AnimationManager : MonoBehaviour
 
     void PlayerAnimation() // 조종하는 플레이어 캐릭터의 애니메이션 관리 -> 입력에 반응
     {
-        if ((Physics2D.Raycast(transform.position - new Vector3(0, transform.localScale.y/2), Vector3.down, 0.2f) || !additionalJump) && Input.GetKeyDown(Jump) && !Input.GetKey(DownArrow))
+        if ((groundCheck.GetOnGround || !additionalJump) && Input.GetKeyDown(Jump) && !Input.GetKey(DownArrow))
         {
             if (!onGround)
+            {
                 additionalJump = true;
+                if (Ec && Ec.jumpDustEffectPrefab) 
+                {
+                    GameObject eff = GameObject.Instantiate(Ec.jumpDustEffectPrefab);
+                    eff.transform.position = gameObject.transform.position - new Vector3(0,0.5f,0);
+                }
+            }
 
             State = AnimationState.Jump;
             ani.SetTrigger("Jump");

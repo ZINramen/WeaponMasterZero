@@ -17,8 +17,6 @@ public class AISystem : MonoBehaviour
     void Start()
     {
         owner = GetComponent<Entity>();
-        player = Camera.main.GetComponent<DynamicCamera>().player1.gameObject;
-
         if(Enemy)
             StartCoroutine(SpawnEnemy());
     }

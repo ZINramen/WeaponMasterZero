@@ -5,6 +5,7 @@ public class EffectCreator : MonoBehaviour
 {
     DynamicCamera cam;
 
+    public GameObject jumpDustEffectPrefab;
     public Transform HammerEffect;
 
     private void Start()
@@ -40,11 +41,11 @@ public class EffectCreator : MonoBehaviour
         }
     }
 
-    public void PlayEffect(string effectName, RaycastHit2D hit)
+    public void PlayEffect(string effectName, Vector3 pos)
     {
         GameObject temp = Resources.Load<GameObject>("Effects/" + effectName);
         temp = Instantiate(temp);
-        temp.transform.position = hit.point;
+        temp.transform.position = pos;
         HitColider hitAction = temp.GetComponent<HitColider>();
         if (hitAction)
         {
