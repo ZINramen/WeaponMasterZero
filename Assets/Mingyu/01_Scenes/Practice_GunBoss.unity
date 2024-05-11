@@ -348,7 +348,7 @@ MonoBehaviour:
   stunTarget: 0
   flyingAttackForce: 5
   attackForce: 5
-  thrustValue: 5
+  thrustValue: 10
   owner: {fileID: 819132794}
 --- !u!212 &133789219
 SpriteRenderer:
@@ -726,63 +726,6 @@ Transform:
   - {fileID: 319975263}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1001 &622153793
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 3568799835517634331, guid: 84ac02003512f874898e9de99e9bcb34, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 4.1698537
-      objectReference: {fileID: 0}
-    - target: {fileID: 3568799835517634331, guid: 84ac02003512f874898e9de99e9bcb34, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.7287703
-      objectReference: {fileID: 0}
-    - target: {fileID: 3568799835517634331, guid: 84ac02003512f874898e9de99e9bcb34, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3568799835517634331, guid: 84ac02003512f874898e9de99e9bcb34, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3568799835517634331, guid: 84ac02003512f874898e9de99e9bcb34, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3568799835517634331, guid: 84ac02003512f874898e9de99e9bcb34, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3568799835517634331, guid: 84ac02003512f874898e9de99e9bcb34, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3568799835517634331, guid: 84ac02003512f874898e9de99e9bcb34, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3568799835517634331, guid: 84ac02003512f874898e9de99e9bcb34, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3568799835517634331, guid: 84ac02003512f874898e9de99e9bcb34, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6443642109153116061, guid: 84ac02003512f874898e9de99e9bcb34, type: 3}
-      propertyPath: m_Name
-      value: Install_Pref
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 84ac02003512f874898e9de99e9bcb34, type: 3}
 --- !u!1 &661057141
 GameObject:
   m_ObjectHideFlags: 0
@@ -1132,8 +1075,8 @@ Transform:
   m_GameObject: {fileID: 819132786}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.2893, y: 0, z: 0}
-  m_LocalScale: {x: 1.655943, y: 1.655943, z: 1.655943}
+  m_LocalPosition: {x: 2.2893, y: 0.11, z: 0}
+  m_LocalScale: {x: 1.9194037, y: 1.9194037, z: 1.9194037}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1841850084}
@@ -1174,7 +1117,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3680a705c9684f447a509233e949e8d2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  move_Speed: 0.1
+  move_Speed: 0.3
   DA_HitArea:
   - {fileID: 1841850083}
   - {fileID: 133789215}
@@ -1191,6 +1134,7 @@ MonoBehaviour:
   Parrying_BulletPref: {fileID: 1570117315920683880, guid: c3ee6f5a23fd20d40b9b101548f96a95, type: 3}
   Piecing_BulletPref: {fileID: 3160176496769213052, guid: 876837b121eae2d41b87546d4c99a85c, type: 3}
   SignPref: {fileID: 200250855826276459, guid: 424068af7eb59b247aac88b45ef70d0f, type: 3}
+  signSpon_DelayTime: 0.3
   boomAtt_delayTime: 0.4
   Dynamite_SponPos: {fileID: 1827003077}
   DynamitePref: {fileID: 7079160049107878381, guid: 5e156bfe38f95324db6e8d76a302a229, type: 3}
@@ -1749,7 +1693,7 @@ GameObject:
   - component: {fileID: 1641456219}
   - component: {fileID: 1641456218}
   m_Layer: 0
-  m_Name: Square
+  m_Name: SandWind_Effect
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1933,10 +1877,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   telp: 0
-  stunTarget: 0
+  stunTarget: 1
   flyingAttackForce: 5
   attackForce: 5
-  thrustValue: 5
+  thrustValue: 3
   owner: {fileID: 819132794}
 --- !u!212 &1758612920
 SpriteRenderer:
@@ -1999,8 +1943,8 @@ Transform:
   m_GameObject: {fileID: 1758612917}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.104, y: -0.088, z: 0}
-  m_LocalScale: {x: 0.8258346, y: 0.8289625, z: 0.3636}
+  m_LocalPosition: {x: -0.104, y: -0.048, z: 0}
+  m_LocalScale: {x: 0.8258346, y: 0.89113474, z: 0.3636}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 819132797}
@@ -2064,7 +2008,7 @@ Transform:
   m_GameObject: {fileID: 1841850083}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.158, y: -0.057, z: 0}
+  m_LocalPosition: {x: -0.158, y: -0.074, z: 0}
   m_LocalScale: {x: 0.95847964, y: 0.84279424, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2131,7 +2075,7 @@ MonoBehaviour:
   stunTarget: 0
   flyingAttackForce: 5
   attackForce: 5
-  thrustValue: 5
+  thrustValue: 10
   owner: {fileID: 819132794}
 --- !u!212 &1841850087
 SpriteRenderer:
@@ -4439,4 +4383,3 @@ SceneRoots:
   - {fileID: 479724003}
   - {fileID: 594740950}
   - {fileID: 1641456220}
-  - {fileID: 622153793}

@@ -130,6 +130,7 @@ public abstract class Boss : MonoBehaviour
                 iBossSkill = Random.Range((int)Boss_State.State.p1_Skill1, (int)Boss_State.State.p1_Skill2 + 1);
             else
                 iBossSkill = Random.Range((int)Boss_State.State.p2_Skill1, (int)Boss_State.State.p2_Skill3 + 1);
+            iBossSkill = 2;
             
             sBossSkill = Change_IntToState(iBossSkill, ref skillDist);
             
@@ -155,6 +156,7 @@ public abstract class Boss : MonoBehaviour
             else
             {
                 bossState.currentState = Boss_State.State.DefaultAtt;
+                EachBoss_AttackSetting();
                 bossState.isAttacking = true;
             }
         }
@@ -177,6 +179,8 @@ public abstract class Boss : MonoBehaviour
     }
 
     protected virtual void EachBoss_UpdateSetting() { }
+    
+    protected virtual void EachBoss_AttackSetting() { }
     
     private void UpdateSkillCooldown()
     {
@@ -329,6 +333,8 @@ public abstract class Boss : MonoBehaviour
     }
 
     protected virtual void EachBoss_EndSkill() {}
+    
+    protected virtual void EachBoss_EndAttack() { }
 
     public void EndAttack()
     {
@@ -336,6 +342,7 @@ public abstract class Boss : MonoBehaviour
         
         bossState.isAttacking = false;
         animCtrl.SetInteger("Attack_Type", (int)Boss_State.State.idle);
+        EachBoss_EndAttack();
     }
 
     public void Stop_Turn()
