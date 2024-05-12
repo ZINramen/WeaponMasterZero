@@ -13,28 +13,33 @@ public class HitColider : MonoBehaviour
     public Entity owner;
     private void OnTriggerEnter2D(Collider2D other)
     {
+        Entity entity = other.GetComponent<Entity>();
+        
         // 보스에게 피격할 시, 날라가는 힘을 없앰
-        if (other.gameObject.tag == "Boss")
+        if (other.gameObject.tag == "Boss" && other.gameObject.GetComponent<Entity>().GetHp() > 0)
         {
             thrustValue = 0;
             flyingAttackForce = 0;
-            
-            other.gameObject.GetComponent<Boss_Move>().HitEffect();
+
+            if (owner && owner != entity)
+            {
+                other.gameObject.GetComponent<Boss>().HitEffect();
+                Debug.Log("맞는 거잖아~");
+            }
         }
 
         // 보스가 특정 스킬에 플레이어에게 타격을 입혔는지 체크
-        if (owner && owner.GetComponent<Boss_Move>())
+        if (owner && owner.GetComponent<Boss>() && owner.GetComponent<Boss>().bossType == BossType.Sword)
         {
-            if (owner.GetComponent<Boss_Move>().Get_CurrBossState().currentState == Boss_State.State.p2_Skill2)
+            if (owner.GetComponent<SwordBoss>().Get_CurrBossState().currentState == Boss_State.State.p2_Skill2)
             {
                 if (other.gameObject.tag == "Player")
                 {
-                    owner.GetComponent<Boss_Move>().Set_HitPlayer_fromP2S2(true);
+                    owner.GetComponent<SwordBoss>().Set_HitPlayer_fromP2S2(true);
                 }
             }
         }
         
-        Entity entity = other.GetComponent<Entity>();
         if(entity)
         if(entity != owner)
         {
