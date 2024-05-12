@@ -2,29 +2,25 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.Mathematics;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class BulletCtrl : MonoBehaviour
 {
-    private Animator myAnim;
-    private CircleCollider2D myCollider;
+    public float install_ZValue;
+    private Vector3 shootingDir = new Vector3(0, 0, 0);
     
-    [SerializeField] private GameObject ShootEffect;
-    private GameObject dummyShootEffect;
+    private Rigidbody2D myRd;
+    [SerializeField] private float addForce = 5f;
     
     private void Start()
     {
-        myAnim = this.gameObject.GetComponent<Animator>();
-        myCollider = this.gameObject.GetComponent<CircleCollider2D>();
-        myCollider.enabled = false;
-    }
-
-    public void Shoot_Bullet()
-    {
-        dummyShootEffect = Instantiate(ShootEffect, this.transform.position, quaternion.identity);
-        dummyShootEffect.transform.parent = this.transform;
+        shootingDir.z = install_ZValue;
+        Debug.Log(shootingDir.z);
         
-        myAnim.SetBool("isShoot", true);
-        myCollider.enabled = true;
+        myRd = this.gameObject.GetComponent<Rigidbody2D>();
+        this.transform.rotation = Quaternion.Euler(shootingDir);
+        
+        myRd.AddForce(this.transform.right * addForce, ForceMode2D.Impulse);
     }
 }

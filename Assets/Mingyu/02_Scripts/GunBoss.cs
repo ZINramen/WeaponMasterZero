@@ -53,7 +53,7 @@ public class GunBoss : Boss
 
     #region p2_Skill1_변수 모음
     [SerializeField] private GameObject InstallPref;
-    [SerializeField] private Transform[] Install_SponPos;
+    [SerializeField] private GameObject[] Install_PrefArr = new GameObject[3];
     private GameObject InstallPref_dummyObj;
     #endregion
 
@@ -77,7 +77,7 @@ public class GunBoss : Boss
     {
         state.defaultAtt_dist = 1f;
 
-        state.skill_CoolTime = 2.0f;
+        state.skill_CoolTime = 1.0f;
     
         state.p1_Skill1_dist = 5000f;
         state.p1_Skill2_dist = 4.5f;
@@ -102,7 +102,7 @@ public class GunBoss : Boss
         foreach (GameObject dummy_signPref in SignPref_dummyObjList)
         {
             dummy_signPref.GetComponent<HitColider>().owner = this.gameObject.GetComponent<Entity>();
-            dummy_signPref.GetComponent<BulletCtrl>().Shoot_Bullet();
+            dummy_signPref.GetComponent<SignCtrl>().Shoot_Bullet();
         }
 
         Invoke("End_P1Skill1", 1f);
@@ -155,6 +155,17 @@ public class GunBoss : Boss
     #endregion
 
     #region p2_Skill1_함수
+    public void Create_InstallOBj()
+    {
+        for (int i = 0; i < 3; i++)
+        {
+            Install_PrefArr[i].gameObject.SetActive(true);
+            Install_PrefArr[i].gameObject.GetComponent<Install_Ctrl>().isActive = true;
+            Install_PrefArr[i].gameObject.GetComponent<Install_Ctrl>().BossObj = this.gameObject.GetComponent<Entity>();
+            Install_PrefArr[i].gameObject.GetComponent<Entity>().SetHp(1f);
+        }
+    }
+    
     #endregion
 
     #region p2_Skill3_함수
