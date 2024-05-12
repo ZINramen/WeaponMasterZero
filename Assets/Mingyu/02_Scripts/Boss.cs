@@ -48,6 +48,7 @@ public abstract class Boss : MonoBehaviour
 
     public float move_Speed;
     protected Boss_State bossState;
+    protected List<Boss_State.State> selectedTurn_State = new List<Boss_State.State>();
 
     public Boss_State Get_CurrBossState()
     {
@@ -60,6 +61,7 @@ public abstract class Boss : MonoBehaviour
     // 처음 시작할 땐, 스킬이 활성화 되어있지 않음
     protected Boss_State.State sBossSkill;
     protected int iBossSkill;
+    private bool isSelectSkill = false;
     
     protected float skillDist;
     
@@ -74,6 +76,7 @@ public abstract class Boss : MonoBehaviour
     #endregion
     
     protected Animator animCtrl;
+    private bool isEndSetting = false;
 
     protected Material origin_Mat;
     [SerializeField] protected Material hit_Mat;
@@ -101,7 +104,7 @@ public abstract class Boss : MonoBehaviour
     // Update is called once per frame
     protected void Update()
     {
-        if (this.gameObject.GetComponent<Entity>().GetHp() > 0)
+        if (this.gameObject.GetComponent<Entity>().GetHp() > 0 && !isEndSetting)
         {
             UpdateState();
             UpdateAnimation();
@@ -113,7 +116,8 @@ public abstract class Boss : MonoBehaviour
     private void UpdateState()
     {
         player_pos = player.GetComponent<Transform>().position;
-        distFrom_Player = Vector2.Distance(player_pos, transform.position);
+        //distFrom_Player = Vector2.Distance(player_pos, transform.position);
+        distFrom_Player = Mathf.Abs(player_pos.x - transform.position.x);
         
         // 상황에 따른 동작 구현 FSM
         if (distFrom_Player >= bossState.traceDistance)
@@ -124,16 +128,19 @@ public abstract class Boss : MonoBehaviour
         // 스킬 준비가 되어있고, 보스가 공격중이 아니라면.
         else if (bossState.isSkillReady && !bossState.isAttacking)
         {
-            // 보스 체력에 따라, 스킬이 나올것이 달라짐
-            bossHP_per = ( this.GetComponent<Entity>().GetHp() ) / ( this.GetComponent<Entity>().maxHP );
-            if (bossHP_per >= 0.5f)
-                iBossSkill = Random.Range((int)Boss_State.State.p1_Skill1, (int)Boss_State.State.p1_Skill2 + 1);
-            else
-                iBossSkill = Random.Range((int)Boss_State.State.p2_Skill1, (int)Boss_State.State.p2_Skill3 + 1);
-            iBossSkill = 2;
-            
-            sBossSkill = Change_IntToState(iBossSkill, ref skillDist);
-            
+            if (!isSelectSkill)
+            {
+                // 보스 체력에 따라, 스킬이 나올것이 달라짐
+                bossHP_per = (this.GetComponent<Entity>().GetHp()) / (this.GetComponent<Entity>().maxHP);
+                if (bossHP_per >= 0.5f)
+                    iBossSkill = Random.Range((int)Boss_State.State.p1_Skill1, (int)Boss_State.State.p1_Skill2 + 1);
+                else
+                    iBossSkill = Random.Range((int)Boss_State.State.p2_Skill1, (int)Boss_State.State.p2_Skill3 + 1);
+
+                sBossSkill = Change_IntToState(iBossSkill, ref skillDist);
+                isSelectSkill = true;
+            }
+
             if (distFrom_Player >= skillDist)
             {
                 bossState.currentState = Boss_State.State.trace;
@@ -168,7 +175,8 @@ public abstract class Boss : MonoBehaviour
         animCtrl.SetBool("isAttack", bossState.isAttacking);
         animCtrl.SetInteger("Attack_Type", (int)bossState.currentState);
         
-        if (bossState.currentState == Boss_State.State.trace)
+        if (bossState.currentState == Boss_State.State.trace || 
+            (selectedTurn_State.Count != 0 &&  selectedTurn_State.Contains(bossState.currentState) && !bossState.isStopTurn  ))
         {
             this.transform.rotation = Quaternion.Euler(0, this.transform.position.x > player_pos.x ? 0 : 180, 0);
 
@@ -233,14 +241,32 @@ public abstract class Boss : MonoBehaviour
         else return;
     }
 
-    private void TrustValue_Setting(GameObject hitArea)
+    public void TrustValue_Setting(GameObject hitArea)
     {
         float thrustValue;
         thrustValue = hitArea.gameObject.GetComponent<HitColider>().thrustValue;
         thrustValue = thrustValue * (player_pos.x > this.transform.position.x ? 1 : -1);
-
+        
         hitArea.gameObject.GetComponent<HitColider>().thrustValue = thrustValue;
-        hitArea.gameObject.GetComponent<BoxCollider2D>().enabled = true;
+        ColliderType(hitArea);
+    }
+
+    private void ColliderType(GameObject colliderObj)
+    {
+        if (colliderObj.GetComponent<BoxCollider2D>() != null)
+        {
+            colliderObj.gameObject.GetComponent<BoxCollider2D>().enabled = true;
+        }
+        else if (colliderObj.GetComponent<CircleCollider2D>() != null)
+        {
+            colliderObj.gameObject.GetComponent<CircleCollider2D>().enabled = true;
+        }
+        else if (colliderObj.GetComponent<EdgeCollider2D>() != null)
+        {
+            colliderObj.gameObject.GetComponent<EdgeCollider2D>().enabled = true;
+        }
+        else
+            return;
     }
 
     protected virtual void EachBoss_OnHitSetting() {}
@@ -320,6 +346,11 @@ public abstract class Boss : MonoBehaviour
     
     public void EndSkill()
     {
+        isEndSetting = true;
+        isSelectSkill = false;
+
+        bossState.isStopTurn = false;
+        
         bossState.currentState = Boss_State.State.trace;
         animCtrl.SetBool("isAttack", false);
         animCtrl.SetBool("isTrace", true);
@@ -327,24 +358,37 @@ public abstract class Boss : MonoBehaviour
         bossState.isSkillReady = false;
         bossState.isAttacking = false;
         EachBoss_EndSkill();
-        //isHit_Player_fromP2S2 = false;
         
         animCtrl.SetInteger("Attack_Type", (int)Boss_State.State.idle);
+        Invoke("EndSetting", 0.1f);
     }
 
-    protected virtual void EachBoss_EndSkill() {}
+    public virtual void EachBoss_EndSkill() {}
     
     protected virtual void EachBoss_EndAttack() { }
 
     public void EndAttack()
     {
+        isEndSetting = true;
+        
+        bossState.currentState = Boss_State.State.trace;
+        animCtrl.SetBool("isAttack", false);
+        animCtrl.SetBool("isTrace", true);
+        
         bossState.isStopTurn = false;
         
         bossState.isAttacking = false;
         animCtrl.SetInteger("Attack_Type", (int)Boss_State.State.idle);
         EachBoss_EndAttack();
+        
+        Invoke("EndSetting", 0.05f);
     }
 
+    private void EndSetting()
+    {
+        isEndSetting = false;
+    }
+    
     public void Stop_Turn()
     {
         bossState.isStopTurn = true;

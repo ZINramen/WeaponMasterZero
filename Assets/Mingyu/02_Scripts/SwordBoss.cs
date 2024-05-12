@@ -273,7 +273,7 @@ public class SwordBoss : Boss
         }
     }
 
-    protected override void EachBoss_EndSkill()
+    public override void EachBoss_EndSkill()
     {
         isHit_Player_fromP2S2 = false;
         animCtrl.SetBool("isLanding", false);

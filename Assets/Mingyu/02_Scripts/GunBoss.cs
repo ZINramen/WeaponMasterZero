@@ -30,10 +30,16 @@ public class GunBoss : Boss
     Transform SignSpon_Pos;
     private List<GameObject> SignPref_dummyObjList = new List<GameObject>();
     
-    private const int signAllCount = 6;
+    private const int totalsignCount = 6;
     private int signCount = 0;
     
     [SerializeField] private float signSpon_DelayTime = 0.5f;
+    private float signAttDelayTime;
+    private float signAttDelayCount = 0f;
+    private bool isShoot = false;
+    
+    [SerializeField] private float signDeleteTime = 0.2f;
+    
     private float signSpon_WaitTime = 0f;
     private bool isReady_CreateSign = false;
     #endregion
@@ -61,18 +67,20 @@ public class GunBoss : Boss
         base.Start();
         bossState = new Boss_State();
         Init_StateValueData(ref bossState);
-        
+
+        signAttDelayTime = (signSpon_DelayTime * totalsignCount) + 0.5f;
         bossType = BossType.Gun;
+        selectedTurn_State.Add(Boss_State.State.p1_Skill2);
     }
 
     protected override void Init_StateValueData(ref Boss_State state)
     {
         state.defaultAtt_dist = 1f;
 
-        state.skill_CoolTime = 6.0f;
+        state.skill_CoolTime = 2.0f;
     
         state.p1_Skill1_dist = 5000f;
-        state.p1_Skill2_dist = 3f;
+        state.p1_Skill2_dist = 4.5f;
     
         state.p2_Skill1_dist = 5000f;
         state.p2_Skill2_dist = 5000f;
@@ -83,8 +91,7 @@ public class GunBoss : Boss
     public void Setting_p1Skill1()
     {
         isReady_CreateSign = true;
-
-        Invoke("Attack_p1Skill1", signSpon_DelayTime * 6 + 0.5f);
+        Invoke("Attack_p1Skill1", signAttDelayTime);
     }
 
     public void Attack_p1Skill1()
@@ -95,10 +102,10 @@ public class GunBoss : Boss
         foreach (GameObject dummy_signPref in SignPref_dummyObjList)
         {
             dummy_signPref.GetComponent<HitColider>().owner = this.gameObject.GetComponent<Entity>();
-            dummy_signPref.GetComponent<CircleCollider2D>().enabled = true;
+            dummy_signPref.GetComponent<BulletCtrl>().Shoot_Bullet();
         }
 
-        End_P1Skill1();
+        Invoke("End_P1Skill1", 1f);
     }
 
     private void Create_AttSign()
@@ -112,16 +119,39 @@ public class GunBoss : Boss
     private void End_P1Skill1()
     {
         animCtrl.SetBool("isSignAtt", false);
-        
+
         foreach (GameObject dummy_signPref in SignPref_dummyObjList)
         {
-            Destroy(dummy_signPref);
+            Destroy(dummy_signPref, signDeleteTime);
         }
+
+        SignPref_dummyObjList.Clear();
+        signCount = 0;
     }
     
     #endregion
     
     #region p1_Skill2_함수
+    public void CreateDynamite()
+    {
+        DynamitePref_dummyObj = Instantiate(DynamitePref, Dynamite_SponPos.position, Quaternion.identity);
+        DynamitePref_dummyObj.GetComponent<DynamiteCtrl>().GunBoss = this.gameObject;
+        
+        DynamitePref_dummyObj.GetComponent<DynamiteCtrl>().pDir = Mathf.Abs(this.transform.rotation.y) > 0
+            ? DynamiteCtrl.playerDirection.right
+            : DynamiteCtrl.playerDirection.left;
+    }
+    
+    public void AttackDynamite()
+    {
+        animCtrl.SetBool("isDynamiteAtt", true);
+    }
+
+    public void EndP1Skill2_Attack()
+    {
+        animCtrl.SetBool("isDynamiteAtt", false);
+        EndSkill();
+    }
     #endregion
 
     #region p2_Skill1_함수
@@ -132,7 +162,7 @@ public class GunBoss : Boss
 
     protected override void EachBoss_UpdateSetting()
     {
-        if (isReady_CreateSign && signCount < signAllCount)
+        if (isReady_CreateSign && signCount < totalsignCount)
         {
             signSpon_WaitTime += Time.deltaTime;
 
@@ -174,12 +204,9 @@ public class GunBoss : Boss
         isSelect_DAttType = false;
     }
 
-    protected override void EachBoss_EndSkill()
+    public override void EachBoss_EndSkill()
     {
         isSelect_DAttType = false;
-        
-        SignPref_dummyObjList.Clear();
-        signCount = 0;
     }
     #endregion
 }
