@@ -11,7 +11,7 @@ public class FancySpeechBubble : MonoBehaviour
     public Image bubbleBackground;
     public float backgroundMinimumHeight;
     public float backgroundVerticalMargin;
-
+    
     private string _rawText;
     public string rawText { get { return _rawText; } }
 
