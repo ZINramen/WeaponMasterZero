@@ -1221,7 +1221,7 @@ Transform:
   m_GameObject: {fileID: 519420028}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 115.00776, y: -1.97492, z: -10.003921}
+  m_LocalPosition: {x: 116.431496, y: -1.9745, z: -10.003921}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2342,11 +2342,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 92535987df50b6746800e78d3a0d1f25, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hp: 100
-  moveSpeed: 1
-  jumpPower: 5
-  attackPower: 10
-  isDead: 1
 --- !u!70 &729178338
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -5431,7 +5426,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stun: 0
-  Network_Catch: 0
   hp: 0
   mp: 0
   movement: {fileID: 0}
