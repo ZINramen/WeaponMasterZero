@@ -46,8 +46,6 @@ public class AnimationManager : MonoBehaviour
     public KeyCode Emotion_1;
     public KeyCode Heal;
 
-
-
     public void SetPlayerType(bool value)
     {
         isPlayer = value;

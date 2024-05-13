@@ -44,7 +44,7 @@ public class Entity : MonoBehaviour
     public ComboView ComboUI;
 
     [Header("Additional Effect")]
-    protected bool isDamaged = false;
+    public bool isDamaged = false;
     public GameObject HitEffect;
     public GameObject StrongHitEffect;
 
@@ -76,8 +76,6 @@ public class Entity : MonoBehaviour
 
     private void Update()
     {
-        if(!isDamaged && ai)
-            movement.StopMove = false;
         if (ultScreen) 
         {
             if(transform.localEulerAngles.y != 0) 
@@ -338,7 +336,8 @@ public class Entity : MonoBehaviour
 
         Vector3 Origin;
         float offsetX;
-        
+
+        yield return new WaitForSeconds(0.01f);
         while (shakingForce > 0) 
         {
             Origin = transform.position;
@@ -350,6 +349,7 @@ public class Entity : MonoBehaviour
             yield return new WaitForSeconds(0.01f);
         }
         isDamaged = false;
+        movement.StopMove = false;
     }
 
     IEnumerator ThrustPlayer(float thrustValue) 

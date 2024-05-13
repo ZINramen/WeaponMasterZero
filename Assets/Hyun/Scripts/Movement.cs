@@ -6,8 +6,12 @@ public class Movement : MonoBehaviour
 {
     public Entity owner;
 
-    float h;
-    Rigidbody2D body;
+    [HideInInspector]
+    public float h;
+
+    [HideInInspector]
+    public Rigidbody2D body;
+    
     Animator animator;
 
     // Public Area
@@ -25,8 +29,8 @@ public class Movement : MonoBehaviour
     public bool PlayerType = false;
 
     [Tooltip("움직임 봉쇄")]
-    public bool StopMove = false;
-
+    public bool StopMove = false; // 이동키 입력 막음
+    
     [Header("2P Move : I J K L")]
     public bool is2P = false;
     public PhysicsMaterial2D pMaterial;
@@ -51,7 +55,6 @@ public class Movement : MonoBehaviour
 
     public void PhysicChange() 
     {
-
         if (StopMove)
         {
             body.sharedMaterial = null;
@@ -59,11 +62,16 @@ public class Movement : MonoBehaviour
         }
         else
         {
-            body.sharedMaterial = pMaterial;
+            if (body.sharedMaterial != pMaterial)
+            {
+                body.sharedMaterial = pMaterial;
+                pMaterial.friction = 1;
+                pMaterial.friction = 0;
+            }
             if (PlayerType)
                 Move();
             else if (owner.ai)
-                AIMove();
+                owner.ai.AIMove();
         }
     }
 
@@ -109,37 +117,11 @@ public class Movement : MonoBehaviour
         else
             animator.SetBool("isWalk", false);
     }
-    private void AIMove()
-    {
-
-        if (Mathf.Abs(owner.ai.player.transform.position.x - transform.position.x) < 1) 
-        {
-            animator.SetBool("isWalk", false);
-            return; 
-        }
-        
-
-        if (owner.ai.player.transform.position.x < transform.position.x)
-            h = -1;
-        else if(owner.ai.player.transform.position.x > transform.position.x)
-            h = 1;
-        
-        body.velocity = new Vector2(h * 100 * speed * Time.deltaTime, body.velocity.y);
-
-        if (h != 0)
-        {
-            animator.SetBool("isWalk", true);
-            if (h < 0)
-                transform.localEulerAngles = new Vector3(0, 180, 0);
-            else
-                transform.localEulerAngles = new Vector3(0, 0, 0);
-        }
-        else
-            animator.SetBool("isWalk", false);
-    }
 
     public void Jump(float bonus_value)
     {
+        if (body.bodyType == RigidbodyType2D.Static)
+            return;
         if (bonus_value == 0)
             body.velocity = new Vector2(body.velocity.x, JumpPower * 2);
         else
@@ -158,7 +140,9 @@ public class Movement : MonoBehaviour
 
     public void SetVelocityZero()
     {
-        body.velocity = new Vector3(0, 0, 0);
+        if (body.bodyType != RigidbodyType2D.Static)
+            body.velocity = Vector2.zero;
+     
     }
     public void UnFreeze()
     {
