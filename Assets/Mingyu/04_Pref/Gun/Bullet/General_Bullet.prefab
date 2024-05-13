@@ -232,7 +232,7 @@ GameObject:
   - component: {fileID: 5256394759768518174}
   - component: {fileID: 3908545293716160012}
   - component: {fileID: 8751215554413251479}
-  - component: {fileID: -7228295982828263658}
+  - component: {fileID: 8699287901408579653}
   - component: {fileID: 6709854946544445269}
   m_Layer: 0
   m_Name: General_Bullet
@@ -322,7 +322,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62f003902ecf4614aa0c86fa99b7456e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bulletType: 0
+  install_ZValue: 0
   addForce: 5
 --- !u!50 &8751215554413251479
 Rigidbody2D:
@@ -351,7 +351,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &-7228295982828263658
+--- !u!114 &8699287901408579653
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -360,7 +360,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 5418670801975883608}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8faf252014a19b942bc4983ce0bcf63a, type: 3}
+  m_Script: {fileID: 11500000, guid: c64296bda156c7447a665c474e1d1598, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   telp: 0

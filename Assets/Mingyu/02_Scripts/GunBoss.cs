@@ -77,7 +77,7 @@ public class GunBoss : Boss
     {
         state.defaultAtt_dist = 1f;
 
-        state.skill_CoolTime = 1.0f;
+        state.skill_CoolTime = 4.0f;
     
         state.p1_Skill1_dist = 5000f;
         state.p1_Skill2_dist = 4.5f;
@@ -162,10 +162,17 @@ public class GunBoss : Boss
             Install_PrefArr[i].gameObject.SetActive(true);
             Install_PrefArr[i].gameObject.GetComponent<Install_Ctrl>().isActive = true;
             Install_PrefArr[i].gameObject.GetComponent<Install_Ctrl>().BossObj = this.gameObject.GetComponent<Entity>();
-            Install_PrefArr[i].gameObject.GetComponent<Entity>().SetHp(1f);
+            
+            Install_PrefArr[i].gameObject.GetComponent<Entity>().SetHp(9000f);
+            Install_PrefArr[i].gameObject.GetComponent<Install_Ctrl>().SetMaxHP(9000);
         }
     }
-    
+
+    public void Broken_InstallObj(GameObject brokenOBj)
+    {
+        brokenOBj.gameObject.SetActive(false);
+        brokenOBj.gameObject.GetComponent<Install_Ctrl>().isActive = false;
+    }
     #endregion
 
     #region p2_Skill3_함수

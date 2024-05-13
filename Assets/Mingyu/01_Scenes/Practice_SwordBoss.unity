@@ -597,8 +597,8 @@ GameObject:
   m_Component:
   - component: {fileID: 207553904}
   - component: {fileID: 207553907}
-  - component: {fileID: 207553906}
   - component: {fileID: 207553905}
+  - component: {fileID: 207553908}
   m_Layer: 0
   m_Name: P2Skill2_HitArea
   m_TagString: Untagged
@@ -666,24 +666,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!114 &207553906
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 207553903}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8faf252014a19b942bc4983ce0bcf63a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  telp: 0
-  stunTarget: 1
-  flyingAttackForce: 5
-  attackForce: 5
-  thrustValue: 0.5
-  owner: {fileID: 819132794}
 --- !u!212 &207553907
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -736,6 +718,24 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &207553908
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 207553903}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 905aa2faf2d078d43a6cc4c8ef7d0ead, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  telp: 0
+  stunTarget: 0
+  flyingAttackForce: 0
+  attackForce: 10
+  thrustValue: 0.5
+  owner: {fileID: 819132794}
 --- !u!1001 &456577350
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -22,19 +22,22 @@ public class Install_Ctrl : MonoBehaviour
     private float attackCount = 0f;
 
     [SerializeField] private GameObject[] BulletSpon_PosArr = new GameObject[4];
-    private List<GameObject> realBulletSponPos;
-    
     [SerializeField] private GameObject General_Bullet_Pref;
     private Vector3 BulletSpon_Pos;
     private Bullet_Type bulletType;
     
     private GameObject dummy_GeneralBullet;
+    private int MaxHP = 9999;
+
+    public void SetMaxHP(int input_MaxHP)
+    {
+        MaxHP = input_MaxHP;
+    }
     
     // Start is called before the first frame update
     void Start()
     {
         myAnim = this.gameObject.GetComponent<Animator>();
-        realBulletSponPos = new List<GameObject>();
         
         this.gameObject.SetActive(false);
     }
@@ -51,6 +54,12 @@ public class Install_Ctrl : MonoBehaviour
                 Attack();
                 attackCount = 0f;
             }
+        }
+
+        Entity thisEntity = this.gameObject.GetComponent<Entity>();
+        if (thisEntity && thisEntity.GetHp() != MaxHP)
+        {
+            myAnim.SetTrigger("Hit");
         }
         myAnim.SetBool("isActive", isActive);
     }
@@ -76,8 +85,8 @@ public class Install_Ctrl : MonoBehaviour
         dummy_GeneralBullet.gameObject.GetComponent<HitColider>().owner = BossObj;
     }
 
-    public void BrokenAnim()
+    public void EndSetting()
     {
-        
+        BossObj.gameObject.GetComponent<GunBoss>().Broken_InstallObj(this.gameObject);
     }
 }

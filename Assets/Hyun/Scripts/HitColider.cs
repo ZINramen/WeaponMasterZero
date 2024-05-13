@@ -11,6 +11,14 @@ public class HitColider : MonoBehaviour
     public float attackForce = 10;
     public float thrustValue = 0.5f;
     public Entity owner;
+    
+    public enum AttackType
+    {
+        none,
+        Player_SwordAtt
+    }
+    public AttackType attType = AttackType.none;
+    
     private void OnTriggerEnter2D(Collider2D other)
     {
         Entity entity = other.GetComponent<Entity>();
@@ -28,18 +36,8 @@ public class HitColider : MonoBehaviour
             }
         }
 
-        // 보스가 특정 스킬에 플레이어에게 타격을 입혔는지 체크
-        if (owner && owner.GetComponent<Boss>() && owner.GetComponent<Boss>().bossType == BossType.Sword)
-        {
-            if (owner.GetComponent<SwordBoss>().Get_CurrBossState().currentState == Boss_State.State.p2_Skill2)
-            {
-                if (other.gameObject.tag == "Player")
-                {
-                    owner.GetComponent<SwordBoss>().Set_HitPlayer_fromP2S2(true);
-                }
-            }
-        }
-        
+        EachObj_HitSetting(other);
+
         if(entity)
         if(entity != owner)
         {
@@ -68,5 +66,9 @@ public class HitColider : MonoBehaviour
                 }
             }
         }
+    }
+
+    protected virtual void EachObj_HitSetting(Collider2D other)
+    {
     }
 }
