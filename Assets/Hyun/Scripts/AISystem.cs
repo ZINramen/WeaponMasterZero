@@ -43,7 +43,7 @@ public class AISystem : MonoBehaviour
     protected virtual void AIAttack() // 자식 클래스에서 수정 가능함.
     {
         // 디폴트 = 근처에 플레이어가 있을 시 공격
-        nearbyAttack(10, 1);
+        nearbyAttack(3, 0.5f);
     }
     public virtual void AIMove() // 자식 클래스에서 수정 가능함.
     {

@@ -20,6 +20,7 @@ GameObject:
   - component: {fileID: 3837588161888952417}
   - component: {fileID: 8473152363527035725}
   - component: {fileID: 2945576532302350058}
+  - component: {fileID: 4821451600169180876}
   m_Layer: 3
   m_Name: Enemy_Sample_Slime
   m_TagString: Untagged
@@ -138,7 +139,7 @@ MonoBehaviour:
   State: 0
   isPlayer: 0
   isHuman: 1
-  Ec: {fileID: 8679799832589374860}
+  Ec: {fileID: 0}
   Punch: 115
   Kick: 100
   Guard: 97
@@ -183,7 +184,7 @@ MonoBehaviour:
   ai: {fileID: 3837588161888952417}
   waitTime: 0
   mpLock: 0
-  maxHP: 100
+  maxHP: 70
   maxMp: 100
   target:
     serializedVersion: 2
@@ -191,6 +192,9 @@ MonoBehaviour:
   attackPos: {fileID: 3653800597723139424}
   attackLength: 0
   isDie: 0
+  OnDie:
+    m_PersistentCalls:
+      m_Calls: []
   flyingAttackForce: 0
   flyingDamagedPower: 0
   aManager: {fileID: 0}
@@ -425,6 +429,20 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.76056576, y: 0.6261261}
   m_EdgeRadius: 0
+--- !u!114 &4821451600169180876
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2731230836777753662}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 43d8955f46ceedb438f42d7f4d0a10da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  projectilePrefab: {fileID: 5833869227801868694, guid: fa448808c15832849b1f5e21dec70351, type: 3}
+  projectileSpeed: 10
 --- !u!1 &3653800597723139424
 GameObject:
   m_ObjectHideFlags: 0
