@@ -13,13 +13,17 @@ public class HitColider : MonoBehaviour
     public Entity owner;
     
     public bool isAbleDestroy = false;
+    public GameObject DestroyEffect;
     
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (isAbleDestroy)
         {
-            if (other.gameObject.tag == "Player" || other.gameObject.tag == "Enemy" || other.gameObject.tag == "Boss")
+            if (!other.GetComponent<Entity>() && !other.GetComponent<HitColider>() || other.CompareTag("Player"))
             {
+                Debug.Log(other.gameObject);
+                if (DestroyEffect)
+                    GameObject.Instantiate(DestroyEffect, transform.position, Quaternion.identity);
                 Destroy(gameObject);
             }
         }
@@ -52,7 +56,7 @@ public class HitColider : MonoBehaviour
         }
         
         if(entity)
-        if(entity != owner)
+        if((owner.tag == "Player" && entity.tag != "Player") || (owner.tag != "Player" && entity.tag == "Player")) 
         {
             if (telp) 
             {
