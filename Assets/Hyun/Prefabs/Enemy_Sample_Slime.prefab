@@ -330,6 +330,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e01d69820ea46f640afc899e4b8e0465, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AttackDelay: 0.2
   WalkName: isWalk
   AttackName: Punch
 --- !u!212 &8473152363527035725
@@ -696,6 +697,8 @@ MonoBehaviour:
   attackForce: 10
   thrustValue: 0.2
   owner: {fileID: 6142345906895935380}
+  isAbleDestroy: 0
+  DestroyEffect: {fileID: 0}
 --- !u!61 &2246562158007267139
 BoxCollider2D:
   m_ObjectHideFlags: 0

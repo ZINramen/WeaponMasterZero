@@ -7,6 +7,7 @@ public class HUDController : MonoBehaviour
 {
     public Entity Player;
     public Image HP_Bar1P;
+    public Image HP_Bar1P_Damaged;
     [Space]
     public Image[] SkillIcons1P;
 
@@ -19,6 +20,10 @@ public class HUDController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (HP_Bar1P_Damaged.fillAmount != HP_Bar1P.fillAmount)
+        {
+            HP_Bar1P_Damaged.fillAmount = Mathf.Lerp(HP_Bar1P_Damaged.fillAmount, HP_Bar1P.fillAmount, Time.deltaTime);
+        }
         for (int i = 0; i < SkillIcons1P.Length; i++)
         {
             if (Player.aManager.skillManager.skills[i] != "")
@@ -28,10 +33,10 @@ public class HUDController : MonoBehaviour
         }
     }
 
-    //함수로 바꿔서 호출 가능하게 할 예정
+    //함수로 바꿔서 호출 가능하게 할 예정이 바뀌었다.
     IEnumerator CheckHP()
     {
-        var wait = new WaitForSecondsRealtime(0.5f);
+        var wait = new WaitForSecondsRealtime(0.2f);
         while (true)
         {
             HP_Bar1P.fillAmount = Player.GetHp() / Player.maxHP;
