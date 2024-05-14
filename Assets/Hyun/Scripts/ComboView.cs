@@ -11,15 +11,8 @@ public class ComboView : MonoBehaviour
     public static int currValue = 1;
     public static int waitNumber = 0;
 
-    public static Entity nextOwner;
-    public static Entity owner;
-
     private void Awake()
-    {
-        if (owner != nextOwner) 
-            currValue = 0;
-        owner = nextOwner;
-        waitNumber++;
+    {   waitNumber++;
         currValue++;
 
     }

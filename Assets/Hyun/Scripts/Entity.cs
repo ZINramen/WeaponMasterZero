@@ -311,7 +311,6 @@ public class Entity : MonoBehaviour
             }
             if (DamageBlock != DefenseStatus.Guard && damageValue != 0)
             {
-                ComboView.nextOwner = this;
                 if (ComboUI)
                 {
                     Instantiate(ComboUI);
