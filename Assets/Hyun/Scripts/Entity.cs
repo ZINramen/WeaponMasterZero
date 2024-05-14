@@ -123,7 +123,11 @@ public class Entity : MonoBehaviour
 
             hp = 0;
             movement.enabled = false;
+            movement.body.constraints = RigidbodyConstraints2D.FreezeAll;
             isDie = true;
+            if (ai)
+                ai.enabled = false;
+            Destroy(gameObject, 5);
             OnDie.Invoke();
         }
     }
@@ -250,12 +254,15 @@ public class Entity : MonoBehaviour
 
     public void SuperDamaged(float damageValue, float thrustValue)
     {
+        if (DamageBlock == DefenseStatus.invincible) return;
         stun = true;
         Damaged(damageValue, thrustValue);
     }
     
     public void Damaged(float damageValue, float thrustValue = 0.5f)
     {
+        if (DamageBlock == DefenseStatus.invincible) return;
+        if (isDie) return;
         if(!isDamaged)
             StartCoroutine(ShakingEntity(0.15f,0.5f));
 

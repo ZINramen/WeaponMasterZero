@@ -10,6 +10,7 @@ public class AISystem : MonoBehaviour
 
     GameObject player;
 
+    public float AttackDelay = 0.5f;
     public string WalkName; // 걷는 애니메이션 - 불 파라미터 이름. 빈칸이면 애니메이션 미존재
     public string AttackName; // 공격 애니메이션 - 트리거 파라미터 이름. 빈칸이면 애니메이션 미존재
 
@@ -29,13 +30,6 @@ public class AISystem : MonoBehaviour
         // ai의 주인이 존재하는 경우만 실행
         if (!owner) return;
 
-        // 적 사망 시 실행
-        if (owner.GetHp() == 0 && !eventEnd)
-        {
-            eventEnd = true;
-            Destroy(gameObject, 5);
-        }
-
         // 공격 상황 체크해 공격 시작
         AIAttack();
     }
@@ -43,7 +37,7 @@ public class AISystem : MonoBehaviour
     protected virtual void AIAttack() // 자식 클래스에서 수정 가능함.
     {
         // 디폴트 = 근처에 플레이어가 있을 시 공격
-        nearbyAttack(3, 0.5f);
+        nearbyAttack(3, AttackDelay);
     }
     public virtual void AIMove() // 자식 클래스에서 수정 가능함.
     {
