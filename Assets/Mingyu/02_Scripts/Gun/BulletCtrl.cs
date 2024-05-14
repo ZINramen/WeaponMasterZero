@@ -12,7 +12,6 @@ public class BulletCtrl : MonoBehaviour
     {
         General = 0,
         Parring,
-        Piecing
     }
 
     public BulletType bulletType;
@@ -30,7 +29,7 @@ public class BulletCtrl : MonoBehaviour
     }
 
     private bool isPlayerParring;
-    public int wallParringHP = 1;
+    public int wallParringHP = 2;
 
     public bool Get_IsPlayerParring()
     {

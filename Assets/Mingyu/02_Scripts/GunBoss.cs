@@ -10,7 +10,7 @@ public class GunBoss : Boss
 {
     [SerializeField] private GameObject General_BulletPref;
     [SerializeField] private GameObject Parrying_BulletPref;
-    [SerializeField] private GameObject Piecing_BulletPref;
+    [SerializeField] private GameObject videoEffect;
     
     #region 평타 관련 변수 모음
 
@@ -59,13 +59,19 @@ public class GunBoss : Boss
     
     #region p2_Skill2_변수 모음
 
-    [SerializeField] private float minAngle = -10f;
-    [SerializeField] private float maxAngle = 180f;
-    [SerializeField] private float p2Skill2_TotalBulletCount = 8;
+    [SerializeField] private Transform LeftShootingPos;
+    [SerializeField] private Transform RightShootingPos;
+    
+    [SerializeField] private float minAngle = -60f;
+    [SerializeField] private float maxAngle = 240f;
+    [SerializeField] private float p2Skill2_TotalBulletCount = 6;
     #endregion
 
     #region p2_Skill3_변수 모음
-    [SerializeField] private Transform[] SixBullet_SponPos;
+    [SerializeField] private Transform P2Skill3_SponMaxYPos;
+    [SerializeField] private float p2S2_BulletInterval = 1f;
+    
+    
     #endregion
     
     // Start is called before the first frame update
@@ -78,6 +84,7 @@ public class GunBoss : Boss
         signAttDelayTime = (signSpon_DelayTime * totalsignCount) + 0.5f;
         bossType = BossType.Gun;
         selectedTurn_State.Add(Boss_State.State.p1_Skill2);
+        videoEffect.gameObject.SetActive(false);
     }
 
     protected override void Init_StateValueData(ref Boss_State state)
@@ -183,26 +190,49 @@ public class GunBoss : Boss
     #endregion
     
     #region p2_Skill2_함수
+    public void PlayOnVideo()
+    {
+        videoEffect.gameObject.SetActive(true);
+        videoEffect.gameObject.GetComponent<Animator>().SetBool("isEnd", false);
+    }
+    
     public void Attack_p2Skill2()
     {
         float angleInterval = (maxAngle - minAngle) / p2Skill2_TotalBulletCount;
+        float randomRotationZ;
         
-        for (int i = 0; i < 8; i++)
+        for (int i = 0; i < p2Skill2_TotalBulletCount / 2; i++)
         {
-            float randomRotationZ = Random.Range(minAngle + (angleInterval * i), minAngle + angleInterval + (angleInterval * i));
-            Shoot_ParringBullet(randomRotationZ);
+            randomRotationZ = Random.Range(minAngle + (angleInterval * i), minAngle + angleInterval + (angleInterval * i));
+            Shoot_ParringBullet(randomRotationZ, RightShootingPos);
+        }
+        
+        for (int i = (int) p2Skill2_TotalBulletCount / 2; i < p2Skill2_TotalBulletCount; i++)
+        {
+            randomRotationZ = Random.Range(minAngle + (angleInterval * i), minAngle + angleInterval + (angleInterval * i));
+            Shoot_ParringBullet(randomRotationZ,LeftShootingPos );
         }
     }
 
-    private void Shoot_ParringBullet(float input_RotationZ)
+    private void Shoot_ParringBullet(float input_RotationZ, Transform shootingPos)
     {
-        GameObject dummy_ParrBullet =  Instantiate(Parrying_BulletPref, this.transform.position, Quaternion.identity);
+        GameObject dummy_ParrBullet =  Instantiate(Parrying_BulletPref, shootingPos.position, Quaternion.identity);
         dummy_ParrBullet.GetComponent<BulletCtrl>().install_ZValue = input_RotationZ;
         dummy_ParrBullet.GetComponent<Bullet_HitCollder>().owner = this.gameObject.GetComponent<Entity>();
+    }
+    
+    public void PlayOffVideo()
+    {
+        videoEffect.gameObject.GetComponent<Animator>().SetBool("isEnd", true);
     }
     #endregion
     
     #region p2_Skill3_함수
+    public void Attack_P2Skill3()
+    {
+        //for(int i = 0 ; )
+    }
+    
     #endregion
 
     protected override void EachBoss_UpdateSetting()

@@ -133,9 +133,10 @@ public abstract class Boss : MonoBehaviour
                 // 보스 체력에 따라, 스킬이 나올것이 달라짐
                 bossHP_per = (this.GetComponent<Entity>().GetHp()) / (this.GetComponent<Entity>().maxHP);
                 if (bossHP_per >= 0.5f)
-                    iBossSkill = Random.Range((int)Boss_State.State.p2_Skill1, (int)Boss_State.State.p2_Skill3);
+                    iBossSkill = Random.Range((int)Boss_State.State.p1_Skill1, (int)Boss_State.State.p1_Skill2 + 1);
                 else
                     iBossSkill = Random.Range((int)Boss_State.State.p2_Skill1, (int)Boss_State.State.p2_Skill3);
+                iBossSkill = 4;
                 
                 sBossSkill = Change_IntToState(iBossSkill, ref skillDist);
                 isSelectSkill = true;
