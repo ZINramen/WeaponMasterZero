@@ -15,33 +15,65 @@ public class BulletCtrl : MonoBehaviour
         Piecing
     }
 
-    private BulletType bulletType;
+    public BulletType bulletType;
+    [SerializeField] private float deleteTime = 2f;
 
-    public BulletType Get_BulletType()
-    {
-        return bulletType;
-    }
-    
     private Vector3 shootingDir = new Vector3(0, 0, 0);
     
     private Rigidbody2D myRd;
     [SerializeField] private float addForce = 5f;
+    [SerializeField] private float parrigForce = 5f;
+
+    public float Get_ShootingForce()
+    {
+        return addForce;
+    }
+
+    private bool isPlayerParring;
+    public int wallParringHP = 1;
+
+    public bool Get_IsPlayerParring()
+    {
+        return isPlayerParring;
+    }
     
     private void Start()
     {
         shootingDir.z = install_ZValue;
-        Debug.Log(shootingDir.z);
         
         myRd = this.gameObject.GetComponent<Rigidbody2D>();
-        this.transform.rotation = Quaternion.Euler(shootingDir);
         
-        myRd.AddForce(this.transform.right * addForce, ForceMode2D.Impulse);
-        
-        Invoke("BrokenBullet", 2f);
+        ShootingBullet(addForce, Quaternion.Euler(shootingDir));
+        Invoke("BrokenBullet", deleteTime);
     }
 
     public void BrokenBullet()
     {
         Destroy(this.gameObject);
+    }
+
+    public void Parring(GameObject player)
+    {
+        StopMove();
+        
+        Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition) - player.transform.position;
+        float angle = Mathf.Atan2(mousePos.y, mousePos.x) * Mathf.Rad2Deg;
+
+        this.gameObject.GetComponent<Bullet_HitCollder>().owner = player.GetComponent<Entity>();
+        ShootingBullet(parrigForce, Quaternion.Euler(0, 0, angle));
+
+        isPlayerParring = true;
+    }
+
+    public void StopMove()
+    {
+        myRd.velocity = Vector2.zero;
+        myRd.angularVelocity = 0f;
+    }
+
+    public void ShootingBullet(float attackPower, Quaternion angle)
+    {
+        transform.rotation = angle;
+        myRd.AddForce(this.transform.right * attackPower, ForceMode2D.Impulse);
     }
 }

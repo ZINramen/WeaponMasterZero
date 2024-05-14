@@ -323,7 +323,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   install_ZValue: 0
+  bulletType: 0
+  deleteTime: 2
   addForce: 5
+  parrigForce: 5
 --- !u!50 &8751215554413251479
 Rigidbody2D:
   serializedVersion: 4
@@ -369,6 +372,7 @@ MonoBehaviour:
   attackForce: 10
   thrustValue: 0.5
   owner: {fileID: 0}
+  attType: 0
 --- !u!61 &6709854946544445269
 BoxCollider2D:
   m_ObjectHideFlags: 0

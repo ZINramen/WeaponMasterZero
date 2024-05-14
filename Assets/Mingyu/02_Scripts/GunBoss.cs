@@ -56,6 +56,13 @@ public class GunBoss : Boss
     [SerializeField] private GameObject[] Install_PrefArr = new GameObject[3];
     private GameObject InstallPref_dummyObj;
     #endregion
+    
+    #region p2_Skill2_변수 모음
+
+    [SerializeField] private float minAngle = -10f;
+    [SerializeField] private float maxAngle = 180f;
+    [SerializeField] private float p2Skill2_TotalBulletCount = 8;
+    #endregion
 
     #region p2_Skill3_변수 모음
     [SerializeField] private Transform[] SixBullet_SponPos;
@@ -77,7 +84,7 @@ public class GunBoss : Boss
     {
         state.defaultAtt_dist = 1f;
 
-        state.skill_CoolTime = 4.0f;
+        state.skill_CoolTime = 1.0f;
     
         state.p1_Skill1_dist = 5000f;
         state.p1_Skill2_dist = 4.5f;
@@ -174,7 +181,27 @@ public class GunBoss : Boss
         brokenOBj.gameObject.GetComponent<Install_Ctrl>().isActive = false;
     }
     #endregion
+    
+    #region p2_Skill2_함수
+    public void Attack_p2Skill2()
+    {
+        float angleInterval = (maxAngle - minAngle) / p2Skill2_TotalBulletCount;
+        
+        for (int i = 0; i < 8; i++)
+        {
+            float randomRotationZ = Random.Range(minAngle + (angleInterval * i), minAngle + angleInterval + (angleInterval * i));
+            Shoot_ParringBullet(randomRotationZ);
+        }
+    }
 
+    private void Shoot_ParringBullet(float input_RotationZ)
+    {
+        GameObject dummy_ParrBullet =  Instantiate(Parrying_BulletPref, this.transform.position, Quaternion.identity);
+        dummy_ParrBullet.GetComponent<BulletCtrl>().install_ZValue = input_RotationZ;
+        dummy_ParrBullet.GetComponent<Bullet_HitCollder>().owner = this.gameObject.GetComponent<Entity>();
+    }
+    #endregion
+    
     #region p2_Skill3_함수
     #endregion
 
@@ -183,7 +210,7 @@ public class GunBoss : Boss
         if (isReady_CreateSign && signCount < totalsignCount)
         {
             signSpon_WaitTime += Time.deltaTime;
-
+        
             if (signSpon_WaitTime >= signSpon_DelayTime)
             {
                 Create_AttSign();
