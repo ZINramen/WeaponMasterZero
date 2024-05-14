@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.UI;
 
 public class Entity : MonoBehaviour
@@ -27,6 +28,7 @@ public class Entity : MonoBehaviour
     public GameObject attackPos;
     public float attackLength;
     public bool isDie = false; //캐릭터가 죽었는지 살았는지 여부
+    public UnityEvent OnDie;
     
     public float flyingAttackForce = 0;
     public float flyingDamagedPower = 0;
@@ -76,6 +78,8 @@ public class Entity : MonoBehaviour
 
     private void Update()
     {
+        if (isDie)
+            return;
         if (ultScreen) 
         {
             if(transform.localEulerAngles.y != 0) 
@@ -105,7 +109,7 @@ public class Entity : MonoBehaviour
             waitTime = 0;
         }
         //생사 상태 확인
-        if (hp <= 0 && !isDie)
+        if (hp <= 0)
         {
             DamageBlock = DefenseStatus.invincible;
             if (aManager)
@@ -118,8 +122,15 @@ public class Entity : MonoBehaviour
             }
 
             hp = 0;
+            movement.enabled = false;
             isDie = true;
+            OnDie.Invoke();
         }
+    }
+
+    public void Destroy_Entity(float delay)
+    {
+        Destroy(gameObject, delay);
     }
     public int GetMp()
     {

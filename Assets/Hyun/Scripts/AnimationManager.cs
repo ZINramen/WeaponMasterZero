@@ -11,6 +11,7 @@ public class AnimationManager : MonoBehaviour
     public Entity owner;
     public GameObject temp;
     bool additionalJump = false;
+    bool unable_Dash = false;
     bool airDash = false;
     public bool onGround = true;
     public bool GetOnGround() { return onGround; }
@@ -346,9 +347,11 @@ public class AnimationManager : MonoBehaviour
             {
                 ani.SetBool("Defense", false);
             }
-            if (Input.GetKeyDown(Dash) && !ani.GetBool("Down"))
+            if (Input.GetKeyDown(Dash) && !ani.GetBool("Down") && !unable_Dash)
             {
+                unable_Dash = true;
                 ani.SetTrigger("Dash");
+                StartCoroutine(DelayDash(0.5f));
             }
             if (Input.GetKeyUp(Catch))
             {
@@ -367,5 +370,11 @@ public class AnimationManager : MonoBehaviour
                 ani.SetBool("Heal", false);
             }
         }
+    }
+
+    IEnumerator DelayDash(float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        unable_Dash = false;
     }
 }
