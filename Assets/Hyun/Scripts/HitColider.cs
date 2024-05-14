@@ -11,8 +11,19 @@ public class HitColider : MonoBehaviour
     public float attackForce = 10;
     public float thrustValue = 0.5f;
     public Entity owner;
+    
+    public bool isAbleDestroy = false;
+    
     private void OnTriggerEnter2D(Collider2D other)
     {
+        if (isAbleDestroy)
+        {
+            if (other.gameObject.tag == "Player" || other.gameObject.tag == "Enemy" || other.gameObject.tag == "Boss")
+            {
+                Destroy(gameObject);
+            }
+        }
+        
         Entity entity = other.GetComponent<Entity>();
         
         // 보스에게 피격할 시, 날라가는 힘을 없앰
