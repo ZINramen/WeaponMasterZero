@@ -47,6 +47,8 @@ public class SwordBoss : Boss
     #region p2_Skill3_변수 모음
     [SerializeField] private GameObject Horizontal_LinePref;
     [SerializeField] private GameObject Vertical_LinePref;
+    [SerializeField] private Transform Right_MaxXY_SponPos;
+    [SerializeField] private Transform Left_MinXY_SponPos;
     
     [SerializeField] private float delete_LineTime = 0.3f;
     private List<GameObject> dummy_LinePref_List = new List<GameObject>();
@@ -55,6 +57,7 @@ public class SwordBoss : Boss
     private GameObject LinePref_Type;
     
     private bool isReadyCreate_Line;
+    [SerializeField] private int lineTotalCount = 6;
     private int lineCount = 0;
     private float createLine_Count;
     #endregion
@@ -74,7 +77,7 @@ public class SwordBoss : Boss
     {
         state.defaultAtt_dist = 1f;
 
-        state.skill_CoolTime = 4.0f;
+        state.skill_CoolTime = 4f;
     
         state.p1_Skill1_dist = 1.5f;
         state.p1_Skill2_dist = 1.8f;
@@ -115,6 +118,8 @@ public class SwordBoss : Boss
     #region 2p_Skill1 코드
     public void SetPos_P2Skill1()
     {
+        Debug.Log("SetPos");
+        
         dummy_Obj = Instantiate(Curr_BossPos_Pref, this.transform.position, Quaternion.identity);
         this.transform.position = p2_Skill1_MoonPos.position;
         this.GetComponent<Rigidbody2D>().simulated = false;
@@ -206,19 +211,17 @@ public class SwordBoss : Boss
     public void Attack_P2Skill3()
     {
         isReadyCreate_Line = true;
-        
-        this.GetComponent<SpriteRenderer>().enabled = false;
-        Invoke("End_P2Skill3", 2f);
     }
 
-    private void End_P2Skill3()
+    public void DisAppear()
     {
-        foreach (GameObject dummy_LinePref in dummy_LinePref_List)
-        {
-            dummy_LinePref.GetComponent<Line_Ctrl>().HitMaterial = hit_Mat;
-            dummy_LinePref.GetComponent<Line_Ctrl>().On_Collider();
-        }
+        this.GetComponent<SpriteRenderer>().enabled = false;
+    }
 
+    public void End_P2Skill3()
+    {
+        Debug.Log("EndSkill");
+        
         foreach (GameObject dummy_LinePref in dummy_LinePref_List)
             Destroy(dummy_LinePref, delete_LineTime);
         
@@ -229,29 +232,54 @@ public class SwordBoss : Boss
         this.GetComponent<Rigidbody2D>().simulated = true;
 
         dummy_LinePref_List.Clear();
-        isReadyCreate_Line = false;
         createLine_Count = 0f;
-        lineCount = 0;
     }
 
     protected override void EachBoss_UpdateSetting()
     {
-        if (lineCount < 6 && isReadyCreate_Line)
+        if (lineCount < lineTotalCount && isReadyCreate_Line)
         {
             createLine_Count += Time.deltaTime;
             if (createLine_Count >= lineAnim_Time)
             {
-                if (lineCount < 3) LinePref_Type = Horizontal_LinePref;
-                else               LinePref_Type = Vertical_LinePref;
-                
+                if (lineCount < lineTotalCount / 2) LinePref_Type = Horizontal_LinePref;
+                else LinePref_Type = Vertical_LinePref;
+
                 GameObject dummy_LinePref = Instantiate(LinePref_Type, new Vector3(0, 0, 0), quaternion.identity);
                 dummy_LinePref.GetComponent<Line_Ctrl>().animationDuration = lineAnim_Time;
                 dummy_LinePref.GetComponent<HitColider>().owner = this.gameObject.GetComponent<Entity>();
+                dummy_LinePref.GetComponent<Line_Ctrl>().deleteTime = delete_LineTime;
                 dummy_LinePref.GetComponent<Line_Ctrl>().Off_Collider();
+
+                dummy_LinePref.GetComponent<Line_Ctrl>().maxXYPos = Right_MaxXY_SponPos;
+                dummy_LinePref.GetComponent<Line_Ctrl>().minXYPos = Left_MinXY_SponPos;
+                
+                dummy_LinePref.GetComponent<Line_Ctrl>().SwordBoss = this.gameObject;
+                
                 dummy_LinePref_List.Add(dummy_LinePref);
 
                 lineCount++;
                 createLine_Count = 0f;
+            }
+        }
+
+        else if (lineCount >= lineTotalCount)
+        {
+            createLine_Count += Time.deltaTime;
+
+            if (createLine_Count >= 1f)
+            {
+                foreach (GameObject dummy_LinePref in dummy_LinePref_List)
+                {
+                    dummy_LinePref.GetComponent<Line_Ctrl>().HitMaterial = hit_Mat;
+                    dummy_LinePref.GetComponent<Line_Ctrl>().On_Collider();
+                }
+
+                foreach (GameObject dummy_LinePref in dummy_LinePref_List)
+                    dummy_LinePref.GetComponent<Line_Ctrl>().EndAnimation();
+
+                isReadyCreate_Line = false;
+                lineCount = 0;
             }
         }
     }

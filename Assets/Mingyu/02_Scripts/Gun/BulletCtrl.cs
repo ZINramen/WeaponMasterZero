@@ -2,29 +2,78 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.Mathematics;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class BulletCtrl : MonoBehaviour
 {
-    private Animator myAnim;
-    private CircleCollider2D myCollider;
+    public float install_ZValue;
+    public enum BulletType
+    {
+        General = 0,
+        Parring,
+    }
+
+    public BulletType bulletType;
+    [SerializeField] private float deleteTime = 2f;
+
+    public void SetDeleteTime(float inputDeleteTime)
+    {
+        deleteTime = inputDeleteTime;
+    }
+
+    private Vector3 shootingDir = new Vector3(0, 0, 0);
     
-    [SerializeField] private GameObject ShootEffect;
-    private GameObject dummyShootEffect;
+    private Rigidbody2D myRd;
+    public float addForce = 5f;
+    
+    [SerializeField] private float parrigForce = 5f;
+
+    [SerializeField] private bool isPlayerParring;
+    public int wallParringHP = 2;
+
+    public bool Get_IsPlayerParring()
+    {
+        return isPlayerParring;
+    }
     
     private void Start()
     {
-        myAnim = this.gameObject.GetComponent<Animator>();
-        myCollider = this.gameObject.GetComponent<CircleCollider2D>();
-        myCollider.enabled = false;
+        shootingDir.z = install_ZValue;
+        
+        myRd = this.gameObject.GetComponent<Rigidbody2D>();
+        
+        ShootingBullet(addForce, Quaternion.Euler(shootingDir));
+        Invoke("BrokenBullet", deleteTime);
     }
 
-    public void Shoot_Bullet()
+    public void BrokenBullet()
     {
-        dummyShootEffect = Instantiate(ShootEffect, this.transform.position, quaternion.identity);
-        dummyShootEffect.transform.parent = this.transform;
+        Destroy(this.gameObject);
+    }
+
+    public void Parring(GameObject player)
+    {
+        StopMove();
         
-        myAnim.SetBool("isShoot", true);
-        myCollider.enabled = true;
+        Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition) - player.transform.position;
+        float angle = Mathf.Atan2(mousePos.y, mousePos.x) * Mathf.Rad2Deg;
+
+        this.gameObject.GetComponent<Bullet_HitCollder>().owner = player.GetComponent<Entity>();
+        ShootingBullet(parrigForce, Quaternion.Euler(0, 0, angle));
+
+        isPlayerParring = true;
+    }
+
+    public void StopMove()
+    {
+        myRd.velocity = Vector2.zero;
+        myRd.angularVelocity = 0f;
+    }
+
+    public void ShootingBullet(float attackPower, Quaternion angle)
+    {
+        transform.rotation = angle;
+        myRd.AddForce(this.transform.right * attackPower, ForceMode2D.Impulse);
     }
 }

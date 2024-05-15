@@ -31,7 +31,7 @@ AnimationClip:
         inWeight: 0
         outWeight: 0
       - serializedVersion: 3
-        time: 1.3333334
+        time: 2.0833333
         value: 0
         inSlope: Infinity
         outSlope: Infinity
@@ -66,31 +66,31 @@ AnimationClip:
       value: {fileID: 1352096846, guid: 6dc13415e518b784fa14eac62d0663b7, type: 3}
     - time: 0.5833333
       value: {fileID: -1648585694, guid: 6dc13415e518b784fa14eac62d0663b7, type: 3}
-    - time: 1
-      value: {fileID: 1569779399, guid: 6dc13415e518b784fa14eac62d0663b7, type: 3}
-    - time: 1.0833334
-      value: {fileID: 211205064, guid: 6dc13415e518b784fa14eac62d0663b7, type: 3}
-    - time: 1.1666666
-      value: {fileID: -716706441, guid: 6dc13415e518b784fa14eac62d0663b7, type: 3}
-    - time: 1.25
-      value: {fileID: 592783870, guid: 6dc13415e518b784fa14eac62d0663b7, type: 3}
-    - time: 1.3333334
-      value: {fileID: 1569779399, guid: 6dc13415e518b784fa14eac62d0663b7, type: 3}
-    - time: 1.4166666
-      value: {fileID: 211205064, guid: 6dc13415e518b784fa14eac62d0663b7, type: 3}
-    - time: 1.5
-      value: {fileID: -716706441, guid: 6dc13415e518b784fa14eac62d0663b7, type: 3}
-    - time: 1.5833334
-      value: {fileID: 592783870, guid: 6dc13415e518b784fa14eac62d0663b7, type: 3}
-    - time: 1.6666666
-      value: {fileID: 434540715, guid: 6dc13415e518b784fa14eac62d0663b7, type: 3}
     - time: 1.75
-      value: {fileID: 110584139, guid: 6dc13415e518b784fa14eac62d0663b7, type: 3}
+      value: {fileID: 1569779399, guid: 6dc13415e518b784fa14eac62d0663b7, type: 3}
     - time: 1.8333334
-      value: {fileID: 1290855364, guid: 6dc13415e518b784fa14eac62d0663b7, type: 3}
+      value: {fileID: 211205064, guid: 6dc13415e518b784fa14eac62d0663b7, type: 3}
     - time: 1.9166666
+      value: {fileID: -716706441, guid: 6dc13415e518b784fa14eac62d0663b7, type: 3}
+    - time: 2
+      value: {fileID: 592783870, guid: 6dc13415e518b784fa14eac62d0663b7, type: 3}
+    - time: 2.0833333
+      value: {fileID: 1569779399, guid: 6dc13415e518b784fa14eac62d0663b7, type: 3}
+    - time: 2.1666667
+      value: {fileID: 211205064, guid: 6dc13415e518b784fa14eac62d0663b7, type: 3}
+    - time: 2.25
+      value: {fileID: -716706441, guid: 6dc13415e518b784fa14eac62d0663b7, type: 3}
+    - time: 2.3333333
+      value: {fileID: 592783870, guid: 6dc13415e518b784fa14eac62d0663b7, type: 3}
+    - time: 2.4166667
+      value: {fileID: 434540715, guid: 6dc13415e518b784fa14eac62d0663b7, type: 3}
+    - time: 2.5
+      value: {fileID: 110584139, guid: 6dc13415e518b784fa14eac62d0663b7, type: 3}
+    - time: 2.5833333
+      value: {fileID: 1290855364, guid: 6dc13415e518b784fa14eac62d0663b7, type: 3}
+    - time: 2.6666667
       value: {fileID: 958643754, guid: 6dc13415e518b784fa14eac62d0663b7, type: 3}
-    - time: 2.75
+    - time: 3.5
       value: {fileID: 1765640994, guid: 6dc13415e518b784fa14eac62d0663b7, type: 3}
     attribute: m_Sprite
     path: 
@@ -149,7 +149,7 @@ AnimationClip:
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 2.8333333
+    m_StopTime: 3.5833333
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0
@@ -179,7 +179,7 @@ AnimationClip:
         inWeight: 0
         outWeight: 0
       - serializedVersion: 3
-        time: 1.3333334
+        time: 2.0833333
         value: 0
         inSlope: Infinity
         outSlope: Infinity
@@ -198,4 +198,46 @@ AnimationClip:
   m_EulerEditorCurves: []
   m_HasGenericRootTransform: 0
   m_HasMotionFloatCurves: 0
-  m_Events: []
+  m_Events:
+  - time: 0
+    functionName: PlayOnVideo
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 1.75
+    functionName: Attack_p2Skill2
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 2.0833333
+    functionName: Attack_p2Skill2
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 2.5833333
+    functionName: Attack_p2Skill2
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 2.6666667
+    functionName: PlayOffVideo
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 3.5
+    functionName: EndSkill
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
