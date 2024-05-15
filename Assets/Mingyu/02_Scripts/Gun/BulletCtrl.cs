@@ -17,18 +17,19 @@ public class BulletCtrl : MonoBehaviour
     public BulletType bulletType;
     [SerializeField] private float deleteTime = 2f;
 
+    public void SetDeleteTime(float inputDeleteTime)
+    {
+        deleteTime = inputDeleteTime;
+    }
+
     private Vector3 shootingDir = new Vector3(0, 0, 0);
     
     private Rigidbody2D myRd;
-    [SerializeField] private float addForce = 5f;
+    public float addForce = 5f;
+    
     [SerializeField] private float parrigForce = 5f;
 
-    public float Get_ShootingForce()
-    {
-        return addForce;
-    }
-
-    private bool isPlayerParring;
+    [SerializeField] private bool isPlayerParring;
     public int wallParringHP = 2;
 
     public bool Get_IsPlayerParring()

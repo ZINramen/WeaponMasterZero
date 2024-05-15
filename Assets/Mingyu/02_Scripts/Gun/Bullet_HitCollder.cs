@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.TextCore.Text;
 using UnityEngine;
 
 public class Bullet_HitCollder : HitColider
@@ -13,11 +14,14 @@ public class Bullet_HitCollder : HitColider
     {
         if ( this.gameObject.GetComponent<BulletCtrl>() )
         {
-            // 플레이어가 패링하지 않는 탄이 설치기에 맞으면, 그냥 튕겨져 나감 
-            if (other.gameObject.GetComponent<Install_Ctrl>() 
-                && !this.gameObject.GetComponent<BulletCtrl>().Get_IsPlayerParring() )
+            // 플레이어가 패링하지 않는 탄이 설치기에 맞으면, 그냥 지나감
+            if (other.gameObject.GetComponent<Install_Ctrl>() )
             {
-                if (this.gameObject.GetComponent<BulletCtrl>().bulletType == BulletCtrl.BulletType.General)
+                if(this.gameObject.GetComponent<BulletCtrl>().bulletType == BulletCtrl.BulletType.Parring &&
+                   !this.gameObject.GetComponent<BulletCtrl>().Get_IsPlayerParring() )
+                    this.gameObject.GetComponent<BulletCtrl>().BrokenBullet();
+                
+                if (!this.gameObject.GetComponent<BulletCtrl>().Get_IsPlayerParring())
                 {
                     Curr_thrustValue = thrustValue;
                     Curr_attackForce = attackForce;
@@ -32,10 +36,10 @@ public class Bullet_HitCollder : HitColider
             // 일반 탄일 경우
             if (this.gameObject.GetComponent<BulletCtrl>().bulletType == BulletCtrl.BulletType.General)
             {
-                if(other.gameObject.GetComponent<Entity>() == owner 
-                   || other.gameObject.GetComponent<BulletCtrl>() 
-                     || other.gameObject.GetComponent<Entity>() ) {}
-                
+                // 맞은 대상이 owner, 총알이 맞거나, 설치기가 맞거나, 플레이어의 공격 범위 거나 하면 사라지지 않음
+                if(other.gameObject.GetComponent<Entity>() == owner) {}
+                else if(other.gameObject.GetComponent<Install_Ctrl>()) {}
+                else if (other.gameObject.GetComponent<HitColider>()) {}
                 else
                     this.gameObject.GetComponent<BulletCtrl>().BrokenBullet();
             }
@@ -56,7 +60,7 @@ public class Bullet_HitCollder : HitColider
                     {
                         this.gameObject.GetComponent<BulletCtrl>().StopMove();
 
-                        float attackPower = this.gameObject.GetComponent<BulletCtrl>().Get_ShootingForce();
+                        float attackPower = this.gameObject.GetComponent<BulletCtrl>().addForce;
                         
                         Vector2 incomingVector = this.gameObject.transform.position - other.transform.position;
                         Vector2 normalVector = other.gameObject.GetComponent<WallCtrl>().Direction;
@@ -82,9 +86,11 @@ public class Bullet_HitCollder : HitColider
                     }
                 }
                 
-                // owner와 같은 총알이라면
+                // 맞은 대상이 owner, 총알이 맞거나
                 else if(other.gameObject.GetComponent<Entity>() == owner || other.gameObject.GetComponent<BulletCtrl>() ) {}
             
+                else if(this.gameObject.GetComponent<BulletCtrl>().Get_IsPlayerParring()) {}
+                
                 else
                     this.gameObject.GetComponent<BulletCtrl>().BrokenBullet();
             }

@@ -135,8 +135,8 @@ public abstract class Boss : MonoBehaviour
                 if (bossHP_per >= 0.5f)
                     iBossSkill = Random.Range((int)Boss_State.State.p1_Skill1, (int)Boss_State.State.p1_Skill2 + 1);
                 else
-                    iBossSkill = Random.Range((int)Boss_State.State.p2_Skill1, (int)Boss_State.State.p2_Skill3);
-                iBossSkill = 4;
+                    iBossSkill = Random.Range((int)Boss_State.State.p2_Skill1, (int)Boss_State.State.p2_Skill3 + 1);
+                //iBossSkill = 6;
                 
                 sBossSkill = Change_IntToState(iBossSkill, ref skillDist);
                 isSelectSkill = true;

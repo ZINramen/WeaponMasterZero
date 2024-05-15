@@ -68,10 +68,20 @@ public class GunBoss : Boss
     #endregion
 
     #region p2_Skill3_변수 모음
-    [SerializeField] private Transform P2Skill3_SponMaxYPos;
-    [SerializeField] private float p2S2_BulletInterval = 1f;
+    [SerializeField] private Transform P2Skill3_SponMaxPos;
+    [SerializeField] private int p2S3_BulletTotalCount = 8;
+    [SerializeField] private float p2S3_SponMinYpos;
+    [SerializeField] private GameObject p2S3_Plate;
     
+    [SerializeField] private int p2S3_AttackTotalCount;
+    private int p2S3_AttackCount;
     
+    [SerializeField] private float p2S3_delayTime;
+    [SerializeField] private float p2S3_BulletSpeed;
+    private float p2S3_delayCount;
+    private bool isReady_P2S3;
+
+    private float interval_Ypos;
     #endregion
     
     // Start is called before the first frame update
@@ -80,18 +90,21 @@ public class GunBoss : Boss
         base.Start();
         bossState = new Boss_State();
         Init_StateValueData(ref bossState);
-
-        signAttDelayTime = (signSpon_DelayTime * totalsignCount) + 0.5f;
         bossType = BossType.Gun;
-        selectedTurn_State.Add(Boss_State.State.p1_Skill2);
-        videoEffect.gameObject.SetActive(false);
+
+        signAttDelayTime = (signSpon_DelayTime * totalsignCount) + 0.5f;    // 표식 생성 p1s1
+        selectedTurn_State.Add(Boss_State.State.p1_Skill2);             // 다이너마이트 p1s2 스킬 도중 회전 가능
+        videoEffect.gameObject.SetActive(false);                            // 비디오 비활성화 p2s2, p2s3
+        p2S3_Plate.gameObject.SetActive(false);
+        
+        interval_Ypos = (P2Skill3_SponMaxPos.position.y - p2S3_SponMinYpos) / p2S3_BulletTotalCount;
     }
 
     protected override void Init_StateValueData(ref Boss_State state)
     {
         state.defaultAtt_dist = 1f;
 
-        state.skill_CoolTime = 1.0f;
+        state.skill_CoolTime = 5.0f;
     
         state.p1_Skill1_dist = 5000f;
         state.p1_Skill2_dist = 4.5f;
@@ -228,11 +241,68 @@ public class GunBoss : Boss
     #endregion
     
     #region p2_Skill3_함수
-    public void Attack_P2Skill3()
+    public void Set_AttackSetting_P2S3()
     {
-        //for(int i = 0 ; )
+        isReady_P2S3 = true;
+        this.gameObject.GetComponent<Rigidbody2D>().simulated = false;
+        p2S3_Plate.gameObject.SetActive(true);
     }
     
+    public void Attack_P2Skill3()
+    {
+        Debug.Log("Attack!!");
+        
+        // 총알의 갯수가 p2S3_BulletTotalCount라면, p2S3_BulletTotalCount - 1인덱스까지 존재
+        // 따라서, 0 ~ p2S3_BulletTotalCount - 2의 랜덤인 값을 받아와야함
+        int randomPassIndex = Random.Range(0, p2S3_BulletTotalCount - 1);
+        
+        SponP2Skill3_Bullet(interval_Ypos, randomPassIndex);
+    }
+
+    private void SponP2Skill3_Bullet(float interVal_YPos, int randomPassIndex)
+    {
+        for (int i = 0; i < p2S3_BulletTotalCount; i++)
+        {
+            Vector3 SponPos = P2Skill3_SponMaxPos.position;
+            SponPos.y = P2Skill3_SponMaxPos.position.y - (i * interVal_YPos);
+            
+            if (i == randomPassIndex)
+            {
+                BulletSetting(Instantiate(Parrying_BulletPref, SponPos, Quaternion.identity));
+                
+                SponPos.y -= interVal_YPos;
+                BulletSetting(Instantiate(Parrying_BulletPref, SponPos, Quaternion.identity));
+                
+                i ++;
+                continue;
+            }
+
+            BulletSetting(Instantiate(General_BulletPref, SponPos, Quaternion.identity));
+        }
+    }
+
+    private void BulletSetting(GameObject installBullet)
+    {
+        if (installBullet.GetComponent<BulletCtrl>().bulletType == BulletCtrl.BulletType.Parring)
+        {
+            installBullet.GetComponent<BulletCtrl>().wallParringHP = 0;
+        }
+
+        installBullet.GetComponent<Bullet_HitCollder>().owner = this.gameObject.GetComponent<Entity>();
+        installBullet.GetComponent<BulletCtrl>().SetDeleteTime(6f);
+        installBullet.GetComponent<BulletCtrl>().addForce = p2S3_BulletSpeed;
+    }
+
+    private void End_P2Skill3()
+    {
+        isReady_P2S3 = false;
+        p2S3_AttackCount = 0;
+        
+        animCtrl.SetBool("isAppear_p2s3", true);
+        
+        p2S3_Plate.gameObject.SetActive(false);
+        this.gameObject.GetComponent<Rigidbody2D>().simulated = true;
+    }
     #endregion
 
     protected override void EachBoss_UpdateSetting()
@@ -248,6 +318,23 @@ public class GunBoss : Boss
                 signSpon_WaitTime = 0;
                 signCount++;
             }
+        }
+
+        if (isReady_P2S3 && p2S3_AttackCount < p2S3_AttackTotalCount)
+        {
+            p2S3_delayCount += Time.deltaTime;
+
+            if (p2S3_delayCount >= p2S3_delayTime)
+            {
+                Attack_P2Skill3();
+
+                p2S3_delayCount = 0;
+                p2S3_AttackCount++;
+            }
+        }
+        else if (p2S3_AttackCount >= p2S3_AttackTotalCount)
+        {
+            Invoke("End_P2Skill3", 1f);
         }
     }
 
@@ -265,15 +352,7 @@ public class GunBoss : Boss
         }
     }
     
-    #region 히트 박스 생성 및 삭제
-    protected override void EachBoss_OnHitSetting()
-    {
-    }
-
-    protected override void EachBoss_OffHitSetting()
-    {
-    }
-    
+    #region 엔드 세팅
     protected override void EachBoss_EndAttack()
     {
         isSelect_DAttType = false;
@@ -281,6 +360,7 @@ public class GunBoss : Boss
 
     public override void EachBoss_EndSkill()
     {
+        animCtrl.SetBool("isAppear_p2s3", false);
         isSelect_DAttType = false;
     }
     #endregion
