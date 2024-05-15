@@ -23463,6 +23463,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 323fb73650ca8eb41a50333343367f31, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  currentWeapon: 0
   skills:
   - Gun
   - Sword
@@ -25400,6 +25401,10 @@ PrefabInstance:
     - target: {fileID: 6742957321019227575, guid: e2f03ac0e90d84f4083d3f9121ad8f5f, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8420422611764709252, guid: e2f03ac0e90d84f4083d3f9121ad8f5f, type: 3}
+      propertyPath: currentWeapon
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

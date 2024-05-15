@@ -5,11 +5,14 @@ using UnityEngine;
 public class SkillManager : MonoBehaviour
 {
     Entity owner;
+    public int currentWeapon = 0;
     public string[] skills = new string[6];
     public bool infinite = false;
     private void Start()
     {
         owner = GetComponent<Entity>();
+        if(owner)
+            owner.aManager.ani.SetInteger("Weapon", currentWeapon);
     }
 
     private void Update()
