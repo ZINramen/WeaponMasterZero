@@ -2373,7 +2373,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1084042844
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3742,7 +3742,6 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 1760433260}
   - {fileID: 1084042854}
   - {fileID: 1434633794}
   m_Father: {fileID: 0}
@@ -6118,11 +6117,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1664708757}
   m_CullTransparentMesh: 1
---- !u!4 &1760433260 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 6742957321019227575, guid: e2f03ac0e90d84f4083d3f9121ad8f5f, type: 3}
-  m_PrefabInstance: {fileID: 6068906719980948821}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1766757476
 GameObject:
   m_ObjectHideFlags: 0
@@ -25361,7 +25355,7 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 1330374400}
+    m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 6227755902309650506, guid: e2f03ac0e90d84f4083d3f9121ad8f5f, type: 3}
       propertyPath: m_Name
@@ -25369,15 +25363,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6742957321019227575, guid: e2f03ac0e90d84f4083d3f9121ad8f5f, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.34069678
+      value: -0.34
       objectReference: {fileID: 0}
     - target: {fileID: 6742957321019227575, guid: e2f03ac0e90d84f4083d3f9121ad8f5f, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.042797565
+      value: -0.389
       objectReference: {fileID: 0}
     - target: {fileID: 6742957321019227575, guid: e2f03ac0e90d84f4083d3f9121ad8f5f, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.0045098336
+      value: -0.003920165
       objectReference: {fileID: 0}
     - target: {fileID: 6742957321019227575, guid: e2f03ac0e90d84f4083d3f9121ad8f5f, type: 3}
       propertyPath: m_LocalRotation.w
@@ -38901,4 +38895,5 @@ SceneRoots:
   m_Roots:
   - {fileID: 1077428866}
   - {fileID: 163133269}
+  - {fileID: 6068906719980948821}
   - {fileID: 1330374400}

@@ -56,7 +56,6 @@ public class AISystem : MonoBehaviour
         if (Mathf.Abs(owner.ai.player.transform.position.x - transform.position.x) < 1)
         {
             move.h = 0;
-            move.body.velocity = Vector2.zero;
             if (WalkName != "")
             {
                 am.SetBool(WalkName, false);
