@@ -8,16 +8,18 @@ public class DialogueBubbleBehaviour : PlayableBehaviour
 {
     public string text;
     public string objectName;
-    private GameObject fancySpeechBubble;
+    private GameObject fancySpeechBubbleCanvas;
 
     public override void OnBehaviourPlay(Playable playable, FrameData info)
     {
-        fancySpeechBubble = GameObject.Find(objectName);
-
-        if (fancySpeechBubble != null)
+        fancySpeechBubbleCanvas = GameObject.Find(objectName).transform.GetChild(0).gameObject;
+        
+        if (fancySpeechBubbleCanvas != null)
         {
             // Enable the fancySpeechBubble GameObject
-            fancySpeechBubble.SetActive(true);
+            fancySpeechBubbleCanvas.SetActive(true);
+            
+            GameObject fancySpeechBubble = fancySpeechBubbleCanvas.transform.GetChild(0).gameObject.transform.GetChild(0).gameObject;
 
             if(fancySpeechBubble.GetComponent<FancySpeechBubble>() == null)
             {
@@ -31,7 +33,16 @@ public class DialogueBubbleBehaviour : PlayableBehaviour
         }
         else
         {
-            //Debug.LogError("FancySpeechBubble is not found in the scene");
+            Debug.LogError("FancySpeechBubble is not found in the scene");
+        }
+    }
+
+    public override void OnBehaviourPause(Playable playable, FrameData info)
+    {
+        if (fancySpeechBubbleCanvas != null)
+        {
+            // Disable the fancySpeechBubble GameObject
+            fancySpeechBubbleCanvas.SetActive(false);
         }
     }
 }

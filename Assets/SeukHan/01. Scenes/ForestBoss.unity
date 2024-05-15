@@ -137,7 +137,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6227755902309650506, guid: e2f03ac0e90d84f4083d3f9121ad8f5f, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6742957321019227575, guid: e2f03ac0e90d84f4083d3f9121ad8f5f, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1615,6 +1615,8 @@ MonoBehaviour:
   attackForce: 5
   thrustValue: 0.5
   owner: {fileID: 1537034726}
+  isAbleDestroy: 0
+  DestroyEffect: {fileID: 0}
 --- !u!212 &277290201
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1764,6 +1766,8 @@ MonoBehaviour:
   attackForce: 5
   thrustValue: 5
   owner: {fileID: 1537034726}
+  isAbleDestroy: 0
+  DestroyEffect: {fileID: 0}
 --- !u!212 &323358450
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1913,6 +1917,8 @@ MonoBehaviour:
   attackForce: 5
   thrustValue: 5
   owner: {fileID: 1537034726}
+  isAbleDestroy: 0
+  DestroyEffect: {fileID: 0}
 --- !u!212 &376986769
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1995,7 +2001,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &384542133
 Transform:
   m_ObjectHideFlags: 0
@@ -2224,7 +2230,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 7
+  orthographic size: 3
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -2402,19 +2408,15 @@ PlayableDirector:
   - key: {fileID: -4993795028563929157, guid: 61f209869a90120498d9d6c96c05436c, type: 2}
     value: {fileID: 223644149}
   - key: {fileID: -7383204243012221339, guid: 61f209869a90120498d9d6c96c05436c, type: 2}
-    value: {fileID: 0}
+    value: {fileID: 1537034720}
   - key: {fileID: 7749442151781917782, guid: 61f209869a90120498d9d6c96c05436c, type: 2}
     value: {fileID: 636824692}
   - key: {fileID: -8149965333028683571, guid: 61f209869a90120498d9d6c96c05436c, type: 2}
     value: {fileID: 1579347182}
-  - key: {fileID: 4766446673208935538, guid: 61f209869a90120498d9d6c96c05436c, type: 2}
-    value: {fileID: 1441297602}
   - key: {fileID: 315787909557563794, guid: 61f209869a90120498d9d6c96c05436c, type: 2}
     value: {fileID: 636824689}
   - key: {fileID: -3536599793227875429, guid: 61f209869a90120498d9d6c96c05436c, type: 2}
     value: {fileID: 1579347179}
-  - key: {fileID: 1397400864665720657, guid: 61f209869a90120498d9d6c96c05436c, type: 2}
-    value: {fileID: 586702308}
   m_ExposedReferences:
     m_References:
     - 6b25f60e85fc329499510d6fd585585c: {fileID: 1736784178}
@@ -2439,11 +2441,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 384542133}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &586702308 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4664260752367326556, guid: 06e48d987e62bf64fa4daecced7985ac, type: 3}
-  m_PrefabInstance: {fileID: 443023628}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &636824689
 GameObject:
   m_ObjectHideFlags: 0
@@ -2881,6 +2878,8 @@ MonoBehaviour:
   attackForce: 5
   thrustValue: 5
   owner: {fileID: 1537034726}
+  isAbleDestroy: 0
+  DestroyEffect: {fileID: 0}
 --- !u!212 &1051820862
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3250,6 +3249,8 @@ MonoBehaviour:
   attackForce: 5
   thrustValue: 0.5
   owner: {fileID: 1537034726}
+  isAbleDestroy: 0
+  DestroyEffect: {fileID: 0}
 --- !u!212 &1433906544
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3317,11 +3318,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1537034730}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1441297602 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4664260752367326556, guid: 06e48d987e62bf64fa4daecced7985ac, type: 3}
-  m_PrefabInstance: {fileID: 1888886059}
-  m_PrefabAsset: {fileID: 0}
 --- !u!224 &1448584151 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 2461925021502211775, guid: 06e48d987e62bf64fa4daecced7985ac, type: 3}
@@ -3351,7 +3347,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!82 &1537034721
 AudioSource:
   m_ObjectHideFlags: 0
@@ -3461,6 +3457,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   owner: {fileID: 1537034726}
+  h: 0
+  body: {fileID: 0}
   speed: 5
   super: 0
   JumpPower: 5
@@ -3573,6 +3571,9 @@ MonoBehaviour:
   attackPos: {fileID: 0}
   attackLength: 0
   isDie: 0
+  OnDie:
+    m_PersistentCalls:
+      m_Calls: []
   flyingAttackForce: 0
   flyingDamagedPower: 0
   aManager: {fileID: 0}
@@ -3580,6 +3581,7 @@ MonoBehaviour:
   currentCombo: 0
   maxcombo: 10
   ComboUI: {fileID: 2320536752282502563, guid: 02f78935d275c27478963ecf2e2006de, type: 3}
+  isDamaged: 0
   HitEffect: {fileID: 5302201665987482517, guid: 10ecd86e54fbd744baa1f69bb0995cc2, type: 3}
   StrongHitEffect: {fileID: 5942996768073886119, guid: a1a7b4ac36c2cac4690161d6213c9499, type: 3}
   HitTextEffect: {fileID: 8229482444463616188, guid: 67ebec0b8db95af4080e234f6cc20919, type: 3}
@@ -3989,6 +3991,8 @@ MonoBehaviour:
   attackForce: 5
   thrustValue: 0.5
   owner: {fileID: 1537034726}
+  isAbleDestroy: 0
+  DestroyEffect: {fileID: 0}
 --- !u!212 &1687431769
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -4147,6 +4151,10 @@ PrefabInstance:
     - target: {fileID: 1912221198911056468, guid: 06e48d987e62bf64fa4daecced7985ac, type: 3}
       propertyPath: m_Name
       value: DialogueCanvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 1912221198911056468, guid: 06e48d987e62bf64fa4daecced7985ac, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2461925021502211775, guid: 06e48d987e62bf64fa4daecced7985ac, type: 3}
       propertyPath: m_Pivot.x
@@ -4519,6 +4527,8 @@ MonoBehaviour:
   attackForce: 5
   thrustValue: 5
   owner: {fileID: 1537034726}
+  isAbleDestroy: 0
+  DestroyEffect: {fileID: 0}
 --- !u!212 &2066929700
 SpriteRenderer:
   m_ObjectHideFlags: 0

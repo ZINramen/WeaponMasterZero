@@ -19,7 +19,7 @@ public class HitColider : MonoBehaviour
     {
         if (isAbleDestroy)
         {
-            if (!other.GetComponent<Entity>() && !other.GetComponent<HitColider>() || other.CompareTag("Player"))
+            if (!other.GetComponent<Entity>() && !other.GetComponent<HitColider>() && !other.CompareTag("Camera") || other.CompareTag("Player"))
             {
                 Debug.Log(other.gameObject);
                 if (DestroyEffect)
