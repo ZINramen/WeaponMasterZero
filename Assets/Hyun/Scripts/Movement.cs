@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Movement : MonoBehaviour
 {
+    public GameObject boss;
     public Entity owner;
 
     [HideInInspector]
@@ -48,6 +49,7 @@ public class Movement : MonoBehaviour
     // Start is called before the first frame update
     void Awake()
     {
+        boss = GameObject.FindWithTag("Boss");
         Application.targetFrameRate = 60;
         body = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
@@ -129,9 +131,12 @@ public class Movement : MonoBehaviour
     }
     public void SetMovementForceX(float x)
     {
-        int plus = 1;
-        if (transform.localEulerAngles.y == 180) plus = -1;
-        body.AddForce(new Vector2(x * 100 * plus, 0));
+        if (!boss)
+        {
+            int plus = 1;
+            if (transform.localEulerAngles.y == 180) plus = -1;
+            body.AddForce(new Vector2(x * 100 * plus, 0));
+        }
     }
     public void SetThrustForceX(float x)
     {        
