@@ -127,8 +127,10 @@ public class Entity : MonoBehaviour
             isDie = true;
             if (ai)
                 ai.enabled = false;
-            if(tag != "Player")
+            if (!CompareTag("Player") || !CompareTag("Player"))
+            {
                 Destroy(gameObject, 5);
+            }
             OnDie.Invoke();
         }
     }
