@@ -22,12 +22,13 @@ public class HitColider : MonoBehaviour
     
     public bool isAbleDestroy = false;
     public GameObject DestroyEffect;
-    
+
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (isAbleDestroy)
         {
-            if (!other.GetComponent<Entity>() && !other.GetComponent<HitColider>() && !other.CompareTag("Camera") || other.CompareTag("Player"))
+            if (!other.GetComponent<Entity>() && !other.GetComponent<HitColider>() && !other.CompareTag("Camera") ||
+                other.CompareTag("Player"))
             {
                 Debug.Log(other.gameObject);
                 if (DestroyEffect)
@@ -35,9 +36,9 @@ public class HitColider : MonoBehaviour
                 Destroy(gameObject);
             }
         }
-        
+
         Entity entity = other.GetComponent<Entity>();
-        
+
         // 보스에게 피격할 시, 날라가는 힘을 없앰
         if (other.gameObject.tag == "Boss" && other.gameObject.GetComponent<Entity>().GetHp() > 0)
         {
@@ -53,31 +54,33 @@ public class HitColider : MonoBehaviour
 
         EachObj_HitSetting(other);
 
-        if(entity)
-        if((owner.tag == "Player" && entity.tag != "Player") || (owner.tag != "Player" && entity.tag == "Player")) 
+        if (entity && owner)
         {
-            if (telp) 
+            if ((owner.tag == "Player" && entity.tag != "Player") || (owner.tag != "Player" && entity.tag == "Player"))
             {
-                owner.transform.position = entity.transform.position + (owner.transform.right*0.01f);
-                if(owner.transform.localEulerAngles.y != 0) 
-                    owner.transform.localEulerAngles = new Vector3(0,0,0);
-                else
-                    owner.transform.localEulerAngles = new Vector3(0,-180,0);
-                    Destroy(gameObject);
-            }
-            else
-            {
-                entity.stun = stunTarget;
-                entity.flyingDamagedPower = flyingAttackForce;
-                if (owner && owner.transform.localEulerAngles.y == 180)
+                if (telp)
                 {
-                    if(!owner || owner.movement.PlayerType || entity.movement.PlayerType)
-                        entity.Damaged(attackForce, (-attackForce) * thrustValue);
+                    owner.transform.position = entity.transform.position + (owner.transform.right * 0.01f);
+                    if (owner.transform.localEulerAngles.y != 0)
+                        owner.transform.localEulerAngles = new Vector3(0, 0, 0);
+                    else
+                        owner.transform.localEulerAngles = new Vector3(0, -180, 0);
+                    Destroy(gameObject);
                 }
                 else
                 {
-                    if (!owner || owner.movement.PlayerType || entity.movement.PlayerType)
-                        entity.Damaged(attackForce, attackForce * thrustValue);
+                    entity.stun = stunTarget;
+                    entity.flyingDamagedPower = flyingAttackForce;
+                    if (owner && owner.transform.localEulerAngles.y == 180)
+                    {
+                        if (!owner || owner.movement.PlayerType || entity.movement.PlayerType)
+                            entity.Damaged(attackForce, (-attackForce) * thrustValue);
+                    }
+                    else
+                    {
+                        if (!owner || owner.movement.PlayerType || entity.movement.PlayerType)
+                            entity.Damaged(attackForce, attackForce * thrustValue);
+                    }
                 }
             }
         }

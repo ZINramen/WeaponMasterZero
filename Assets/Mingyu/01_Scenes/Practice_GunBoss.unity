@@ -446,6 +446,8 @@ MonoBehaviour:
   thrustValue: 15
   owner: {fileID: 819132794}
   attType: 0
+  isAbleDestroy: 0
+  DestroyEffect: {fileID: 0}
 --- !u!212 &133789219
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -778,6 +780,10 @@ PrefabInstance:
     - target: {fileID: 7077345072119766241, guid: e2f03ac0e90d84f4083d3f9121ad8f5f, type: 3}
       propertyPath: m_Enabled
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8420422611764709252, guid: e2f03ac0e90d84f4083d3f9121ad8f5f, type: 3}
+      propertyPath: currentWeapon
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1540,6 +1546,9 @@ MonoBehaviour:
   attackPos: {fileID: 0}
   attackLength: 0
   isDie: 0
+  OnDie:
+    m_PersistentCalls:
+      m_Calls: []
   flyingAttackForce: 0
   flyingDamagedPower: 0
   aManager: {fileID: 0}
@@ -1547,6 +1556,7 @@ MonoBehaviour:
   currentCombo: 0
   maxcombo: 10
   ComboUI: {fileID: 2320536752282502563, guid: 02f78935d275c27478963ecf2e2006de, type: 3}
+  isDamaged: 0
   HitEffect: {fileID: 5302201665987482517, guid: 10ecd86e54fbd744baa1f69bb0995cc2, type: 3}
   StrongHitEffect: {fileID: 5942996768073886119, guid: a1a7b4ac36c2cac4690161d6213c9499, type: 3}
   HitTextEffect: {fileID: 8229482444463616188, guid: 67ebec0b8db95af4080e234f6cc20919, type: 3}
@@ -1667,6 +1677,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   owner: {fileID: 819132794}
+  h: 0
+  body: {fileID: 0}
   speed: 5
   super: 0
   JumpPower: 5
@@ -2509,6 +2521,8 @@ MonoBehaviour:
   thrustValue: -0.5
   owner: {fileID: 0}
   attType: 0
+  isAbleDestroy: 0
+  DestroyEffect: {fileID: 0}
 --- !u!212 &1346745383
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3069,6 +3083,8 @@ MonoBehaviour:
   thrustValue: 3
   owner: {fileID: 819132794}
   attType: 0
+  isAbleDestroy: 0
+  DestroyEffect: {fileID: 0}
 --- !u!212 &1758612920
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3344,6 +3360,8 @@ MonoBehaviour:
   thrustValue: 15
   owner: {fileID: 819132794}
   attType: 0
+  isAbleDestroy: 0
+  DestroyEffect: {fileID: 0}
 --- !u!212 &1841850087
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3943,6 +3961,9 @@ MonoBehaviour:
   attackPos: {fileID: 0}
   attackLength: 0
   isDie: 0
+  OnDie:
+    m_PersistentCalls:
+      m_Calls: []
   flyingAttackForce: 0
   flyingDamagedPower: 0
   aManager: {fileID: 0}
@@ -3950,6 +3971,7 @@ MonoBehaviour:
   currentCombo: 0
   maxcombo: 20
   ComboUI: {fileID: 2320536752282502563, guid: 02f78935d275c27478963ecf2e2006de, type: 3}
+  isDamaged: 0
   HitEffect: {fileID: 5302201665987482517, guid: 10ecd86e54fbd744baa1f69bb0995cc2, type: 3}
   StrongHitEffect: {fileID: 5942996768073886119, guid: a1a7b4ac36c2cac4690161d6213c9499, type: 3}
   HitTextEffect: {fileID: 8229482444463616188, guid: 67ebec0b8db95af4080e234f6cc20919, type: 3}
@@ -4110,6 +4132,9 @@ MonoBehaviour:
   attackPos: {fileID: 0}
   attackLength: 0
   isDie: 0
+  OnDie:
+    m_PersistentCalls:
+      m_Calls: []
   flyingAttackForce: 0
   flyingDamagedPower: 0
   aManager: {fileID: 1089051597188749853}
@@ -4117,6 +4142,7 @@ MonoBehaviour:
   currentCombo: 0
   maxcombo: 10
   ComboUI: {fileID: 2320536752282502563, guid: 02f78935d275c27478963ecf2e2006de, type: 3}
+  isDamaged: 0
   HitEffect: {fileID: 5302201665987482517, guid: 10ecd86e54fbd744baa1f69bb0995cc2, type: 3}
   StrongHitEffect: {fileID: 5942996768073886119, guid: a1a7b4ac36c2cac4690161d6213c9499, type: 3}
   HitTextEffect: {fileID: 8229482444463616188, guid: 67ebec0b8db95af4080e234f6cc20919, type: 3}
@@ -4325,6 +4351,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   owner: {fileID: 0}
+  h: 0
+  body: {fileID: 0}
   speed: 5
   super: 0
   JumpPower: 5

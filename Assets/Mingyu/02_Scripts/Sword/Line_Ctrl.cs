@@ -102,6 +102,13 @@ public class Line_Ctrl : MonoBehaviour
             elapsedTime += Time.unscaledDeltaTime;
             yield return null;
         }
+        
+        if (elapsedTime > animationDuration)
+        {
+            lineRenderer.SetPosition(0, startPos);
+            lineRenderer.SetPosition(1, endPos);
+            edge_Coll.SetPoints(Line_Position_List);
+        }
     }
 
     public void On_Collider()

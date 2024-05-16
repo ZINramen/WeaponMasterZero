@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1670001147546924399}
   - component: {fileID: 952762988178613207}
+  - component: {fileID: 2316351599133693590}
   m_Layer: 0
   m_Name: KakaoTalk_20240514_150449743
   m_TagString: Untagged
@@ -84,6 +85,38 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &2316351599133693590
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4637423366181962927}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d8edf2d55ca588547881b7472e926510, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_TrailName: SlimeChim
+  m_CurrentTrailPreset: {fileID: 11400000, guid: d968958ed89df2d4ea068fe4a5a29077, type: 2}
+  m_TrailParent: {fileID: 0}
+  m_SpriteToDuplicate: {fileID: 952762988178613207}
+  m_Layer: 0
+  m_ZMoveStep: 0.05
+  m_ZMoveMax: 0.99
+  m_HideTrailOnDisabled: 1
+  m_TrailActivationCondition: 0
+  m_TrailDeactivationCondition: 0
+  m_StartIfUnderVelocity: 0
+  m_VelocityStartIsLocalSpace: 0
+  m_VelocityNeededToStart: 0
+  m_StopIfOverVelocity: 0
+  m_VelocityStopIsLocalSpace: 0
+  m_VelocityNeededToStop: 0
+  m_TrailActivationDuration: 0
+  m_SortingLayerID: 0
+  m_OrderInSortingLayer: 0
+  m_DisabledElementsInTrail: []
 --- !u!1 &5833869227801868694
 GameObject:
   m_ObjectHideFlags: 0
@@ -224,5 +257,6 @@ MonoBehaviour:
   attackForce: 10
   thrustValue: 0.5
   owner: {fileID: 0}
+  attType: 0
   isAbleDestroy: 1
   DestroyEffect: {fileID: 5833869227801868694, guid: 2c1fb965dc1d25640b30c38202fe7773, type: 3}
