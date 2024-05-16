@@ -23,22 +23,6 @@ public class FancySpeechBubble : MonoBehaviour
         StopAllCoroutines();
         StartCoroutine(SetRoutine(text));
     }
-
-    private void OnEnable()
-    {
-        if (!string.IsNullOrEmpty(_rawText))
-        {
-            Set(_rawText);
-        }
-    }
-
-    private void OnDisable()
-    {
-        if (transform.parent != null)
-        {
-            transform.parent.gameObject.SetActive(false);
-        }
-    }
     
     public IEnumerator SetRoutine(string text)
     {
