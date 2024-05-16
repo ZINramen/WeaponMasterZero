@@ -127,7 +127,8 @@ public class Entity : MonoBehaviour
             isDie = true;
             if (ai)
                 ai.enabled = false;
-            if (!CompareTag("Player") || !CompareTag("Player"))
+            
+            if (CompareTag("Player") == false && CompareTag("Boss") == false)
             {
                 Destroy(gameObject, 5);
             }

@@ -650,6 +650,13 @@ AnimationClip:
   m_HasGenericRootTransform: 1
   m_HasMotionFloatCurves: 0
   m_Events:
+  - time: 0.16666667
+    functionName: PlaySound
+    data: 
+    objectReferenceParameter: {fileID: 8300000, guid: d1738a35fdfcb45a094a445389908a29, type: 3}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
   - time: 0.75
     functionName: SetPos_P2S2
     data: 
@@ -661,6 +668,13 @@ AnimationClip:
     functionName: On_HitArea
     data: 
     objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 2.5
+    functionName: PlaySound
+    data: 
+    objectReferenceParameter: {fileID: 8300000, guid: fd9d248a3c1eb4958b503bdaedd3e579, type: 3}
     floatParameter: 0
     intParameter: 0
     messageOptions: 0

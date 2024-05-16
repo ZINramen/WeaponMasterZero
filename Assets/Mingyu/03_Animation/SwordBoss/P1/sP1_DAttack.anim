@@ -287,6 +287,13 @@ AnimationClip:
   m_HasGenericRootTransform: 1
   m_HasMotionFloatCurves: 0
   m_Events:
+  - time: 0.5
+    functionName: PlaySound
+    data: 
+    objectReferenceParameter: {fileID: 8300000, guid: 6b6d69cac4e42bb4784e6eb360b2493b, type: 3}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
   - time: 0.5833333
     functionName: On_HitArea
     data: 
@@ -298,6 +305,13 @@ AnimationClip:
     functionName: Off_HitArea
     data: 
     objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 1
+    functionName: PlaySound
+    data: 
+    objectReferenceParameter: {fileID: 8300000, guid: 0b399bdfafa1d0d4394f86ff548a550c, type: 3}
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
@@ -314,6 +328,13 @@ AnimationClip:
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 1
+    messageOptions: 0
+  - time: 2.0833333
+    functionName: PlaySound
+    data: 
+    objectReferenceParameter: {fileID: 8300000, guid: 496139ea0caebce4f8024de201f5f8e8, type: 3}
+    floatParameter: 0
+    intParameter: 0
     messageOptions: 0
   - time: 2.1666667
     functionName: On_HitArea
