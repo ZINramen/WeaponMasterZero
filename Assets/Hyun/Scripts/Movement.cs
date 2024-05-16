@@ -4,7 +4,10 @@ using UnityEngine;
 
 public class Movement : MonoBehaviour
 {
-    public GameObject boss;
+    GameObject boss;
+    public bool Alway;
+
+
     public Entity owner;
 
     [HideInInspector]
@@ -131,7 +134,7 @@ public class Movement : MonoBehaviour
     }
     public void SetMovementForceX(float x)
     {
-        if (!boss)
+        if (Alway || !boss)
         {
             int plus = 1;
             if (transform.localEulerAngles.y == 180) plus = -1;
