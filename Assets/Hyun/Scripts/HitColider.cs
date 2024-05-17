@@ -19,7 +19,6 @@ public class HitColider : MonoBehaviour
     }
     public AttackType attType = AttackType.none;
     
-    
     public bool isAbleDestroy = false;
     public GameObject DestroyEffect;
 

@@ -45,8 +45,13 @@ public abstract class Boss : MonoBehaviour
 {
     protected GameObject player;
     protected Vector2 player_pos;
-
+    
+    private float nextMove = 1;
+    private RaycastHit2D rayHit;
+    [SerializeField] private float groundApproachDist;
     public float move_Speed;
+    protected Rigidbody2D myRd;
+    
     protected Boss_State bossState;
     protected List<Boss_State.State> selectedTurn_State = new List<Boss_State.State>();
 
@@ -91,6 +96,9 @@ public abstract class Boss : MonoBehaviour
         player = GameObject.FindWithTag("Player").gameObject;
         origin_Mat = this.gameObject.GetComponent<SpriteRenderer>().material;
         
+        myRd = this.gameObject.GetComponent<Rigidbody2D>();
+        Move(-move_Speed, -1);
+        
         if (player != null)
         {
             player_pos = player.GetComponent<Transform>().position;
@@ -111,6 +119,13 @@ public abstract class Boss : MonoBehaviour
             UpdateSkillCooldown();
             EachBoss_UpdateSetting();
         }
+    }
+
+    public void MoveXPos(float x)
+    {
+        int plus = 1;
+        if (transform.localEulerAngles.y == 180) plus = -1;
+        myRd.AddForce(new Vector2(x * 100 * plus, 0));
     }
 
     private void UpdateState()
@@ -136,10 +151,12 @@ public abstract class Boss : MonoBehaviour
                     iBossSkill = Random.Range((int)Boss_State.State.p1_Skill1, (int)Boss_State.State.p1_Skill2 + 1);
                 else
                     iBossSkill = Random.Range((int)Boss_State.State.p2_Skill1, (int)Boss_State.State.p2_Skill3 + 1);
-                //iBossSkill = 1;
+
+                iBossSkill = 4; // Test
                 
                 sBossSkill = Change_IntToState(iBossSkill, ref skillDist);
-                sBossSkill = Boss_State.State.DefaultAtt;
+                Debug.Log("SkillName : " +  sBossSkill);
+                //sBossSkill = Boss_State.State.DefaultAtt; // Test
                 isSelectSkill = true;
             }
 
@@ -149,6 +166,8 @@ public abstract class Boss : MonoBehaviour
             }
             else
             {
+                myRd.velocity = Vector2.zero;
+                
                 bossState.currentState = sBossSkill;
                 bossState.isAttacking = true;
                 bossState.isSkillReady = false;
@@ -164,6 +183,8 @@ public abstract class Boss : MonoBehaviour
             }
             else
             {
+                myRd.velocity = Vector2.zero;
+                
                 bossState.currentState = Boss_State.State.DefaultAtt;
                 EachBoss_AttackSetting();
                 bossState.isAttacking = true;
@@ -177,20 +198,50 @@ public abstract class Boss : MonoBehaviour
         animCtrl.SetBool("isAttack", bossState.isAttacking);
         animCtrl.SetInteger("Attack_Type", (int)bossState.currentState);
 
-        if (bossState.currentState == Boss_State.State.trace ||
-            (selectedTurn_State.Count != 0 && selectedTurn_State.Contains(bossState.currentState) &&
-             !bossState.isStopTurn))
+        if (selectedTurn_State.Count != 0 && selectedTurn_State.Contains(bossState.currentState) &&
+            !bossState.isStopTurn)
         {
+            this.transform.rotation = Quaternion.Euler(0, this.transform.position.x > player_pos.x ? 0 : 180, 0);
+            Debug.Log("Turn N Role");
+        }
+
+        else if (bossState.currentState == Boss_State.State.trace)
+        {
+            Debug.Log("Move");
             this.transform.rotation = Quaternion.Euler(0, this.transform.position.x > player_pos.x ? 0 : 180, 0);
             MoveSetting();
         }
     }
 
+    // protected virtual void MoveSetting()
+    // {
+    //     Vector2 velo = Vector2.zero;
+    //     this.transform.position = Vector2.SmoothDamp(this.transform.position, player_pos,
+    //         ref velo, move_Speed);
+    // }
+    
     protected virtual void MoveSetting()
     {
-        Vector2 velo = Vector2.zero;
-        this.transform.position = Vector2.SmoothDamp(this.transform.position, player_pos,
-            ref velo, move_Speed);
+        nextMove = this.transform.position.x > player_pos.x ? -move_Speed : move_Speed;
+        
+        if (rayHit.collider != null)
+        {
+            Move(nextMove, nextMove > 0 ? 1 : -1);
+        }
+        else if(bossState.currentState == Boss_State.State.trace)
+        {
+            Move(0, nextMove > 0 ? 1 : -1);
+        }
+    }
+
+    private void Move(float inputNextMove, int turnValue)
+    {
+        myRd.velocity = new Vector2(inputNextMove, myRd.position.y);
+
+        Vector2 frontVec = new Vector2(myRd.position.x + turnValue * groundApproachDist, myRd.position.y - 0.5f);
+        Debug.DrawRay(frontVec, Vector3.down, new Color(0, 0, 1));      // #Test용
+        
+        rayHit = Physics2D.Raycast(frontVec, Vector3.down, 1f, LayerMask.GetMask("Ground"));
     }
 
     protected virtual void EachBoss_UpdateSetting() { }
@@ -252,7 +303,7 @@ public abstract class Boss : MonoBehaviour
     {
         float thrustValue;
         thrustValue = hitArea.gameObject.GetComponent<HitColider>().thrustValue;
-        thrustValue = thrustValue * (player_pos.x > this.transform.position.x ? 1 : -1);
+        thrustValue = -Mathf.Abs(thrustValue);
         
         hitArea.gameObject.GetComponent<HitColider>().thrustValue = thrustValue;
         ColliderType(hitArea);

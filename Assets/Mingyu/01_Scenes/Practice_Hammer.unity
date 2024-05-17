@@ -437,8 +437,8 @@ Transform:
   m_GameObject: {fileID: 305536746}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -15.64, y: 11.030001, z: 0}
-  m_LocalScale: {x: 1.9032701, y: 27, z: 1}
+  m_LocalPosition: {x: -19.36, y: 28.43, z: 0}
+  m_LocalScale: {x: 9, y: 91.8, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -904,8 +904,8 @@ Transform:
   m_GameObject: {fileID: 558118012}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 14.9, y: 10.58, z: 0}
-  m_LocalScale: {x: 1.9032701, y: 27, z: 1}
+  m_LocalPosition: {x: 18.4, y: 26.9, z: 0}
+  m_LocalScale: {x: 9, y: 91.8, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -1279,7 +1279,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 912a950953cb77347b4450b860d15bda, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  move_Speed: 0
+  groundApproachDist: 1
+  move_Speed: 2
   DA_HitArea:
   - {fileID: 1841850083}
   - {fileID: 1758612917}
@@ -1292,8 +1293,10 @@ MonoBehaviour:
   hit_Mat: {fileID: 2100000, guid: 9a312534a97aeb14e89b5c7cc149b470, type: 2}
   bossType: 2
   isDie: 0
-  groundApproachDist: 2
-  moveSpeed: 2
+  FallGrounds:
+  - {fileID: 211003908}
+  - {fileID: 184534951}
+  - {fileID: 1818052330}
 --- !u!1 &833820676
 GameObject:
   m_ObjectHideFlags: 0
@@ -1794,8 +1797,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   telp: 0
   stunTarget: 1
-  flyingAttackForce: 10
-  attackForce: 7
+  flyingAttackForce: 12
+  attackForce: 3
   thrustValue: 8
   owner: {fileID: 819132794}
   attType: 0
@@ -2583,8 +2586,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   telp: 0
   stunTarget: 1
-  flyingAttackForce: 7
-  attackForce: 5
+  flyingAttackForce: 10
+  attackForce: 3
   thrustValue: 5
   owner: {fileID: 819132794}
   attType: 0
@@ -2893,7 +2896,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   telp: 0
   stunTarget: 0
-  flyingAttackForce: 5
+  flyingAttackForce: 8
   attackForce: 3
   thrustValue: 3
   owner: {fileID: 819132794}

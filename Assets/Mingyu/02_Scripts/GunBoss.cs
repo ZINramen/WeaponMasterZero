@@ -167,6 +167,8 @@ public class GunBoss : Boss
         DynamitePref_dummyObj.GetComponent<DynamiteCtrl>().pDir = Mathf.Abs(this.transform.rotation.y) > 0
             ? DynamiteCtrl.playerDirection.right
             : DynamiteCtrl.playerDirection.left;
+
+        myRd.velocity = Vector2.zero;
     }
     
     public void AttackDynamite()

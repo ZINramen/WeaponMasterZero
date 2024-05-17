@@ -31,7 +31,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.89259684, y: 0.44602618, z: 0}
-  m_LocalScale: {x: 3, y: 3, z: 3}
+  m_LocalScale: {x: 4, y: 4, z: 4}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -124,8 +124,8 @@ MonoBehaviour:
   GunBoss: {fileID: 0}
   upForce: 5
   forwardForce: 6
-  minBoomTime: 0.3
-  maxBoomTime: 1.5
+  minBoomTime: 0.1
+  maxBoomTime: 0.3
   motionDelayTime: 0.05
   BoomObj: {fileID: 7079160049107878381, guid: 160285319227deb4197f550864474e5b, type: 3}
   pDir: 1

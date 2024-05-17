@@ -318,11 +318,12 @@ public class Entity : MonoBehaviour
                     Instantiate(ComboUI);
                 }
 
-                // 맞는 방향으로 회전
-                if (thrustValue < 0)
-                    transform.localEulerAngles = new Vector3(0, 0, 0);
-                else
-                    transform.localEulerAngles = new Vector3(0, 180, 0);
+                // 맞는 방향으로 회전, 보스 부분에서 맞게 되면, thrustValue가 0이기 때문에 회전하는 문제가 발생
+                // 해당 부분은 보스일 경우에는 발동하지 않도록 수정해야함 #Fix (일단은 주석처리함)
+                // if (thrustValue < 0)
+                //     transform.localEulerAngles = new Vector3(0, 0, 0);
+                // else
+                //     transform.localEulerAngles = new Vector3(0, 180, 0);
 
                 if (HitEffect && damageValue > 0)
                 {

@@ -87,6 +87,13 @@ public class SwordBoss : Boss
         state.p2_Skill3_dist = 5000f;
     }
     
+    protected override void MoveSetting()
+    {
+        Vector2 velo = Vector2.zero;
+        this.transform.position = Vector2.SmoothDamp(this.transform.position, player_pos,
+            ref velo, move_Speed);
+    }
+    
     // 이벤트 코드 부분
     #region 1p_Skill1 코드
     public void Make_GSkill()

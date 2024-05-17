@@ -4,14 +4,7 @@ using UnityEngine;
 
 public class HammerBoss : Boss
 {
-    #region 움직이는 것 관련 변수
-    private Rigidbody2D myRd;
-    private float nextMove = 1;
-    
     [SerializeField] private float groundApproachDist;
-    [SerializeField] private float moveSpeed;
-    private RaycastHit2D rayHit;
-    #endregion
     
     #region 평타 관련 변수 모음
     private bool isSelect_DAttType = false;
@@ -24,6 +17,12 @@ public class HammerBoss : Boss
     private bool isFullAtt;
     private int dAttType_int;
     #endregion
+
+    #region P1_Skill1
+    [SerializeField] private GameObject[] FallGrounds = new GameObject[3];
+    private int fallGround_index = 0;
+    private int fallGround_TotalCount = 3;
+    #endregion
     
     void Start()
     {
@@ -32,8 +31,6 @@ public class HammerBoss : Boss
         Init_StateValueData(ref bossState);
         
         bossType = BossType.Hammer;
-        myRd = this.gameObject.GetComponent<Rigidbody2D>();
-        Move(-moveSpeed, -1);
     }
     
     protected override void Init_StateValueData(ref Boss_State state)
@@ -50,30 +47,24 @@ public class HammerBoss : Boss
         state.p2_Skill3_dist = 5000f;
     }
 
-    protected override void MoveSetting()
+    #region P1_Skill1
+    public void Attack_P1S1(float x)
     {
-        nextMove = this.transform.position.x > player_pos.x ? -moveSpeed : moveSpeed;
-        Debug.Log("움직임");
+
         
-        if (rayHit.collider != null)
-        {
-            Move(nextMove, nextMove > 0 ? 1 : -1);
-        }
-        else
-        {
-            Move(0, nextMove > 0 ? 1 : -1);
-        }
+        FallGround(fallGround_index);
+        fallGround_index++;
     }
 
-    private void Move(float inputNextMove, int turnValue)
+    private void FallGround(int index)
     {
-        myRd.velocity = new Vector2(inputNextMove, myRd.position.y);
-
-        Vector2 frontVec = new Vector2(myRd.position.x + turnValue * groundApproachDist, myRd.position.y - 0.5f);
-        Debug.DrawRay(frontVec, Vector3.down, new Color(0, 0, 1));      // #Test용
+        if (index >= fallGround_TotalCount)
+            return;
         
-        rayHit = Physics2D.Raycast(frontVec, Vector3.down, 1f, LayerMask.GetMask("Ground"));
+        else if (FallGrounds[index].gameObject.activeSelf == true)
+            FallGrounds[index].gameObject.GetComponent<Animator>().SetBool("isFall", true);
     }
+    #endregion
     
     protected override void EachBoss_AttackSetting()
     {
@@ -84,6 +75,7 @@ public class HammerBoss : Boss
             dAttType_int = Random.Range((int)DAtt_Type.DefaultAtt, (int)DAtt_Type.FullAtt + 1);
             if (dAttType_int == (int)DAtt_Type.FullAtt) isFullAtt = true;
             else isFullAtt = false;
+            isFullAtt = true; // Test
 
             animCtrl.SetBool("isFullAtt", isFullAtt);
         }
