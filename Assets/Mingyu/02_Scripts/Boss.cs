@@ -171,21 +171,26 @@ public abstract class Boss : MonoBehaviour
         }
     }
 
-    protected virtual void UpdateAnimation()
+    private void UpdateAnimation()
     {
         animCtrl.SetBool("isTrace", bossState.currentState == Boss_State.State.trace);
         animCtrl.SetBool("isAttack", bossState.isAttacking);
         animCtrl.SetInteger("Attack_Type", (int)bossState.currentState);
-        
-        if (bossState.currentState == Boss_State.State.trace || 
-            (selectedTurn_State.Count != 0 &&  selectedTurn_State.Contains(bossState.currentState) && !bossState.isStopTurn  ))
+
+        if (bossState.currentState == Boss_State.State.trace ||
+            (selectedTurn_State.Count != 0 && selectedTurn_State.Contains(bossState.currentState) &&
+             !bossState.isStopTurn))
         {
             this.transform.rotation = Quaternion.Euler(0, this.transform.position.x > player_pos.x ? 0 : 180, 0);
-
-            Vector2 velo = Vector2.zero;
-            this.transform.position = Vector2.SmoothDamp(this.transform.position, player_pos,
-                ref velo, move_Speed);
+            MoveSetting();
         }
+    }
+
+    protected virtual void MoveSetting()
+    {
+        Vector2 velo = Vector2.zero;
+        this.transform.position = Vector2.SmoothDamp(this.transform.position, player_pos,
+            ref velo, move_Speed);
     }
 
     protected virtual void EachBoss_UpdateSetting() { }
