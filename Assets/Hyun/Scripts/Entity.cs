@@ -320,11 +320,13 @@ public class Entity : MonoBehaviour
                 }
 
                 // 맞는 방향으로 회전
-                if (thrustValue < 0)
-                    transform.localEulerAngles = new Vector3(0, 0, 0);
-                else
-                    transform.localEulerAngles = new Vector3(0, 180, 0);
-
+                if (!GameObject.CompareTag("Boss"))
+                {
+                    if (thrustValue < 0)
+                        transform.localEulerAngles = new Vector3(0, 0, 0);
+                    else
+                        transform.localEulerAngles = new Vector3(0, 180, 0);
+                }
                 if (HitEffect && damageValue > 0)
                 {
                     PlayHitEffect(damageValue);
