@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
+using UnityEditor.Build;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.UIElements;
@@ -46,9 +47,9 @@ public abstract class Boss : MonoBehaviour
     protected GameObject player;
     protected Vector2 player_pos;
     
-    private float nextMove = 1;
-    private RaycastHit2D rayHit;
-    [SerializeField] private float groundApproachDist;
+    protected float nextMove = 1;
+    protected RaycastHit2D rayHit;
+    [SerializeField] protected float groundApproachDist;
     public float move_Speed;
     protected Rigidbody2D myRd;
     
@@ -69,6 +70,7 @@ public abstract class Boss : MonoBehaviour
     private bool isSelectSkill = false;
     
     protected float skillDist;
+    protected bool isMoveEnd = false;
     
     #region 충돌 박스 변수 (외부 ref)
     [SerializeField] protected GameObject[] DA_HitArea;
@@ -77,7 +79,6 @@ public abstract class Boss : MonoBehaviour
     [SerializeField] protected GameObject[] P2Skill1_HitArea;
     [SerializeField] protected GameObject[] P2Skill2_HitArea;
     [SerializeField] protected GameObject[] P2Skill3_HitArea;
-    private int index = 0;
     #endregion
     
     protected Animator animCtrl;
@@ -119,13 +120,41 @@ public abstract class Boss : MonoBehaviour
             UpdateSkillCooldown();
             EachBoss_UpdateSetting();
         }
+
+        if (isMoveEnd)
+        {
+            StartCoroutine(StopMove());
+            isMoveEnd = false;
+        }
+            
     }
 
-    public void MoveXPos(float x)
+    protected IEnumerator StopMove()
     {
+        while (myRd.velocity.magnitude > 0.5f)
+        {
+            yield return new WaitForSeconds(0.5f);
+            myRd.velocity = Vector2.zero;
+        }
+    }
+
+    public void MoveXPos_Mingyu(float x)
+    {
+        x = EachBossMoveSetting(rayHit, x);
+        
         int plus = 1;
         if (transform.localEulerAngles.y == 180) plus = -1;
         myRd.AddForce(new Vector2(x * 100 * plus, 0));
+
+        isMoveEnd = true;
+    }
+
+    protected virtual float EachBossMoveSetting(RaycastHit2D rayHit, float x)
+    {
+        if (rayHit.collider == null)
+            return 0f;
+
+        return x;
     }
 
     private void UpdateState()
@@ -152,7 +181,7 @@ public abstract class Boss : MonoBehaviour
                 else
                     iBossSkill = Random.Range((int)Boss_State.State.p2_Skill1, (int)Boss_State.State.p2_Skill3 + 1);
 
-                iBossSkill = 4; // Test
+                iBossSkill = (int)Boss_State.State.p1_Skill2; // Test
                 
                 sBossSkill = Change_IntToState(iBossSkill, ref skillDist);
                 Debug.Log("SkillName : " +  sBossSkill);
@@ -233,7 +262,7 @@ public abstract class Boss : MonoBehaviour
         }
     }
 
-    private void Move(float inputNextMove, int turnValue)
+    protected void Move(float inputNextMove, int turnValue)
     {
         myRd.velocity = new Vector2(inputNextMove, myRd.position.y);
 
@@ -264,7 +293,6 @@ public abstract class Boss : MonoBehaviour
     #region 히트 박스 생성 및 삭제
     public void On_HitArea(int index)
     {
-        float thrustValue;
         if (DA_HitArea.Length != 0 && bossState.currentState == Boss_State.State.DefaultAtt)
         {
             TrustValue_Setting(DA_HitArea[index]);
@@ -414,7 +442,11 @@ public abstract class Boss : MonoBehaviour
 
         bossState.isSkillReady = false;
         bossState.isAttacking = false;
+        
         EachBoss_EndSkill();
+        bossState.skill_CountTime = 0;
+        isSelectSkill = false;
+        bossState.isSkillReady = false;
         
         animCtrl.SetInteger("Attack_Type", (int)Boss_State.State.idle);
         Invoke("EndSetting", 0.1f);
