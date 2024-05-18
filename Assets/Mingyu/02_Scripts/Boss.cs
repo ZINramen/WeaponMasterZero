@@ -95,8 +95,8 @@ public abstract class Boss : MonoBehaviour
     {
         player = GameObject.FindWithTag("Player").gameObject;
         origin_Mat = this.gameObject.GetComponent<SpriteRenderer>().material;
-        
-        myRd = this.gameObject.GetComponent<Rigidbody2D>();
+
+        myRd = this.gameObject.GetComponent<Movement>().GetBody();
         Move(-move_Speed, -1);
         
         if (player != null)
@@ -156,7 +156,6 @@ public abstract class Boss : MonoBehaviour
                 
                 sBossSkill = Change_IntToState(iBossSkill, ref skillDist);
                 Debug.Log("SkillName : " +  sBossSkill);
-                //sBossSkill = Boss_State.State.DefaultAtt; // Test
                 isSelectSkill = true;
             }
 

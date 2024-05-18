@@ -87,12 +87,12 @@ public class SwordBoss : Boss
         state.p2_Skill3_dist = 5000f;
     }
     
-    protected override void MoveSetting()
-    {
-        Vector2 velo = Vector2.zero;
-        this.transform.position = Vector2.SmoothDamp(this.transform.position, player_pos,
-            ref velo, move_Speed);
-    }
+    // protected override void MoveSetting()
+    // {
+    //     Vector2 velo = Vector2.zero;
+    //     this.transform.position = Vector2.SmoothDamp(this.transform.position, player_pos,
+    //         ref velo, move_Speed);
+    // }
     
     // 이벤트 코드 부분
     #region 1p_Skill1 코드
@@ -152,6 +152,7 @@ public class SwordBoss : Boss
             // 프리팹 생성
             bladeDummy = Instantiate(BladePref, Blade_SponPos.position, randomRotation);
             bladeDummy.transform.localScale = new Vector3(randomSize, randomSize, 1);
+            bladeDummy.gameObject.GetComponent<Blade_Ctrl>().OwnerSetting(this.gameObject);
         }
 
         this.GetComponent<SpriteRenderer>().enabled = false;
@@ -244,6 +245,7 @@ public class SwordBoss : Boss
 
     protected override void EachBoss_UpdateSetting()
     {
+        
         if (lineCount < lineTotalCount && isReadyCreate_Line)
         {
             createLine_Count += Time.deltaTime;
@@ -296,12 +298,14 @@ public class SwordBoss : Boss
 
     protected override void EachBoss_OnHitSetting()
     {
+        Debug.Log("EachBoss_OH");
         this.gameObject.GetComponent<Rigidbody2D>().simulated = true;
         this.gameObject.GetComponent<Rigidbody2D>().AddForce(-this.transform.up * p2s2Att_force, ForceMode2D.Impulse);
     }
 
     protected override void EachBoss_OffHitSetting()
     {
+        Debug.Log("EachBoss_OF");
         if (bossState.currentState == Boss_State.State.p2_Skill2)
         {
             Destroy(dummyArea);
@@ -310,6 +314,7 @@ public class SwordBoss : Boss
 
     public override void EachBoss_EndSkill()
     {
+        Debug.Log("EachBoss_ES");
         isHit_Player_fromP2S2 = false;
         animCtrl.SetBool("isLanding", false);
     }

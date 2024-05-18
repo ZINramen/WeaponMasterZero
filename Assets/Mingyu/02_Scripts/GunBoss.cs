@@ -94,10 +94,10 @@ public class GunBoss : Boss
 
         signAttDelayTime = (signSpon_DelayTime * totalsignCount) + 0.5f;    // 표식 생성 p1s1
         selectedTurn_State.Add(Boss_State.State.p1_Skill2);             // 다이너마이트 p1s2 스킬 도중 회전 가능
-        videoEffect.gameObject.SetActive(false);                            // 비디오 비활성화 p2s2, p2s3
-        p2S3_Plate.gameObject.SetActive(false);
+        //videoEffect.gameObject.SetActive(false);                            // 비디오 비활성화 p2s2, p2s3
+        //p2S3_Plate.gameObject.SetActive(false);
         
-        interval_Ypos = (P2Skill3_SponMaxPos.position.y - p2S3_SponMinYpos) / p2S3_BulletTotalCount;
+        //interval_Ypos = (P2Skill3_SponMaxPos.position.y - p2S3_SponMinYpos) / p2S3_BulletTotalCount;
     }
 
     protected override void Init_StateValueData(ref Boss_State state)
