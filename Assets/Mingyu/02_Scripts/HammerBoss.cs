@@ -1,7 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Mathematics;
 using Unity.VisualScripting;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class HammerBoss : Boss
 {
@@ -30,6 +32,13 @@ public class HammerBoss : Boss
     [SerializeField] private float p1_Skill2_MoveSpeed;
     private float originSpeed;
     #endregion
+
+    #region P2_Skill1
+    [SerializeField] private GameObject SnowPref;
+    [SerializeField] private Transform SnowSponPos;
+    [SerializeField] private float snowForce;
+    private GameObject dummy_SnowObj;
+    #endregion
     
     void Start()
     {
@@ -46,12 +55,12 @@ public class HammerBoss : Boss
     {
         state.defaultAtt_dist = 1.4f;
 
-        state.skill_CoolTime = 1f;
+        state.skill_CoolTime = 6f;
     
         state.p1_Skill1_dist = 2f;
         state.p1_Skill2_dist = 1.8f;
     
-        state.p2_Skill1_dist = 5000f;
+        state.p2_Skill1_dist = 5f;
         state.p2_Skill2_dist = 5000f;
         state.p2_Skill3_dist = 5000f;
     }
@@ -117,6 +126,18 @@ public class HammerBoss : Boss
     {
         is_PermanentMove = false;
         StartCoroutine(StopMove());
+    }
+    #endregion
+    
+    #region P2_Skill1 함수
+    public void AttackP2_S1()
+    {
+        dummy_SnowObj = Instantiate(SnowPref, SnowSponPos.position, quaternion.identity);
+        dummy_SnowObj.transform.GetChild(0).gameObject.GetComponent<SnowBall_HitColl>().owner = this.gameObject.GetComponent<Entity>();
+        
+        dummy_SnowObj.gameObject.GetComponent<Rigidbody2D>().AddForce(
+            (this.transform.localEulerAngles.y == 180 ? 
+                Vector2.right : Vector2.left) * snowForce, ForceMode2D.Impulse);
     }
     #endregion
     

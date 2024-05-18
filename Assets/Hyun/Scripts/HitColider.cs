@@ -15,7 +15,9 @@ public class HitColider : MonoBehaviour
     public enum AttackType
     {
         none,
-        Player_SwordAtt
+        Player_SwordAtt,
+        Player_GunAtt,
+        Player_FinishdAtt
     }
     public AttackType attType = AttackType.none;
     
@@ -24,15 +26,16 @@ public class HitColider : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
+        EachObj_HitSetting(other);
+        
         if (isAbleDestroy)
         {
             if (!other.GetComponent<Entity>() && !other.GetComponent<HitColider>() && !other.CompareTag("Camera") ||
                 other.CompareTag("Player"))
             {
-                Debug.Log(other.gameObject);
                 if (DestroyEffect)
                     GameObject.Instantiate(DestroyEffect, transform.position, Quaternion.identity);
-                Destroy(gameObject);
+                EachObj_DeleteSetting(this.gameObject);
             }
         }
 
@@ -51,7 +54,7 @@ public class HitColider : MonoBehaviour
             }
         }
 
-        EachObj_HitSetting(other);
+        //EachObj_HitSetting(other);
 
         if (entity && owner)
         {
@@ -87,5 +90,10 @@ public class HitColider : MonoBehaviour
 
     protected virtual void EachObj_HitSetting(Collider2D other)
     {
+    }
+    
+    protected virtual void EachObj_DeleteSetting(GameObject deleteObj)
+    {
+        Destroy(deleteObj.gameObject);
     }
 }
