@@ -179,9 +179,9 @@ public abstract class Boss : MonoBehaviour
                 if (bossHP_per >= 0.5f)
                     iBossSkill = Random.Range((int)Boss_State.State.p1_Skill1, (int)Boss_State.State.p1_Skill2 + 1);
                 else
-                    iBossSkill = Random.Range((int)Boss_State.State.p2_Skill1, (int)Boss_State.State.p2_Skill3 + 1);
+                    iBossSkill = Random.Range((int)Boss_State.State.p2_Skill1, (int)Boss_State.State.p2_Skill3 - 1);
 
-                iBossSkill = (int)Boss_State.State.p2_Skill1; // Test
+                //iBossSkill = (int)Boss_State.State.p1_Skill1; // Test
                 
                 sBossSkill = Change_IntToState(iBossSkill, ref skillDist);
                 Debug.Log("SkillName : " +  sBossSkill);
@@ -308,9 +308,9 @@ public abstract class Boss : MonoBehaviour
             TrustValue_Setting(P1Skill2_HitArea[index]);
             EachBoss_OnHitSetting();
         }
-        else if (P2Skill1_HitArea.Length != 0 && bossState.currentState == Boss_State.State.p1_Skill2)
+        else if (P2Skill1_HitArea.Length != 0 && bossState.currentState == Boss_State.State.p2_Skill1)
         {
-            TrustValue_Setting(P1Skill2_HitArea[index]);
+            TrustValue_Setting(P2Skill1_HitArea[index]);
             EachBoss_OnHitSetting();
         }
         else if (P2Skill2_HitArea.Length != 0 && bossState.currentState == Boss_State.State.p2_Skill2)
@@ -318,9 +318,9 @@ public abstract class Boss : MonoBehaviour
             TrustValue_Setting(P2Skill2_HitArea[index]);
             EachBoss_OnHitSetting();
         }
-        else if (P2Skill3_HitArea.Length != 0 && bossState.currentState == Boss_State.State.p2_Skill2)
+        else if (P2Skill3_HitArea.Length != 0 && bossState.currentState == Boss_State.State.p2_Skill3)
         {
-            TrustValue_Setting(P2Skill2_HitArea[index]);
+            TrustValue_Setting(P2Skill3_HitArea[index]);
             EachBoss_OnHitSetting();
         }
         else return;
@@ -373,9 +373,19 @@ public abstract class Boss : MonoBehaviour
             P1Skill2_HitArea[index].gameObject.GetComponent<BoxCollider2D>().enabled = false;
             EachBoss_OffHitSetting();
         }
+        else if (bossState.currentState == Boss_State.State.p2_Skill1)
+        {
+            P2Skill1_HitArea[index].gameObject.GetComponent<BoxCollider2D>().enabled = false;
+            EachBoss_OffHitSetting();
+        }
         else if (bossState.currentState == Boss_State.State.p2_Skill2)
         {
             P2Skill2_HitArea[index].gameObject.GetComponent<BoxCollider2D>().enabled = false;
+            EachBoss_OffHitSetting();
+        }
+        else if (bossState.currentState == Boss_State.State.p2_Skill3)
+        {
+            P2Skill3_HitArea[index].gameObject.GetComponent<BoxCollider2D>().enabled = false;
             EachBoss_OffHitSetting();
         }
         else return;
