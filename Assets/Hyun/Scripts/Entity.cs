@@ -124,7 +124,10 @@ public class Entity : MonoBehaviour
             hp = 0;
             movement.enabled = false;
             movement.body.constraints = RigidbodyConstraints2D.FreezeAll;
-            isDie = true;
+
+            if (!aManager)
+                isDie = true;
+
             if (ai)
                 ai.enabled = false;
             

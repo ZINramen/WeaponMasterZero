@@ -60,6 +60,7 @@ public class Install_Ctrl : MonoBehaviour
         if (thisEntity && thisEntity.GetHp() != MaxHP)
         {
             myAnim.SetTrigger("Hit");
+            Debug.Log("tt");
         }
         myAnim.SetBool("isActive", isActive);
     }

@@ -5,70 +5,79 @@ using UnityEngine;
 public class SkillManager : MonoBehaviour
 {
     Entity owner;
+    int currentLeftWeapon = 2;
+    int currentRightWeapon = 3;
+
+    public HUDController hudControl;
     public int currentWeapon = 0;
-    public string[] skills = new string[6];
+    public int haveWeaponNum = 0;
     public bool infinite = false;
     private void Start()
     {
         owner = GetComponent<Entity>();
-        if(owner)
-            owner.aManager.ani.SetInteger("Weapon", currentWeapon);
+
+        if (hudControl)
+            hudControl.ChangeCurrentWeapon(currentWeapon);
+
+        ChangeWeaponSkill(false, currentWeapon);
     }
 
     private void Update()
     {
-        if(owner.GetMp() == owner.maxMp) 
+        if (owner)
+            owner.aManager.ani.SetInteger("Weapon", currentWeapon);
+        if (hudControl)
         {
-            if(skills[1] == "Sword")
-                skills[5] = "Ult2";
+            if (Input.GetKeyDown(KeyCode.Q))
+            {
+                ChangeWeaponSkill(true);
+            }
+
+            if (Input.GetKeyDown(KeyCode.W))
+            {
+                ChangeWeaponSkill(false);
+            }
+        }
+        if (owner.GetMp() == owner.maxMp) 
+        {
+        }
+    }
+
+
+    public void ChangeWeaponSkill(bool isLeftWeapon, int newWeapon = -1) 
+    {
+        var previousWeapon = currentWeapon;
+        if (newWeapon == -1)
+        {
+            if (isLeftWeapon)
+                currentWeapon = currentLeftWeapon;
             else
-                skills[5] = "Ult1";
+                currentWeapon = currentRightWeapon;
         }
-        else 
+        else
+            currentWeapon = newWeapon;
+
+        if(haveWeaponNum < currentWeapon) 
         {
-            skills[5] = "";
+            currentWeapon = previousWeapon;
+            return;
+        }
+
+        hudControl.ChangeCurrentWeapon(currentWeapon);
+
+        bool left = false;
+        for (int i = 0; i < 3; i++)
+        {
+            if (i != (currentWeapon - 1))
+            {
+                if (!left)
+                {
+                    left = true;
+                    currentLeftWeapon = i + 1;
+                }
+                else
+                    currentRightWeapon = i + 1;
+            }
         }
     }
-
-    public void AddSkill(string name)
-    {
-        ModifySkill(name, name);
-    }
-
-    public void ModifySkill(string name, string newName) 
-    {
-        if(name == "Gun") 
-        {
-            skills[0] = newName;
-
-
-        }
-        if (name == "Sword")
-        {
-            skills[1] = newName;
-
-        }
-        if (name == "Kunai")
-        {
-            skills[2] = newName;
-
-        }
-        if (name == "Hammer")
-        {
-            skills[3] = newName;
-
-        }
-        if (name == "Potion")
-        {
-            skills[4] = newName;
-
-        }
-    }
-    public void RemoveSKill(string value) 
-    {
-        if (infinite) return;
-        ModifySkill(value, "");
-    }
-
-
 }
