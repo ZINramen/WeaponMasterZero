@@ -160,8 +160,6 @@ MonoBehaviour:
   attackForce: 10
   thrustValue: 0.5
   owner: {fileID: 563375698}
-  oneHit: 0
-  playerIsOwn: 0
   attType: 0
   isAbleDestroy: 0
   DestroyEffect: {fileID: 0}
@@ -359,8 +357,6 @@ MonoBehaviour:
   attackForce: 5
   thrustValue: 5
   owner: {fileID: 563375698}
-  oneHit: 0
-  playerIsOwn: 0
   attType: 0
   isAbleDestroy: 0
   DestroyEffect: {fileID: 0}
@@ -549,10 +545,10 @@ RectTransform:
   - {fileID: 571257721}
   m_Father: {fileID: 1927215421}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0}
-  m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: 165.04, y: 10.701508}
-  m_SizeDelta: {x: 146.94, y: 4.7638}
+  m_AnchorMin: {x: 1, y: 1}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: -11.989258, y: 0}
+  m_SizeDelta: {x: 134.4752, y: 10.7015}
   m_Pivot: {x: 1, y: 1}
 --- !u!114 &61576542
 MonoBehaviour:
@@ -1568,8 +1564,6 @@ MonoBehaviour:
   attackForce: 5
   thrustValue: 5
   owner: {fileID: 563375698}
-  oneHit: 0
-  playerIsOwn: 0
   attType: 0
   isAbleDestroy: 0
   DestroyEffect: {fileID: 0}
@@ -1673,10 +1667,10 @@ RectTransform:
   - {fileID: 1462082293}
   m_Father: {fileID: 1927215421}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0}
-  m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: 165.03674, y: 25.489}
-  m_SizeDelta: {x: 330.0735, y: 25.489}
+  m_AnchorMin: {x: 1, y: 1}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 330.0735, y: 45.3574}
   m_Pivot: {x: 1, y: 1}
 --- !u!114 &276132893
 MonoBehaviour:
@@ -2884,7 +2878,7 @@ AudioSource:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 573422877}
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 34fb95400af84fd4dad8204c7fba7634, type: 3}
@@ -3238,8 +3232,6 @@ MonoBehaviour:
   attackForce: 5
   thrustValue: 5
   owner: {fileID: 563375698}
-  oneHit: 0
-  playerIsOwn: 0
   attType: 0
   isAbleDestroy: 0
   DestroyEffect: {fileID: 0}
@@ -4144,8 +4136,6 @@ MonoBehaviour:
   attackForce: 5
   thrustValue: 5
   owner: {fileID: 563375698}
-  oneHit: 0
-  playerIsOwn: 0
   attType: 0
   isAbleDestroy: 0
   DestroyEffect: {fileID: 0}
@@ -6329,14 +6319,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8420422611764709252, guid: e2f03ac0e90d84f4083d3f9121ad8f5f, type: 3}
-      propertyPath: currentWeapon
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 8420422611764709252, guid: e2f03ac0e90d84f4083d3f9121ad8f5f, type: 3}
-      propertyPath: haveWeaponNum
-      value: 2
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -6978,8 +6960,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: 0, y: 12.744}
-  m_SizeDelta: {x: 0, y: 25.489}
+  m_AnchoredPosition: {x: 0, y: 11.0951}
+  m_SizeDelta: {x: 0, y: 22.1903}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1462082294
 MonoBehaviour:
@@ -8657,10 +8639,10 @@ RectTransform:
   - {fileID: 61576541}
   m_Father: {fileID: 123927804}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0}
-  m_AnchorMax: {x: 0.5, y: 1}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 800, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1927215422
 MonoBehaviour:
@@ -8782,8 +8764,6 @@ MonoBehaviour:
   attackForce: 5
   thrustValue: 0.5
   owner: {fileID: 563375698}
-  oneHit: 0
-  playerIsOwn: 0
   attType: 0
   isAbleDestroy: 0
   DestroyEffect: {fileID: 0}
@@ -9020,8 +9000,6 @@ MonoBehaviour:
   attackForce: 5
   thrustValue: 0.5
   owner: {fileID: 563375698}
-  oneHit: 0
-  playerIsOwn: 0
   attType: 0
   isAbleDestroy: 0
   DestroyEffect: {fileID: 0}

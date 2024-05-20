@@ -64,15 +64,6 @@ public class DynamiteCtrl : MonoBehaviour
         dummyBoomObj.GetComponent<HitColider>().owner = GunBoss.GetComponent<Entity>();
         Destroy(this.gameObject);
     }
-    // 카메라 액션 추가 : 폭발에 반응
-    public void BoomActionCam()
-    {
-        Animator camA = Camera.main.GetComponent<Animator>();
-        if (camA != null)
-        {
-            camA.SetTrigger("Boom");
-        }
-    }
 
     public void DeletePref()
     {

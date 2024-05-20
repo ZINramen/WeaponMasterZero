@@ -33,6 +33,7 @@ public class ItemInteraction : MonoBehaviour
             case ItemType.Skill :
                 SkillManager skills = coll.GetComponent<SkillManager>();
                 if (!skills) return;
+                skills.AddSkill(itemName);
                 break;
         }
         if (!notDestroy)
