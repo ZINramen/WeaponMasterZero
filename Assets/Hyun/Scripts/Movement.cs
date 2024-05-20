@@ -5,7 +5,7 @@ using UnityEngine;
 public class Movement : MonoBehaviour
 {
     GameObject boss;
-    public bool Alway;
+    public bool Alway; // 어떤 개체든 항상 movementForce로 움직일 수 있도록 함.
 
 
     public Entity owner;
