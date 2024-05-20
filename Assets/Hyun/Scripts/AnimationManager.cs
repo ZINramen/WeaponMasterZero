@@ -177,6 +177,7 @@ public class AnimationManager : MonoBehaviour
             }
             else 
             {
+
                 ani.SetTrigger("Stun");
                 owner.stun = false;
             }
@@ -243,10 +244,6 @@ public class AnimationManager : MonoBehaviour
 
     void PlayerAnimation() // 조종하는 플레이어 캐릭터의 애니메이션 관리 -> 입력에 반응
     {
-        if (Input.GetKeyUp(Punch))
-        {
-            ani.SetTrigger("Punch_Up");
-        }
         if ((groundCheck.GetOnGround || !additionalJump) && Input.GetKeyDown(Jump) && !Input.GetKey(DownArrow))
         {
             if (!onGround)
@@ -271,12 +268,69 @@ public class AnimationManager : MonoBehaviour
             }
             if (Input.GetKeyDown(Punch))
             {
-                ani.SetTrigger("Punch");
+                if (Input.GetKey(UpArrow))
+                {
+                    ani.SetTrigger("Punch_Up");
+                }
+                else if (!ani.GetBool("Down"))
+                {
+                    ani.SetTrigger("Punch");
+                }
             }
             if (Input.GetKeyDown(Kick))
             {
                 ani.SetTrigger("Kick");
             }
+            if (!owner.movement.is2P && !owner.mpLock)
+            {
+                int skillNumberKey = -1;
+                if (Input.GetKeyDown((KeyCode.Keypad7)))
+                {
+                    skillNumberKey = 0;
+                }
+                else if (Input.GetKeyDown((KeyCode.Keypad8)))
+                {
+                    skillNumberKey = 1;
+                }
+                else if (Input.GetKeyDown((KeyCode.Keypad9)))
+                {
+                    skillNumberKey = 2;
+                }
+                else if (Input.GetKeyDown((KeyCode.KeypadDivide)))
+                {
+                    skillNumberKey = 3;
+                }
+                else if (Input.GetKeyDown((KeyCode.KeypadMultiply)))
+                {
+                    skillNumberKey = 4;
+                }
+                else if (Input.GetKeyDown((KeyCode.KeypadMinus)))
+                {
+                    skillNumberKey = 5;
+                }
+
+                if (skillNumberKey != -1 && skillManager)
+                {
+                    if (skillManager.skills[skillNumberKey] != "")
+                    {
+                        ani.SetTrigger(skillManager.skills[skillNumberKey]);
+                    }
+                }
+            }
+            else
+                for (int i = 0; i < 6; i++)
+                {
+                    if (Input.GetKeyDown((KeyCode)(i + 49)))
+                    {
+                        if (skillManager)
+                        {
+                            if(skillManager.skills[i] != "") 
+                            {
+                                ani.SetTrigger(skillManager.skills[i]);
+                            }
+                        }
+                    } 
+                }
             if (Input.GetKey(DownArrow))
             {
                 ani.SetBool("Down", true);

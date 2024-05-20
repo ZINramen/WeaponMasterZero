@@ -189,9 +189,8 @@ MonoBehaviour:
   install_ZValue: 0
   bulletType: 1
   deleteTime: 5
-  addForce: 5
+  addForce: 10
   parrigForce: 25
-  isPlayerParring: 0
   wallParringHP: 2
 --- !u!114 &-2174926095039621060
 MonoBehaviour:
@@ -212,8 +211,6 @@ MonoBehaviour:
   thrustValue: 0.5
   owner: {fileID: 0}
   attType: 0
-  isAbleDestroy: 0
-  DestroyEffect: {fileID: 0}
 --- !u!50 &9028960155837067614
 Rigidbody2D:
   serializedVersion: 4
