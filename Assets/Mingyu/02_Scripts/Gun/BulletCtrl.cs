@@ -49,7 +49,7 @@ public class BulletCtrl : MonoBehaviour
 
     public void BrokenBullet()
     {
-        Destroy(this.gameObject);
+        //Destroy(this.gameObject);
     }
 
     public void Parring(GameObject player)

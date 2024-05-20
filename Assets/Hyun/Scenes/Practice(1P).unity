@@ -636,6 +636,9 @@ MonoBehaviour:
   attackForce: 10
   thrustValue: 0.5
   owner: {fileID: 1084042850}
+  oneHit: 0
+  playerIsOwn: 0
+  attType: 0
   isAbleDestroy: 0
   DestroyEffect: {fileID: 0}
 --- !u!61 &92474535
@@ -2515,6 +2518,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 694a23cac498b534babe0516d95f8beb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Alway: 0
   owner: {fileID: 0}
   h: 0
   body: {fileID: 0}
@@ -4220,6 +4224,9 @@ MonoBehaviour:
   attackForce: 10
   thrustValue: 0.5
   owner: {fileID: 0}
+  oneHit: 0
+  playerIsOwn: 0
+  attType: 0
   isAbleDestroy: 0
   DestroyEffect: {fileID: 0}
 --- !u!61 &1371737995
@@ -4727,6 +4734,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 694a23cac498b534babe0516d95f8beb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Alway: 0
   owner: {fileID: 0}
   h: 0
   body: {fileID: 0}
@@ -5445,6 +5453,9 @@ MonoBehaviour:
   attackForce: 10
   thrustValue: 0.5
   owner: {fileID: 1434633795}
+  oneHit: 0
+  playerIsOwn: 0
+  attType: 0
   isAbleDestroy: 0
   DestroyEffect: {fileID: 0}
 --- !u!61 &1565877464
@@ -13441,6 +13452,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 694a23cac498b534babe0516d95f8beb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Alway: 0
   owner: {fileID: 0}
   h: 0
   body: {fileID: 0}
@@ -14834,6 +14846,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 694a23cac498b534babe0516d95f8beb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Alway: 0
   owner: {fileID: 0}
   h: 0
   body: {fileID: 0}
@@ -23256,6 +23269,9 @@ MonoBehaviour:
   attackForce: 10
   thrustValue: 0.5
   owner: {fileID: 188581462109976468}
+  oneHit: 0
+  playerIsOwn: 0
+  attType: 0
   isAbleDestroy: 0
   DestroyEffect: {fileID: 0}
 --- !u!1 &5179899825913974463
@@ -23463,14 +23479,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 323fb73650ca8eb41a50333343367f31, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  healEffect: {fileID: 0}
+  hudControl: {fileID: 0}
   currentWeapon: 0
-  skills:
-  - Gun
-  - Sword
-  - Kunai
-  - Hammer
-  - Potion
-  - 
+  haveWeaponNum: 0
   infinite: 1
 --- !u!1 &5335331663744971251
 GameObject:
@@ -25401,10 +25413,6 @@ PrefabInstance:
     - target: {fileID: 6742957321019227575, guid: e2f03ac0e90d84f4083d3f9121ad8f5f, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8420422611764709252, guid: e2f03ac0e90d84f4083d3f9121ad8f5f, type: 3}
-      propertyPath: currentWeapon
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -38465,6 +38473,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 694a23cac498b534babe0516d95f8beb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Alway: 0
   owner: {fileID: 0}
   h: 0
   body: {fileID: 0}
