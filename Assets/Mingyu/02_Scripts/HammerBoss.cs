@@ -8,9 +8,6 @@ using Random = UnityEngine.Random;
 
 public class HammerBoss : Boss
 {
-    private float adjustDelayTime = 0.1f;
-    private float adjustDelayCount;
-    
     #region 평타 관련 변수 모음
     private bool isSelect_DAttType = false;
     private enum  DAtt_Type
@@ -217,18 +214,18 @@ public class HammerBoss : Boss
     #endregion
     
     #region P2_Skill1 함수
-
     public void Rush_P2S1()
     {
         isRush_P2S1 = true;
         RushTrail.gameObject.SetActive(true);
 
-        this.gameObject.GetComponent<CapsuleCollider2D>().enabled = false;
+        this.gameObject.GetComponent<Entity>().DamageBlock = Entity.DefenseStatus.invincible;
     }
     
     public void Stop_Trail()
     {
         RushTrail.gameObject.SetActive(false);
+        this.gameObject.GetComponent<Entity>().DamageBlock = Entity.DefenseStatus.Nope;
     }
     
     public void AttackP2_S1()
@@ -377,14 +374,6 @@ public class HammerBoss : Boss
         
         this.gameObject.GetComponent<Animator>().SetBool("isEndRush_P2S1", false);
         Stop_Trail();
-    }
-
-    private void TinyAdjust_YPo()
-    {
-        this.gameObject.transform.position
-            = new Vector3(this.gameObject.transform.position.x,
-                this.gameObject.transform.position.y + 0.001f,
-                this.gameObject.transform.position.z);
     }
     #endregion
 }

@@ -2365,10 +2365,10 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
+  m_Mass: 10
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 10
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -2539,7 +2539,7 @@ MonoBehaviour:
   RushTrail: {fileID: 172872299}
   rushSpeed: 5
   SnowSponPos: {fileID: 1827003077}
-  snowForce: 500
+  snowForce: 1500
   p2S1_DelayTime: 1.5
   StonPref: {fileID: 5863413222475620570, guid: 25acb0599ce80be44a4c57c187ac3606, type: 3}
   StonSponPos: {fileID: 744023917}
