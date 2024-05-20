@@ -10,7 +10,7 @@ public class AnimationManager : MonoBehaviour
     public GroundChecker groundCheck;
     public Entity owner;
     public GameObject temp;
-    bool additionalJump = false;
+    //bool additionalJump = false;
     bool unable_Dash = false;
     bool airDash = false;
     public bool onGround = true;
@@ -103,7 +103,7 @@ public class AnimationManager : MonoBehaviour
                 {
                     onGround = false;
                     airDash = false;
-                    additionalJump = false;
+                    //additionalJump = false;
                     if (isHuman)
                     {
                         ani.ResetTrigger("Landing");
@@ -244,11 +244,11 @@ public class AnimationManager : MonoBehaviour
 
     void PlayerAnimation() // 조종하는 플레이어 캐릭터의 애니메이션 관리 -> 입력에 반응
     {
-        if ((groundCheck.GetOnGround || !additionalJump) && Input.GetKeyDown(Jump) && !Input.GetKey(DownArrow))
+        if ((groundCheck.GetOnGround/* || !additionalJump*/) && Input.GetKeyDown(Jump) && !Input.GetKey(DownArrow))
         {
             if (!onGround)
             {
-                additionalJump = true;
+                //additionalJump = true;
                 if (Ec && Ec.jumpDustEffectPrefab) 
                 {
                     GameObject eff = GameObject.Instantiate(Ec.jumpDustEffectPrefab);
@@ -351,7 +351,7 @@ public class AnimationManager : MonoBehaviour
             {
                 unable_Dash = true;
                 ani.SetTrigger("Dash");
-                StartCoroutine(DelayDash(0.5f));
+                StartCoroutine(DelayDash(1.2f));
             }
             if (Input.GetKeyUp(Catch))
             {
