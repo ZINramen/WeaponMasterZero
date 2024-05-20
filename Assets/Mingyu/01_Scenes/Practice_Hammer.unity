@@ -2137,7 +2137,6 @@ GameObject:
   - component: {fileID: 819132798}
   - component: {fileID: 819132790}
   - component: {fileID: 819132799}
-  - component: {fileID: 819132800}
   m_Layer: 3
   m_Name: Hammer_Boss
   m_TagString: Boss
@@ -2380,7 +2379,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 6
+  m_Constraints: 4
 --- !u!212 &819132796
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2503,8 +2502,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 912a950953cb77347b4450b860d15bda, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  nextMove: 1
   groundApproachDist: 3
   move_Speed: 3
+  isMoveEnd: 0
   DA_HitArea:
   - {fileID: 1841850083}
   - {fileID: 1758612917}
@@ -2538,7 +2539,8 @@ MonoBehaviour:
   RushTrail: {fileID: 172872299}
   rushSpeed: 5
   SnowSponPos: {fileID: 1827003077}
-  snowForce: 100
+  snowForce: 500
+  p2S1_DelayTime: 1.5
   StonPref: {fileID: 5863413222475620570, guid: 25acb0599ce80be44a4c57c187ac3606, type: 3}
   StonSponPos: {fileID: 744023917}
   stonForce: 40
@@ -2547,38 +2549,6 @@ MonoBehaviour:
   p2S3_IceRainTotalCount: 20
   p2S3_AttTime: 2
   isActiveSkill_p2S3: 0
---- !u!114 &819132800
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 819132786}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d8edf2d55ca588547881b7472e926510, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_TrailName: 
-  m_CurrentTrailPreset: {fileID: 11400000, guid: d968958ed89df2d4ea068fe4a5a29077, type: 2}
-  m_TrailParent: {fileID: 0}
-  m_SpriteToDuplicate: {fileID: 0}
-  m_Layer: 0
-  m_ZMoveStep: 0
-  m_ZMoveMax: 3.7
-  m_HideTrailOnDisabled: 1
-  m_TrailActivationCondition: 0
-  m_TrailDeactivationCondition: 0
-  m_StartIfUnderVelocity: 0
-  m_VelocityStartIsLocalSpace: 0
-  m_VelocityNeededToStart: 0
-  m_StopIfOverVelocity: 0
-  m_VelocityStopIsLocalSpace: 0
-  m_VelocityNeededToStop: 0
-  m_TrailActivationDuration: 0
-  m_SortingLayerID: 0
-  m_OrderInSortingLayer: 0
-  m_DisabledElementsInTrail: []
 --- !u!1 &821999643
 GameObject:
   m_ObjectHideFlags: 0
@@ -5062,7 +5032,7 @@ Transform:
   m_GameObject: {fileID: 1827003076}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.07, y: -0.5, z: 0}
+  m_LocalPosition: {x: -2.07, y: -0.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

@@ -8,6 +8,9 @@ using Random = UnityEngine.Random;
 
 public class HammerBoss : Boss
 {
+    private float adjustDelayTime = 0.1f;
+    private float adjustDelayCount;
+    
     #region 평타 관련 변수 모음
     private bool isSelect_DAttType = false;
     private enum  DAtt_Type
@@ -18,10 +21,7 @@ public class HammerBoss : Boss
 
     private bool isFullAtt;
     private int dAttType_int;
-    #endregion
-
-    #region 평타 관련 변수
-
+    
     [SerializeField] private GameObject Shock_wave;
     [SerializeField] private Transform ShockWave_SponPos;
     [SerializeField] private float sW_AttackPower;
@@ -53,6 +53,7 @@ public class HammerBoss : Boss
     
     [SerializeField] private Transform SnowSponPos;
     [SerializeField] private float snowForce;
+    [SerializeField] private float p2S1_DelayTime;
     
     private GameObject dummy_SnowObj;
     #endregion
@@ -220,8 +221,9 @@ public class HammerBoss : Boss
     public void Rush_P2S1()
     {
         isRush_P2S1 = true;
-        
-        Move(0, this.transform.localEulerAngles.y == 180 ? 1 : -1);
+        RushTrail.gameObject.SetActive(true);
+
+        this.gameObject.GetComponent<CapsuleCollider2D>().enabled = false;
     }
     
     public void Stop_Trail()
@@ -231,12 +233,16 @@ public class HammerBoss : Boss
     
     public void AttackP2_S1()
     {
+        this.gameObject.GetComponent<CapsuleCollider2D>().enabled = true;
+        
         dummy_SnowObj = Instantiate(SnowPref, SnowSponPos.position, quaternion.identity);
         dummy_SnowObj.transform.GetChild(0).gameObject.GetComponent<SnowBall_HitColl>().owner = this.gameObject.GetComponent<Entity>();
         
         dummy_SnowObj.gameObject.GetComponent<Rigidbody2D>().AddForce(
             (this.transform.localEulerAngles.y == 180 ? 
                 Vector2.right : Vector2.left) * snowForce, ForceMode2D.Impulse);
+        
+        Invoke("EndSkill", p2S1_DelayTime);
     }
     #endregion
     
@@ -336,6 +342,7 @@ public class HammerBoss : Boss
             }
             else
             {
+                Move(0, nextMove > 0 ? 1 : -1);
                 this.transform.rotation = Quaternion.Euler(0, this.transform.rotation.eulerAngles.y == 180 ? 0 : 180, 0);
                 this.gameObject.GetComponent<Animator>().SetBool("isEndRush_P2S1", true);
                 isRush_P2S1 = false;
@@ -369,6 +376,15 @@ public class HammerBoss : Boss
         isSelect_DAttType = false;
         
         this.gameObject.GetComponent<Animator>().SetBool("isEndRush_P2S1", false);
+        Stop_Trail();
+    }
+
+    private void TinyAdjust_YPo()
+    {
+        this.gameObject.transform.position
+            = new Vector3(this.gameObject.transform.position.x,
+                this.gameObject.transform.position.y + 0.001f,
+                this.gameObject.transform.position.z);
     }
     #endregion
 }

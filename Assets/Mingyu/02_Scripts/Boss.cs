@@ -47,9 +47,11 @@ public abstract class Boss : MonoBehaviour
     protected GameObject player;
     protected Vector2 player_pos;
     
-    protected float nextMove = 1;
+    [SerializeField] protected float nextMove = 1;
     protected RaycastHit2D rayHit;
     [SerializeField] protected float groundApproachDist;
+    protected bool isMove;
+    
     public float move_Speed;
     protected Rigidbody2D myRd;
     
@@ -70,7 +72,7 @@ public abstract class Boss : MonoBehaviour
     private bool isSelectSkill = false;
     
     protected float skillDist;
-    protected bool isMoveEnd = false;
+    [SerializeField] protected bool isMoveEnd = false;
     
     #region 충돌 박스 변수 (외부 ref)
     [SerializeField] protected GameObject[] DA_HitArea;
@@ -250,13 +252,15 @@ public abstract class Boss : MonoBehaviour
     
     protected virtual void MoveSetting()
     {
+        isMove = true;
         nextMove = this.transform.position.x > player_pos.x ? -move_Speed : move_Speed;
         
         if (rayHit.collider != null)
         {
             Move(nextMove, nextMove > 0 ? 1 : -1);
         }
-        else if(bossState.currentState == Boss_State.State.trace)
+        //else if(bossState.currentState == Boss_State.State.trace)
+        else
         {
             Move(0, nextMove > 0 ? 1 : -1);
         }
@@ -265,8 +269,10 @@ public abstract class Boss : MonoBehaviour
     protected void Move(float inputNextMove, int turnValue)
     {
         myRd.velocity = new Vector2(inputNextMove, myRd.position.y);
+        Debug.Log(myRd.velocity);
 
-        Vector2 frontVec = new Vector2(myRd.position.x + turnValue * groundApproachDist, myRd.position.y - 0.5f);
+        Vector2 frontVec = new Vector2(myRd.position.x + turnValue * groundApproachDist,
+            myRd.position.y - 0.5f);
         Debug.DrawRay(frontVec, Vector3.down, new Color(0, 0, 1));      // #Test용
         
         rayHit = Physics2D.Raycast(frontVec, Vector3.down, 1f, LayerMask.GetMask("Ground"));
@@ -469,6 +475,7 @@ public abstract class Boss : MonoBehaviour
     public void EndAttack()
     {
         isEndSetting = true;
+        isMove = false;
         
         bossState.currentState = Boss_State.State.trace;
         animCtrl.SetBool("isAttack", false);
