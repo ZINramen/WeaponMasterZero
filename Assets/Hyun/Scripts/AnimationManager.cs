@@ -243,6 +243,10 @@ public class AnimationManager : MonoBehaviour
 
     void PlayerAnimation() // 조종하는 플레이어 캐릭터의 애니메이션 관리 -> 입력에 반응
     {
+        if (Input.GetKeyUp(Punch))
+        {
+            ani.SetTrigger("Punch_Up");
+        }
         if ((groundCheck.GetOnGround || !additionalJump) && Input.GetKeyDown(Jump) && !Input.GetKey(DownArrow))
         {
             if (!onGround)
@@ -268,10 +272,6 @@ public class AnimationManager : MonoBehaviour
             if (Input.GetKeyDown(Punch))
             {
                 ani.SetTrigger("Punch");
-            }
-            if (Input.GetKeyUp(Punch))
-            {
-                ani.SetTrigger("Punch_Up");
             }
             if (Input.GetKeyDown(Kick))
             {

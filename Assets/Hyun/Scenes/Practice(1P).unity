@@ -23479,6 +23479,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 323fb73650ca8eb41a50333343367f31, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  healEffect: {fileID: 0}
   hudControl: {fileID: 0}
   currentWeapon: 0
   haveWeaponNum: 0
@@ -25369,78 +25370,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1671166164049858029, guid: e2f03ac0e90d84f4083d3f9121ad8f5f, type: 3}
-      propertyPath: m_fontAsset
-      value: 
-      objectReference: {fileID: 11400000, guid: 5ac54d0e88533f048abbab1447582545, type: 2}
-    - target: {fileID: 1671166164049858029, guid: e2f03ac0e90d84f4083d3f9121ad8f5f, type: 3}
-      propertyPath: m_fontColor.b
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1671166164049858029, guid: e2f03ac0e90d84f4083d3f9121ad8f5f, type: 3}
-      propertyPath: m_fontColor.g
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1671166164049858029, guid: e2f03ac0e90d84f4083d3f9121ad8f5f, type: 3}
-      propertyPath: m_fontColor.r
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1671166164049858029, guid: e2f03ac0e90d84f4083d3f9121ad8f5f, type: 3}
-      propertyPath: m_sharedMaterial
-      value: 
-      objectReference: {fileID: -6949908475716242538, guid: 5ac54d0e88533f048abbab1447582545, type: 2}
-    - target: {fileID: 1671166164049858029, guid: e2f03ac0e90d84f4083d3f9121ad8f5f, type: 3}
-      propertyPath: m_fontColor32.rgba
-      value: 4294967295
-      objectReference: {fileID: 0}
-    - target: {fileID: 1671166164049858029, guid: e2f03ac0e90d84f4083d3f9121ad8f5f, type: 3}
-      propertyPath: m_TextStyleHashCode
-      value: -1183493901
-      objectReference: {fileID: 0}
-    - target: {fileID: 1671166164049858029, guid: e2f03ac0e90d84f4083d3f9121ad8f5f, type: 3}
-      propertyPath: m_HorizontalAlignment
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 1671166164049858029, guid: e2f03ac0e90d84f4083d3f9121ad8f5f, type: 3}
-      propertyPath: m_hasFontAssetChanged
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3789594570816524515, guid: e2f03ac0e90d84f4083d3f9121ad8f5f, type: 3}
-      propertyPath: m_fontAsset
-      value: 
-      objectReference: {fileID: 11400000, guid: 5ac54d0e88533f048abbab1447582545, type: 2}
-    - target: {fileID: 3789594570816524515, guid: e2f03ac0e90d84f4083d3f9121ad8f5f, type: 3}
-      propertyPath: m_fontColor.b
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3789594570816524515, guid: e2f03ac0e90d84f4083d3f9121ad8f5f, type: 3}
-      propertyPath: m_fontColor.g
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3789594570816524515, guid: e2f03ac0e90d84f4083d3f9121ad8f5f, type: 3}
-      propertyPath: m_fontColor.r
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3789594570816524515, guid: e2f03ac0e90d84f4083d3f9121ad8f5f, type: 3}
-      propertyPath: m_sharedMaterial
-      value: 
-      objectReference: {fileID: -6949908475716242538, guid: 5ac54d0e88533f048abbab1447582545, type: 2}
-    - target: {fileID: 3789594570816524515, guid: e2f03ac0e90d84f4083d3f9121ad8f5f, type: 3}
-      propertyPath: m_fontColor32.rgba
-      value: 4294967295
-      objectReference: {fileID: 0}
-    - target: {fileID: 3789594570816524515, guid: e2f03ac0e90d84f4083d3f9121ad8f5f, type: 3}
-      propertyPath: m_TextStyleHashCode
-      value: -1183493901
-      objectReference: {fileID: 0}
-    - target: {fileID: 3789594570816524515, guid: e2f03ac0e90d84f4083d3f9121ad8f5f, type: 3}
-      propertyPath: m_HorizontalAlignment
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 3789594570816524515, guid: e2f03ac0e90d84f4083d3f9121ad8f5f, type: 3}
-      propertyPath: m_hasFontAssetChanged
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 6227755902309650506, guid: e2f03ac0e90d84f4083d3f9121ad8f5f, type: 3}
       propertyPath: m_Name
       value: APO
@@ -25484,14 +25413,6 @@ PrefabInstance:
     - target: {fileID: 6742957321019227575, guid: e2f03ac0e90d84f4083d3f9121ad8f5f, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8420422611764709252, guid: e2f03ac0e90d84f4083d3f9121ad8f5f, type: 3}
-      propertyPath: currentWeapon
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 8420422611764709252, guid: e2f03ac0e90d84f4083d3f9121ad8f5f, type: 3}
-      propertyPath: haveWeaponNum
-      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

@@ -10,7 +10,7 @@ public class ShootingControl : MonoBehaviour
     public Texture2D targetingImage;
     public GameObject shootingPrefab;
     public GameObject bombPrefab;
-    public Entity owner;
+    Entity owner;
 
     // Start is called before the first frame update
     void Start()

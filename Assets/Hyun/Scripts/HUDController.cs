@@ -10,15 +10,22 @@ public class HUDController : MonoBehaviour
 
     public Image HP_Bar1P;
     public Image HP_Bar1P_Damaged;
+
+    public Image MP_Bar;
+
     [Space]
     public GameObject[] Weapon1Icons;
     public GameObject[] Weapon2Icons;
     public GameObject[] Weapon3Icons;
+    public GameObject[] GaugeIcons;
+
+    public Animation currentWeaponUIAnimation;
 
     // Start is called before the first frame update
     void Start()
     {
         StartCoroutine(CheckHP());
+        StartCoroutine(CheckMP());
     }
 
     // Update is called once per frame
@@ -33,6 +40,11 @@ public class HUDController : MonoBehaviour
     public void ChangeCurrentWeapon(int weapon)
     {
         if (weapon == 0) return;
+        else
+        {
+            currentWeaponUIAnimation.clip = currentWeaponUIAnimation.GetClip("ChangeWeapon");
+            currentWeaponUIAnimation.Play();
+        }
         int weapon2 = 0;
 
         for (int i = 0; i < 3; i++)
@@ -75,6 +87,15 @@ public class HUDController : MonoBehaviour
         while (true)
         {
             HP_Bar1P.fillAmount = Player.GetHp() / Player.maxHP;
+            yield return wait;
+        }
+    }
+    IEnumerator CheckMP()
+    {
+        var wait = new WaitForSecondsRealtime(0.2f);
+        while (true)
+        {
+            MP_Bar.fillAmount = (float)Player.GetMp() / Player.maxMp;
             yield return wait;
         }
     }

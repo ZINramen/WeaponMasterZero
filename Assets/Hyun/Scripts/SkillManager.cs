@@ -8,6 +8,7 @@ public class SkillManager : MonoBehaviour
     int currentLeftWeapon = 2;
     int currentRightWeapon = 3;
 
+    public GameObject healEffect;
     public HUDController hudControl;
     public int currentWeapon = 0;
     public int haveWeaponNum = 0;
@@ -20,6 +21,7 @@ public class SkillManager : MonoBehaviour
             hudControl.ChangeCurrentWeapon(currentWeapon);
 
         ChangeWeaponSkill(false, currentWeapon);
+        CheckMPUI();
     }
 
     private void Update()
@@ -37,9 +39,26 @@ public class SkillManager : MonoBehaviour
             {
                 ChangeWeaponSkill(false);
             }
+            if (Input.GetKeyDown(KeyCode.S)) // 체력 회복
+            {
+                int curGauge = owner.aManager.ani.GetInteger("Gauge");
+                if (curGauge > 0)
+                {
+                    Instantiate(healEffect, owner.transform.position, Quaternion.identity).transform.parent = owner.transform;
+                    owner.SetHp(owner.GetHp() + owner.maxHP * 0.3f); // 체력 회복 퍼센테이지 0.3
+                    ReduceGauge(true);
+                }
+            }
         }
         if (owner.GetMp() == owner.maxMp) 
         {
+            int curGauge = owner.aManager.ani.GetInteger("Gauge");
+            if (curGauge < 3)
+            {
+                owner.aManager.ani.SetInteger("Gauge", curGauge + 1);
+                CheckMPUI();
+            }
+            owner.SetMp(0);
         }
     }
 
@@ -78,6 +97,37 @@ public class SkillManager : MonoBehaviour
                 else
                     currentRightWeapon = i + 1;
             }
+        }
+    }
+
+    public void CheckMPUI()
+    {
+        int curGauge = owner.aManager.ani.GetInteger("Gauge");
+        for (int i = 0; i < hudControl.GaugeIcons.Length; i++)
+        {
+            hudControl.GaugeIcons[i].SetActive(false);
+        }
+        for (int i = 0; i < curGauge; i++)
+        {
+            hudControl.GaugeIcons[i].SetActive(true);
+        }
+    }
+
+    public void ReduceGauge(bool isHealthEvent = false) 
+    {
+        int curGauge = owner.aManager.ani.GetInteger("Gauge");
+        if (curGauge == 3 && !isHealthEvent)
+        {
+            owner.aManager.ani.SetInteger("Gauge", 0);
+            for (int i = 0; i < hudControl.GaugeIcons.Length; i++)
+            {
+                hudControl.GaugeIcons[i].SetActive(false);
+            }
+        }
+        else
+        {
+            owner.aManager.ani.SetInteger("Gauge", curGauge - 1);
+            hudControl.GaugeIcons[curGauge - 1].SetActive(false);
         }
     }
 }

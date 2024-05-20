@@ -63,6 +63,7 @@ public class HitColider : MonoBehaviour
         {
             if (owner)
             {
+                owner.SetMp(owner.GetMp()+2);
                 if ((owner.tag == "Player" && entity.tag != "Player") || (owner.tag != "Player" && entity.tag == "Player"))
                 {
                     if (telp)

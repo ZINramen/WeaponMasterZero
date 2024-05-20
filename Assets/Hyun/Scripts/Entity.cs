@@ -178,6 +178,7 @@ public class Entity : MonoBehaviour
                 Entity enemy = hitTarget.collider.gameObject.GetComponent<Entity>();
                 if (!attackAlready && enemy)
                 {
+                    mp += 2;
                     if (enemy.ai && ai) return;
                     attackAlready = true;
                     float temp = enemy.GetHp();
@@ -234,7 +235,7 @@ public class Entity : MonoBehaviour
             hp = maxHP;
         else hp = value;
     }
-    public void SetMpNetwork(int value)
+    public void SetMp(int value)
     {
         if (value > maxMp)
             mp = maxMp;
