@@ -106,6 +106,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 694a23cac498b534babe0516d95f8beb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Alway: 0
   owner: {fileID: 0}
   h: 0
   body: {fileID: 0}
@@ -697,6 +698,8 @@ MonoBehaviour:
   attackForce: 10
   thrustValue: 0.2
   owner: {fileID: 6142345906895935380}
+  oneHit: 0
+  playerIsOwn: 0
   attType: 0
   isAbleDestroy: 0
   DestroyEffect: {fileID: 0}
