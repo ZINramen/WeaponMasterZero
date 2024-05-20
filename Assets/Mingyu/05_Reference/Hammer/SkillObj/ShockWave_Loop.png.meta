@@ -34,7 +34,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -43,7 +43,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -134,7 +134,91 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: ShockWave_Loop_0
+      rect:
+        serializedVersion: 2
+        x: 61
+        y: 24
+        width: 73
+        height: 119
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fbd2e3e52a86cdf47ade8e063afdd7c5
+      internalID: 2122922641
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ShockWave_Loop_1
+      rect:
+        serializedVersion: 2
+        x: 248
+        y: 26
+        width: 92
+        height: 124
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0fb79d53bfc594a4db7114996e8b2f0d
+      internalID: -1775646164
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ShockWave_Loop_2
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 22
+        width: 96
+        height: 135
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 29fd277c818b2cd42a21e6fc1cc8ffd2
+      internalID: 386464905
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ShockWave_Loop_3
+      rect:
+        serializedVersion: 2
+        x: 636
+        y: 22
+        width: 120
+        height: 118
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 37c5fd58e3e6606439d65ff50f083587
+      internalID: 1865736062
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -145,7 +229,11 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      ShockWave_Loop_0: 2122922641
+      ShockWave_Loop_1: -1775646164
+      ShockWave_Loop_2: 386464905
+      ShockWave_Loop_3: 1865736062
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

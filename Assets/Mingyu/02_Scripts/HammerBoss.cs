@@ -20,6 +20,16 @@ public class HammerBoss : Boss
     private int dAttType_int;
     #endregion
 
+    #region 평타 관련 변수
+
+    [SerializeField] private GameObject Shock_wave;
+    [SerializeField] private Transform ShockWave_SponPos;
+    [SerializeField] private float sW_AttackPower;
+    
+    private GameObject dummyShock_waveL;
+    private GameObject dummyShock_waveR;
+    #endregion
+    
     #region P1_Skill1
     [SerializeField] private GameObject[] FallGrounds = new GameObject[3];
     private int fallGround_index = 0;
@@ -36,8 +46,14 @@ public class HammerBoss : Boss
 
     #region P2_Skill1
     [SerializeField] private GameObject SnowPref;
+    [SerializeField] private GameObject RushTrail;
+    
+    [SerializeField] private float rushSpeed;
+    private bool isRush_P2S1 = false;
+    
     [SerializeField] private Transform SnowSponPos;
     [SerializeField] private float snowForce;
+    
     private GameObject dummy_SnowObj;
     #endregion
     
@@ -48,16 +64,27 @@ public class HammerBoss : Boss
     private GameObject dummy_StonObj;
     #endregion
     
-    #region P2_Skill2
+    #region P2_Skill3
+    [SerializeField] private GameObject IceRain_Pref;
+    private GameObject dummy_IceRainObj;
+    
     private GameObject LeftWall;
     private GameObject RightWall;
     private GameObject[] WallObjs;
 
-    [SerializeField] private float left_SponPos;
-    [SerializeField] private float right_SponPos;
+    [SerializeField] private Transform P2S3_SponYPos;
+    private float left_SponPos;
+    private float right_SponPos;
+    private float iceRainGravity;
     
-    [SerializeField] private float iceRainForce;
-    private List<GameObject> dummy_iceRain_List;
+    [SerializeField] private int p2S3_IceRainTotalCount;
+    private int p2S3_IceRainCount;
+    
+    [SerializeField] private float p2S3_AttTime;
+    private float p2S3_DelayTime;
+    private float p2S3_DelayCount;
+
+    [SerializeField] private bool isActiveSkill_p2S3 = false;
     #endregion
     
     void Start()
@@ -69,8 +96,9 @@ public class HammerBoss : Boss
         bossType = BossType.Hammer;
         selectedTurn_State.Add(Boss_State.State.DefaultAtt);
         selectedTurn_State.Add(Boss_State.State.p1_Skill1);
+        selectedTurn_State.Add(Boss_State.State.p2_Skill1);
 
-        dummy_iceRain_List = new List<GameObject>();
+        RushTrail.gameObject.SetActive(false);
         
         WallObjs = GameObject.FindGameObjectsWithTag("Wall");
         foreach (GameObject wall in WallObjs)
@@ -79,8 +107,8 @@ public class HammerBoss : Boss
             else if (wall.gameObject.name.Contains("Right")) RightWall = wall;
         }
 
-        left_SponPos =  (Mathf.Abs(LeftWall.transform.position.x) - LeftWall.transform.localScale.x - 1f) * -1f;
-        right_SponPos =  RightWall.transform.position.x - RightWall.transform.localScale.x - 1f;
+        left_SponPos =  (Mathf.Abs(LeftWall.transform.position.x) - (LeftWall.transform.localScale.x / 2) - 1f) * -1f;
+        right_SponPos =  RightWall.transform.position.x - (RightWall.transform.localScale.x / 2) - 1f;
         
         originSpeed = move_Speed;
     }
@@ -89,9 +117,9 @@ public class HammerBoss : Boss
     {
         state.defaultAtt_dist = 1.4f;
 
-        state.skill_CoolTime = 1f;
+        state.skill_CoolTime = 3f;
     
-        state.p1_Skill1_dist = 2f;
+        state.p1_Skill1_dist = 6f;
         state.p1_Skill2_dist = 1.8f;
     
         state.p2_Skill1_dist = 5f;
@@ -100,7 +128,18 @@ public class HammerBoss : Boss
     }
 
     #region 평타 관련 함수
+    public void DAttack_SponShockWave()
+    {
+        dummyShock_waveL = Instantiate(Shock_wave, ShockWave_SponPos.position, quaternion.identity);
+        dummyShock_waveR = Instantiate(Shock_wave, ShockWave_SponPos.position, quaternion.identity);
 
+        dummyShock_waveL.gameObject.GetComponent<ShowWave_HitCollider>().owner = this.gameObject.GetComponent<Entity>();
+        dummyShock_waveR.gameObject.GetComponent<ShowWave_HitCollider>().owner = this.gameObject.GetComponent<Entity>();
+        
+        dummyShock_waveL.gameObject.GetComponent<Rigidbody2D>().AddForce(sW_AttackPower * Vector2.left, ForceMode2D.Impulse);
+        dummyShock_waveR.gameObject.GetComponent<Rigidbody2D>().AddForce(sW_AttackPower * Vector2.right, ForceMode2D.Impulse);
+    }
+    
     public void StartTurn()
     {
         bossState.isStopTurn = false;
@@ -177,6 +216,19 @@ public class HammerBoss : Boss
     #endregion
     
     #region P2_Skill1 함수
+
+    public void Rush_P2S1()
+    {
+        isRush_P2S1 = true;
+        
+        Move(0, this.transform.localEulerAngles.y == 180 ? 1 : -1);
+    }
+    
+    public void Stop_Trail()
+    {
+        RushTrail.gameObject.SetActive(false);
+    }
+    
     public void AttackP2_S1()
     {
         dummy_SnowObj = Instantiate(SnowPref, SnowSponPos.position, quaternion.identity);
@@ -200,9 +252,44 @@ public class HammerBoss : Boss
     }
     #endregion
     
-    #region P2_Skill2 함수
-    public void AttackP2_S3()
+    #region P2_Skill3 함수
+    public void AttackSettingP2_S3()
     {
+        p2S3_DelayTime = p2S3_AttTime / (float)p2S3_IceRainTotalCount;
+        isActiveSkill_p2S3 = true;
+        IceRain();
+        
+        this.gameObject.GetComponent<Animator>().SetBool("isActive_IceRain", true);
+        this.transform.rotation = Quaternion.Euler(0, this.transform.rotation.eulerAngles.y == 180 ? 0 : 180, 0);
+    }
+
+    public void IceRain()
+    {
+        float iceRain_SponXPos = Random.Range(left_SponPos, right_SponPos);
+        Vector2 sponPos = new Vector2(iceRain_SponXPos, P2S3_SponYPos.position.y);
+
+        dummy_IceRainObj = Instantiate(IceRain_Pref, sponPos, Quaternion.identity);
+        dummy_IceRainObj.gameObject.GetComponent<StonHitColl>().owner = this.gameObject.GetComponent<Entity>();
+
+        float randomGravityScale = Random.Range(1f, 2f);
+        dummy_IceRainObj.gameObject.GetComponent<Rigidbody2D>().gravityScale = randomGravityScale;
+    }
+
+    public void CheckEndSkillP2_S3()
+    {
+        if (p2S3_IceRainCount >= p2S3_IceRainTotalCount)
+        {
+            isActiveSkill_p2S3 = false;
+            p2S3_DelayCount = 0f;
+            p2S3_IceRainCount = 0;
+            
+            this.gameObject.GetComponent<Animator>().SetBool("isActive_IceRain", false);
+            Invoke("EndSkill", 0.5f);
+        }
+        else
+        {
+            this.transform.rotation = Quaternion.Euler(0, this.transform.rotation.eulerAngles.y == 180 ? 0 : 180, 0);
+        }
     }
     #endregion
     
@@ -215,7 +302,6 @@ public class HammerBoss : Boss
             dAttType_int = Random.Range((int)DAtt_Type.DefaultAtt, (int)DAtt_Type.FullAtt + 1);
             if (dAttType_int == (int)DAtt_Type.FullAtt) isFullAtt = true;
             else isFullAtt = false;
-            //isFullAtt = true; // Test
 
             animCtrl.SetBool("isFullAtt", isFullAtt);
         }
@@ -238,6 +324,37 @@ public class HammerBoss : Boss
                 Move(0, nextMove > 0 ? 1 : -1);
             }
         }
+
+        if (isRush_P2S1)
+        {
+            rushSpeed = this.transform.rotation.eulerAngles.y == 180 ? 
+                    Mathf.Abs(rushSpeed) : -Mathf.Abs(rushSpeed);
+        
+            if (rayHit.collider != null)
+            {
+                Move(rushSpeed, rushSpeed > 0 ? 1 : -1);
+            }
+            else
+            {
+                this.transform.rotation = Quaternion.Euler(0, this.transform.rotation.eulerAngles.y == 180 ? 0 : 180, 0);
+                this.gameObject.GetComponent<Animator>().SetBool("isEndRush_P2S1", true);
+                isRush_P2S1 = false;
+            }
+        }
+
+        if (isActiveSkill_p2S3 
+            && p2S3_IceRainCount < p2S3_IceRainTotalCount)
+        {
+            p2S3_DelayCount += Time.deltaTime;
+
+            if (p2S3_DelayCount >= p2S3_DelayTime)
+            {
+                IceRain();
+                
+                p2S3_DelayCount = 0;
+                p2S3_IceRainCount++;
+            }
+        }
     }
     
     #region 엔드 세팅
@@ -250,6 +367,8 @@ public class HammerBoss : Boss
     {
         move_Speed = originSpeed;
         isSelect_DAttType = false;
+        
+        this.gameObject.GetComponent<Animator>().SetBool("isEndRush_P2S1", false);
     }
     #endregion
 }
