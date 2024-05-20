@@ -18,6 +18,7 @@ public class Entity : MonoBehaviour
 
     public Movement movement;
     public AISystem ai;
+    public ZombieAISystem zombieAI;
 
     public float waitTime = 0;
 
@@ -131,6 +132,9 @@ public class Entity : MonoBehaviour
             if (ai)
                 ai.enabled = false;
             
+            if (zombieAI)
+                zombieAI.enabled = false;
+            
             if (CompareTag("Player") == false && CompareTag("Boss") == false)
             {
                 Destroy(gameObject, 5);
@@ -178,7 +182,7 @@ public class Entity : MonoBehaviour
                 Entity enemy = hitTarget.collider.gameObject.GetComponent<Entity>();
                 if (!attackAlready && enemy)
                 {
-                    if (enemy.ai && ai) return;
+                    if (enemy.ai &&enemy.zombieAI&& ai && zombieAI) return;
                     attackAlready = true;
                     float temp = enemy.GetHp();
                     enemy.flyingDamagedPower = flyingAttackForce;

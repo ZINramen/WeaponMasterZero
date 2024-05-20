@@ -1,19 +1,31 @@
 fileFormatVersion: 2
-guid: 35f34beb6c51f92439501cc7fd976fba
+guid: a1ff7d6174175a84fa50afdd691a6c09
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 2224508841329540512
-    second: Zombie_Idle_0
+      213: -8089606142955995782
+    second: Zombie_Run_0
   - first:
-      213: -3210687753604618711
-    second: Zombie_Idle_1
+      213: -490609267372285777
+    second: Zombie_Run_1
   - first:
-      213: -5149348470424577426
-    second: Zombie_Idle_2
+      213: -892596947159726144
+    second: Zombie_Run_2
   - first:
-      213: -6657919563141811017
-    second: Zombie_Idle_3
+      213: 2235983996667260396
+    second: Zombie_Run_3
+  - first:
+      213: 6614461398002778188
+    second: Zombie_Run_4
+  - first:
+      213: -3646482302710298189
+    second: Zombie_Run_5
+  - first:
+      213: -309584357558264477
+    second: Zombie_Run_6
+  - first:
+      213: -8733831186555421959
+    second: Zombie_Run_7
   externalObjects: {}
   serializedVersion: 12
   mipmaps:
@@ -32,12 +44,11 @@ TextureImporter:
     externalNormalMap: 0
     heightScale: 0.25
     normalMapFilter: 0
-    flipGreenChannel: 0
   isReadable: 0
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
-  ignoreMipmapLimit: 0
+  ignoreMasterTextureLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -76,7 +87,6 @@ TextureImporter:
   textureFormatSet: 0
   ignorePngGamma: 0
   applyGammaDecoding: 0
-  swizzle: 50462976
   cookieLightType: 1
   platformSettings:
   - serializedVersion: 3
@@ -89,7 +99,6 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
-    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
@@ -102,7 +111,6 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
-    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
@@ -115,7 +123,6 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
-    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
@@ -128,7 +135,6 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
-    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
@@ -141,7 +147,6 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
-    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
@@ -154,20 +159,19 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
-    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Zombie_Idle_0
+      name: Zombie_Run_0
       rect:
         serializedVersion: 2
-        x: 25
-        y: 16
-        width: 15
-        height: 32
+        x: 0
+        y: 64
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -175,20 +179,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0adb927510b0fde10800000000000000
-      internalID: 2224508841329540512
+      spriteID: a7d3a44d212fbbf80800000000000000
+      internalID: -8089606142955995782
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Zombie_Idle_1
+      name: Zombie_Run_1
       rect:
         serializedVersion: 2
-        x: 89
-        y: 16
-        width: 16
-        height: 32
+        x: 64
+        y: 64
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -196,20 +200,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 92623b1cf785173d0800000000000000
-      internalID: -3210687753604618711
+      spriteID: fa0a2ce78710139f0800000000000000
+      internalID: -490609267372285777
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Zombie_Idle_2
+      name: Zombie_Run_2
       rect:
         serializedVersion: 2
-        x: 153
-        y: 16
-        width: 16
-        height: 31
+        x: 128
+        y: 64
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -217,20 +221,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e6a54ab39d6d988b0800000000000000
-      internalID: -5149348470424577426
+      spriteID: 0c742f44ecbdc93f0800000000000000
+      internalID: -892596947159726144
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Zombie_Idle_3
+      name: Zombie_Run_3
       rect:
         serializedVersion: 2
-        x: 217
-        y: 16
-        width: 15
-        height: 32
+        x: 192
+        y: 64
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -238,8 +242,92 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7b4fec7be615a93a0800000000000000
-      internalID: -6657919563141811017
+      spriteID: ced6fc4299fc70f10800000000000000
+      internalID: 2235983996667260396
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Zombie_Run_4
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c404d78b8994bcb50800000000000000
+      internalID: 6614461398002778188
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Zombie_Run_5
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3b944336aa7156dc0800000000000000
+      internalID: -3646482302710298189
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Zombie_Run_6
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 36dd8b3caa224bbf0800000000000000
+      internalID: -309584357558264477
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Zombie_Run_7
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9fab2254fc23bc680800000000000000
+      internalID: -8733831186555421959
       vertices: []
       indices: 
       edges: []
@@ -255,12 +343,17 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Zombie_Idle_0: 2224508841329540512
-      Zombie_Idle_1: -3210687753604618711
-      Zombie_Idle_2: -5149348470424577426
-      Zombie_Idle_3: -6657919563141811017
-  mipmapLimitGroupName: 
+      Zombie_Run_1: -490609267372285777
+      Zombie_Run_2: -892596947159726144
+      Zombie_Run_5: -3646482302710298189
+      Zombie_Run_7: -8733831186555421959
+      Zombie_Run_0: -8089606142955995782
+      Zombie_Run_4: 6614461398002778188
+      Zombie_Run_6: -309584357558264477
+      Zombie_Run_3: 2235983996667260396
+  spritePackingTag: 
   pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
   userData: 
   assetBundleName: 
   assetBundleVariant: 
