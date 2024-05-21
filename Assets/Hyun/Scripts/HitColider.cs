@@ -18,7 +18,9 @@ public class HitColider : MonoBehaviour
     public enum AttackType
     {
         none,
-        Player_SwordAtt
+        Player_SwordAtt,
+        Player_GunAtt,
+        Player_FinishdAtt
     }
     public AttackType attType = AttackType.none;
     
@@ -28,6 +30,8 @@ public class HitColider : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
+        EachObj_HitSetting(other);
+        
         if (playerIsOwn && other.CompareTag("Player"))
             return;
         if (isAbleDestroy)
@@ -38,7 +42,7 @@ public class HitColider : MonoBehaviour
                 Debug.Log(other.gameObject);
                 if (DestroyEffect)
                     GameObject.Instantiate(DestroyEffect, transform.position, Quaternion.identity);
-                Destroy(gameObject);
+                EachObj_DeleteSetting(this.gameObject);
             }
         }
 
@@ -56,8 +60,6 @@ public class HitColider : MonoBehaviour
                 Debug.Log("맞는 거잖아~");
             }
         }
-
-        EachObj_HitSetting(other);
 
         if (entity)
         {
@@ -106,5 +108,10 @@ public class HitColider : MonoBehaviour
 
     protected virtual void EachObj_HitSetting(Collider2D other)
     {
+    }
+    
+    protected virtual void EachObj_DeleteSetting(GameObject deleteObj)
+    {
+        Destroy(gameObject);
     }
 }
