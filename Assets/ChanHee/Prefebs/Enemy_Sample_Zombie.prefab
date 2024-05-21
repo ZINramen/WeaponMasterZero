@@ -184,8 +184,8 @@ GameObject:
   - component: {fileID: 2761660580485565156}
   - component: {fileID: 966703659091136909}
   - component: {fileID: 1603819621390621940}
-  - component: {fileID: 3877251078534525564}
   - component: {fileID: 2170879630349813557}
+  - component: {fileID: 4797484383125912977}
   - component: {fileID: 4049475049169561172}
   - component: {fileID: 3650647347251037540}
   - component: {fileID: 3459209463337957759}
@@ -249,10 +249,10 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 2.1485612
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_Mass: 1
+  m_LinearDrag: 5
+  m_AngularDrag: 2
+  m_GravityScale: 3
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -261,7 +261,7 @@ Rigidbody2D:
     serializedVersion: 2
     m_Bits: 0
   m_Interpolate: 0
-  m_SleepingMode: 1
+  m_SleepingMode: 2
   m_CollisionDetection: 0
   m_Constraints: 4
 --- !u!114 &966703659091136909
@@ -322,24 +322,6 @@ MonoBehaviour:
   UpArrow: 105
   Emotion_1: 0
   Heal: 113
---- !u!114 &3877251078534525564
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4478715530957999408}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e01d69820ea46f640afc899e4b8e0465, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  player: {fileID: 0}
-  detectionRange: 5
-  AttackDelay: 0.5
-  WalkName: isWalk
-  AttackName: Punch
-  exclamationPointPrefab: {fileID: 719645088804361089, guid: 16cc8a617baaf9f43ad48cf2457b39e4, type: 3}
 --- !u!114 &2170879630349813557
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -354,6 +336,26 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   jumpDustEffectPrefab: {fileID: 0}
   HammerEffect: {fileID: 0}
+--- !u!114 &4797484383125912977
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4478715530957999408}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e01d69820ea46f640afc899e4b8e0465, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 0}
+  detectionRange: 3
+  AttackDelay: 0.5
+  WalkName: isWalk
+  AttackName: Punch
+  exclamationPointPrefab: {fileID: 719645088804361089, guid: 16cc8a617baaf9f43ad48cf2457b39e4, type: 3}
+  enableSpeedControl: 1
+  movement: {fileID: 966703659091136909}
 --- !u!114 &4049475049169561172
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -370,7 +372,7 @@ MonoBehaviour:
   hp: 0
   mp: 0
   movement: {fileID: 0}
-  ai: {fileID: 3877251078534525564}
+  ai: {fileID: 0}
   zombieAI: {fileID: 0}
   waitTime: 0
   mpLock: 0
@@ -420,7 +422,7 @@ AudioSource:
   SpatializePostEffects: 0
   Priority: 128
   DopplerLevel: 1
-  MinDistance: 1
+  MinDistance: 0.56233215
   MaxDistance: 500
   Pan2D: 0
   rolloffMode: 0
@@ -603,7 +605,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.25, y: 0.5}
+  m_Size: {x: 0.2, y: 0.35}
   m_EdgeRadius: 0
 --- !u!1 &6362671274904428003
 GameObject:
@@ -668,7 +670,7 @@ BoxCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6362671274904428003}
-  m_Enabled: 0
+  m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
   m_IncludeLayers:
@@ -693,7 +695,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: -0.17, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -704,7 +706,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 0.8, y: 1}
   m_EdgeRadius: 0
 --- !u!1 &7784172078495257758
 GameObject:
