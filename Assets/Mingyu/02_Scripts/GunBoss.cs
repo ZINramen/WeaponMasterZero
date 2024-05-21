@@ -35,8 +35,6 @@ public class GunBoss : Boss
     
     [SerializeField] private float signSpon_DelayTime = 0.5f;
     private float signAttDelayTime;
-    private float signAttDelayCount = 0f;
-    private bool isShoot = false;
     
     [SerializeField] private float signDeleteTime = 0.2f;
     
@@ -171,6 +169,8 @@ public class GunBoss : Boss
         DynamitePref_dummyObj.GetComponent<DynamiteCtrl>().pDir = Mathf.Abs(this.transform.rotation.y) > 0
             ? DynamiteCtrl.playerDirection.right
             : DynamiteCtrl.playerDirection.left;
+
+        myRd.velocity = Vector2.zero;
     }
     
     public void AttackDynamite()
