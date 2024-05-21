@@ -141,7 +141,7 @@ public class AnimationManager : MonoBehaviour
     {
         ani.ResetTrigger(name);
     }
-    void ResetAttackTriggerEvent()
+    public void ResetAttackTriggerEvent()
     {
         if (!ani) return;
         ani.ResetTrigger("Punch_Up");
@@ -274,7 +274,7 @@ public class AnimationManager : MonoBehaviour
             {
                 ani.SetTrigger("Punch");
             }
-            if (Input.GetKeyDown(Kick))
+            if (Input.GetKeyDown(Kick) && ani.GetInteger("Gauge") > 0)
             {
                 ani.SetTrigger("Kick");
             }

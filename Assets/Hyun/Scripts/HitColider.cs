@@ -39,7 +39,6 @@ public class HitColider : MonoBehaviour
             if (other.CompareTag("Untagged") || (!owner.CompareTag("Player") &&
                 other.CompareTag("Player")))
             {
-                Debug.Log(other.gameObject);
                 if (DestroyEffect)
                     GameObject.Instantiate(DestroyEffect, transform.position, Quaternion.identity);
                 EachObj_DeleteSetting(this.gameObject);
@@ -81,7 +80,8 @@ public class HitColider : MonoBehaviour
                     {
                         entity.stun = stunTarget;
                         entity.flyingDamagedPower = flyingAttackForce;
-                        if (owner.transform.position.y - entity.transform.position.y < 0)
+                        
+                        if (owner.transform.position.x > entity.transform.position.x)
                         {
                             if (!owner || owner.movement.PlayerType || entity.movement.PlayerType)
                                 entity.Damaged(attackForce, (-attackForce) * thrustValue);

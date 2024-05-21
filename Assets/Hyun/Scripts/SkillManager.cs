@@ -10,9 +10,11 @@ public class SkillManager : MonoBehaviour
 
     public GameObject healEffect;
     public HUDController hudControl;
+
     public int currentWeapon = 0;
     public int haveWeaponNum = 0;
     public bool infinite = false;
+    bool isHealthEvent = false;
     private void Start()
     {
         owner = GetComponent<Entity>();
@@ -28,6 +30,7 @@ public class SkillManager : MonoBehaviour
     {
         if (owner)
             owner.aManager.ani.SetInteger("Weapon", currentWeapon);
+        
         if (hudControl)
         {
             if (Input.GetKeyDown(KeyCode.Q))
@@ -46,7 +49,8 @@ public class SkillManager : MonoBehaviour
                 {
                     Instantiate(healEffect, owner.transform.position, Quaternion.identity).transform.parent = owner.transform;
                     owner.SetHp(owner.GetHp() + owner.maxHP * 0.3f); // 체력 회복 퍼센테이지 0.3
-                    ReduceGauge(true);
+                    isHealthEvent = true;
+                    ReduceGauge();
                 }
             }
         }
@@ -113,7 +117,7 @@ public class SkillManager : MonoBehaviour
         }
     }
 
-    public void ReduceGauge(bool isHealthEvent = false) 
+    public void ReduceGauge() 
     {
         int curGauge = owner.aManager.ani.GetInteger("Gauge");
         if (curGauge == 3 && !isHealthEvent)
@@ -129,5 +133,6 @@ public class SkillManager : MonoBehaviour
             owner.aManager.ani.SetInteger("Gauge", curGauge - 1);
             hudControl.GaugeIcons[curGauge - 1].SetActive(false);
         }
+        isHealthEvent = false;
     }
 }
