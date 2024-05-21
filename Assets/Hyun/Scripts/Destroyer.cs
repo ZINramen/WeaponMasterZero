@@ -1,9 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
+using static UnityEditor.PlayerSettings;
 
 public class Destroyer : MonoBehaviour
 {
+    public bool haveTarget = false;
     public float moveSpeed = 0;
     public bool fromParent;
     public float delayTime = 0;
@@ -15,7 +18,17 @@ public class Destroyer : MonoBehaviour
         if (moveSpeed != 0)
         {
             Rigidbody2D rb = GetComponent<Rigidbody2D>();
-            rb.velocity = Vector2.right * moveSpeed;
+            if (haveTarget)
+            {
+                Vector3 pos = transform.forward;
+                pos = new Vector3(pos.x, pos.y, 0);
+                pos.Normalize();
+                rb.velocity = pos * moveSpeed;
+            }
+            else
+            {
+                rb.velocity = transform.right * moveSpeed;
+            }
         }
     }
     void Update()

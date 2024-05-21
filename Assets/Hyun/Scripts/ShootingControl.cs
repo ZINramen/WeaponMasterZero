@@ -8,8 +8,18 @@ public class ShootingControl : MonoBehaviour
 {
     public bool WhenTargeting = true;
     public Texture2D targetingImage;
+
+    public GameObject gun;
+    public Animator gunAnimator;
+    public GameObject bullet;
+    public float bulletSpeed = 10;
+
     public GameObject shootingPrefab;
     public GameObject bombPrefab;
+
+    public Transform fireTr;
+    public Transform GunfireTr;
+
     Entity owner;
 
     // Start is called before the first frame update
@@ -25,8 +35,21 @@ public class ShootingControl : MonoBehaviour
         {
             Cursor.SetCursor(targetingImage, Vector2.zero, CursorMode.Auto);
             var targetingPos = Camera.main.ScreenToWorldPoint(Input.mousePosition + new Vector3(20, -20, 0));
+            gun.transform.LookAt(targetingPos);
+
             if (Input.GetKeyUp(KeyCode.Mouse0))
-                Instantiate(shootingPrefab, targetingPos, Quaternion.identity).GetComponent<HitColider>().owner = owner;
+            {
+                var obj = Instantiate(bullet, fireTr.position, Quaternion.identity);
+                obj.GetComponent<HitColider>().owner = owner;
+                Destroyer d = obj.GetComponent<Destroyer>();
+                obj.transform.LookAt(targetingPos);
+                d.moveSpeed = bulletSpeed;
+                d.haveTarget = true;
+                if(gunAnimator != null)
+                {
+                    gunAnimator.SetTrigger("Shoot");
+                }
+            }
         }
         else
         {
@@ -40,6 +63,13 @@ public class ShootingControl : MonoBehaviour
         Instantiate(shootingPrefab, targetingPos, Quaternion.identity).GetComponent<HitColider>().owner = owner;
     }
 
+    public void SimpleShoot(float speed)
+    {
+        var obj = Instantiate(bullet, GunfireTr.position, transform.rotation);
+        obj.GetComponent<HitColider>().owner = owner;
+        Destroyer d = obj.GetComponent<Destroyer>();
+        d.moveSpeed = speed;
+    }
     public void ThrowBomb()
     {
         var bomb = Instantiate(bombPrefab, owner.transform.position + new Vector3(0,1), Quaternion.identity);

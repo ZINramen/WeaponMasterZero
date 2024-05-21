@@ -36,8 +36,8 @@ public class HitColider : MonoBehaviour
             return;
         if (isAbleDestroy)
         {
-            if (!other.GetComponent<Entity>() && !other.GetComponent<HitColider>() && !other.CompareTag("Camera") ||
-                other.CompareTag("Player"))
+            if (other.CompareTag("Untagged") || (!owner.CompareTag("Player") &&
+                other.CompareTag("Player")))
             {
                 Debug.Log(other.gameObject);
                 if (DestroyEffect)
@@ -81,7 +81,7 @@ public class HitColider : MonoBehaviour
                     {
                         entity.stun = stunTarget;
                         entity.flyingDamagedPower = flyingAttackForce;
-                        if (owner && owner.transform.localEulerAngles.y == 180)
+                        if (owner.transform.position.y - entity.transform.position.y < 0)
                         {
                             if (!owner || owner.movement.PlayerType || entity.movement.PlayerType)
                                 entity.Damaged(attackForce, (-attackForce) * thrustValue);

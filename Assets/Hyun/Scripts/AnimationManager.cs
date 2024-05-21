@@ -13,7 +13,7 @@ public class AnimationManager : MonoBehaviour
     bool additionalJump = false;
     bool unable_Dash = false;
     bool airDash = false;
-    public bool onGround = true;
+    bool onGround = true;
     public bool GetOnGround() { return onGround; }
 
     public bool ecActive = false;
@@ -47,6 +47,8 @@ public class AnimationManager : MonoBehaviour
     public KeyCode Emotion_1;
     public KeyCode Heal;
 
+    public void SetAdditionalJump(bool value) => additionalJump = value;
+
     public void SetPlayerType(bool value)
     {
         isPlayer = value;
@@ -64,7 +66,6 @@ public class AnimationManager : MonoBehaviour
     {
         if (groundCheck)
         {
-            //Debug.Log(groundCheck.GetOnGround);
             if (groundCheck.GetOnGround)
             {
                 if (onGround && State != AnimationState.Normal)
@@ -243,11 +244,8 @@ public class AnimationManager : MonoBehaviour
 
     void PlayerAnimation() // 조종하는 플레이어 캐릭터의 애니메이션 관리 -> 입력에 반응
     {
-        if (Input.GetKeyUp(Punch))
-        {
-            ani.SetTrigger("Punch_Up");
-        }
-        if ((groundCheck.GetOnGround || !additionalJump) && Input.GetKeyDown(Jump) && !Input.GetKey(DownArrow))
+        if (ani.GetInteger("Weapon") != 2 &&
+                    (groundCheck.GetOnGround || !additionalJump) && Input.GetKeyDown(Jump) && !Input.GetKey(DownArrow))
         {
             if (!onGround)
             {
@@ -259,8 +257,11 @@ public class AnimationManager : MonoBehaviour
                 }
             }
 
-            State = AnimationState.Jump;
-            ani.SetTrigger("Jump");
+            if (ani.GetInteger("Weapon") != 2)
+            {
+                State = AnimationState.Jump;
+                ani.SetTrigger("Jump");
+            }
         }
         if (State == AnimationState.Normal) 
         {

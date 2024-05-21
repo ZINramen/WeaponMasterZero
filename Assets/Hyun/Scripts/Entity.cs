@@ -3,9 +3,16 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
+using static UnityEngine.EventSystems.EventTrigger;
 
 public class Entity : MonoBehaviour
 {
+    // final boss 용
+    public bool activeDesireWeapon = false; 
+    public Entity playerFinalBoss;
+    public int desireWeaponFinalBoss = 0;
+    ////////////////////////////////////////
+
     public bool stun = false;
     private int[] keyValues;
 
@@ -29,19 +36,19 @@ public class Entity : MonoBehaviour
     public float attackLength;
     public bool isDie = false; //캐릭터가 죽었는지 살았는지 여부
     public UnityEvent OnDie;
-    
+
     public float flyingAttackForce = 0;
     public float flyingDamagedPower = 0;
 
     public AnimationManager aManager;
 
-    public enum DefenseStatus { Nope,Guard, invincible, Warning }
+    public enum DefenseStatus { Nope, Guard, invincible, Warning }
 
     public DefenseStatus DamageBlock = DefenseStatus.Nope;
 
 
     [Header("Combo")]
-    [SerializeField]private int currentCombo = 0;
+    [SerializeField] private int currentCombo = 0;
     public int maxcombo = 6;
     public ComboView ComboUI;
 
@@ -61,13 +68,13 @@ public class Entity : MonoBehaviour
     private void Awake()
     {
         keyValues = (int[])System.Enum.GetValues(typeof(KeyCode));
-     
+
         movement = GetComponent<Movement>();
         if (!movement)
             movement = gameObject.AddComponent<Movement>();
         aManager = GetComponent<AnimationManager>();
-        
-        if(aManager)
+
+        if (aManager)
             aManager.owner = this;
 
         if (movement)
@@ -80,13 +87,13 @@ public class Entity : MonoBehaviour
     {
         if (isDie)
             return;
-        if (ultScreen) 
+        if (ultScreen)
         {
-            if(transform.localEulerAngles.y != 0) 
+            if (transform.localEulerAngles.y != 0)
             {
                 ultScreen.rotation = Quaternion.Euler(0, 0, 0);
             }
-            else 
+            else
             {
                 ultScreen.rotation = Quaternion.Euler(0, 180, 0);
             }
@@ -98,13 +105,13 @@ public class Entity : MonoBehaviour
         if (attackPos)
         {
             Vector3 start = attackPos.transform.position;
-            Debug.DrawRay(start, attackPos.transform.right*attackLength, Color.red);
+            Debug.DrawRay(start, attackPos.transform.right * attackLength, Color.red);
         }
-        if(waitTime > 0) 
+        if (waitTime > 0)
         {
             waitTime -= Time.deltaTime;
         }
-        else if(waitTime < 0)
+        else if (waitTime < 0)
         {
             waitTime = 0;
         }
@@ -127,7 +134,7 @@ public class Entity : MonoBehaviour
             isDie = true;
             if (ai)
                 ai.enabled = false;
-            
+
             if (CompareTag("Player") == false && CompareTag("Boss") == false)
             {
                 Destroy(gameObject, 5);
@@ -144,7 +151,7 @@ public class Entity : MonoBehaviour
     {
         return mp;
     }
-    public void AddMp(int value) 
+    public void AddMp(int value)
     {
         if (mpLock) return;
         mp += value;
@@ -156,7 +163,7 @@ public class Entity : MonoBehaviour
         mp = 0;
 
     }
-    public void SetPower(float powerValue) 
+    public void SetPower(float powerValue)
     {
         attackForce = powerValue;
         thrustpower = powerValue * 0.5f;
@@ -168,7 +175,7 @@ public class Entity : MonoBehaviour
         RaycastHit2D[] hit;
         hit = Physics2D.RaycastAll(start, transform.right, attackLength, target);
 
-        foreach (RaycastHit2D hitTarget in hit) 
+        foreach (RaycastHit2D hitTarget in hit)
         {
             if (hitTarget.collider.gameObject != gameObject)
             {
@@ -180,7 +187,7 @@ public class Entity : MonoBehaviour
                     attackAlready = true;
                     float temp = enemy.GetHp();
                     enemy.flyingDamagedPower = flyingAttackForce;
-                    if (transform.localEulerAngles.y == 180)
+                    if (transform.position.y - enemy.transform.position.y < 0)
                         enemy.Damaged(attackForce, -thrustpower);
                     else
                         enemy.Damaged(attackForce, thrustpower);
@@ -192,7 +199,7 @@ public class Entity : MonoBehaviour
             }
         }
     }
-    public void Teleport() 
+    public void Teleport()
     {
         Vector2 start = transform.position;
         RaycastHit2D[] hit;
@@ -263,9 +270,13 @@ public class Entity : MonoBehaviour
         stun = true;
         Damaged(damageValue, thrustValue);
     }
-    
+
     public void Damaged(float damageValue, float thrustValue = 0.5f)
     {
+        if (activeDesireWeapon 
+            && playerFinalBoss && playerFinalBoss.aManager.ani.GetInteger("Weapon") != desireWeaponFinalBoss) 
+            return;
+
         if (DamageBlock == DefenseStatus.invincible) return;
         if (isDie) return;
         if(!isDamaged)
