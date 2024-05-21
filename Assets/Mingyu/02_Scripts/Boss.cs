@@ -269,7 +269,7 @@ public abstract class Boss : MonoBehaviour
     protected void Move(float inputNextMove, int turnValue)
     {
         myRd.velocity = new Vector2(inputNextMove, myRd.position.y);
-        Debug.Log(myRd.velocity);
+        //Debug.Log(myRd.velocity);
 
         Vector2 frontVec = new Vector2(myRd.position.x + turnValue * groundApproachDist,
             myRd.position.y - 0.5f);

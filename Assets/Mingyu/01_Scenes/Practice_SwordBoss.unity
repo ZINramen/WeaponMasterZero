@@ -2489,8 +2489,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2af3f7c914eb9974b9d0fa676c512c7e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nextMove: 1
-  groundApproachDist: 2
+  nextMove: 2
+  groundApproachDist: 0.5
   move_Speed: 3
   isMoveEnd: 0
   DA_HitArea:
@@ -5031,7 +5031,7 @@ GameObject:
   - component: {fileID: 1103514221}
   - component: {fileID: 1103514223}
   - component: {fileID: 1103514222}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Tilemap
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7241,7 +7241,7 @@ GameObject:
   - component: {fileID: 1570956461}
   - component: {fileID: 1570956460}
   - component: {fileID: 1570956459}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Square (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9639,11 +9639,12 @@ SpriteRenderer:
 SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
-  - {fileID: 1570956461}
   - {fileID: 1752514273}
   - {fileID: 1843871047}
   - {fileID: 1443450417}
+  - {fileID: 1570956461}
   - {fileID: 763396945}
+  - {fileID: 1910558974}
   - {fileID: 123927804}
   - {fileID: 450194127}
   - {fileID: 666388565}
@@ -9654,6 +9655,5 @@ SceneRoots:
   - {fileID: 563375702}
   - {fileID: 152036466}
   - {fileID: 809288602}
-  - {fileID: 1910558974}
   - {fileID: 1217084477}
   - {fileID: 735283195}
