@@ -2514,8 +2514,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2af3f7c914eb9974b9d0fa676c512c7e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  nextMove: 1
   groundApproachDist: 0.5
   move_Speed: 5
+  isMoveEnd: 1
   DA_HitArea:
   - {fileID: 904051380}
   - {fileID: 640432526}
@@ -8705,8 +8707,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3680a705c9684f447a509233e949e8d2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  nextMove: 1
   groundApproachDist: 0
   move_Speed: 2
+  isMoveEnd: 0
   DA_HitArea:
   - {fileID: 829728250}
   - {fileID: 888131195}
