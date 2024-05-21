@@ -17,6 +17,9 @@ public class AISystem : MonoBehaviour
     public GameObject exclamationPointPrefab;
     bool exclamationPointShown = false;
     GameObject exclamationPointInstance;
+    private float originalSpeed;
+    public bool enableSpeedControl = false;
+    public Movement movement;
     
     void Awake()
     {
@@ -26,6 +29,8 @@ public class AISystem : MonoBehaviour
     void Start()
     {
         owner = GetComponent<Entity>();
+        originalSpeed = owner.movement.speed;
+        movement = GetComponent<Movement>();
     }
 
     // Update is called once per frame
@@ -64,12 +69,23 @@ public class AISystem : MonoBehaviour
         // 플레이어와의 거리가 detectionRange 이상이면 이동 멈춤
         if (distanceToPlayer > detectionRange)
         {
-            move.h = 0;
+            if (enableSpeedControl)
+            {
+                movement.speed = 0;
+            }
+            move.h= 0;
             if (WalkName != "")
             {
                 am.SetBool(WalkName, false);
             }
             return;
+        }
+        else
+        {
+            if (enableSpeedControl)
+            {
+                move.speed = originalSpeed;
+            }
         }
 
         // 플레이어와의 거리가 1 미만일 때 이동 멈춤

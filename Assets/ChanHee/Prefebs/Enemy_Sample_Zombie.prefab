@@ -184,6 +184,7 @@ GameObject:
   - component: {fileID: 2761660580485565156}
   - component: {fileID: 966703659091136909}
   - component: {fileID: 1603819621390621940}
+  - component: {fileID: 3877251078534525564}
   - component: {fileID: 2170879630349813557}
   - component: {fileID: 4049475049169561172}
   - component: {fileID: 3650647347251037540}
@@ -321,6 +322,24 @@ MonoBehaviour:
   UpArrow: 105
   Emotion_1: 0
   Heal: 113
+--- !u!114 &3877251078534525564
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4478715530957999408}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e01d69820ea46f640afc899e4b8e0465, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 0}
+  detectionRange: 5
+  AttackDelay: 0.5
+  WalkName: isWalk
+  AttackName: Punch
+  exclamationPointPrefab: {fileID: 719645088804361089, guid: 16cc8a617baaf9f43ad48cf2457b39e4, type: 3}
 --- !u!114 &2170879630349813557
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -351,10 +370,11 @@ MonoBehaviour:
   hp: 0
   mp: 0
   movement: {fileID: 0}
-  ai: {fileID: 0}
+  ai: {fileID: 3877251078534525564}
+  zombieAI: {fileID: 0}
   waitTime: 0
   mpLock: 0
-  maxHP: 30
+  maxHP: 80
   maxMp: 100
   target:
     serializedVersion: 2
