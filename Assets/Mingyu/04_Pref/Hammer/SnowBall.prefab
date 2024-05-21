@@ -86,6 +86,8 @@ MonoBehaviour:
   attackForce: 10
   thrustValue: 0.5
   owner: {fileID: 0}
+  oneHit: 0
+  playerIsOwn: 0
   attType: 0
   isAbleDestroy: 0
   DestroyEffect: {fileID: 1245487429816736, guid: 9f6904c71c126e4409c840914c58193f, type: 3}
@@ -248,10 +250,10 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1000
+  m_Mass: 10000
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 100
+  m_GravityScale: 10
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2

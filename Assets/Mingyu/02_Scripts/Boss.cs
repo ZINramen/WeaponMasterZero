@@ -183,7 +183,7 @@ public abstract class Boss : MonoBehaviour
                 else
                     iBossSkill = Random.Range((int)Boss_State.State.p2_Skill1, (int)Boss_State.State.p2_Skill3 + 1);
 
-                iBossSkill = (int)Boss_State.State.p2_Skill1;
+                iBossSkill = (int)Boss_State.State.p1_Skill2;
                 
                 sBossSkill = Change_IntToState(iBossSkill, ref skillDist);
                 Debug.Log("SkillName : " +  sBossSkill);
@@ -269,7 +269,7 @@ public abstract class Boss : MonoBehaviour
     protected void Move(float inputNextMove, int turnValue)
     {
         myRd.velocity = new Vector2(inputNextMove, myRd.position.y);
-        Debug.Log(myRd.velocity);
+        //Debug.Log(myRd.velocity);
 
         Vector2 frontVec = new Vector2(myRd.position.x + turnValue * groundApproachDist,
             myRd.position.y - 0.5f);

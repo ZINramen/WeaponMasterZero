@@ -370,6 +370,8 @@ MonoBehaviour:
   attackForce: 20
   thrustValue: 0.5
   owner: {fileID: 819132794}
+  oneHit: 0
+  playerIsOwn: 0
   attType: 0
   isAbleDestroy: 0
   DestroyEffect: {fileID: 0}
@@ -1501,7 +1503,7 @@ Animator:
   m_Controller: {fileID: 9100000, guid: 9f27f44020fd1d846ab2a997e9319eb3, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
-  m_ApplyRootMotion: 1
+  m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
   m_StabilizeFeet: 0
   m_WarningMessage: 
@@ -1689,7 +1691,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3680a705c9684f447a509233e949e8d2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  move_Speed: 0.3
+  nextMove: 1
+  groundApproachDist: 0.5
+  move_Speed: 3
+  isMoveEnd: 0
   DA_HitArea:
   - {fileID: 1841850083}
   - {fileID: 133789215}
@@ -2594,6 +2599,8 @@ MonoBehaviour:
   attackForce: 10
   thrustValue: -0.5
   owner: {fileID: 0}
+  oneHit: 0
+  playerIsOwn: 0
   attType: 0
   isAbleDestroy: 0
   DestroyEffect: {fileID: 0}
@@ -3192,6 +3199,8 @@ MonoBehaviour:
   attackForce: 20
   thrustValue: 0.5
   owner: {fileID: 819132794}
+  oneHit: 0
+  playerIsOwn: 0
   attType: 0
   isAbleDestroy: 0
   DestroyEffect: {fileID: 0}
@@ -3390,6 +3399,8 @@ MonoBehaviour:
   attackForce: 20
   thrustValue: 0.5
   owner: {fileID: 819132794}
+  oneHit: 0
+  playerIsOwn: 0
   attType: 0
   isAbleDestroy: 0
   DestroyEffect: {fileID: 0}
@@ -3744,7 +3755,7 @@ GameObject:
   - component: {fileID: 2145907896}
   - component: {fileID: 2145907895}
   - component: {fileID: 2145907898}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Down
   m_TagString: Wall
   m_Icon: {fileID: 0}
