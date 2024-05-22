@@ -180,6 +180,8 @@ public abstract class Boss : MonoBehaviour
         // 스킬 준비가 되어있고, 보스가 공격중이 아니라면.
         else if (bossState.isSkillReady && !bossState.isAttacking)
         {
+            Debug.Log("SS");
+            
             if (!isSelectSkill)
             {
                 // 보스 체력에 따라, 스킬이 나올것이 달라짐
@@ -495,7 +497,6 @@ public abstract class Boss : MonoBehaviour
         EachBoss_EndSkill();
         bossState.skill_CountTime = 0;
         isSelectSkill = false;
-        bossState.isSkillReady = false;
         
         animCtrl.SetInteger("Attack_Type", (int)Boss_State.State.idle);
         Invoke("EndSetting", 0.1f);

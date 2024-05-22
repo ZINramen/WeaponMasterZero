@@ -84,14 +84,15 @@ public class LastBoss_Ctrl : Boss
     
     protected override int EachBoss_SelectedSkill(Boss_State currState)
     {
-        Debug.Log("SETx");
-        
         int selectedNumber;
         selectedNumber = Random.Range(0, 100);      // 0 ~ 99
 
         HitCheck_HandArea();
 
-        if (isIn_PlayerArea && selectedNumber >= currState.p2S2_PossibilityNumber)
+        if (!isIn_PlayerArea && selectedNumber >= currState.p2S2_PossibilityNumber)
+            selectedNumber = Random.Range(0, currState.p2S2_PossibilityNumber);     // 0 ~ 75 사이를 다시 돌림   25%
+            
+        else if(selectedNumber >= currState.p2S2_PossibilityNumber)
             iBossSkill = (int)Boss_State.State.p2_Skill2;
 
         else if(selectedNumber >= currState.p2S1_PossibilityNumber)
@@ -122,14 +123,14 @@ public class LastBoss_Ctrl : Boss
         {
             if (hitArea.gameObject.GetComponent<LastBoss_HitAreaCheck>().isHit_Player == true)
             {
+                Debug.Log("에리어 안");
+                
                 isIn_PlayerArea = true;
                 check_hitAreaPos = hitArea.gameObject.GetComponent<LastBoss_HitAreaCheck>().hitAreaPos;
+                return;
             }
-            else
-            {
-                isIn_PlayerArea = false;
-                check_hitAreaPos = LastBoss_HandHitAreaPos.NotHit;
-            }
+            isIn_PlayerArea = false;
+            check_hitAreaPos = LastBoss_HandHitAreaPos.NotHit;
         }
     }
 
