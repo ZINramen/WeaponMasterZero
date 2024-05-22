@@ -75,7 +75,7 @@ public abstract class Boss : MonoBehaviour
     
     // 처음 시작할 땐, 스킬이 활성화 되어있지 않음
     protected Boss_State.State sBossSkill;
-    protected int iBossSkill;
+    [SerializeField]protected int iBossSkill;
     private bool isSelectSkill = false;
     
     protected float skillDist;
@@ -238,7 +238,6 @@ public abstract class Boss : MonoBehaviour
             
             else
                 iBossSkill = (int)Boss_State.State.p1_Skill1;
-            
         }
         
         // 2phaze
