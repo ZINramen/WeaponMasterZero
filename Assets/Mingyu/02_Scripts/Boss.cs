@@ -32,6 +32,13 @@ public class Boss_State
     public float p2_Skill1_dist;
     public float p2_Skill2_dist;
     public float p2_Skill3_dist;
+    
+    public int p1S1_PossibilityNumber;
+    public int p1S2_PossibilityNumber;
+    
+    public int p2S1_PossibilityNumber;
+    public int p2S2_PossibilityNumber;
+    public int p2S3_PossibilityNumber;
 
     public bool isAttacking = false;
     public bool isSkillReady = false;
@@ -73,7 +80,6 @@ public abstract class Boss : MonoBehaviour
     
     protected float skillDist;
     [SerializeField] protected bool isMoveEnd = false;
-    
     #region 충돌 박스 변수 (외부 ref)
     [SerializeField] protected GameObject[] DA_HitArea;
     [SerializeField] protected GameObject[] P1Skill1_HitArea;
@@ -178,12 +184,9 @@ public abstract class Boss : MonoBehaviour
             {
                 // 보스 체력에 따라, 스킬이 나올것이 달라짐
                 bossHP_per = (this.GetComponent<Entity>().GetHp()) / (this.GetComponent<Entity>().maxHP);
-                if (bossHP_per >= 0.5f)
-                    iBossSkill = Random.Range((int)Boss_State.State.p1_Skill1, (int)Boss_State.State.p1_Skill2 + 1);
-                else
-                    iBossSkill = Random.Range((int)Boss_State.State.p2_Skill1, (int)Boss_State.State.p2_Skill3 + 1);
+                iBossSkill = EachBoss_SelectedSkill(bossState);
 
-                iBossSkill = (int)Boss_State.State.p1_Skill2;
+                //iBossSkill = (int)Boss_State.State.p1_Skill2;
                 
                 sBossSkill = Change_IntToState(iBossSkill, ref skillDist);
                 Debug.Log("SkillName : " +  sBossSkill);
@@ -220,6 +223,37 @@ public abstract class Boss : MonoBehaviour
                 bossState.isAttacking = true;
             }
         }
+    }
+
+    protected virtual int EachBoss_SelectedSkill(Boss_State currState)
+    {
+        int selectedNumber;
+        selectedNumber = Random.Range(0, 100);      // 0 ~ 99
+        
+        // 1phaze
+        if (bossHP_per >= 0.5f)
+        {
+            if (selectedNumber >= currState.p1S2_PossibilityNumber)
+                iBossSkill = (int)Boss_State.State.p1_Skill2;
+            
+            else
+                iBossSkill = (int)Boss_State.State.p1_Skill1;
+            
+        }
+        
+        // 2phaze
+        else
+        {
+            if (selectedNumber >= currState.p2S3_PossibilityNumber)
+                iBossSkill = (int)Boss_State.State.p2_Skill3;
+            
+            else if(selectedNumber >= currState.p2S2_PossibilityNumber)
+                iBossSkill = (int)Boss_State.State.p2_Skill2;
+            
+            else
+                iBossSkill = (int)Boss_State.State.p2_Skill1;
+        }
+        return iBossSkill;
     }
 
     private void UpdateAnimation()

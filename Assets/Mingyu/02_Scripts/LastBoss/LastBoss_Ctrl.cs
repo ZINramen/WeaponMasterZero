@@ -51,17 +51,42 @@ public class LastBoss_Ctrl : Boss
     private PlayerAttackType AttAbleSkill_ToEnum(int input_AttAbleType)
     {
         if (input_AttAbleType == (int)PlayerAttackType.Sword)
-        {
             return PlayerAttackType.Sword;
-        }
+        
         else if (input_AttAbleType == (int)PlayerAttackType.Gun)
-        {
             return PlayerAttackType.Gun;
+        
+        else
+            return PlayerAttackType.Hammer;
+    }
+    
+    protected override int EachBoss_SelectedSkill(Boss_State currState)
+    {
+        int selectedNumber;
+        selectedNumber = Random.Range(0, 100);      // 0 ~ 99
+        
+        // 1phaze
+        if (bossHP_per >= 0.5f)
+        {
+            if (selectedNumber >= currState.p1S2_PossibilityNumber)
+                iBossSkill = (int)Boss_State.State.p1_Skill2;
+            
+            else
+                iBossSkill = (int)Boss_State.State.p1_Skill1;
+            
         }
+        
+        // 2phaze
         else
         {
-            return PlayerAttackType.Hammer;
+            if (selectedNumber >= currState.p2S3_PossibilityNumber)
+                iBossSkill = (int)Boss_State.State.p2_Skill3;
+            else if(selectedNumber >= currState.p2S2_PossibilityNumber)
+                iBossSkill = (int)Boss_State.State.p2_Skill2;
+            else
+                iBossSkill = (int)Boss_State.State.p2_Skill1;
         }
+        return iBossSkill;
     }
 
     protected override void EachBoss_UpdateSetting()
