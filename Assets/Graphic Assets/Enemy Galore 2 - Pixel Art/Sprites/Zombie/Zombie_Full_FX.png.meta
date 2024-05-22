@@ -125,11 +125,12 @@ TextureImporter:
     externalNormalMap: 0
     heightScale: 0.25
     normalMapFilter: 0
+    flipGreenChannel: 0
   isReadable: 0
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
-  ignoreMasterTextureLimit: 0
+  ignoreMipmapLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -168,6 +169,7 @@ TextureImporter:
   textureFormatSet: 0
   ignorePngGamma: 0
   applyGammaDecoding: 0
+  swizzle: 50462976
   cookieLightType: 1
   platformSettings:
   - serializedVersion: 3
@@ -180,6 +182,7 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
@@ -192,6 +195,7 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
@@ -204,6 +208,7 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
@@ -216,6 +221,7 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
@@ -228,6 +234,7 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
@@ -240,6 +247,7 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
@@ -249,10 +257,10 @@ TextureImporter:
       name: Zombie_Full_FX_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 320
-        width: 64
-        height: 64
+        x: 25
+        y: 336
+        width: 15
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -270,10 +278,10 @@ TextureImporter:
       name: Zombie_Full_FX_1
       rect:
         serializedVersion: 2
-        x: 64
-        y: 320
-        width: 64
-        height: 64
+        x: 89
+        y: 336
+        width: 16
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -291,10 +299,10 @@ TextureImporter:
       name: Zombie_Full_FX_2
       rect:
         serializedVersion: 2
-        x: 128
-        y: 320
-        width: 64
-        height: 64
+        x: 153
+        y: 336
+        width: 16
+        height: 31
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -312,10 +320,10 @@ TextureImporter:
       name: Zombie_Full_FX_3
       rect:
         serializedVersion: 2
-        x: 192
-        y: 320
-        width: 64
-        height: 64
+        x: 217
+        y: 336
+        width: 15
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -333,10 +341,10 @@ TextureImporter:
       name: Zombie_Full_FX_4
       rect:
         serializedVersion: 2
-        x: 256
-        y: 320
-        width: 64
-        height: 64
+        x: 279
+        y: 336
+        width: 18
+        height: 30
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -354,10 +362,10 @@ TextureImporter:
       name: Zombie_Full_FX_5
       rect:
         serializedVersion: 2
-        x: 320
-        y: 320
-        width: 64
-        height: 64
+        x: 338
+        y: 337
+        width: 23
+        height: 30
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -375,10 +383,10 @@ TextureImporter:
       name: Zombie_Full_FX_6
       rect:
         serializedVersion: 2
-        x: 0
-        y: 256
-        width: 64
-        height: 64
+        x: 20
+        y: 272
+        width: 20
+        height: 31
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -396,10 +404,10 @@ TextureImporter:
       name: Zombie_Full_FX_7
       rect:
         serializedVersion: 2
-        x: 64
-        y: 256
-        width: 64
-        height: 64
+        x: 92
+        y: 272
+        width: 11
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -417,10 +425,10 @@ TextureImporter:
       name: Zombie_Full_FX_8
       rect:
         serializedVersion: 2
-        x: 128
-        y: 256
-        width: 64
-        height: 64
+        x: 150
+        y: 272
+        width: 18
+        height: 31
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -438,10 +446,10 @@ TextureImporter:
       name: Zombie_Full_FX_9
       rect:
         serializedVersion: 2
-        x: 192
-        y: 256
-        width: 64
-        height: 64
+        x: 213
+        y: 272
+        width: 20
+        height: 31
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -459,10 +467,10 @@ TextureImporter:
       name: Zombie_Full_FX_10
       rect:
         serializedVersion: 2
-        x: 256
-        y: 256
-        width: 64
-        height: 64
+        x: 277
+        y: 272
+        width: 20
+        height: 30
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -480,10 +488,10 @@ TextureImporter:
       name: Zombie_Full_FX_11
       rect:
         serializedVersion: 2
-        x: 320
-        y: 256
-        width: 64
-        height: 64
+        x: 345
+        y: 272
+        width: 16
+        height: 29
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -501,10 +509,10 @@ TextureImporter:
       name: Zombie_Full_FX_12
       rect:
         serializedVersion: 2
-        x: 0
-        y: 192
-        width: 64
-        height: 64
+        x: 25
+        y: 208
+        width: 13
+        height: 34
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -522,10 +530,10 @@ TextureImporter:
       name: Zombie_Full_FX_13
       rect:
         serializedVersion: 2
-        x: 64
-        y: 192
-        width: 64
-        height: 64
+        x: 89
+        y: 208
+        width: 19
+        height: 29
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -543,10 +551,10 @@ TextureImporter:
       name: Zombie_Full_FX_14
       rect:
         serializedVersion: 2
-        x: 128
-        y: 192
-        width: 64
-        height: 64
+        x: 153
+        y: 208
+        width: 19
+        height: 28
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -564,10 +572,10 @@ TextureImporter:
       name: Zombie_Full_FX_15
       rect:
         serializedVersion: 2
-        x: 192
-        y: 192
-        width: 64
-        height: 64
+        x: 217
+        y: 208
+        width: 15
+        height: 33
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -585,10 +593,10 @@ TextureImporter:
       name: Zombie_Full_FX_16
       rect:
         serializedVersion: 2
-        x: 256
-        y: 192
-        width: 64
-        height: 64
+        x: 280
+        y: 208
+        width: 17
+        height: 29
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -606,10 +614,10 @@ TextureImporter:
       name: Zombie_Full_FX_17
       rect:
         serializedVersion: 2
-        x: 320
-        y: 192
-        width: 64
-        height: 64
+        x: 348
+        y: 208
+        width: 13
+        height: 30
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -627,10 +635,10 @@ TextureImporter:
       name: Zombie_Full_FX_18
       rect:
         serializedVersion: 2
-        x: 0
-        y: 128
-        width: 64
-        height: 64
+        x: 27
+        y: 147
+        width: 15
+        height: 25
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -648,10 +656,10 @@ TextureImporter:
       name: Zombie_Full_FX_19
       rect:
         serializedVersion: 2
-        x: 64
-        y: 128
-        width: 64
-        height: 64
+        x: 90
+        y: 147
+        width: 16
+        height: 25
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -669,10 +677,10 @@ TextureImporter:
       name: Zombie_Full_FX_20
       rect:
         serializedVersion: 2
-        x: 128
-        y: 128
-        width: 64
-        height: 64
+        x: 152
+        y: 145
+        width: 19
+        height: 27
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -690,10 +698,10 @@ TextureImporter:
       name: Zombie_Full_FX_21
       rect:
         serializedVersion: 2
-        x: 192
-        y: 128
-        width: 64
-        height: 64
+        x: 215
+        y: 144
+        width: 18
+        height: 27
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -711,10 +719,10 @@ TextureImporter:
       name: Zombie_Full_FX_22
       rect:
         serializedVersion: 2
-        x: 256
-        y: 128
-        width: 64
-        height: 64
+        x: 282
+        y: 144
+        width: 16
+        height: 24
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -732,10 +740,10 @@ TextureImporter:
       name: Zombie_Full_FX_23
       rect:
         serializedVersion: 2
-        x: 320
-        y: 128
-        width: 64
-        height: 64
+        x: 344
+        y: 144
+        width: 18
+        height: 17
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -753,10 +761,10 @@ TextureImporter:
       name: Zombie_Full_FX_24
       rect:
         serializedVersion: 2
-        x: 0
-        y: 64
-        width: 64
-        height: 64
+        x: 21
+        y: 80
+        width: 21
+        height: 13
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -774,10 +782,10 @@ TextureImporter:
       name: Zombie_Full_FX_25
       rect:
         serializedVersion: 2
-        x: 64
-        y: 64
-        width: 64
-        height: 64
+        x: 83
+        y: 80
+        width: 26
+        height: 9
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -795,10 +803,10 @@ TextureImporter:
       name: Zombie_Full_FX_26
       rect:
         serializedVersion: 2
-        x: 128
-        y: 64
-        width: 64
-        height: 64
+        x: 144
+        y: 80
+        width: 31
+        height: 8
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -816,10 +824,10 @@ TextureImporter:
       name: Zombie_Full_FX_27
       rect:
         serializedVersion: 2
-        x: 192
-        y: 64
-        width: 64
-        height: 64
+        x: 208
+        y: 80
+        width: 31
+        height: 7
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -837,10 +845,10 @@ TextureImporter:
       name: Zombie_Full_FX_28
       rect:
         serializedVersion: 2
-        x: 256
-        y: 64
-        width: 64
-        height: 64
+        x: 286
+        y: 79
+        width: 10
+        height: 8
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -858,10 +866,10 @@ TextureImporter:
       name: Zombie_Full_FX_29
       rect:
         serializedVersion: 2
-        x: 320
-        y: 64
-        width: 64
-        height: 64
+        x: 24
+        y: 16
+        width: 18
+        height: 8
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -879,10 +887,10 @@ TextureImporter:
       name: Zombie_Full_FX_30
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 64
-        height: 64
+        x: 87
+        y: 16
+        width: 20
+        height: 11
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -900,10 +908,10 @@ TextureImporter:
       name: Zombie_Full_FX_31
       rect:
         serializedVersion: 2
-        x: 64
-        y: 0
-        width: 64
-        height: 64
+        x: 147
+        y: 16
+        width: 26
+        height: 15
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -921,10 +929,10 @@ TextureImporter:
       name: Zombie_Full_FX_32
       rect:
         serializedVersion: 2
-        x: 128
-        y: 0
-        width: 64
-        height: 64
+        x: 208
+        y: 16
+        width: 31
+        height: 17
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -942,10 +950,10 @@ TextureImporter:
       name: Zombie_Full_FX_33
       rect:
         serializedVersion: 2
-        x: 192
-        y: 0
-        width: 64
-        height: 64
+        x: 272
+        y: 16
+        width: 31
+        height: 24
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -963,10 +971,10 @@ TextureImporter:
       name: Zombie_Full_FX_34
       rect:
         serializedVersion: 2
-        x: 256
-        y: 0
-        width: 64
-        height: 64
+        x: 345
+        y: 79
+        width: 15
+        height: 5
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -974,7 +982,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 952d50980ff4140c0800000000000000
+      spriteID: 14717f699f871c640922cb8542cce56d
       internalID: -4593302250431589799
       vertices: []
       indices: 
@@ -991,44 +999,43 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Zombie_Full_FX_15: -732216037755190969
-      Zombie_Full_FX_27: 5497762516996861596
+      Zombie_Full_FX_0: 3532155423145154790
       Zombie_Full_FX_1: -7029712906259621197
-      Zombie_Full_FX_28: 5988828913302603195
-      Zombie_Full_FX_26: -1832809405562117684
-      Zombie_Full_FX_29: 6301070039159474140
-      Zombie_Full_FX_30: -5237988225948291234
-      Zombie_Full_FX_24: 7072403183732918598
-      Zombie_Full_FX_23: -5624568412979338686
-      Zombie_Full_FX_34: -4593302250431589799
+      Zombie_Full_FX_10: -1644289972413798435
+      Zombie_Full_FX_11: 8902343953427584166
+      Zombie_Full_FX_12: -3083797204854299636
       Zombie_Full_FX_13: 5852271920376497952
-      Zombie_Full_FX_3: -7946884429428016360
-      Zombie_Full_FX_25: -1069631119126362176
+      Zombie_Full_FX_14: 8762002660294841320
+      Zombie_Full_FX_15: -732216037755190969
+      Zombie_Full_FX_16: 3642532796052642869
       Zombie_Full_FX_17: 6870021896019032260
       Zombie_Full_FX_18: 3043024550656482868
+      Zombie_Full_FX_19: -2601937451517648796
       Zombie_Full_FX_2: -6468236048822980336
-      Zombie_Full_FX_11: 8902343953427584166
-      Zombie_Full_FX_8: -1768792793548414331
       Zombie_Full_FX_20: -226721518882866035
+      Zombie_Full_FX_21: 7392659586386608670
       Zombie_Full_FX_22: -3355718433234716965
-      Zombie_Full_FX_7: 7766230045188269838
-      Zombie_Full_FX_16: 3642532796052642869
-      Zombie_Full_FX_5: 4603192648782955185
+      Zombie_Full_FX_23: -5624568412979338686
+      Zombie_Full_FX_24: 7072403183732918598
+      Zombie_Full_FX_25: -1069631119126362176
+      Zombie_Full_FX_26: -1832809405562117684
+      Zombie_Full_FX_27: 5497762516996861596
+      Zombie_Full_FX_28: 5988828913302603195
+      Zombie_Full_FX_29: 6301070039159474140
+      Zombie_Full_FX_3: -7946884429428016360
+      Zombie_Full_FX_30: -5237988225948291234
       Zombie_Full_FX_31: 87697439851804511
       Zombie_Full_FX_32: -9018179042207982868
-      Zombie_Full_FX_19: -2601937451517648796
-      Zombie_Full_FX_4: -8207960974368039202
-      Zombie_Full_FX_14: 8762002660294841320
-      Zombie_Full_FX_6: -7053962318455908122
-      Zombie_Full_FX_21: 7392659586386608670
-      Zombie_Full_FX_9: 6088688689964381777
-      Zombie_Full_FX_10: -1644289972413798435
       Zombie_Full_FX_33: 8349109575978568751
-      Zombie_Full_FX_12: -3083797204854299636
-      Zombie_Full_FX_0: 3532155423145154790
-  spritePackingTag: 
+      Zombie_Full_FX_34: -4593302250431589799
+      Zombie_Full_FX_4: -8207960974368039202
+      Zombie_Full_FX_5: 4603192648782955185
+      Zombie_Full_FX_6: -7053962318455908122
+      Zombie_Full_FX_7: 7766230045188269838
+      Zombie_Full_FX_8: -1768792793548414331
+      Zombie_Full_FX_9: 6088688689964381777
+  mipmapLimitGroupName: 
   pSDRemoveMatte: 0
-  pSDShowRemoveMatteOption: 0
   userData: 
   assetBundleName: 
   assetBundleVariant: 

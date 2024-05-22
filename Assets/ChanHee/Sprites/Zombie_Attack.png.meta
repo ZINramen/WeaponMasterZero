@@ -1,25 +1,19 @@
 fileFormatVersion: 2
-guid: 8fd65f58f8088fa499d08a42ad174b94
+guid: afc2787e7847f7d4ea9ad02c949406a7
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -3394230290518097711
-    second: Zombie_Hit_0
+      213: 7838402212665350546
+    second: Zombie_AttackA_0
   - first:
-      213: 6649014765142534508
-    second: Zombie_Hit_1
+      213: -1318234985944021214
+    second: Zombie_AttackA_1
   - first:
-      213: 7151387395949101051
-    second: Zombie_Hit_2
+      213: 2383721915754858631
+    second: Zombie_AttackA_2
   - first:
-      213: -6427144552436790600
-    second: Zombie_Hit_3
-  - first:
-      213: 3876361043485059695
-    second: Zombie_Hit_4
-  - first:
-      213: 5733242371892062930
-    second: Zombie_Hit_5
+      213: 4178082853291368432
+    second: Zombie_AttackA_3
   externalObjects: {}
   serializedVersion: 12
   mipmaps:
@@ -167,12 +161,33 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Zombie_Hit_0
+      name: Zombie_AttackA_0
       rect:
         serializedVersion: 2
-        x: 24
-        y: 80
-        width: 17
+        x: 25
+        y: 16
+        width: 13
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 299dd84684997cc60800000000000000
+      internalID: 7838402212665350546
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Zombie_AttackA_1
+      rect:
+        serializedVersion: 2
+        x: 89
+        y: 16
+        width: 19
         height: 29
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -181,104 +196,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1d04ccfb88545e0d0800000000000000
-      internalID: -3394230290518097711
+      spriteID: 227805cb340b4bde0800000000000000
+      internalID: -1318234985944021214
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Zombie_Hit_1
+      name: Zombie_AttackA_2
       rect:
         serializedVersion: 2
-        x: 92
-        y: 80
-        width: 13
-        height: 30
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: c69e5ae63bb064c50800000000000000
-      internalID: 6649014765142534508
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Zombie_Hit_2
-      rect:
-        serializedVersion: 2
-        x: 155
-        y: 83
-        width: 15
-        height: 25
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: bff70ca62f4de3360800000000000000
-      internalID: 7151387395949101051
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Zombie_Hit_3
-      rect:
-        serializedVersion: 2
-        x: 218
-        y: 83
-        width: 16
-        height: 25
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 8ba0beff4123ec6a0800000000000000
-      internalID: -6427144552436790600
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Zombie_Hit_4
-      rect:
-        serializedVersion: 2
-        x: 24
-        y: 17
-        width: 19
-        height: 27
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: f6ae61ac4d99bc530800000000000000
-      internalID: 3876361043485059695
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Zombie_Hit_5
-      rect:
-        serializedVersion: 2
-        x: 87
+        x: 153
         y: 16
-        width: 18
-        height: 27
+        width: 19
+        height: 28
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -286,8 +217,29 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2da28dbaf81909f40800000000000000
-      internalID: 5733242371892062930
+      spriteID: 788c1efe37ea41120800000000000000
+      internalID: 2383721915754858631
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Zombie_AttackA_3
+      rect:
+        serializedVersion: 2
+        x: 217
+        y: 16
+        width: 15
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0ff1598f7388bf930800000000000000
+      internalID: 4178082853291368432
       vertices: []
       indices: 
       edges: []
@@ -303,12 +255,10 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Zombie_Hit_0: -3394230290518097711
-      Zombie_Hit_1: 6649014765142534508
-      Zombie_Hit_2: 7151387395949101051
-      Zombie_Hit_3: -6427144552436790600
-      Zombie_Hit_4: 3876361043485059695
-      Zombie_Hit_5: 5733242371892062930
+      Zombie_AttackA_0: 7838402212665350546
+      Zombie_AttackA_1: -1318234985944021214
+      Zombie_AttackA_2: 2383721915754858631
+      Zombie_AttackA_3: 4178082853291368432
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

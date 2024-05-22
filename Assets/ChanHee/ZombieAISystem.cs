@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AISystem : MonoBehaviour
+public class ZombieAISystem : MonoBehaviour
 {
     bool waitAttack = false;
     bool eventEnd = false;
@@ -41,28 +41,17 @@ public class AISystem : MonoBehaviour
 
         // 공격 상황 체크해 공격 시작
         AIAttack();
-        // 이동 상황 체크해 이동 시작
-        AIMove();
-        float distanceToPlayer = Mathf.Abs(player.transform.position.x - transform.position.x);
-
-        // 플레이어와의 거리가 detectionRange 이하이면 애니메이션 실행
-        if (distanceToPlayer <= detectionRange && !exclamationPointShown)
-        {
-            owner.aManager.ani.SetTrigger("Zombie_Enermy_Greem 1");
-            exclamationPointShown = true; // 애니메이션이 한 번 실행되었음을 표시합니다.
-        }
         
         if (exclamationPointInstance != null)
         {
-            // 느낌표 인스턴스의 위치를 캐릭터의 머리 위로 설정합니다.
-            exclamationPointInstance.transform.position = transform.position + new Vector3(0, 1, 0);
+            exclamationPointInstance.transform.position = transform.position;
         }
     }
 
     protected virtual void AIAttack() // 자식 클래스에서 수정 가능함.
     {
         // 디폴트 = 근처에 플레이어가 있을 시 공격
-        nearbyAttack(1, AttackDelay);
+        nearbyAttack(3, AttackDelay);
     }
     public virtual void AIMove() // 자식 클래스에서 수정 가능함.
     {
@@ -74,7 +63,7 @@ public class AISystem : MonoBehaviour
     {
         Movement move = owner.movement;
         Animator am =  owner.aManager.ani;
-
+        
         float distanceToPlayer = Mathf.Abs(player.transform.position.x - transform.position.x);
 
         // 플레이어와의 거리가 detectionRange 이상이면 이동 멈춤
@@ -84,7 +73,7 @@ public class AISystem : MonoBehaviour
             {
                 movement.speed = 0;
             }
-            move.h = 0;
+            move.h= 0;
             if (WalkName != "")
             {
                 am.SetBool(WalkName, false);
@@ -95,7 +84,7 @@ public class AISystem : MonoBehaviour
         {
             if (enableSpeedControl)
             {
-                movement.speed = originalSpeed;
+                move.speed = originalSpeed;
             }
         }
 
@@ -158,11 +147,7 @@ public class AISystem : MonoBehaviour
         if (Mathf.Abs(player.transform.position.x - transform.position.x) < attackArea)
         {
             if (!waitAttack)
-            {
-                // 공격이 시작되기 전에 speed를 0으로 설정합니다.
-                movement.speed = 0;
                 StartCoroutine(DelayAttack(attackArea, delay));
-            }
         }
         else
         {
@@ -179,8 +164,6 @@ public class AISystem : MonoBehaviour
         if (AttackName != "" && (Mathf.Abs(player.transform.position.x - transform.position.x) < attackArea))
             owner.aManager.ani.SetTrigger(AttackName);
         waitAttack = false;
-        
-        movement.speed = originalSpeed;
     }
 }
 
