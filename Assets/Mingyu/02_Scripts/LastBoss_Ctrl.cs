@@ -14,6 +14,11 @@ public enum LastBoss_HandHitAreaPos
     NotHit = 4
 }
 
+public class LastBoss_State : Boss_State
+{
+    
+}
+
 public class LastBoss_Ctrl : Boss
 {
     /* 1. 주먹으로 내려찍음             (기본 평타)
@@ -25,9 +30,18 @@ public class LastBoss_Ctrl : Boss
        6. 체력이 60% 30%일 때, 자물쇠 패턴이 나오고 딜이 넣어지지 않음 */
     
     #region 탄막 발사 변수 // skill2
-
+    [SerializeField] private GameObject ShootingBullet_Pref;
+    [SerializeField] private int bulletCount;                   // 한번 등장하는 총알 갯수
+    [SerializeField] private int shooting_AttTotalCount;        // 공격 횟수
     
+    private float bullet_Degree = 0f;
+    private bool isActive_Shooting = false;
+    [SerializeField] private int shooting_AttCount = 0;                          // 공격 횟수 카운트
 
+    private float delayTime = 0.5f;
+    private float delayCount = 0f;
+
+    private GameObject dummyBullet;
     #endregion
     
     #region  // skill2
@@ -73,6 +87,8 @@ public class LastBoss_Ctrl : Boss
         
         attAble_AttType = PlayerAttackType.NotSetting;
         random_AttAbleType = (int)PlayerAttackType.NotSetting;
+
+        bullet_Degree = 360f / bulletCount;
     }
     
     protected override void Init_StateValueData(ref Boss_State state)
@@ -132,6 +148,27 @@ public class LastBoss_Ctrl : Boss
                 change_AttTypeCount = 0;
             }
         }
+
+        if (isActive_Shooting)
+        {
+            if(shooting_AttCount < shooting_AttTotalCount)
+            {
+                delayCount += Time.deltaTime;
+
+                if (delayCount >= delayTime)
+                {
+                    ShootingBullet();
+                    delayCount = 0;
+                }
+            }
+            else
+            {
+                isActive_Shooting = false;
+
+                animCtrl.SetBool("isShootingAtt", false);
+                Invoke("EndSkill", 0.5f);
+            }
+        }
     }
 
     #region 기본 평타 함수
@@ -151,10 +188,30 @@ public class LastBoss_Ctrl : Boss
     #region 탄막 발사 skill 2 함수
     public void AttackShooting_Skill2()
     {
+        isActive_Shooting = true;
         
+        animCtrl.SetBool("isShootingAtt", true);
+        ShootingBullet();
     }
     
+    public void ShootingBullet()
+    {
+        for (int i = 0; i < bulletCount; i++)
+        {
+            float bulletAngle;
+            if (shooting_AttCount % 2 == 0) bulletAngle = bullet_Degree * i;
+            else bulletAngle = bullet_Degree / 2 + bullet_Degree * i;
 
+            Quaternion randomRotation = Quaternion.Euler(0, 0, bulletAngle);
+
+            // 프리팹 생성
+            dummyBullet = Instantiate(ShootingBullet_Pref, this.gameObject.transform.position, randomRotation);
+            dummyBullet.gameObject.GetComponent<LastBoss_BulletHitColl>().owner = LastBoss_Entity;
+            dummyBullet.gameObject.GetComponent<BulletCtrl>().install_ZValue = bulletAngle;
+        }
+
+        shooting_AttCount++;
+    }
     #endregion
     
     #region 손 공격 skill 3 함수
@@ -163,7 +220,22 @@ public class LastBoss_Ctrl : Boss
         
     }
     
-
+    private void HitCheck_HandArea()
+    {
+        foreach (GameObject hitArea in HandAtt_HitArea)
+        {
+            if (hitArea.gameObject.GetComponent<LastBoss_HitAreaCheck>().isHit_Player == true)
+            {
+                Debug.Log("에리어 안");
+                
+                isIn_PlayerArea = true;
+                check_hitAreaPos = hitArea.gameObject.GetComponent<LastBoss_HitAreaCheck>().hitAreaPos;
+                return;
+            }
+            isIn_PlayerArea = false;
+            check_hitAreaPos = LastBoss_HandHitAreaPos.NotHit;
+        }
+    }
     #endregion
     
     #region 배경 변경 skill 4 함수
@@ -203,26 +275,10 @@ public class LastBoss_Ctrl : Boss
 
     #endregion
 
-    private void HitCheck_HandArea()
-    {
-        foreach (GameObject hitArea in HandAtt_HitArea)
-        {
-            if (hitArea.gameObject.GetComponent<LastBoss_HitAreaCheck>().isHit_Player == true)
-            {
-                Debug.Log("에리어 안");
-                
-                isIn_PlayerArea = true;
-                check_hitAreaPos = hitArea.gameObject.GetComponent<LastBoss_HitAreaCheck>().hitAreaPos;
-                return;
-            }
-            isIn_PlayerArea = false;
-            check_hitAreaPos = LastBoss_HandHitAreaPos.NotHit;
-        }
-    }
-
     public override void EachBoss_EndSkill()
     {
         isIn_PlayerArea = false;
+        shooting_AttCount = 0;
     }
 
     protected override void EachBoss_EndAttack()
