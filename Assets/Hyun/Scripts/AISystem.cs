@@ -20,6 +20,7 @@ public class AISystem : MonoBehaviour
     private float originalSpeed;
     public bool enableSpeedControl = false;
     public Movement movement;
+    public float attackRange = 1f;
     
     void Awake()
     {
@@ -62,7 +63,7 @@ public class AISystem : MonoBehaviour
     protected virtual void AIAttack() // 자식 클래스에서 수정 가능함.
     {
         // 디폴트 = 근처에 플레이어가 있을 시 공격
-        nearbyAttack(1, AttackDelay);
+        nearbyAttack(attackRange, AttackDelay);
     }
     public virtual void AIMove() // 자식 클래스에서 수정 가능함.
     {
@@ -155,7 +156,7 @@ public class AISystem : MonoBehaviour
     void nearbyAttack(float attackArea, float delay) 
     {
         // 가까울 때 공격 실행
-        if (Mathf.Abs(player.transform.position.x - transform.position.x) < attackArea)
+        if (Mathf.Abs(player.transform.position.x - transform.position.x) < attackRange)
         {
             if (!waitAttack)
             {
