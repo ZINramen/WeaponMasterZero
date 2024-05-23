@@ -79,9 +79,12 @@ public class ShootingControl : MonoBehaviour
         }
         else
         {
-            Cursor.SetCursor(null, Vector2.zero, CursorMode.Auto);
-            bulletCount = 0;
-            GunGauge.fillAmount = 1.0f;
+            if (GunGauge)
+            {
+                Cursor.SetCursor(null, Vector2.zero, CursorMode.Auto);
+                bulletCount = 0;
+                GunGauge.fillAmount = 1.0f;
+            }
         }
     }
 
