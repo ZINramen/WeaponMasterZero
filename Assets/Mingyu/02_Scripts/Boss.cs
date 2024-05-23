@@ -102,7 +102,13 @@ public abstract class Boss : MonoBehaviour
     // lled before the first frame update
     protected void Start()
     {
-        player = GameObject.FindWithTag("Player").gameObject;
+        GameObject[] playerTagObjects = GameObject.FindGameObjectsWithTag("Player");
+        foreach (GameObject playerTagObj in playerTagObjects)
+        {
+            if (playerTagObj.name == "APO")
+                player = playerTagObj;
+        }
+        
         origin_Mat = this.gameObject.GetComponent<SpriteRenderer>().material;
 
         myRd = this.gameObject.GetComponent<Movement>().GetBody();

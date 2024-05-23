@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using JetBrains.Annotations;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.UIElements;
@@ -15,7 +16,27 @@ public enum LastBoss_HandHitAreaPos
 
 public class LastBoss_Ctrl : Boss
 {
-    #region 특정 구역에 들어가면, 손 때리는 애니메이션
+    /* 1. 주먹으로 내려찍음             (기본 평타)
+       2. 땅에 불을 뿜음               (skill 1)
+       3. 입에서 탄막 발사             (skill 2)
+       4. 특정 구역에 가면 손이 공격함   (skill 3)
+       
+       5. 체력이 50% 이하일 때, 특정 배경으로 바뀌더니, 특정 무기의 공격만 들어감
+       6. 체력이 60% 30%일 때, 자물쇠 패턴이 나오고 딜이 넣어지지 않음 */
+    
+    #region 탄막 발사 변수 // skill2
+
+    
+
+    #endregion
+    
+    #region  // skill2
+
+    
+
+    #endregion
+    
+    #region 특정 구역에 들어가면, 손 때리는 공격 변수
 
     [SerializeField] private bool isIn_PlayerArea;
 
@@ -24,14 +45,18 @@ public class LastBoss_Ctrl : Boss
     #endregion
     
     #region 특정 공격만 맞는 패턴 변수
-    [SerializeField] private Sprite[] AttackAble_SpriteData = new Sprite[3];
-    [SerializeField] private GameObject AttackAble_Sprite;
+    private Entity LastBoss_Entity;
+    private float changeAttack_AbleHP;
     
-    public enum PlayerAttackType { Sword = 0, Gun, Hammer }
-    [SerializeField] private PlayerAttackType attAble_SkillType;
+    [SerializeField] private Sprite[] AttackAble_BackGroundData = new Sprite[3];
+    [SerializeField] private GameObject AttackAble_BackGround;
+    
+    public enum PlayerAttackType { Sword = 1, Gun, Hammer, NotSetting }
+    [SerializeField] private PlayerAttackType attAble_AttType;
+    private int random_AttAbleType;
 
     [SerializeField] private float change_AttTypeTime = 5f;
-    [SerializeField] private float change_AttTypeCount;
+    private float change_AttTypeCount;
     #endregion
     
     void Start()
@@ -41,8 +66,13 @@ public class LastBoss_Ctrl : Boss
         Init_StateValueData(ref bossState);
         
         bossType = BossType.Last;
+
+        LastBoss_Entity = this.gameObject.GetComponent<Entity>();
+        //changeAttack_AbleHP = LastBoss_Entity.maxHP / 2;
+        changeAttack_AbleHP = LastBoss_Entity.maxHP;
         
-        Random_AbleAttType();
+        attAble_AttType = PlayerAttackType.NotSetting;
+        random_AttAbleType = (int)PlayerAttackType.NotSetting;
     }
     
     protected override void Init_StateValueData(ref Boss_State state)
@@ -60,26 +90,6 @@ public class LastBoss_Ctrl : Boss
         state.p1S2_PossibilityNumber = 25;  // 25 ~ 49  25%
         state.p2S1_PossibilityNumber = 50;  // 50 ~ 74  25%
         state.p2S2_PossibilityNumber = 75;  // 75 ~ 100 25%
-    }
-
-    private void Random_AbleAttType()
-    {
-        int randomAttType = Random.Range((int)PlayerAttackType.Sword, (int)PlayerAttackType.Hammer + 1);
-        attAble_SkillType = AttAbleSkill_ToEnum(randomAttType);
-        
-        AttackAble_Sprite.gameObject.GetComponent<SpriteRenderer>().sprite = AttackAble_SpriteData[randomAttType];
-    }
-
-    private PlayerAttackType AttAbleSkill_ToEnum(int input_AttAbleType)
-    {
-        if (input_AttAbleType == (int)PlayerAttackType.Sword)
-            return PlayerAttackType.Sword;
-        
-        else if (input_AttAbleType == (int)PlayerAttackType.Gun)
-            return PlayerAttackType.Gun;
-        
-        else
-            return PlayerAttackType.Hammer;
     }
     
     protected override int EachBoss_SelectedSkill(Boss_State currState)
@@ -109,13 +119,89 @@ public class LastBoss_Ctrl : Boss
 
     protected override void EachBoss_UpdateSetting()
     {
-        change_AttTypeCount += Time.deltaTime;
-        if (change_AttTypeCount >= change_AttTypeTime)
+        // 체력이 50% 이하라면, 공격타입을 결정할 수 있게 진행
+        if (LastBoss_Entity.GetHp() <= changeAttack_AbleHP)
         {
-            Random_AbleAttType();
-            change_AttTypeCount = 0;
+            if (attAble_AttType == PlayerAttackType.NotSetting)
+                Setting_AbleAttType();
+            
+            change_AttTypeCount += Time.deltaTime;
+            if (change_AttTypeCount >= change_AttTypeTime)
+            {
+                Random_AbleAttType();
+                change_AttTypeCount = 0;
+            }
         }
     }
+
+    #region 기본 평타 함수
+    public void Attack_Default()
+    {
+        
+    }
+    #endregion
+    
+    #region 불뿜기 skill 1 함수
+    public void AttackFire_Skill1()
+    {
+        
+    }
+    #endregion
+    
+    #region 탄막 발사 skill 2 함수
+    public void AttackShooting_Skill2()
+    {
+        
+    }
+    
+
+    #endregion
+    
+    #region 손 공격 skill 3 함수
+    public void AttackHand_Skill3()
+    {
+        
+    }
+    
+
+    #endregion
+    
+    #region 배경 변경 skill 4 함수
+    private void Setting_AbleAttType()
+    {
+        Random_AbleAttType();
+
+        LastBoss_Entity.activeDesireWeapon = true;
+        LastBoss_Entity.playerFinalBoss = player.gameObject.GetComponent<Entity>();
+    }
+    
+    private void Random_AbleAttType()
+    {
+        random_AttAbleType = Random.Range((int)PlayerAttackType.Sword, (int)PlayerAttackType.Hammer + 1);
+        attAble_AttType = AttAbleSkill_ToEnum(random_AttAbleType);
+        
+        AttackAble_BackGround.gameObject.GetComponent<SpriteRenderer>().sprite = AttackAble_BackGroundData[random_AttAbleType - 1];
+        LastBoss_Entity.desireWeaponFinalBoss = random_AttAbleType;
+    }
+
+    private PlayerAttackType AttAbleSkill_ToEnum(int input_AttAbleType)
+    {
+        if (input_AttAbleType == (int)PlayerAttackType.Sword)
+            return PlayerAttackType.Sword;
+        
+        else if (input_AttAbleType == (int)PlayerAttackType.Gun)
+            return PlayerAttackType.Gun;
+        
+        else
+            return PlayerAttackType.Hammer;
+    }
+    #endregion
+    
+    #region 자물쇠 skill 5 함수
+
+    
+
+    #endregion
 
     private void HitCheck_HandArea()
     {
