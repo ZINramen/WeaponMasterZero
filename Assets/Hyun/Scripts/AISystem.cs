@@ -21,6 +21,8 @@ public class AISystem : MonoBehaviour
     public bool enableSpeedControl = false;
     public Movement movement;
     public float attackRange = 1f;
+    public NewLongRangeAttack newLongRangeAttack; // NewLongRangeAttack 참조
+
     
     void Awake()
     {
@@ -49,7 +51,6 @@ public class AISystem : MonoBehaviour
         // 플레이어와의 거리가 detectionRange 이하이면 애니메이션 실행
         if (distanceToPlayer <= detectionRange && !exclamationPointShown)
         {
-            owner.aManager.ani.SetTrigger("Zombie_Enermy_Greem 1");
             exclamationPointShown = true; // 애니메이션이 한 번 실행되었음을 표시합니다.
         }
         
@@ -69,6 +70,13 @@ public class AISystem : MonoBehaviour
     {
         // 디폴트 = 플레이어를 추격만 함.
         Chase();
+    }
+    public void ToggleLongRangeAttack(bool isActive)
+    {
+        if (newLongRangeAttack != null)
+        {
+            newLongRangeAttack.enabled = isActive;
+        }
     }
     
     void Chase()
@@ -173,16 +181,24 @@ public class AISystem : MonoBehaviour
             }
         }
     }
+    
     IEnumerator DelayAttack(float attackArea, float dtime)
     {
         waitAttack = true;
         yield return new WaitForSeconds(dtime);
         if (AttackName != "" && (Mathf.Abs(player.transform.position.x - transform.position.x) < attackArea))
+        {
             owner.aManager.ani.SetTrigger(AttackName);
+            if (newLongRangeAttack != null && newLongRangeAttack.enabled)
+            {
+                newLongRangeAttack.FireProjectile(); // 투사체 발사
+            }
+        }
         waitAttack = false;
         
         movement.speed = originalSpeed;
     }
+    
 }
 
     //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

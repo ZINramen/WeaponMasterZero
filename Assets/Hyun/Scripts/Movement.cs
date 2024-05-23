@@ -38,6 +38,7 @@ public class Movement : MonoBehaviour
     [Header("2P Move : I J K L")]
     public bool is2P = false;
     public PhysicsMaterial2D pMaterial;
+    
 
     public void SetPlayerType(bool value) 
     {
