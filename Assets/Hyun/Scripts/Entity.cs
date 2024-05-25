@@ -64,7 +64,18 @@ public class Entity : MonoBehaviour
 
     public EmoticonController emoticon;
     public RectTransform ultScreen;
-
+    public bool immuneToSword = false;
+    private Animator animator;
+    private void Start()
+    {
+        // Get the Animator component
+        animator = GetComponent<Animator>();
+    }
+    public void PlayHitAnimation()
+    {
+        // Play the Hit animation
+        animator.Play("Hit");
+    }
     private void Awake()
     {
         keyValues = (int[])System.Enum.GetValues(typeof(KeyCode));

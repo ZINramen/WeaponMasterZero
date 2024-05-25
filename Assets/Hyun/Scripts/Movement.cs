@@ -162,4 +162,11 @@ public class Movement : MonoBehaviour
     {
         body.constraints = RigidbodyConstraints2D.FreezePositionY & RigidbodyConstraints2D.FreezeRotation;
     }
+    public void PushBack(float force)
+    {
+        // 캐릭터가 뒤로 밀리는 힘을 가합니다.
+        // 힘의 방향은 캐릭터의 앞쪽입니다.
+        Vector2 direction = -transform.right;
+        body.AddForce(direction * force, ForceMode2D.Impulse);
+    }
 }

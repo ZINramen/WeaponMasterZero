@@ -15,6 +15,7 @@ public class HitColider : MonoBehaviour
     public bool oneHit = false;
     public bool playerIsOwn = false;
 
+
     public enum AttackType
     {
         none,
@@ -22,22 +23,23 @@ public class HitColider : MonoBehaviour
         Player_GunAtt,
         Player_FinishdAtt
     }
+
     public AttackType attType = AttackType.none;
-    
-    
+
+
     public bool isAbleDestroy = false;
     public GameObject DestroyEffect;
 
     private void OnTriggerEnter2D(Collider2D other)
     {
         EachObj_HitSetting(other);
-        
+
         if (playerIsOwn && other.CompareTag("Player"))
             return;
         if (isAbleDestroy)
         {
             if (other.CompareTag("Untagged") || (!owner.CompareTag("Player") &&
-                other.CompareTag("Player")))
+                                                 other.CompareTag("Player")))
             {
                 if (DestroyEffect)
                     GameObject.Instantiate(DestroyEffect, transform.position, Quaternion.identity);
@@ -64,8 +66,9 @@ public class HitColider : MonoBehaviour
         {
             if (owner)
             {
-                owner.SetMp(owner.GetMp()+2);
-                if ((owner.tag == "Player" && entity.tag != "Player") || (owner.tag != "Player" && entity.tag == "Player"))
+                owner.SetMp(owner.GetMp() + 2);
+                if ((owner.tag == "Player" && entity.tag != "Player") ||
+                    (owner.tag != "Player" && entity.tag == "Player"))
                 {
                     if (telp)
                     {
@@ -80,33 +83,37 @@ public class HitColider : MonoBehaviour
                     {
                         entity.stun = stunTarget;
                         entity.flyingDamagedPower = flyingAttackForce;
-                        
-                        if (owner.transform.position.x > entity.transform.position.x)
+
+                        if (!entity.immuneToSword || attType != AttackType.Player_SwordAtt)
                         {
-                            if (!owner || owner.movement.PlayerType || entity.movement.PlayerType)
-                                entity.Damaged(attackForce, (-attackForce) * thrustValue);
-                        }
-                        else
-                        {
-                            if (!owner || owner.movement.PlayerType || entity.movement.PlayerType)
-                                entity.Damaged(attackForce, attackForce * thrustValue);
+                            if (owner.transform.position.x > entity.transform.position.x)
+                            {
+                                if (!owner || owner.movement.PlayerType || entity.movement.PlayerType)
+                                    entity.Damaged(attackForce, (-attackForce) * thrustValue);
+                            }
+                            else
+                            {
+                                if (!owner || owner.movement.PlayerType || entity.movement.PlayerType)
+                                    entity.Damaged(attackForce, attackForce * thrustValue);
+                            }
                         }
                     }
                 }
+
             }
             else
-            {
-                entity.stun = stunTarget;
-                entity.flyingDamagedPower = flyingAttackForce;
-                entity.Damaged(attackForce, (-attackForce) * thrustValue);
+                {
+                    entity.stun = stunTarget;
+                    entity.flyingDamagedPower = flyingAttackForce;
+                    entity.Damaged(attackForce, (-attackForce) * thrustValue);
+                }
+
+                if (oneHit == true)
+                    Destroy(this);
             }
-
-            if (oneHit == true)
-                Destroy(this);
         }
-    }
-
-    protected virtual void EachObj_HitSetting(Collider2D other)
+    
+protected virtual void EachObj_HitSetting(Collider2D other)
     {
     }
     
