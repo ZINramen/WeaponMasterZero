@@ -133,7 +133,6 @@ MonoBehaviour:
   groundCheck: {fileID: 8283571393411742437}
   owner: {fileID: 0}
   temp: {fileID: 0}
-  onGround: 1
   ecActive: 0
   rotationZ: 0
   ani: {fileID: 0}
@@ -178,6 +177,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a1045773e672824daf99f5c8b2edde4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  activeDesireWeapon: 0
+  playerFinalBoss: {fileID: 0}
+  desireWeaponFinalBoss: 0
   stun: 0
   hp: 0
   mp: 0
@@ -331,9 +333,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e01d69820ea46f640afc899e4b8e0465, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: {fileID: 0}
+  detectionRange: 5
   AttackDelay: 0.2
   WalkName: isWalk
   AttackName: Punch
+  exclamationPointPrefab: {fileID: 0}
+  enableSpeedControl: 0
+  movement: {fileID: 0}
+  attackRange: 1
 --- !u!212 &8473152363527035725
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -701,7 +709,7 @@ MonoBehaviour:
   oneHit: 0
   playerIsOwn: 0
   attType: 0
-  isAbleDestroy: 0
+  isAbleDestroy: 1
   DestroyEffect: {fileID: 0}
 --- !u!61 &2246562158007267139
 BoxCollider2D:
