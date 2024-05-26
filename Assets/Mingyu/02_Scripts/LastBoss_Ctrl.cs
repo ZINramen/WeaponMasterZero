@@ -1,30 +1,28 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.ComponentModel;
 using JetBrains.Annotations;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.Rendering.Universal;
 using UnityEngine.UIElements;
 
-public enum LastBoss_HandHitAreaPos
+public enum LastBoss_FistAttType
 {
-    UpArea = 0,
-    RightArea = 1,
-    DownArea = 2,
-    LeftArea = 3,
-    NotHit = 4
-}
-
-public class LastBoss_State : Boss_State
-{
-    
+    UpFist = 0,
+    RightFist = 1,
+    DownFist = 2,
+    LeftFist = 3,
 }
 
 public class LastBoss_Ctrl : Boss
 {
-    /* 1. 주먹으로 내려찍음             (기본 평타)
-       2. 땅에 불을 뿜음               (skill 1)
+    /* 1. 손날치기                    (기본 평타)
+       2. 중력 스킬                   (skill 1)
        3. 입에서 탄막 발사             (skill 2)
-       4. 특정 구역에 가면 손이 공격함   (skill 3)
+       4. 흡수 공격                   (skill 3)
+       5. 땅 내려 찍기
+       6. 영역 안에 있으면, 주먹 발사
        
        5. 체력이 50% 이하일 때, 특정 배경으로 바뀌더니, 특정 무기의 공격만 들어감
        6. 체력이 60% 30%일 때, 자물쇠 패턴이 나오고 딜이 넣어지지 않음 */
@@ -53,7 +51,7 @@ public class LastBoss_Ctrl : Boss
     
     private float bullet_Degree = 0f;
     private bool isActive_Shooting = false;
-    [SerializeField] private int shooting_AttCount = 0;         // 공격 횟수 카운트
+    private int shooting_AttCount = 0;         // 공격 횟수 카운트
     
     private enum  FireAtt_Type
     {
@@ -69,19 +67,47 @@ public class LastBoss_Ctrl : Boss
     private GameObject dummyBullet;
     #endregion
     
-    #region  // skill2
-
+    #region 흡수 스킬 변수
+    [SerializeField] private GameObject AbsorbHand;
+    private GameObject dummy_AbsorbHand;
+    private bool isActive_Absorb;
     
+    private GameObject LeftWall;
+    private GameObject RightWall;
+    private GameObject UpWall;
+    private GameObject[] WallObjs;
+    
+    private float left_SponPos;
+    private float right_SponPos;
+    private float SponYPos;
 
+    [SerializeField] private float absorbAtt_DelayTime;
+    [SerializeField] private int AbsorbAtt_TotalCount;
+    [SerializeField] private float absorbHP_Amount;
+    [SerializeField] private float downSpeed;
+    
+    private float absorbAtt_DelayCount;
+    private int absorbAtt_Count;
+    private int delete_AbsorbCount;
     #endregion
     
     #region 특정 구역에 들어가면, 손 때리는 공격 변수
+    private LastBoss_FistAttType fistAttType;
 
-    [SerializeField] private bool isIn_PlayerArea;
+    [SerializeField] private GameObject FistObj;
+    [SerializeField] private Transform leftUP_FistSponPos;
+    [SerializeField] private Transform rightDown_FistSponPos;
 
-    [SerializeField] private GameObject[] HandAtt_HitArea = new GameObject[4];
-    private LastBoss_HandHitAreaPos check_hitAreaPos = LastBoss_HandHitAreaPos.NotHit;
+    [SerializeField] private int fistTotalCount;
+    [SerializeField] private float fistDelayTime;
+    [SerializeField] private float fistPower;
+    public int delete_FistCount;
+
+    private int fistCount;
+    private float fistDelayCount;
+    private bool isActive_Fist;
     
+    private GameObject dummyFist;
     #endregion
     
     #region 특정 공격만 맞는 패턴 변수
@@ -108,8 +134,22 @@ public class LastBoss_Ctrl : Boss
         bossType = BossType.Last;
 
         LastBoss_Entity = this.gameObject.GetComponent<Entity>();
-        //changeAttack_AbleHP = LastBoss_Entity.maxHP / 2;
-        changeAttack_AbleHP = LastBoss_Entity.maxHP;
+        changeAttack_AbleHP = LastBoss_Entity.maxHP / 2;
+        //changeAttack_AbleHP = LastBoss_Entity.maxHP;        // Test
+
+        #region 벽의 위치를 구해, 스폰될 구역을 만드는 로직
+        WallObjs = GameObject.FindGameObjectsWithTag("Wall");
+        foreach (GameObject wall in WallObjs)
+        {
+            if (wall.gameObject.name.Contains("Left")) LeftWall = wall;
+            else if (wall.gameObject.name.Contains("Right")) RightWall = wall;
+            else if (wall.gameObject.name.Contains("Up")) UpWall = wall;
+        }
+
+        left_SponPos =  (Mathf.Abs(LeftWall.transform.position.x) - (LeftWall.transform.localScale.x / 2) - 1f) * -1 + 3f;
+        right_SponPos =  RightWall.transform.position.x - (RightWall.transform.localScale.x / 2) - 7f;
+        SponYPos = UpWall.transform.position.y;
+        #endregion
         
         attAble_AttType = PlayerAttackType.NotSetting;
         random_AttAbleType = (int)PlayerAttackType.NotSetting;
@@ -154,18 +194,9 @@ public class LastBoss_Ctrl : Boss
     {
         int selectedNumber;
         selectedNumber = Random.Range(0, 100);      // 0 ~ 99
-        Select_ShootingType();                      // Test
 
-        HitCheck_HandArea();
-
-        if (!isIn_PlayerArea && selectedNumber >= currState.p2S2_PossibilityNumber)
-            selectedNumber = Random.Range(0, currState.p2S3_PossibilityNumber);     // 0 ~ 80 사이를 다시 돌림   20%
-        
-        else if (selectedNumber >= currState.p2S3_PossibilityNumber)
-        {
-            iBossSkill = (int)Boss_State.State.p2_Skill2;
-            animCtrl.SetInteger("Random_HandAttPos", (int)check_hitAreaPos);
-        }
+        if (selectedNumber >= currState.p2S3_PossibilityNumber)
+            iBossSkill = (int)Boss_State.State.p2_Skill3;
         
         else if(selectedNumber >= currState.p2S2_PossibilityNumber)
             iBossSkill = (int)Boss_State.State.p2_Skill2;
@@ -220,6 +251,49 @@ public class LastBoss_Ctrl : Boss
                 animCtrl.SetBool("isShootingAtt", false);
                 Invoke("EndSkill", 0.5f);
             }
+        }
+
+        if (isActive_Absorb && absorbAtt_Count < AbsorbAtt_TotalCount)
+        {
+            absorbAtt_DelayCount += Time.deltaTime;
+
+            if (absorbAtt_DelayCount >= absorbAtt_DelayTime)
+            {
+                Spon_AbsorbHand();
+                
+                absorbAtt_DelayCount = 0;
+                absorbAtt_Count++;
+            }
+        }
+        
+        else if (absorbAtt_Count >= AbsorbAtt_TotalCount 
+                 && delete_AbsorbCount >= AbsorbAtt_TotalCount)
+        {
+            isActive_Absorb = false;
+            animCtrl.SetBool("isEnd_Absorb", true);
+        }
+
+        if (isActive_Fist && fistCount < fistTotalCount)
+        {
+            fistDelayCount += Time.deltaTime;
+
+            if (fistDelayCount >= fistDelayTime)
+            {
+                int random_FistAttType = Random.Range
+                    ((int)LastBoss_FistAttType.UpFist, (int)LastBoss_FistAttType.LeftFist + 1);
+
+                fistAttType = ChangeTo_intFistType(random_FistAttType);
+                AttackFist(fistAttType);
+
+                fistCount++;
+                fistDelayCount = 0;
+            }
+        }
+        else if (fistCount >= fistTotalCount 
+                 && delete_FistCount >= fistTotalCount)
+        {
+            isActive_Fist = false;
+            animCtrl.SetBool("isEnd_Fist", true);
         }
     }
 
@@ -284,27 +358,136 @@ public class LastBoss_Ctrl : Boss
     }
     #endregion
     
-    #region 손 공격 skill 3 함수
-    public void AttackHand_Skill3()
+    #region 흡수 공격 skill 3 함수
+    public void AttackAbsorb_Skill3()
     {
-        
+        isActive_Absorb = true;
     }
-    
-    private void HitCheck_HandArea()
+
+    private void Spon_AbsorbHand()
     {
-        foreach (GameObject hitArea in HandAtt_HitArea)
+        float absorbHand_SponXPos = Random.Range(left_SponPos, right_SponPos);
+        Vector2 sponPos = new Vector2(absorbHand_SponXPos, SponYPos);
+
+        dummy_AbsorbHand = Instantiate(AbsorbHand, sponPos, Quaternion.identity);
+
+        Absorb_HitCol[] absorbHand_Arr = dummy_AbsorbHand.transform.GetComponentsInChildren<Absorb_HitCol>();
+
+        foreach (Absorb_HitCol absorbHand in absorbHand_Arr)
         {
-            if (hitArea.gameObject.GetComponent<LastBoss_HitAreaCheck>().isHit_Player == true)
-            {
-                Debug.Log("에리어 안");
-                
-                isIn_PlayerArea = true;
-                check_hitAreaPos = hitArea.gameObject.GetComponent<LastBoss_HitAreaCheck>().hitAreaPos;
-                return;
-            }
-            isIn_PlayerArea = false;
-            check_hitAreaPos = LastBoss_HandHitAreaPos.NotHit;
+            absorbHand.owner = LastBoss_Entity;
+            absorbHand.SetAddHP(absorbHP_Amount);
         }
+        
+        dummy_AbsorbHand.gameObject.GetComponent<Rigidbody2D>().AddForce
+            (Vector2.down * downSpeed, ForceMode2D.Impulse);
+    }
+
+    public void Delete_AbsorbHand()
+    {
+        delete_AbsorbCount++;
+    }
+    #endregion
+
+    #region 영역에 들어가면, 주먹으로 공격
+    public void AttackFist_Skill6()
+    {
+        isActive_Fist = true;
+    }
+
+    private LastBoss_FistAttType ChangeTo_intFistType(int attackType_int)
+    {
+        LastBoss_FistAttType current_FistAttType = LastBoss_FistAttType.UpFist;
+        
+        switch (attackType_int)
+        {
+            case (int)LastBoss_FistAttType.UpFist:
+                current_FistAttType = LastBoss_FistAttType.UpFist;
+                break;
+            
+            case (int)LastBoss_FistAttType.RightFist: 
+                current_FistAttType = LastBoss_FistAttType.RightFist;
+                break;
+            
+            case (int)LastBoss_FistAttType.DownFist:
+                current_FistAttType = LastBoss_FistAttType.DownFist;
+                break;
+            
+            case (int)LastBoss_FistAttType.LeftFist: 
+                current_FistAttType = LastBoss_FistAttType.LeftFist;
+                break;
+            
+            default:
+                Debug.Log("ㅈ버그");
+                break;
+        }
+
+        return current_FistAttType;
+    }
+
+    private void AttackFist(LastBoss_FistAttType input_fistAttType)
+    {
+        Debug.Log("생성 및 공격");
+        Vector2 FistSponPos = Vector2.zero;
+        
+        switch (input_fistAttType)
+        {
+            case LastBoss_FistAttType.UpFist:
+                FistSponPos.x = Random.Range
+                    (leftUP_FistSponPos.position.x + 2f, rightDown_FistSponPos.position.x - 2f);
+                FistSponPos.y = rightDown_FistSponPos.position.y;
+                
+                SponFist(FistSponPos, -90f, Vector2.up);
+                break;
+            
+            case LastBoss_FistAttType.RightFist:
+                FistSponPos.x = leftUP_FistSponPos.position.x;
+                FistSponPos.y = Random.Range
+                    (rightDown_FistSponPos.position.y + 3f, leftUP_FistSponPos.position.y - 3f);
+                
+                SponFist(FistSponPos, 0, Vector2.right);
+                break;
+            
+            case LastBoss_FistAttType.DownFist:
+                FistSponPos.x = Random.Range
+                    (leftUP_FistSponPos.position.x + 2f, rightDown_FistSponPos.position.x - 2f);
+                FistSponPos.y = leftUP_FistSponPos.position.y;
+                
+                SponFist(FistSponPos, 90f, Vector2.down);
+                break;
+            
+            case LastBoss_FistAttType.LeftFist:
+                FistSponPos.x = rightDown_FistSponPos.position.x;
+                FistSponPos.y = Random.Range
+                    (rightDown_FistSponPos.position.y + 3f, leftUP_FistSponPos.position.y - 3f);
+                
+                SponFist(FistSponPos, 0, Vector2.left);
+                break;
+            
+            default: 
+                Debug.Log("개버그 2");
+                return;
+        }
+        
+        Debug.Log(FistSponPos);
+    }
+
+    private void SponFist(Vector2 FistSponPos, float rotation, Vector2 PowerPos)
+    {
+        dummyFist = GameObject.Instantiate(FistObj, FistSponPos, Quaternion.identity);
+        dummyFist.transform.rotation = Quaternion.Euler(0,0, rotation);
+        if (PowerPos == Vector2.right)
+            dummyFist.transform.GetChild(0).gameObject.GetComponent<SpriteRenderer>().flipX = true;
+        
+        dummyFist.gameObject.GetComponent<FistHitCol>().owner = LastBoss_Entity;
+        
+        dummyFist.gameObject.GetComponent<Rigidbody2D>().AddForce
+            (PowerPos * fistPower, ForceMode2D.Impulse);
+    }
+
+    public void DeleteFist()
+    {
+        delete_FistCount++;
     }
     #endregion
     
@@ -347,14 +530,22 @@ public class LastBoss_Ctrl : Boss
 
     public override void EachBoss_EndSkill()
     {
-        isIn_PlayerArea = false;
         isSelect_DAttType = false;
+        isActive_Absorb = false;
+        
         shooting_AttCount = 0;
+        absorbAtt_Count = 0;
+        delete_AbsorbCount = 0;
+        
+        fistCount = 0;
+        delete_FistCount = 0;
+        
+        animCtrl.SetBool("isEnd_Absorb", false);
+        animCtrl.SetBool("isEnd_Fist", false);
     }
 
     protected override void EachBoss_EndAttack()
     {
         isSelect_DAttType = false;
-        isIn_PlayerArea = false;
     }
 }

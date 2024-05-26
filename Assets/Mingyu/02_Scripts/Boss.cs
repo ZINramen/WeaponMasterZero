@@ -175,7 +175,6 @@ public abstract class Boss : MonoBehaviour
     private void UpdateState()
     {
         player_pos = player.GetComponent<Transform>().position;
-        //distFrom_Player = Vector2.Distance(player_pos, transform.position);
         distFrom_Player = Mathf.Abs(player_pos.x - transform.position.x);
         
         // 상황에 따른 동작 구현 FSM
@@ -187,15 +186,13 @@ public abstract class Boss : MonoBehaviour
         // 스킬 준비가 되어있고, 보스가 공격중이 아니라면.
         else if (bossState.isSkillReady && !bossState.isAttacking)
         {
-            Debug.Log("SS");
-            
             if (!isSelectSkill)
             {
                 // 보스 체력에 따라, 스킬이 나올것이 달라짐
                 bossHP_per = (this.GetComponent<Entity>().GetHp()) / (this.GetComponent<Entity>().maxHP);
                 iBossSkill = EachBoss_SelectedSkill(bossState);
 
-                iBossSkill = (int)Boss_State.State.p1_Skill1;
+                iBossSkill = (int)Boss_State.State.p2_Skill3;   // # 특정 스킬 지정하기 Test
                 
                 sBossSkill = Change_IntToState(iBossSkill, ref skillDist);
                 Debug.Log("SkillName : " +  sBossSkill);
@@ -284,13 +281,6 @@ public abstract class Boss : MonoBehaviour
             MoveSetting();
         }
     }
-
-    // protected virtual void MoveSetting()
-    // {
-    //     Vector2 velo = Vector2.zero;
-    //     this.transform.position = Vector2.SmoothDamp(this.transform.position, player_pos,
-    //         ref velo, move_Speed);
-    // }
     
     protected virtual void MoveSetting()
     {

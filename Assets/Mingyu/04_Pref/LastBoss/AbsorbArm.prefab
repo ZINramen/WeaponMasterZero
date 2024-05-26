@@ -11,8 +11,8 @@ GameObject:
   - component: {fileID: 7281542136337629213}
   - component: {fileID: 6012262797945878077}
   - component: {fileID: 252816152078198774}
-  - component: {fileID: 5156934992824280604}
-  m_Layer: 0
+  - component: {fileID: 1475709566366311832}
+  m_Layer: 13
   m_Name: ArmLong
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -115,7 +115,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0.14799711}
@@ -131,7 +131,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 2.02, y: 0.15485573}
   m_EdgeRadius: 0
---- !u!114 &5156934992824280604
+--- !u!114 &1475709566366311832
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -140,7 +140,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 866738314827043443}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8faf252014a19b942bc4983ce0bcf63a, type: 3}
+  m_Script: {fileID: 11500000, guid: 7a4a9b77d2c67d14abf0e6e59cb74673, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   telp: 0
@@ -154,6 +154,8 @@ MonoBehaviour:
   attType: 0
   isAbleDestroy: 0
   DestroyEffect: {fileID: 0}
+  deleteTime: 3
+  downSpeed: 0
 --- !u!1 &4284595033747441012
 GameObject:
   m_ObjectHideFlags: 0
@@ -164,9 +166,9 @@ GameObject:
   m_Component:
   - component: {fileID: 5718825033313498272}
   - component: {fileID: 7431472215536426478}
-  - component: {fileID: 1732652796970753820}
   - component: {fileID: 1903466747413725925}
-  m_Layer: 0
+  - component: {fileID: 4956541898071465127}
+  m_Layer: 13
   m_Name: AbsorbArm(R)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -241,29 +243,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &1732652796970753820
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4284595033747441012}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8faf252014a19b942bc4983ce0bcf63a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  telp: 0
-  stunTarget: 0
-  flyingAttackForce: 0
-  attackForce: 10
-  thrustValue: 0.5
-  owner: {fileID: 0}
-  oneHit: 0
-  playerIsOwn: 0
-  attType: 0
-  isAbleDestroy: 0
-  DestroyEffect: {fileID: 0}
 --- !u!61 &1903466747413725925
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -293,7 +272,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: -0.3608508, y: 0.19370651}
@@ -309,6 +288,31 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 2.5782986, y: 0.1823349}
   m_EdgeRadius: 0
+--- !u!114 &4956541898071465127
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4284595033747441012}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a4a9b77d2c67d14abf0e6e59cb74673, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  telp: 0
+  stunTarget: 0
+  flyingAttackForce: 0
+  attackForce: 10
+  thrustValue: 0.5
+  owner: {fileID: 0}
+  oneHit: 0
+  playerIsOwn: 0
+  attType: 0
+  isAbleDestroy: 0
+  DestroyEffect: {fileID: 0}
+  deleteTime: 3
+  downSpeed: 0
 --- !u!1 &4424281485437170590
 GameObject:
   m_ObjectHideFlags: 0
@@ -320,8 +324,8 @@ GameObject:
   - component: {fileID: 4338480398564464550}
   - component: {fileID: 2423073105860044431}
   - component: {fileID: 5526505024751729181}
-  - component: {fileID: 3701947077465349882}
-  m_Layer: 0
+  - component: {fileID: 3380828609693809109}
+  m_Layer: 13
   m_Name: ArmLong
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -424,7 +428,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0.14311333}
@@ -440,7 +444,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 2.02, y: 0.21508786}
   m_EdgeRadius: 0
---- !u!114 &3701947077465349882
+--- !u!114 &3380828609693809109
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -449,7 +453,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 4424281485437170590}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8faf252014a19b942bc4983ce0bcf63a, type: 3}
+  m_Script: {fileID: 11500000, guid: 7a4a9b77d2c67d14abf0e6e59cb74673, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   telp: 0
@@ -463,6 +467,8 @@ MonoBehaviour:
   attType: 0
   isAbleDestroy: 0
   DestroyEffect: {fileID: 0}
+  deleteTime: 3
+  downSpeed: 0
 --- !u!1 &7057841594541590812
 GameObject:
   m_ObjectHideFlags: 0
@@ -474,8 +480,8 @@ GameObject:
   - component: {fileID: 2281937839165799213}
   - component: {fileID: 3212134499026345961}
   - component: {fileID: 3332894052869173517}
-  - component: {fileID: 4448450394622038809}
-  m_Layer: 0
+  - component: {fileID: 4933086298305202892}
+  m_Layer: 13
   m_Name: AbsorbArm(L)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -579,7 +585,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: -0.2837244, y: 0.19264412}
@@ -595,7 +601,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 2.469969, y: 0.17968369}
   m_EdgeRadius: 0
---- !u!114 &4448450394622038809
+--- !u!114 &4933086298305202892
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -604,7 +610,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 7057841594541590812}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8faf252014a19b942bc4983ce0bcf63a, type: 3}
+  m_Script: {fileID: 11500000, guid: 7a4a9b77d2c67d14abf0e6e59cb74673, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   telp: 0
@@ -618,6 +624,8 @@ MonoBehaviour:
   attType: 0
   isAbleDestroy: 0
   DestroyEffect: {fileID: 0}
+  deleteTime: 3
+  downSpeed: 0
 --- !u!1 &7801138083066790131
 GameObject:
   m_ObjectHideFlags: 0
@@ -627,7 +635,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5526511250351767544}
-  m_Layer: 0
+  - component: {fileID: 3377406385168489558}
+  m_Layer: 13
   m_Name: AbsorbArm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -642,7 +651,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7801138083066790131}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 15.739561, y: 11.117852, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -651,3 +660,30 @@ Transform:
   - {fileID: 5718825033313498272}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!50 &3377406385168489558
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7801138083066790131}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 5
