@@ -28,15 +28,40 @@ public class LastBoss_Ctrl : Boss
        
        5. 체력이 50% 이하일 때, 특정 배경으로 바뀌더니, 특정 무기의 공격만 들어감
        6. 체력이 60% 30%일 때, 자물쇠 패턴이 나오고 딜이 넣어지지 않음 */
+
+    #region 기본 평타 변수
+    private bool isSelect_DAttType = false;
+    private enum  DAtt_Type
+    {
+        LeftAtt = 0,
+        RightAtt = 1
+    }
     
-    #region 탄막 발사 변수 // skill2
+    private bool isLeftAtt;
+    private int dAttType_int;
+    #endregion
+
+    #region 중력 변수
+    [SerializeField] private float playerJump_Power;
+    #endregion
+    
+    #region 탄막 발사 변수 Many Bullet용 // skill2
     [SerializeField] private GameObject ShootingBullet_Pref;
+    [SerializeField] private Transform ShootingBulletPos;
     [SerializeField] private int bulletCount;                   // 한번 등장하는 총알 갯수
     [SerializeField] private int shooting_AttTotalCount;        // 공격 횟수
     
     private float bullet_Degree = 0f;
     private bool isActive_Shooting = false;
-    [SerializeField] private int shooting_AttCount = 0;                          // 공격 횟수 카운트
+    [SerializeField] private int shooting_AttCount = 0;         // 공격 횟수 카운트
+    
+    private enum  FireAtt_Type
+    {
+        ManyAtt = 0,
+        TwoAtt = 1
+    }
+    
+    private bool isShooting_ManyAtt;
 
     private float delayTime = 0.5f;
     private float delayCount = 0f;
@@ -56,6 +81,7 @@ public class LastBoss_Ctrl : Boss
 
     [SerializeField] private GameObject[] HandAtt_HitArea = new GameObject[4];
     private LastBoss_HandHitAreaPos check_hitAreaPos = LastBoss_HandHitAreaPos.NotHit;
+    
     #endregion
     
     #region 특정 공격만 맞는 패턴 변수
@@ -93,31 +119,54 @@ public class LastBoss_Ctrl : Boss
     
     protected override void Init_StateValueData(ref Boss_State state)
     {
-        state.defaultAtt_dist = 5000f;      // 내려찍어 충격파 만들기
+        state.defaultAtt_dist = 5000f;      // 손날 치기
 
         state.skill_CoolTime = 3f;
     
-        state.p1_Skill1_dist = 5000f;       // 불 뿜기
+        state.p1_Skill1_dist = 5000f;       // 중력
         state.p1_Skill2_dist = 5000f;       // 탄막 발싸
-        state.p2_Skill1_dist = 5000f;       // 하늘에서 막대 떨어뜨리기 (플레이어가 맞으면 보스 피 회복)
-        state.p2_Skill2_dist = 5000f;       // 특정 위치에 도달하면, 손 뻗어서 공격
+        state.p2_Skill1_dist = 5000f;       // 흡수 공격
+        state.p2_Skill2_dist = 5000f;       // 땅을 내려찍어, 가시가 튀어나오게 함
+        state.p2_Skill3_dist = 5000f;       // 특정 구역에 들어가면, 주먹으로 때림
         
-        state.p1S1_PossibilityNumber = 0;   // 0  ~ 24  25%
-        state.p1S2_PossibilityNumber = 25;  // 25 ~ 49  25%
-        state.p2S1_PossibilityNumber = 50;  // 50 ~ 74  25%
-        state.p2S2_PossibilityNumber = 75;  // 75 ~ 100 25%
+        state.p1S1_PossibilityNumber = 0;   // 0  ~ 19  20%
+        state.p1S2_PossibilityNumber = 20;  // 20 ~ 39  20%
+        state.p2S1_PossibilityNumber = 40;  // 40 ~ 59  20%
+        state.p2S2_PossibilityNumber = 60;  // 60 ~ 79  20%
+        state.p2S3_PossibilityNumber = 80;  // 80 ~ 100 20%
+    }
+    
+    protected override void EachBoss_AttackSetting()
+    {
+        if (!isSelect_DAttType)
+        {
+            isSelect_DAttType = true;
+
+            dAttType_int = Random.Range((int)DAtt_Type.LeftAtt, (int)DAtt_Type.RightAtt + 1);
+            if (dAttType_int == (int)DAtt_Type.LeftAtt) isLeftAtt = true;
+            else isLeftAtt = false;
+
+            animCtrl.SetBool("is_DAtt_L", isLeftAtt);
+        }
     }
     
     protected override int EachBoss_SelectedSkill(Boss_State currState)
     {
         int selectedNumber;
         selectedNumber = Random.Range(0, 100);      // 0 ~ 99
+        Select_ShootingType();                      // Test
 
         HitCheck_HandArea();
 
         if (!isIn_PlayerArea && selectedNumber >= currState.p2S2_PossibilityNumber)
-            selectedNumber = Random.Range(0, currState.p2S2_PossibilityNumber);     // 0 ~ 75 사이를 다시 돌림   25%
-            
+            selectedNumber = Random.Range(0, currState.p2S3_PossibilityNumber);     // 0 ~ 80 사이를 다시 돌림   20%
+        
+        else if (selectedNumber >= currState.p2S3_PossibilityNumber)
+        {
+            iBossSkill = (int)Boss_State.State.p2_Skill2;
+            animCtrl.SetInteger("Random_HandAttPos", (int)check_hitAreaPos);
+        }
+        
         else if(selectedNumber >= currState.p2S2_PossibilityNumber)
             iBossSkill = (int)Boss_State.State.p2_Skill2;
 
@@ -125,7 +174,10 @@ public class LastBoss_Ctrl : Boss
             iBossSkill = (int)Boss_State.State.p2_Skill1;
         
         else if (selectedNumber >= currState.p1S2_PossibilityNumber)
+        {
+            Select_ShootingType();
             iBossSkill = (int)Boss_State.State.p1_Skill2;
+        }
         
         else
             iBossSkill = (int)Boss_State.State.p1_Skill1;
@@ -178,10 +230,16 @@ public class LastBoss_Ctrl : Boss
     }
     #endregion
     
-    #region 불뿜기 skill 1 함수
-    public void AttackFire_Skill1()
+    #region 중력 공격 skill 1 함수
+    public void AttackGravity_Skill1()
     {
-        
+        player.gameObject.GetComponent<Movement>().Jump(playerJump_Power);
+    }
+
+    public void DownAttack()
+    {
+        player.gameObject.GetComponent<Movement>().body.AddForce
+            (-Vector2.up * playerJump_Power / 2 , ForceMode2D.Impulse);
     }
     #endregion
     
@@ -205,12 +263,24 @@ public class LastBoss_Ctrl : Boss
             Quaternion randomRotation = Quaternion.Euler(0, 0, bulletAngle);
 
             // 프리팹 생성
-            dummyBullet = Instantiate(ShootingBullet_Pref, this.gameObject.transform.position, randomRotation);
+            dummyBullet = Instantiate(ShootingBullet_Pref, ShootingBulletPos.position, randomRotation);
             dummyBullet.gameObject.GetComponent<LastBoss_BulletHitColl>().owner = LastBoss_Entity;
+            dummyBullet.transform.GetChild(0).gameObject.GetComponent<HitColider>().owner = LastBoss_Entity;
             dummyBullet.gameObject.GetComponent<BulletCtrl>().install_ZValue = bulletAngle;
         }
 
         shooting_AttCount++;
+    }
+
+    public void Select_ShootingType()
+    {
+        int shootingType = Random.Range((int)FireAtt_Type.ManyAtt, (int)FireAtt_Type.TwoAtt + 1);
+        if (dAttType_int == (int)FireAtt_Type.ManyAtt) isShooting_ManyAtt = true;
+        else isShooting_ManyAtt = false;
+
+        isShooting_ManyAtt = false; // Test
+
+        animCtrl.SetBool("is_ManyFire", isShooting_ManyAtt);
     }
     #endregion
     
@@ -278,11 +348,13 @@ public class LastBoss_Ctrl : Boss
     public override void EachBoss_EndSkill()
     {
         isIn_PlayerArea = false;
+        isSelect_DAttType = false;
         shooting_AttCount = 0;
     }
 
     protected override void EachBoss_EndAttack()
     {
+        isSelect_DAttType = false;
         isIn_PlayerArea = false;
     }
 }

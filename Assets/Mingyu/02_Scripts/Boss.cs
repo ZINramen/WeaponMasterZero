@@ -75,7 +75,7 @@ public abstract class Boss : MonoBehaviour
     
     // 처음 시작할 땐, 스킬이 활성화 되어있지 않음
     protected Boss_State.State sBossSkill;
-    [SerializeField]protected int iBossSkill;
+    protected int iBossSkill;
     private bool isSelectSkill = false;
     
     protected float skillDist;
@@ -94,6 +94,7 @@ public abstract class Boss : MonoBehaviour
 
     protected Material origin_Mat;
     [SerializeField] protected Material hit_Mat;
+    protected bool isNotHit = false;
 
     public BossType bossType;
     public bool isDie;
@@ -194,7 +195,7 @@ public abstract class Boss : MonoBehaviour
                 bossHP_per = (this.GetComponent<Entity>().GetHp()) / (this.GetComponent<Entity>().maxHP);
                 iBossSkill = EachBoss_SelectedSkill(bossState);
 
-                iBossSkill = (int)Boss_State.State.p1_Skill2;
+                iBossSkill = (int)Boss_State.State.p1_Skill1;
                 
                 sBossSkill = Change_IntToState(iBossSkill, ref skillDist);
                 Debug.Log("SkillName : " +  sBossSkill);
@@ -444,13 +445,29 @@ public abstract class Boss : MonoBehaviour
     #region 피격 모션 생성
     public void HitEffect()
     {
-        this.gameObject.GetComponent<SpriteRenderer>().material = hit_Mat;
+        if (this.gameObject.GetComponent<Entity>().DamageBlock != Entity.DefenseStatus.invincible)
+        {
+            if (bossType == BossType.Last)
+            {
+                if (player.gameObject.GetComponent<AnimationManager>().ani.GetInteger("Weapon")
+                    != this.gameObject.GetComponent<Entity>().desireWeaponFinalBoss)
+                    return;
+                
+                this.gameObject.transform.GetChild(0).gameObject.GetComponent<SpriteRenderer>().material = hit_Mat;
+            }
+            else
+                this.gameObject.GetComponent<SpriteRenderer>().material = hit_Mat;
+        }
+
         Invoke("Off_Effect", 0.3f);
     }
 
     private void Off_Effect()
     {
-        this.gameObject.GetComponent<SpriteRenderer>().material = origin_Mat;
+        if (bossType == BossType.Last)
+            this.gameObject.transform.GetChild(0).gameObject.GetComponent<SpriteRenderer>().material = origin_Mat;
+        else
+            this.gameObject.GetComponent<SpriteRenderer>().material = origin_Mat;
     }
     #endregion
     

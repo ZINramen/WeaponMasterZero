@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5391620071849702655}
   - component: {fileID: 978593353997058365}
-  m_Layer: 3
+  m_Layer: 0
   m_Name: Trail
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -148,7 +148,7 @@ GameObject:
   - component: {fileID: 5344302618005203022}
   - component: {fileID: 4017882835225832188}
   - component: {fileID: 4235623736286862294}
-  m_Layer: 3
+  m_Layer: 0
   m_Name: 'Boss: Spike'
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -300,7 +300,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8906200563983976658}
   - component: {fileID: 5120800645970031913}
-  m_Layer: 3
+  m_Layer: 0
   m_Name: WarnArea (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -386,7 +386,7 @@ GameObject:
   - component: {fileID: 678699392500745428}
   - component: {fileID: 1195606888346594903}
   - component: {fileID: 1017597132500582208}
-  m_Layer: 3
+  m_Layer: 0
   m_Name: 'Boss: Hand (R)'
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -512,7 +512,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -540,7 +540,7 @@ GameObject:
   - component: {fileID: 3789479527961000700}
   - component: {fileID: 7041448280007573953}
   - component: {fileID: 5281145180138441536}
-  m_Layer: 3
+  m_Layer: 0
   m_Name: 'Boss: Spike (3)'
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -694,7 +694,7 @@ GameObject:
   - component: {fileID: 744298109221767458}
   - component: {fileID: 3365426865358715004}
   - component: {fileID: 1406931797554792399}
-  m_Layer: 3
+  m_Layer: 0
   m_Name: 'Boss: Spike (2)'
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -848,7 +848,7 @@ GameObject:
   - component: {fileID: 5243675967423922792}
   - component: {fileID: 7683764167190424572}
   - component: {fileID: 6438197215640782336}
-  m_Layer: 3
+  m_Layer: 0
   m_Name: 'Boss: Camera'
   m_TagString: MainCamera
   m_Icon: {fileID: 0}
@@ -986,7 +986,7 @@ GameObject:
   - component: {fileID: 1188095185183963883}
   - component: {fileID: 8410946980179617036}
   - component: {fileID: 6195028684387937074}
-  m_Layer: 3
+  m_Layer: 0
   m_Name: EnergyBall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1113,7 +1113,7 @@ CircleCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -1145,7 +1145,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6375209154030392570}
   - component: {fileID: 7916325546873568473}
-  m_Layer: 3
+  m_Layer: 0
   m_Name: 'Boss: Effect (L)'
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1231,7 +1231,7 @@ GameObject:
   - component: {fileID: 5469640618287655163}
   - component: {fileID: 6863091440223345420}
   - component: {fileID: 8134464156891643994}
-  m_Layer: 3
+  m_Layer: 0
   m_Name: EnergyBall (twinkle)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1357,7 +1357,7 @@ CircleCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -1376,7 +1376,7 @@ GameObject:
   - component: {fileID: 6188881497920904718}
   - component: {fileID: 1801164376483941040}
   - component: {fileID: 6148151476215258107}
-  m_Layer: 3
+  m_Layer: 0
   m_Name: EnergyBall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1503,7 +1503,7 @@ CircleCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -1535,7 +1535,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8195416203071512846}
   - component: {fileID: 308952803881130099}
-  m_Layer: 3
+  m_Layer: 0
   m_Name: 'Boss: Arm (R)'
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1618,7 +1618,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4730502633911132668}
-  m_Layer: 3
+  m_Layer: 0
   m_Name: EnergyBall (Seperated)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1653,7 +1653,7 @@ GameObject:
   - component: {fileID: 3697084749913493678}
   - component: {fileID: 2619406666446113131}
   - component: {fileID: 7291594607841087553}
-  m_Layer: 3
+  m_Layer: 0
   m_Name: EnergyBall (twinkle)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1779,7 +1779,7 @@ CircleCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -1797,7 +1797,7 @@ GameObject:
   - component: {fileID: 8606599684040205585}
   - component: {fileID: 1071460481922438065}
   - component: {fileID: 6204968333364576813}
-  m_Layer: 3
+  m_Layer: 0
   m_Name: 'Boss: Spike (4)'
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1949,7 +1949,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2336734927768544311}
   - component: {fileID: 3887296284544498052}
-  m_Layer: 3
+  m_Layer: 0
   m_Name: 'Boss: Upper'
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2033,7 +2033,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3887977428119810223}
   - component: {fileID: 5739090840561576600}
-  m_Layer: 3
+  m_Layer: 0
   m_Name: WarnArea
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2107,6 +2107,37 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &3279209430912524135
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6097180090703816134}
+  m_Layer: 3
+  m_Name: ManyBullet_SponPos
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6097180090703816134
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3279209430912524135}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 2.81, y: -1.43, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6048216593931354487}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &3366636821749578837
 GameObject:
   m_ObjectHideFlags: 0
@@ -2117,7 +2148,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2085970808427287872}
   - component: {fileID: 1397737100062524625}
-  m_Layer: 3
+  m_Layer: 0
   m_Name: MiniPortal (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2201,7 +2232,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3806546530138488671}
   - component: {fileID: 1753472773684748228}
-  m_Layer: 3
+  m_Layer: 0
   m_Name: MiniPortal
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2336,6 +2367,7 @@ Transform:
   - {fileID: 4730502633911132668}
   - {fileID: 519164513746021984}
   - {fileID: 7154073232872178824}
+  - {fileID: 6097180090703816134}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!95 &6920579874090231421
@@ -2547,7 +2579,8 @@ MonoBehaviour:
   hit_Mat: {fileID: 2100000, guid: 9a312534a97aeb14e89b5c7cc149b470, type: 2}
   bossType: 3
   isDie: 0
-  ShootingBullet_Pref: {fileID: 5418670801975883608, guid: 4eca62df360f10942bef8b4af191a4cb, type: 3}
+  ShootingBullet_Pref: {fileID: 555014721428104510, guid: d2de8c682b312494cb9b6f19643186db, type: 3}
+  ShootingBulletPos: {fileID: 6097180090703816134}
   bulletCount: 12
   shooting_AttTotalCount: 6
   shooting_AttCount: 0
@@ -2684,7 +2717,7 @@ GameObject:
   - component: {fileID: 6623760867219806145}
   - component: {fileID: 1900706584935134913}
   - component: {fileID: 2883307072845242719}
-  m_Layer: 3
+  m_Layer: 0
   m_Name: EnergyBall (twinkle)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2810,7 +2843,7 @@ CircleCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -2825,7 +2858,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 519164513746021984}
-  m_Layer: 3
+  m_Layer: 0
   m_Name: EnergyBall (Seperated) (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2859,7 +2892,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2088371983398772436}
   - component: {fileID: 5744267915786016986}
-  m_Layer: 3
+  m_Layer: 0
   m_Name: Trail
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2995,7 +3028,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8370855412645942694}
   - component: {fileID: 8494277143139955951}
-  m_Layer: 3
+  m_Layer: 0
   m_Name: Lock
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3081,7 +3114,7 @@ GameObject:
   - component: {fileID: 6767662857469185480}
   - component: {fileID: 216248632769476774}
   - component: {fileID: 6522793085619202901}
-  m_Layer: 3
+  m_Layer: 0
   m_Name: 'Boss: Hand (L)'
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3207,7 +3240,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -3233,7 +3266,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6066683048084929676}
   - component: {fileID: 5100184577078429479}
-  m_Layer: 3
+  m_Layer: 0
   m_Name: WarnArea (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3320,7 +3353,7 @@ GameObject:
   - component: {fileID: 743622985900273326}
   - component: {fileID: 86358958774381600}
   - component: {fileID: 8157878363434866800}
-  m_Layer: 3
+  m_Layer: 0
   m_Name: EnergyBall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3447,7 +3480,7 @@ CircleCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -3479,7 +3512,7 @@ GameObject:
   m_Component:
   - component: {fileID: 9133343661876317799}
   - component: {fileID: 2081282419848894611}
-  m_Layer: 3
+  m_Layer: 0
   m_Name: WarnArea (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3562,7 +3595,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7154073232872178824}
-  m_Layer: 3
+  m_Layer: 0
   m_Name: EnergyBall (Seperated) (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3596,7 +3629,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5413098694801622107}
   - component: {fileID: 4468922210048199167}
-  m_Layer: 3
+  m_Layer: 0
   m_Name: 'Boss: Effect (R)'
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3682,7 +3715,7 @@ GameObject:
   - component: {fileID: 2822433030801055184}
   - component: {fileID: 6970813657040799160}
   - component: {fileID: 8237914824821991204}
-  m_Layer: 3
+  m_Layer: 0
   m_Name: 'Boss: Spike (1)'
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3834,7 +3867,7 @@ GameObject:
   m_Component:
   - component: {fileID: 75440153842427128}
   - component: {fileID: 2001284688683029182}
-  m_Layer: 3
+  m_Layer: 0
   m_Name: WarnArea (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3918,7 +3951,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1629414154923095846}
   - component: {fileID: 7165676077906497274}
-  m_Layer: 3
+  m_Layer: 0
   m_Name: 'Boss: Arm (L)'
   m_TagString: Untagged
   m_Icon: {fileID: 0}
