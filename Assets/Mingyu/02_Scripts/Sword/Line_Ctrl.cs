@@ -143,7 +143,6 @@ public class Line_Ctrl : MonoBehaviour
     IEnumerator DeleteAnimatoin_Line()
     {
         float elapsedTime = 0f;
-        float deltaTime;
 
         while (elapsedTime <= lineSize)
         {

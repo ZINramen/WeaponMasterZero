@@ -10,12 +10,11 @@ GameObject:
   m_Component:
   - component: {fileID: 1673531018226773888}
   - component: {fileID: 2129469741230997259}
-  - component: {fileID: 2736717427062116368}
   - component: {fileID: 9005161596147418673}
   - component: {fileID: 5792296095363394704}
   - component: {fileID: 7656246612707602754}
   - component: {fileID: 6290311685474259811}
-  - component: {fileID: 4194129817450215937}
+  - component: {fileID: -1843958177259770682}
   m_Layer: 0
   m_Name: Blade_Pref
   m_TagString: Untagged
@@ -90,27 +89,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &2736717427062116368
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5925929291915557867}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8faf252014a19b942bc4983ce0bcf63a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  telp: 0
-  stunTarget: 0
-  flyingAttackForce: 0
-  attackForce: 10
-  thrustValue: 0.5
-  owner: {fileID: 0}
-  attType: 0
-  isAbleDestroy: 0
-  DestroyEffect: {fileID: 0}
 --- !u!61 &9005161596147418673
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -217,7 +195,7 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &4194129817450215937
+--- !u!114 &-1843958177259770682
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -226,26 +204,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 5925929291915557867}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d8edf2d55ca588547881b7472e926510, type: 3}
+  m_Script: {fileID: 11500000, guid: 309359ffc9b493048a4410761c41f3aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_TrailName: 
-  m_CurrentTrailPreset: {fileID: 11400000, guid: 8986d50bf6632a74e833e27ec9e23121, type: 2}
-  m_TrailParent: {fileID: 0}
-  m_SpriteToDuplicate: {fileID: 0}
-  m_Layer: 0
-  m_ZMoveStep: 0.0001
-  m_ZMoveMax: 10
-  m_HideTrailOnDisabled: 1
-  m_TrailActivationCondition: 0
-  m_TrailDeactivationCondition: 0
-  m_StartIfUnderVelocity: 0
-  m_VelocityStartIsLocalSpace: 0
-  m_VelocityNeededToStart: 0
-  m_StopIfOverVelocity: 0
-  m_VelocityStopIsLocalSpace: 0
-  m_VelocityNeededToStop: 0
-  m_TrailActivationDuration: 0
-  m_SortingLayerID: 0
-  m_OrderInSortingLayer: 0
-  m_DisabledElementsInTrail: []
+  telp: 0
+  stunTarget: 0
+  flyingAttackForce: 0
+  attackForce: 10
+  thrustValue: 0.5
+  owner: {fileID: 0}
+  attType: 0
+  isAbleDestroy: 0
+  DestroyEffect: {fileID: 0}

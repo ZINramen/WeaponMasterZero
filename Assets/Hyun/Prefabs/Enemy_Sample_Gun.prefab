@@ -9796,6 +9796,9 @@ MonoBehaviour:
   attackForce: 10
   thrustValue: 0.2
   owner: {fileID: 6798484954397267854}
+  oneHit: 0
+  playerIsOwn: 0
+  attType: 0
   isAbleDestroy: 0
   DestroyEffect: {fileID: 0}
 --- !u!61 &4664873560712947464
@@ -20770,13 +20773,14 @@ GameObject:
   - component: {fileID: 6516919344923568044}
   - component: {fileID: 3374871691216114207}
   - component: {fileID: 4766649517208150676}
+  - component: {fileID: 594139546919394444}
   m_Layer: 3
   m_Name: Enemy_Sample_Gun
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1365251372803731366
 Transform:
   m_ObjectHideFlags: 0
@@ -20816,6 +20820,7 @@ Transform:
   - {fileID: 374755197419043102}
   - {fileID: 6429071804927171678}
   - {fileID: 6708619944529044506}
+  - {fileID: 5238428904434632188}
   - {fileID: 1089993516283329007}
   - {fileID: 9085801214346889916}
   - {fileID: 8110775076186127243}
@@ -20918,6 +20923,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 694a23cac498b534babe0516d95f8beb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Alway: 0
   owner: {fileID: 0}
   h: 0
   body: {fileID: 0}
@@ -20944,7 +20950,6 @@ MonoBehaviour:
   groundCheck: {fileID: 4680716716444186372}
   owner: {fileID: 0}
   temp: {fileID: 0}
-  onGround: 1
   ecActive: 0
   rotationZ: 0
   ani: {fileID: 0}
@@ -20989,6 +20994,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a1045773e672824daf99f5c8b2edde4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  activeDesireWeapon: 0
+  playerFinalBoss: {fileID: 0}
+  desireWeaponFinalBoss: 0
   stun: 0
   hp: 0
   mp: 0
@@ -21142,9 +21150,40 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e01d69820ea46f640afc899e4b8e0465, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: {fileID: 0}
+  detectionRange: 10
   AttackDelay: 2
   WalkName: isWalk
   AttackName: Gun
+  exclamationPointPrefab: {fileID: 719645088804361089, guid: 16cc8a617baaf9f43ad48cf2457b39e4, type: 3}
+  enableSpeedControl: 0
+  movement: {fileID: 0}
+  attackRange: 10
+  newLongRangeAttack: {fileID: 0}
+--- !u!114 &594139546919394444
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4841115058619197237}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f454cbbc073315b49a239b9b6c200f6b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  WhenTargeting: 1
+  targetingImage: {fileID: 0}
+  gun: {fileID: 0}
+  gunAnimator: {fileID: 0}
+  bullet: {fileID: 3720463374832119540, guid: 3f1ee58aa9d81b7498ed1183834c354d, type: 3}
+  bulletSpeed: 10
+  shootingPrefab: {fileID: 0}
+  bombPrefab: {fileID: 0}
+  fireTr: {fileID: 0}
+  GunfireTr: {fileID: 5238428904434632188}
+  GunGauge: {fileID: 0}
+  bulletMaxCount: 6
 --- !u!1 &4852946076001619766
 GameObject:
   m_ObjectHideFlags: 0
@@ -24717,6 +24756,37 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &6468571883731897137
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5238428904434632188}
+  m_Layer: 3
+  m_Name: GunFireTr
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5238428904434632188
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6468571883731897137}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.23, y: 0.07, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1365251372803731366}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &6501610163307340611
 GameObject:
   m_ObjectHideFlags: 0

@@ -89,11 +89,12 @@ TextureImporter:
     externalNormalMap: 0
     heightScale: 0.25
     normalMapFilter: 0
+    flipGreenChannel: 0
   isReadable: 0
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
-  ignoreMasterTextureLimit: 0
+  ignoreMipmapLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -116,7 +117,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 32
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -132,6 +133,7 @@ TextureImporter:
   textureFormatSet: 0
   ignorePngGamma: 0
   applyGammaDecoding: 0
+  swizzle: 50462976
   cookieLightType: 1
   platformSettings:
   - serializedVersion: 3
@@ -144,6 +146,7 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
@@ -156,6 +159,7 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
@@ -168,6 +172,7 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
@@ -180,6 +185,7 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
@@ -192,6 +198,7 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
@@ -204,6 +211,7 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
@@ -704,31 +712,30 @@ TextureImporter:
     secondaryTextures: []
     nameFileIdTable:
       Snowman_Full_FX_0: -429638168398234161
-      Snowman_Full_FX_4: 632461033684820204
-      Snowman_Full_FX_3: 2168272913656822010
-      Snowman_Full_FX_13: 4321328712712106977
-      Snowman_Full_FX_7: -6703150909157937293
-      Snowman_Full_FX_18: -5427540994188225601
       Snowman_Full_FX_1: 7781151765430854806
+      Snowman_Full_FX_10: 4281650563312524067
+      Snowman_Full_FX_11: -7294300672839250736
+      Snowman_Full_FX_12: -4671142149924602413
+      Snowman_Full_FX_13: 4321328712712106977
+      Snowman_Full_FX_14: 6945478950430455505
       Snowman_Full_FX_15: 6619107603794116284
       Snowman_Full_FX_16: 9165005826456075055
       Snowman_Full_FX_17: 1056790259508511467
-      Snowman_Full_FX_14: 6945478950430455505
-      Snowman_Full_FX_5: -6327929137822674651
-      Snowman_Full_FX_10: 4281650563312524067
+      Snowman_Full_FX_18: -5427540994188225601
+      Snowman_Full_FX_19: 6660517320002070745
+      Snowman_Full_FX_2: -6427210146383883542
+      Snowman_Full_FX_20: -8148749553830737806
       Snowman_Full_FX_21: -8343024063740725736
+      Snowman_Full_FX_22: 1842863179228397022
+      Snowman_Full_FX_3: 2168272913656822010
+      Snowman_Full_FX_4: 632461033684820204
+      Snowman_Full_FX_5: -6327929137822674651
+      Snowman_Full_FX_6: -5225729913207467291
+      Snowman_Full_FX_7: -6703150909157937293
       Snowman_Full_FX_8: 5156410270019193551
       Snowman_Full_FX_9: 7908598077434037177
-      Snowman_Full_FX_2: -6427210146383883542
-      Snowman_Full_FX_11: -7294300672839250736
-      Snowman_Full_FX_6: -5225729913207467291
-      Snowman_Full_FX_12: -4671142149924602413
-      Snowman_Full_FX_20: -8148749553830737806
-      Snowman_Full_FX_22: 1842863179228397022
-      Snowman_Full_FX_19: 6660517320002070745
-  spritePackingTag: 
+  mipmapLimitGroupName: 
   pSDRemoveMatte: 0
-  pSDShowRemoveMatteOption: 0
   userData: 
   assetBundleName: 
   assetBundleVariant: 

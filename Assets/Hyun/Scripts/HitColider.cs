@@ -18,7 +18,9 @@ public class HitColider : MonoBehaviour
     public enum AttackType
     {
         none,
-        Player_SwordAtt
+        Player_SwordAtt,
+        Player_GunAtt,
+        Player_FinishdAtt
     }
     public AttackType attType = AttackType.none;
     
@@ -28,17 +30,18 @@ public class HitColider : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
+        EachObj_HitSetting(other);
+        
         if (playerIsOwn && other.CompareTag("Player"))
             return;
         if (isAbleDestroy)
         {
-            if (!other.GetComponent<Entity>() && !other.GetComponent<HitColider>() && !other.CompareTag("Camera") ||
-                other.CompareTag("Player"))
+            if (other.CompareTag("Untagged") || (!owner.CompareTag("Player") &&
+                other.CompareTag("Player")))
             {
-                Debug.Log(other.gameObject);
                 if (DestroyEffect)
                     GameObject.Instantiate(DestroyEffect, transform.position, Quaternion.identity);
-                Destroy(gameObject);
+                EachObj_DeleteSetting(this.gameObject);
             }
         }
 
@@ -56,8 +59,6 @@ public class HitColider : MonoBehaviour
                 Debug.Log("맞는 거잖아~");
             }
         }
-
-        EachObj_HitSetting(other);
 
         if (entity)
         {
@@ -79,7 +80,8 @@ public class HitColider : MonoBehaviour
                     {
                         entity.stun = stunTarget;
                         entity.flyingDamagedPower = flyingAttackForce;
-                        if (owner && owner.transform.localEulerAngles.y == 180)
+                        
+                        if (owner.transform.position.x > entity.transform.position.x)
                         {
                             if (!owner || owner.movement.PlayerType || entity.movement.PlayerType)
                                 entity.Damaged(attackForce, (-attackForce) * thrustValue);
@@ -106,5 +108,10 @@ public class HitColider : MonoBehaviour
 
     protected virtual void EachObj_HitSetting(Collider2D other)
     {
+    }
+    
+    protected virtual void EachObj_DeleteSetting(GameObject deleteObj)
+    {
+        Destroy(gameObject);
     }
 }
