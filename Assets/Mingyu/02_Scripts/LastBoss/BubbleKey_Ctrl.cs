@@ -77,16 +77,50 @@ public class BubbleKey_Ctrl : MonoBehaviour
     public GameObject Player;
     
     private BubbleData currentBubbleData;
-    private bool is_Pass = true;
+    [SerializeField]private bool is_Pass = true;
 
     private Rigidbody2D BubbleRd;
     private Vector2 Chaged_Pos;
+
+    private Vector2 WavePowerPos;
+    private float wavePower = 5f;
+
+    private int waveForce_Count = 6;
+    private int waveCount = 0;
     
     void Start()
     {
         BubbleRd = this.gameObject.GetComponent<Rigidbody2D>();
 
         AddForce(currentBubbleData.bubbleSponType, currentBubbleData.bubblePower);
+        
+        if (WavePowerPos == Vector2.down || WavePowerPos == Vector2.up)
+            WavePowerPos = Vector2.up;
+        else
+            WavePowerPos = Vector2.right;
+
+        BubbleRd.AddForce(WavePowerPos * wavePower * (waveForce_Count / 2), ForceMode2D.Impulse);
+        
+        Wave();
+    }
+
+    private void Wave()
+    {
+        if (WavePowerPos == Vector2.down || WavePowerPos == Vector2.up)
+        {
+            if( (waveCount / waveForce_Count) % 2 == 0) WavePowerPos = Vector2.down;
+            else WavePowerPos = Vector2.up;
+        }
+        else
+        {
+            if ((waveCount / waveForce_Count) % 2 == 0) WavePowerPos = Vector2.left;
+            else WavePowerPos = Vector2.right;
+        }
+
+        waveCount++;
+        BubbleRd.AddForce(WavePowerPos * wavePower, ForceMode2D.Impulse);
+        
+        Invoke("Wave", 0.5f);
     }
 
     public void SetBubbleData(ref BubbleData input_bubbleData)
@@ -97,30 +131,29 @@ public class BubbleKey_Ctrl : MonoBehaviour
     
     public void AddForce(BubbleSponType bubbleSponType, float bubblePower)
     {
-        Debug.Log("타입" + bubbleSponType);
-
         while (BubbleRd.velocity.magnitude > 0.5f)
-        {
-            Debug.Log("TSSx");
             BubbleRd.velocity = Vector2.zero;
-        }
         
         switch (bubbleSponType)
         {
             case BubbleSponType.UP_Spon:
                 BubbleRd.AddForce(Vector2.down * bubblePower, ForceMode2D.Impulse);
+                WavePowerPos = Vector2.left;
                 break;
             
             case BubbleSponType.Right_Spon:
                 BubbleRd.AddForce(Vector2.left * bubblePower, ForceMode2D.Impulse);
+                WavePowerPos = Vector2.up;
                 break;
             
             case BubbleSponType.Down_Spon:
                 BubbleRd.AddForce(Vector2.up * bubblePower, ForceMode2D.Impulse);
+                WavePowerPos = Vector2.left;
                 break;
             
             default:
                 BubbleRd.AddForce(Vector2.right * bubblePower, ForceMode2D.Impulse);
+                WavePowerPos = Vector2.up;
                 break;
         }
     }
@@ -129,16 +162,18 @@ public class BubbleKey_Ctrl : MonoBehaviour
     {
         if (is_Pass != true && other.gameObject.tag == "Wall")
         {
+            is_Pass = true;
             currentBubbleData.SetBubbleData(ref Chaged_Pos);
             this.gameObject.transform.position = Chaged_Pos;
-            is_Pass = true;
             AddForce(currentBubbleData.bubbleSponType, currentBubbleData.bubblePower);
         }
+        
+        //if(other.gameObject.tag)
     }
-
-    private void OnTriggerExit2D(Collider2D other)
+    
+    private void OnTriggerStay2D(Collider2D other)
     {
-        if(is_Pass && other.gameObject.tag == "Wall")
+        if (is_Pass && other.gameObject.tag == "Wall")
             is_Pass = false;
     }
 }
