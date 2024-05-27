@@ -124,6 +124,24 @@ public class LastBoss_Ctrl : Boss
     [SerializeField] private float change_AttTypeTime = 5f;
     private float change_AttTypeCount;
     #endregion
+
+    #region 자물쇠 패턴
+    private bool isAble_firstLockHP = false;
+    private bool isAble_secondLockHP = false;
+
+    private float firstLockHP;
+    private float secondLockHP;
+    
+    [SerializeField] private GameObject BubbleKey_Obj;
+    [SerializeField] private GameObject LockObj;
+    [SerializeField] private float m_bubblePower;
+    private BubbleData currentBubble;
+    
+    public BubbleData Get_BubbleData() { return currentBubble; }
+
+    private GameObject dummy_BubbleKey_Obj;
+    private GameObject dummy_LockObj;
+    #endregion
     
     void Start()
     {
@@ -136,6 +154,12 @@ public class LastBoss_Ctrl : Boss
         LastBoss_Entity = this.gameObject.GetComponent<Entity>();
         changeAttack_AbleHP = LastBoss_Entity.maxHP / 2;
         //changeAttack_AbleHP = LastBoss_Entity.maxHP;        // Test
+        
+        /* 체력의 60%와 30% 일때, 자물쇠 패턴을 사용 */
+        //firstLockHP = LastBoss_Entity.maxHP * 0.6f;
+        
+        firstLockHP = LastBoss_Entity.maxHP * 1f;           // Test
+        secondLockHP = LastBoss_Entity.maxHP * 0.3f;
 
         #region 벽의 위치를 구해, 스폰될 구역을 만드는 로직
         WallObjs = GameObject.FindGameObjectsWithTag("Wall");
@@ -232,6 +256,17 @@ public class LastBoss_Ctrl : Boss
             }
         }
 
+        if (LastBoss_Entity.GetHp() <= firstLockHP && !isAble_firstLockHP)
+        {
+            animCtrl.SetTrigger("LockAtt");
+            isAble_firstLockHP = true;
+        }
+        else if (LastBoss_Entity.GetHp() <= secondLockHP && !isAble_secondLockHP)
+        {
+            animCtrl.SetTrigger("LockAtt");
+            isAble_secondLockHP = true;
+        }
+
         if (isActive_Shooting)
         {
             if(shooting_AttCount < shooting_AttTotalCount)
@@ -296,14 +331,6 @@ public class LastBoss_Ctrl : Boss
             animCtrl.SetBool("isEnd_Fist", true);
         }
     }
-
-    #region 기본 평타 함수
-    public void Attack_Default()
-    {
-        
-    }
-    #endregion
-    
     #region 중력 공격 skill 1 함수
     public void AttackGravity_Skill1()
     {
@@ -389,7 +416,7 @@ public class LastBoss_Ctrl : Boss
     }
     #endregion
 
-    #region 영역에 들어가면, 주먹으로 공격
+    #region 랜덤으로, 주먹으로 공격
     public void AttackFist_Skill6()
     {
         isActive_Fist = true;
@@ -468,8 +495,6 @@ public class LastBoss_Ctrl : Boss
                 Debug.Log("개버그 2");
                 return;
         }
-        
-        Debug.Log(FistSponPos);
     }
 
     private void SponFist(Vector2 FistSponPos, float rotation, Vector2 PowerPos)
@@ -491,7 +516,7 @@ public class LastBoss_Ctrl : Boss
     }
     #endregion
     
-    #region 배경 변경 skill 4 함수
+    #region 배경 변경 skill 6 함수
     private void Setting_AbleAttType()
     {
         Random_AbleAttType();
@@ -522,10 +547,25 @@ public class LastBoss_Ctrl : Boss
     }
     #endregion
     
-    #region 자물쇠 skill 5 함수
+    #region 자물쇠 skill 7 함수
+    public void Active_LockSkill()
+    {
+        Vector2 BubbleKey_SponPos = Vector2.zero;
+        
+        currentBubble = new BubbleData();
+        currentBubble.Set_SponAblePos(leftUP_FistSponPos, rightDown_FistSponPos);
+        currentBubble.SetBubbleData(ref BubbleKey_SponPos);
+        currentBubble.bubblePower = m_bubblePower;
+        
+        dummy_BubbleKey_Obj = Instantiate(BubbleKey_Obj, BubbleKey_SponPos, Quaternion.identity);
+        dummy_BubbleKey_Obj.gameObject.GetComponent<BubbleKey_Ctrl>().SetBubbleData(ref currentBubble);
+        dummy_BubbleKey_Obj.gameObject.GetComponent<BubbleKey_Ctrl>().Player = player;
+        
+        dummy_LockObj = Instantiate(LockObj, player.gameObject.transform.position, Quaternion.identity);
+        dummy_LockObj.transform.parent = player.gameObject.transform;
 
-    
-
+        this.gameObject.GetComponent<Entity>().DamageBlock = Entity.DefenseStatus.invincible;
+    }
     #endregion
 
     public override void EachBoss_EndSkill()
