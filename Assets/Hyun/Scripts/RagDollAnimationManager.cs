@@ -6,19 +6,17 @@ public class RagDollAnimationManager : MonoBehaviour
 {
     public Entity owner;
     int jump = 0, maxJump = 2;
-    ShootingControl sc;
+    
     Animator ani;
     // Start is called before the first frame update
     void Start()
     {
         ani = GetComponent<Animator>();
-        sc = owner.GetComponent<ShootingControl>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        sc.WhenTargeting = true;
         if(owner.movement.h != 0)
             ani.SetBool("isWalk", true);
         else
@@ -44,10 +42,6 @@ public class RagDollAnimationManager : MonoBehaviour
             }
             owner.movement.Jump(0);
             ani.SetBool("isFloating", true);
-        }
-        if(owner.aManager.ani.GetInteger("Weapon") != 2)
-        {
-            sc.WhenTargeting = false; 
         }
     }
 }

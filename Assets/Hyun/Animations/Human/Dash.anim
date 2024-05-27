@@ -3553,7 +3553,7 @@ AnimationClip:
     functionName: SetMovementForceX
     data: 
     objectReferenceParameter: {fileID: 0}
-    floatParameter: 10
+    floatParameter: 100
     intParameter: 0
     messageOptions: 0
   - time: 0.083333336
@@ -3563,17 +3563,17 @@ AnimationClip:
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
-  - time: 0.16666667
-    functionName: SetVelocityZero
-    data: 
-    objectReferenceParameter: {fileID: 0}
-    floatParameter: 0
-    intParameter: 0
-    messageOptions: 0
   - time: 0.23333333
     functionName: PlaySound
     data: 
     objectReferenceParameter: {fileID: 8300000, guid: 91ea773d7f4f541518ce3dce04663a2e, type: 3}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 0.3
+    functionName: SetVelocityZero
+    data: 
+    objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 0
     messageOptions: 0

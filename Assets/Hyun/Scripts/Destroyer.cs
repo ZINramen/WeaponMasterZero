@@ -6,13 +6,19 @@ using static UnityEditor.PlayerSettings;
 
 public class Destroyer : MonoBehaviour
 {
+    public bool haveDestroyArea = false;
     public bool haveTarget = false;
+
     public float moveSpeed = 0;
     public bool fromParent;
+    public bool NoDestroyButHide = false;
     public float delayTime = 0;
+
+    public float maxValue = 10;
 
     public GameObject DestroyBeforeSpawnObject;
 
+    bool startDestroy = false;
     private void Start()
     {
         if (moveSpeed != 0)
@@ -20,34 +26,57 @@ public class Destroyer : MonoBehaviour
             Rigidbody2D rb = GetComponent<Rigidbody2D>();
             if (haveTarget)
             {
-                Vector3 pos = transform.forward;
-                pos = new Vector3(pos.x, pos.y, 0);
+                Vector2 pos = transform.forward;
                 pos.Normalize();
-                rb.velocity = pos * moveSpeed;
+                
+                rb.velocity = new Vector3(pos.x, pos.y, 0) * moveSpeed;
+                
             }
             else
             {
                 rb.velocity = transform.right * moveSpeed;
             }
+            transform.rotation = Quaternion.identity;
         }
     }
     void Update()
     {
-        if (fromParent)
+        if (!startDestroy)
         {
-            transform.parent = null;
-        }
-        else
-        {
-            StartCoroutine(SpawnObject());
-            Destroy(gameObject, delayTime);
+            if (fromParent)
+            {
+                transform.parent = null;
+                startDestroy = true;
+            }
+            else
+            {
+                if (!haveDestroyArea)
+                {
+                    StartCoroutine(SpawnObjectAndDestroy());
+                }
+                else if (transform.position.x > maxValue || transform.position.y > maxValue)
+                {
+                    StartCoroutine(SpawnObjectAndDestroy());
+                }
+                else if (transform.position.x < -maxValue || transform.position.y < -maxValue)
+                {
+                    StartCoroutine(SpawnObjectAndDestroy());
+                }
+            }
         }
     }
-    IEnumerator SpawnObject() 
+    IEnumerator SpawnObjectAndDestroy()
     {
-        yield return new WaitForSeconds(delayTime-0.1f);
-
+        startDestroy = true;
+        yield return new WaitForSeconds(delayTime);
         if (DestroyBeforeSpawnObject != null)
             Instantiate(DestroyBeforeSpawnObject, transform.position, Quaternion.identity);
+        if (!NoDestroyButHide)
+            Destroy(gameObject);
+        else
+        {
+            startDestroy = false;
+            gameObject.SetActive(false);
+        }
     }
 }

@@ -23,9 +23,8 @@ public class HitColider : MonoBehaviour
         Player_FinishdAtt
     }
     public AttackType attType = AttackType.none;
-    
-    
     public bool isAbleDestroy = false;
+    public bool WeaponCanAbleDestroy = false;
     public GameObject DestroyEffect;
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -36,11 +35,21 @@ public class HitColider : MonoBehaviour
             return;
         if (isAbleDestroy)
         {
-            if (other.CompareTag("Untagged") || (!owner.CompareTag("Player") &&
-                other.CompareTag("Player")))
+            if (DestroyEffect)
+            {
+               Instantiate(DestroyEffect, transform.position, Quaternion.identity);
+            }
+            EachObj_DeleteSetting(this.gameObject);
+        }
+        else if (WeaponCanAbleDestroy)
+        {
+            HitColider hitData = other.GetComponent<HitColider>();
+            if (hitData && hitData.owner == Entity.Player &&  hitData.attType == AttackType.Player_SwordAtt)
             {
                 if (DestroyEffect)
-                    GameObject.Instantiate(DestroyEffect, transform.position, Quaternion.identity);
+                {
+                    Instantiate(DestroyEffect, transform.position, Quaternion.identity);
+                }
                 EachObj_DeleteSetting(this.gameObject);
             }
         }
@@ -53,18 +62,18 @@ public class HitColider : MonoBehaviour
             thrustValue = 0;
             flyingAttackForce = 0;
 
-            if (owner && owner != entity)
+            if (owner && owner != entity && other.gameObject.GetComponent<Boss>())
             {
                 other.gameObject.GetComponent<Boss>().HitEffect();
                 Debug.Log("맞는 거잖아~");
             }
         }
 
-        if (entity)
+        if (entity && entity.GetHp() > 0)
         {
             if (owner)
             {
-                owner.SetMp(owner.GetMp()+2);
+                owner.SetMp(owner.GetMp()+5);
                 if ((owner.tag == "Player" && entity.tag != "Player") || (owner.tag != "Player" && entity.tag == "Player"))
                 {
                     if (telp)

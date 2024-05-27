@@ -37,6 +37,7 @@ public class ShootingControl : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(!owner.isDie)
         if (WhenTargeting)
         {
             Cursor.SetCursor(targetingImage, Vector2.zero, CursorMode.Auto);

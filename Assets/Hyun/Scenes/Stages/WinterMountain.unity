@@ -2413,6 +2413,11 @@ MonoBehaviour:
   attackForce: 9999
   thrustValue: 0
   owner: {fileID: 0}
+  oneHit: 0
+  playerIsOwn: 0
+  attType: 0
+  isAbleDestroy: 0
+  DestroyEffect: {fileID: 0}
 --- !u!61 &344226359
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -9550,6 +9555,11 @@ MonoBehaviour:
   attackForce: 9999
   thrustValue: 0
   owner: {fileID: 0}
+  oneHit: 0
+  playerIsOwn: 0
+  attType: 0
+  isAbleDestroy: 0
+  DestroyEffect: {fileID: 0}
 --- !u!61 &681416596
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -10310,6 +10320,11 @@ MonoBehaviour:
   attackForce: 9999
   thrustValue: 0
   owner: {fileID: 0}
+  oneHit: 0
+  playerIsOwn: 0
+  attType: 0
+  isAbleDestroy: 0
+  DestroyEffect: {fileID: 0}
 --- !u!61 &790765138
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -10459,6 +10474,11 @@ MonoBehaviour:
   attackForce: 9999
   thrustValue: 0
   owner: {fileID: 0}
+  oneHit: 0
+  playerIsOwn: 0
+  attType: 0
+  isAbleDestroy: 0
+  DestroyEffect: {fileID: 0}
 --- !u!61 &791807407
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -10866,6 +10886,11 @@ MonoBehaviour:
   attackForce: 9999
   thrustValue: 0
   owner: {fileID: 0}
+  oneHit: 0
+  playerIsOwn: 0
+  attType: 0
+  isAbleDestroy: 0
+  DestroyEffect: {fileID: 0}
 --- !u!61 &873119271
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -13761,7 +13786,7 @@ Tilemap:
       - {fileID: -610758675, guid: ffd6ab005a35de9438772ebb6726c4ce, type: 3}
       - {fileID: 1477164531, guid: ffd6ab005a35de9438772ebb6726c4ce, type: 3}
       - {fileID: -1122339553, guid: ffd6ab005a35de9438772ebb6726c4ce, type: 3}
-      m_AnimationSpeed: 6.2534165
+      m_AnimationSpeed: 7.975808
       m_AnimationTimeOffset: 0
       m_Flags: 0
   m_TileAssetArray:
@@ -14371,6 +14396,11 @@ MonoBehaviour:
   attackForce: 9999
   thrustValue: 0
   owner: {fileID: 0}
+  oneHit: 0
+  playerIsOwn: 0
+  attType: 0
+  isAbleDestroy: 0
+  DestroyEffect: {fileID: 0}
 --- !u!61 &1175991300
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -16162,6 +16192,11 @@ MonoBehaviour:
   attackForce: 9999
   thrustValue: 0
   owner: {fileID: 0}
+  oneHit: 0
+  playerIsOwn: 0
+  attType: 0
+  isAbleDestroy: 0
+  DestroyEffect: {fileID: 0}
 --- !u!61 &1466805314
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -16795,6 +16830,11 @@ MonoBehaviour:
   attackForce: 9999
   thrustValue: 0
   owner: {fileID: 0}
+  oneHit: 0
+  playerIsOwn: 0
+  attType: 0
+  isAbleDestroy: 0
+  DestroyEffect: {fileID: 0}
 --- !u!61 &1530554845
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -16924,18 +16964,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9334e6cafa21e7049a257016ab9f4f7d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AutoSet: 0
+  originCamOffset: {x: 0, y: 0}
+  CamOffset: {fileID: 0}
   offsetX: 0
   offsetY: 0
   downOffsetY: 0
-  shakePowerTest: 0
   shakePowerTemp: 0
   shakeReductionSpeed: 10
   moveSpeed: 1
-  player1: {fileID: 1698266128264126555}
-  player2: {fileID: 1698266128956191170}
-  size_AddValue: 0.5
-  size_OriginalValue: 2.18
 --- !u!114 &1556218539
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17192,6 +17228,11 @@ MonoBehaviour:
   attackForce: 9999
   thrustValue: 0
   owner: {fileID: 0}
+  oneHit: 0
+  playerIsOwn: 0
+  attType: 0
+  isAbleDestroy: 0
+  DestroyEffect: {fileID: 0}
 --- !u!61 &1571813525
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -60892,6 +60933,11 @@ MonoBehaviour:
   attackForce: 9999
   thrustValue: 0
   owner: {fileID: 0}
+  oneHit: 0
+  playerIsOwn: 0
+  attType: 0
+  isAbleDestroy: 0
+  DestroyEffect: {fileID: 0}
 --- !u!61 &1729735709
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -61125,6 +61171,11 @@ MonoBehaviour:
   attackForce: 9999
   thrustValue: 0
   owner: {fileID: 0}
+  oneHit: 0
+  playerIsOwn: 0
+  attType: 0
+  isAbleDestroy: 0
+  DestroyEffect: {fileID: 0}
 --- !u!61 &1734097383
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -61427,6 +61478,11 @@ MonoBehaviour:
   attackForce: 9999
   thrustValue: 0
   owner: {fileID: 0}
+  oneHit: 0
+  playerIsOwn: 0
+  attType: 0
+  isAbleDestroy: 0
+  DestroyEffect: {fileID: 0}
 --- !u!61 &1779052794
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -61656,6 +61712,11 @@ MonoBehaviour:
   attackForce: 9999
   thrustValue: 0
   owner: {fileID: 0}
+  oneHit: 0
+  playerIsOwn: 0
+  attType: 0
+  isAbleDestroy: 0
+  DestroyEffect: {fileID: 0}
 --- !u!61 &1797721326
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -61874,6 +61935,11 @@ MonoBehaviour:
   attackForce: 9999
   thrustValue: 0
   owner: {fileID: 0}
+  oneHit: 0
+  playerIsOwn: 0
+  attType: 0
+  isAbleDestroy: 0
+  DestroyEffect: {fileID: 0}
 --- !u!61 &1812600299
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -65378,9 +65444,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a1045773e672824daf99f5c8b2edde4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  activeDesireWeapon: 0
+  playerFinalBoss: {fileID: 0}
+  desireWeaponFinalBoss: 0
   stun: 0
-  network: {fileID: 0}
-  Network_Catch: 0
   hp: 0
   mp: 0
   movement: {fileID: 0}
@@ -65395,6 +65462,9 @@ MonoBehaviour:
   attackPos: {fileID: 6618511079053255326}
   attackLength: 0
   isDie: 0
+  OnDie:
+    m_PersistentCalls:
+      m_Calls: []
   flyingAttackForce: 0
   flyingDamagedPower: 0
   aManager: {fileID: 0}
@@ -65402,6 +65472,7 @@ MonoBehaviour:
   currentCombo: 0
   maxcombo: 10
   ComboUI: {fileID: 2320536752282502563, guid: 02f78935d275c27478963ecf2e2006de, type: 3}
+  isDamaged: 0
   HitEffect: {fileID: 5302201665987482517, guid: 10ecd86e54fbd744baa1f69bb0995cc2, type: 3}
   StrongHitEffect: {fileID: 5942996768073886119, guid: a1a7b4ac36c2cac4690161d6213c9499, type: 3}
   HitTextEffect: {fileID: 8229482444463616188, guid: 67ebec0b8db95af4080e234f6cc20919, type: 3}
@@ -65421,9 +65492,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a1045773e672824daf99f5c8b2edde4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  activeDesireWeapon: 0
+  playerFinalBoss: {fileID: 0}
+  desireWeaponFinalBoss: 0
   stun: 0
-  network: {fileID: 0}
-  Network_Catch: 0
   hp: 0
   mp: 0
   movement: {fileID: 0}
@@ -65438,6 +65510,9 @@ MonoBehaviour:
   attackPos: {fileID: 6618511080030532359}
   attackLength: 0
   isDie: 0
+  OnDie:
+    m_PersistentCalls:
+      m_Calls: []
   flyingAttackForce: 0
   flyingDamagedPower: 0
   aManager: {fileID: 0}
@@ -65445,6 +65520,7 @@ MonoBehaviour:
   currentCombo: 0
   maxcombo: 10
   ComboUI: {fileID: 2320536752282502563, guid: 02f78935d275c27478963ecf2e2006de, type: 3}
+  isDamaged: 0
   HitEffect: {fileID: 5302201665987482517, guid: 10ecd86e54fbd744baa1f69bb0995cc2, type: 3}
   StrongHitEffect: {fileID: 5942996768073886119, guid: a1a7b4ac36c2cac4690161d6213c9499, type: 3}
   HitTextEffect: {fileID: 8229482444463616188, guid: 67ebec0b8db95af4080e234f6cc20919, type: 3}
@@ -65729,9 +65805,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   skillManager: {fileID: 0}
+  groundCheck: {fileID: 0}
   owner: {fileID: 0}
   temp: {fileID: 0}
-  onGround: 1
   ecActive: 0
   rotationZ: 0
   ani: {fileID: 0}
@@ -65763,9 +65839,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   skillManager: {fileID: 0}
+  groundCheck: {fileID: 0}
   owner: {fileID: 0}
   temp: {fileID: 0}
-  onGround: 1
   ecActive: 0
   rotationZ: 0
   ani: {fileID: 0}
@@ -80622,6 +80698,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f775fbd5041ae8a4dad2101adc6ffd6d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  jumpDustEffectPrefab: {fileID: 0}
   HammerEffect: {fileID: 0}
 --- !u!114 &3938115797469128367
 MonoBehaviour:
@@ -80635,6 +80712,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f775fbd5041ae8a4dad2101adc6ffd6d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  jumpDustEffectPrefab: {fileID: 0}
   HammerEffect: {fileID: 0}
 --- !u!1 &3940357836164797885
 GameObject:
@@ -93192,6 +93270,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f775fbd5041ae8a4dad2101adc6ffd6d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  jumpDustEffectPrefab: {fileID: 0}
   HammerEffect: {fileID: 3625968948955618824}
 --- !u!114 &4525935664265846315
 MonoBehaviour:
@@ -93205,6 +93284,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f775fbd5041ae8a4dad2101adc6ffd6d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  jumpDustEffectPrefab: {fileID: 0}
   HammerEffect: {fileID: 3625968948313886609}
 --- !u!212 &4526207382439642451
 SpriteRenderer:
@@ -94045,7 +94125,7 @@ SpriteRenderer:
   m_Size: {x: 8.19, y: 3.39}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!212 &4725143794130537768
@@ -94097,7 +94177,7 @@ SpriteRenderer:
   m_Size: {x: 8.19, y: 3.39}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!4 &4728467839667731173
@@ -95804,6 +95884,11 @@ MonoBehaviour:
   attackForce: 10
   thrustValue: 0.2
   owner: {fileID: 188581461903789813}
+  oneHit: 0
+  playerIsOwn: 0
+  attType: 0
+  isAbleDestroy: 0
+  DestroyEffect: {fileID: 0}
 --- !u!114 &5172570470333405203
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -95822,6 +95907,11 @@ MonoBehaviour:
   attackForce: 10
   thrustValue: 0.2
   owner: {fileID: 188581463317274476}
+  oneHit: 0
+  playerIsOwn: 0
+  attType: 0
+  isAbleDestroy: 0
+  DestroyEffect: {fileID: 0}
 --- !u!1 &5179899826120423390
 GameObject:
   m_ObjectHideFlags: 0
@@ -96286,17 +96376,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 323fb73650ca8eb41a50333343367f31, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  skills:
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
+  healEffect: {fileID: 0}
+  hudControl: {fileID: 0}
+  currentWeapon: 0
+  haveWeaponNum: 0
   infinite: 0
 --- !u!114 &5311680616436507688
 MonoBehaviour:
@@ -96310,17 +96393,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 323fb73650ca8eb41a50333343367f31, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  skills:
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
+  healEffect: {fileID: 0}
+  hudControl: {fileID: 0}
+  currentWeapon: 0
+  haveWeaponNum: 0
   infinite: 0
 --- !u!1 &5335331662800591115
 GameObject:
@@ -119453,7 +119529,7 @@ SpriteRenderer:
   m_Size: {x: 1.74, y: 0.87}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!212 &8066873182115402011
@@ -119505,7 +119581,7 @@ SpriteRenderer:
   m_Size: {x: 1.74, y: 0.87}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!1 &8071763375456033360
@@ -124370,7 +124446,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 694a23cac498b534babe0516d95f8beb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Alway: 0
   owner: {fileID: 0}
+  h: 0
+  body: {fileID: 0}
   speed: 3
   super: 0
   JumpPower: 3
@@ -124390,7 +124469,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 694a23cac498b534babe0516d95f8beb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Alway: 0
   owner: {fileID: 0}
+  h: 0
+  body: {fileID: 0}
   speed: 3
   super: 0
   JumpPower: 3
