@@ -123,6 +123,8 @@ public class LastBoss_Ctrl : Boss
 
     [SerializeField] private float change_AttTypeTime = 5f;
     private float change_AttTypeCount;
+
+    private int beforeAttType = (int)PlayerAttackType.NotSetting;
     #endregion
 
     #region 자물쇠 패턴
@@ -156,9 +158,9 @@ public class LastBoss_Ctrl : Boss
         //changeAttack_AbleHP = LastBoss_Entity.maxHP;        // Test
         
         /* 체력의 60%와 30% 일때, 자물쇠 패턴을 사용 */
-        //firstLockHP = LastBoss_Entity.maxHP * 0.6f;
+        //firstLockHP = LastBoss_Entity.maxHP * 0.9f;           // Test
         
-        firstLockHP = LastBoss_Entity.maxHP * 1f;           // Test
+        firstLockHP = LastBoss_Entity.maxHP * 0.6f;
         secondLockHP = LastBoss_Entity.maxHP * 0.3f;
 
         #region 벽의 위치를 구해, 스폰될 구역을 만드는 로직
@@ -245,13 +247,15 @@ public class LastBoss_Ctrl : Boss
         // 체력이 50% 이하라면, 공격타입을 결정할 수 있게 진행
         if (LastBoss_Entity.GetHp() <= changeAttack_AbleHP)
         {
-            if (attAble_AttType == PlayerAttackType.NotSetting)
+            if (attAble_AttType == PlayerAttackType.NotSetting && !LastBoss_Entity.activeDesireWeapon)
                 Setting_AbleAttType();
             
             change_AttTypeCount += Time.deltaTime;
+            Debug.Log(change_AttTypeCount);
+            
             if (change_AttTypeCount >= change_AttTypeTime)
             {
-                Random_AbleAttType();
+                animCtrl.SetBool("isActive_Teleport", true);
                 change_AttTypeCount = 0;
             }
         }
@@ -379,7 +383,7 @@ public class LastBoss_Ctrl : Boss
         if (dAttType_int == (int)FireAtt_Type.ManyAtt) isShooting_ManyAtt = true;
         else isShooting_ManyAtt = false;
 
-        isShooting_ManyAtt = false; // Test
+        //isShooting_ManyAtt = false; // Test
 
         animCtrl.SetBool("is_ManyFire", isShooting_ManyAtt);
     }
@@ -519,19 +523,28 @@ public class LastBoss_Ctrl : Boss
     #region 배경 변경 skill 6 함수
     private void Setting_AbleAttType()
     {
-        Random_AbleAttType();
-
-        LastBoss_Entity.activeDesireWeapon = true;
-        LastBoss_Entity.playerFinalBoss = player.gameObject.GetComponent<Entity>();
+        animCtrl.SetBool("isActive_Teleport", true);
     }
     
     private void Random_AbleAttType()
     {
+        change_AttTypeCount = 0;
+        
+        LastBoss_Entity.activeDesireWeapon = true;
+        LastBoss_Entity.playerFinalBoss = player.gameObject.GetComponent<Entity>();
+        
         random_AttAbleType = Random.Range((int)PlayerAttackType.Sword, (int)PlayerAttackType.Hammer + 1);
+        
+        while(beforeAttType == random_AttAbleType)
+            random_AttAbleType = Random.Range((int)PlayerAttackType.Sword, (int)PlayerAttackType.Hammer + 1);
+
+        beforeAttType = random_AttAbleType;
         attAble_AttType = AttAbleSkill_ToEnum(random_AttAbleType);
         
         AttackAble_BackGround.gameObject.GetComponent<SpriteRenderer>().sprite = AttackAble_BackGroundData[random_AttAbleType - 1];
         LastBoss_Entity.desireWeaponFinalBoss = random_AttAbleType;
+        
+        animCtrl.SetBool("isActive_Teleport", false);
     }
 
     private PlayerAttackType AttAbleSkill_ToEnum(int input_AttAbleType)
@@ -560,11 +573,18 @@ public class LastBoss_Ctrl : Boss
         dummy_BubbleKey_Obj = Instantiate(BubbleKey_Obj, BubbleKey_SponPos, Quaternion.identity);
         dummy_BubbleKey_Obj.gameObject.GetComponent<BubbleKey_Ctrl>().SetBubbleData(ref currentBubble);
         dummy_BubbleKey_Obj.gameObject.GetComponent<BubbleKey_Ctrl>().Player = player;
+        dummy_BubbleKey_Obj.gameObject.GetComponent<BubbleKey_Ctrl>().LastBoss = this.gameObject;
         
         dummy_LockObj = Instantiate(LockObj, player.gameObject.transform.position, Quaternion.identity);
         dummy_LockObj.transform.parent = player.gameObject.transform;
 
         this.gameObject.GetComponent<Entity>().DamageBlock = Entity.DefenseStatus.invincible;
+    }
+
+    public void Destory_LockObj()
+    {
+        Destroy(dummy_LockObj.gameObject);
+        this.gameObject.GetComponent<Entity>().DamageBlock = Entity.DefenseStatus.Nope;
     }
     #endregion
 

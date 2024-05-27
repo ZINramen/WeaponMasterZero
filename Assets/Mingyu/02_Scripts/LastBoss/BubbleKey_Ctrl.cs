@@ -75,52 +75,20 @@ public class BubbleData
 public class BubbleKey_Ctrl : MonoBehaviour
 {
     public GameObject Player;
+    public GameObject LastBoss;
     
     private BubbleData currentBubbleData;
-    [SerializeField]private bool is_Pass = true;
+    [SerializeField] private bool is_Pass = true;
+    [SerializeField] private GameObject keyObj;
 
     private Rigidbody2D BubbleRd;
     private Vector2 Chaged_Pos;
-
-    private Vector2 WavePowerPos;
-    private float wavePower = 5f;
-
-    private int waveForce_Count = 6;
-    private int waveCount = 0;
     
     void Start()
     {
         BubbleRd = this.gameObject.GetComponent<Rigidbody2D>();
 
         AddForce(currentBubbleData.bubbleSponType, currentBubbleData.bubblePower);
-        
-        if (WavePowerPos == Vector2.down || WavePowerPos == Vector2.up)
-            WavePowerPos = Vector2.up;
-        else
-            WavePowerPos = Vector2.right;
-
-        BubbleRd.AddForce(WavePowerPos * wavePower * (waveForce_Count / 2), ForceMode2D.Impulse);
-        
-        Wave();
-    }
-
-    private void Wave()
-    {
-        if (WavePowerPos == Vector2.down || WavePowerPos == Vector2.up)
-        {
-            if( (waveCount / waveForce_Count) % 2 == 0) WavePowerPos = Vector2.down;
-            else WavePowerPos = Vector2.up;
-        }
-        else
-        {
-            if ((waveCount / waveForce_Count) % 2 == 0) WavePowerPos = Vector2.left;
-            else WavePowerPos = Vector2.right;
-        }
-
-        waveCount++;
-        BubbleRd.AddForce(WavePowerPos * wavePower, ForceMode2D.Impulse);
-        
-        Invoke("Wave", 0.5f);
     }
 
     public void SetBubbleData(ref BubbleData input_bubbleData)
@@ -138,22 +106,18 @@ public class BubbleKey_Ctrl : MonoBehaviour
         {
             case BubbleSponType.UP_Spon:
                 BubbleRd.AddForce(Vector2.down * bubblePower, ForceMode2D.Impulse);
-                WavePowerPos = Vector2.left;
                 break;
             
             case BubbleSponType.Right_Spon:
                 BubbleRd.AddForce(Vector2.left * bubblePower, ForceMode2D.Impulse);
-                WavePowerPos = Vector2.up;
                 break;
             
             case BubbleSponType.Down_Spon:
                 BubbleRd.AddForce(Vector2.up * bubblePower, ForceMode2D.Impulse);
-                WavePowerPos = Vector2.left;
                 break;
             
             default:
                 BubbleRd.AddForce(Vector2.right * bubblePower, ForceMode2D.Impulse);
-                WavePowerPos = Vector2.up;
                 break;
         }
     }
@@ -167,8 +131,24 @@ public class BubbleKey_Ctrl : MonoBehaviour
             this.gameObject.transform.position = Chaged_Pos;
             AddForce(currentBubbleData.bubbleSponType, currentBubbleData.bubblePower);
         }
-        
-        //if(other.gameObject.tag)
+
+        if (other.gameObject.GetComponent<HitColider>() &&
+            other.gameObject.GetComponent<HitColider>().owner == Player.gameObject.GetComponent<Entity>())
+        {
+            GameObject particleObj = this.gameObject.transform.GetChild(0).gameObject;
+            
+            particleObj.SetActive(true);
+            particleObj.gameObject.GetComponent<ParticleSystem>().Play();
+            
+            while (BubbleRd.velocity.magnitude > 0.5f)
+                BubbleRd.velocity = Vector2.zero;
+
+            GameObject dummyKey = Instantiate(keyObj, this.gameObject.transform.position, Quaternion.identity);
+            dummyKey.gameObject.GetComponent<Key_Ctrl>().Player = Player;
+            dummyKey.gameObject.GetComponent<Key_Ctrl>().LastBoss = LastBoss;
+            
+            Destroy(this.gameObject, particleObj.gameObject.GetComponent<ParticleSystem>().duration);
+        }
     }
     
     private void OnTriggerStay2D(Collider2D other)

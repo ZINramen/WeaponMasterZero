@@ -192,7 +192,7 @@ public abstract class Boss : MonoBehaviour
                 bossHP_per = (this.GetComponent<Entity>().GetHp()) / (this.GetComponent<Entity>().maxHP);
                 iBossSkill = EachBoss_SelectedSkill(bossState);
 
-                iBossSkill = (int)Boss_State.State.p2_Skill3;   // # 특정 스킬 지정하기 Test
+                //iBossSkill = (int)Boss_State.State.p1_Skill2;   // # 특정 스킬 지정하기 Test
                 
                 sBossSkill = Change_IntToState(iBossSkill, ref skillDist);
                 Debug.Log("SkillName : " +  sBossSkill);
@@ -291,7 +291,6 @@ public abstract class Boss : MonoBehaviour
         {
             Move(nextMove, nextMove > 0 ? 1 : -1);
         }
-        //else if(bossState.currentState == Boss_State.State.trace)
         else
         {
             Move(0, nextMove > 0 ? 1 : -1);
@@ -439,10 +438,11 @@ public abstract class Boss : MonoBehaviour
         {
             if (bossType == BossType.Last)
             {
-                if (player.gameObject.GetComponent<AnimationManager>().ani.GetInteger("Weapon")
-                    != this.gameObject.GetComponent<Entity>().desireWeaponFinalBoss)
-                    return;
-                
+                if (this.gameObject.GetComponent<Entity>().playerFinalBoss)
+                    if (player.gameObject.GetComponent<AnimationManager>().ani.GetInteger("Weapon")
+                        != this.gameObject.GetComponent<Entity>().desireWeaponFinalBoss)
+                        return;
+
                 this.gameObject.transform.GetChild(0).gameObject.GetComponent<SpriteRenderer>().material = hit_Mat;
             }
             else
