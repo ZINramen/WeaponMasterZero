@@ -76,6 +76,7 @@ public class BubbleKey_Ctrl : MonoBehaviour
 {
     public GameObject Player;
     public GameObject LastBoss;
+    private GameObject particleObj;
     
     private BubbleData currentBubbleData;
     [SerializeField] private bool is_Pass = true;
@@ -135,7 +136,7 @@ public class BubbleKey_Ctrl : MonoBehaviour
         if (other.gameObject.GetComponent<HitColider>() &&
             other.gameObject.GetComponent<HitColider>().owner == Player.gameObject.GetComponent<Entity>())
         {
-            GameObject particleObj = this.gameObject.transform.GetChild(0).gameObject;
+            particleObj = this.gameObject.transform.GetChild(0).gameObject;
             
             particleObj.SetActive(true);
             particleObj.gameObject.GetComponent<ParticleSystem>().Play();
@@ -143,12 +144,18 @@ public class BubbleKey_Ctrl : MonoBehaviour
             while (BubbleRd.velocity.magnitude > 0.5f)
                 BubbleRd.velocity = Vector2.zero;
 
-            GameObject dummyKey = Instantiate(keyObj, this.gameObject.transform.position, Quaternion.identity);
-            dummyKey.gameObject.GetComponent<Key_Ctrl>().Player = Player;
-            dummyKey.gameObject.GetComponent<Key_Ctrl>().LastBoss = LastBoss;
-            
+            this.gameObject.GetComponent<SpriteRenderer>().color =new Color(1f, 1f, 1f, 0);
+                
+            Invoke("Install_KeyObj", particleObj.gameObject.GetComponent<ParticleSystem>().duration);
             Destroy(this.gameObject, particleObj.gameObject.GetComponent<ParticleSystem>().duration);
         }
+    }
+
+    private void Install_KeyObj()
+    {
+        GameObject dummyKey = Instantiate(keyObj, this.gameObject.transform.position, Quaternion.identity);
+        dummyKey.gameObject.GetComponent<Key_Ctrl>().Player = Player;
+        dummyKey.gameObject.GetComponent<Key_Ctrl>().LastBoss = LastBoss;
     }
     
     private void OnTriggerStay2D(Collider2D other)
