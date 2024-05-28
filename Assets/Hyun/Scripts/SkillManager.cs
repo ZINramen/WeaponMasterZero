@@ -38,7 +38,7 @@ public class SkillManager : MonoBehaviour
                 ChangeWeaponSkill(true);
             }
 
-            if (Input.GetKeyDown(KeyCode.W))
+            if (Input.GetKeyDown(KeyCode.E))
             {
                 ChangeWeaponSkill(false);
             }

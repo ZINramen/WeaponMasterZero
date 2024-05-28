@@ -9,26 +9,30 @@ public class DialogueBubbleBehaviour : PlayableBehaviour
     public string text;
     public string objectName;
     private GameObject fancySpeechBubbleCanvas;
-
+    private GameObject fancySpeechBubble;
+    private GameObject fancySpeechBubbleText;
+    
     public override void OnBehaviourPlay(Playable playable, FrameData info)
     {
         fancySpeechBubbleCanvas = GameObject.Find(objectName).transform.GetChild(0).gameObject;
         
         if (fancySpeechBubbleCanvas != null)
         {
-            // Enable the fancySpeechBubble GameObject
-            fancySpeechBubbleCanvas.SetActive(true);
+            fancySpeechBubble = fancySpeechBubbleCanvas.transform.GetChild(0).gameObject;
+            fancySpeechBubbleText = fancySpeechBubble.transform.GetChild(0).gameObject;
             
-            GameObject fancySpeechBubble = fancySpeechBubbleCanvas.transform.GetChild(0).gameObject.transform.GetChild(0).gameObject;
+            // Enable the fancySpeechBubble GameObject
+            fancySpeechBubble.SetActive(true);
+            fancySpeechBubbleText.SetActive(true);
 
-            if(fancySpeechBubble.GetComponent<FancySpeechBubble>() == null)
+            if(fancySpeechBubbleText.GetComponent<FancySpeechBubble>() == null)
             {
                 Debug.LogError("FancySpeechBubble does not have FancySpeechBubble component");
                 return;
             }
             else
             {
-                fancySpeechBubble.GetComponent<FancySpeechBubble>().Set(text);
+                fancySpeechBubbleText.GetComponent<FancySpeechBubble>().Set(text);
             }
         }
         else
@@ -39,10 +43,11 @@ public class DialogueBubbleBehaviour : PlayableBehaviour
 
     public override void OnBehaviourPause(Playable playable, FrameData info)
     {
-        if (fancySpeechBubbleCanvas != null)
+        if (fancySpeechBubbleText != null)
         {
             // Disable the fancySpeechBubble GameObject
-            fancySpeechBubbleCanvas.SetActive(false);
+            fancySpeechBubble.SetActive(false);
+            fancySpeechBubbleText.SetActive(false);
         }
     }
 }

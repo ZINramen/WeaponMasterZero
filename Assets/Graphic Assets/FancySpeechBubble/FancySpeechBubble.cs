@@ -23,22 +23,6 @@ public class FancySpeechBubble : MonoBehaviour
         StopAllCoroutines();
         StartCoroutine(SetRoutine(text));
     }
-
-    private void OnEnable()
-    {
-        if (!string.IsNullOrEmpty(_rawText))
-        {
-            Set(_rawText);
-        }
-    }
-
-    private void OnDisable()
-    {
-        if (transform.parent != null)
-        {
-            transform.parent.gameObject.SetActive(false);
-        }
-    }
     
     public IEnumerator SetRoutine(string text)
     {
@@ -50,6 +34,9 @@ public class FancySpeechBubble : MonoBehaviour
     private IEnumerator TestFit()
     {
         TextMeshProUGUI label = GetComponent<TextMeshProUGUI>();
+        
+        // Set the alignment to be centered both horizontally and vertically
+        label.alignment = TextAlignmentOptions.Center;
 
         float alpha = label.color.a;
         label.color = new Color(label.color.r, label.color.g, label.color.b, 0f);
@@ -59,11 +46,15 @@ public class FancySpeechBubble : MonoBehaviour
         yield return new WaitForEndOfFrame();
 
         float totalHeight = label.preferredHeight;
+        float totalWidth = label.preferredWidth; // Get the preferred width of the text
+
+        float backgroundHorizontalMargin = 30f; // Define a horizontal margin for the background
+        float backgroundMinimumWidth = 100f; // Define a minimum width for the background
 
         if (bubbleBackground != null)
         {
             bubbleBackground.rectTransform.sizeDelta = new Vector2(
-                bubbleBackground.rectTransform.sizeDelta.x,
+                Mathf.Max(totalWidth + backgroundHorizontalMargin, backgroundMinimumWidth), // Set the width of the background
                 Mathf.Max(totalHeight + backgroundVerticalMargin, backgroundMinimumHeight));
         }
 

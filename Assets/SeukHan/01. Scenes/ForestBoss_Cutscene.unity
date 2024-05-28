@@ -206,7 +206,6 @@ GameObject:
   - component: {fileID: 747462969}
   - component: {fileID: 747462970}
   - component: {fileID: 747462971}
-  - component: {fileID: 747462972}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -426,20 +425,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 372e54ac4cda7584585ba6ddcf03b087, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &747462972
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 747462964}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b4ce593b6814cab438038862bf29951f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  nextRoom: ForestBoss
-  transitionName: CrossFade
 --- !u!1 &1807888155
 GameObject:
   m_ObjectHideFlags: 0
@@ -452,6 +437,7 @@ GameObject:
   - component: {fileID: 1807888157}
   - component: {fileID: 1807888156}
   - component: {fileID: 1807888159}
+  - component: {fileID: 1807888160}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -577,6 +563,20 @@ MonoBehaviour:
     mipBias: 0
     varianceClampScale: 0.9
     contrastAdaptiveSharpening: 0
+--- !u!114 &1807888160
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1807888155}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b4ce593b6814cab438038862bf29951f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nextRoom: ForestBoss
+  transitionName: CrossFade
 --- !u!1 &2120708642
 GameObject:
   m_ObjectHideFlags: 0
