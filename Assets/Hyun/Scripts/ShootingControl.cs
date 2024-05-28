@@ -18,6 +18,7 @@ public class ShootingControl : MonoBehaviour
 
     public GameObject shootingPrefab;
     public GameObject bombPrefab;
+    public GameObject HammerPrefab;
 
     public Transform fireTr;
     public Transform GunfireTr;
@@ -87,6 +88,11 @@ public class ShootingControl : MonoBehaviour
                 GunGauge.fillAmount = 1.0f;
             }
         }
+    }
+
+    public void SpawnHammer()
+    {
+        Instantiate(HammerPrefab, transform.position + Vector3.right * 3 + new Vector3(0, 15), Quaternion.identity);
     }
 
     public void RandomShooting(float shotArea)

@@ -47,6 +47,14 @@ public class AnimationManager : MonoBehaviour
     public KeyCode Emotion_1;
     public KeyCode Heal;
 
+    public GameObject[] Cutscenes;
+
+    public void PlayCutscene(int num)
+    {
+        ani.speed = 0;
+        Instantiate(Cutscenes[num], Vector3.zero, Quaternion.identity);
+    }
+
     public void SetAdditionalJump(bool value) => additionalJump = value;
 
     public void SetPlayerType(bool value)
