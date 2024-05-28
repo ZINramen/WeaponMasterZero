@@ -7,6 +7,10 @@ using static UnityEngine.EventSystems.EventTrigger;
 
 public class Entity : MonoBehaviour
 {
+    public Material hitMat;
+    Material oringMat;
+    SpriteRenderer sp;
+
     // final boss 용
     public bool activeDesireWeapon = false; 
     public Entity playerFinalBoss;
@@ -64,22 +68,13 @@ public class Entity : MonoBehaviour
 
     public EmoticonController emoticon;
     public RectTransform ultScreen;
-    public bool immuneToSword = false;
-    private Animator animator;
-    private void Start()
-    {
-        // Get the Animator component
-        animator = GetComponent<Animator>();
-    }
-    public void PlayHitAnimation()
-    {
-        // Play the Hit animation
-        animator.Play("Hit");
-    }
+
+    public static Entity Player;
     private void Awake()
     {
-        keyValues = (int[])System.Enum.GetValues(typeof(KeyCode));
-
+        // keyValues = (int[])System.Enum.GetValues(typeof(KeyCode));
+        if (tag == "Player")
+            Player = this;
         movement = GetComponent<Movement>();
         if (!movement)
             movement = gameObject.AddComponent<Movement>();
@@ -292,10 +287,13 @@ public class Entity : MonoBehaviour
         if (isDie) return;
         if(!isDamaged)
             StartCoroutine(ShakingEntity(0.15f,0.5f));
-
+        if (hitMat != null)
+        {
+            StartCoroutine(DamagedEffectMat());
+        }
         DynamicCamera actionCam = Camera.main.GetComponent<DynamicCamera>();
 
-        if (Mathf.Abs(damageValue) > 10)
+        if (Mathf.Abs(damageValue) > 30)
         {
             if (actionCam)
                 actionCam.ShakeScreen(1f);
@@ -423,7 +421,7 @@ public class Entity : MonoBehaviour
 
     public void PlayHitEffect(float damageValue)
     {
-        if (damageValue < 15)
+        if (damageValue < 35)
         {
             Instantiate(HitEffect).transform.position = transform.position;
             Instantiate(HitTextEffect).transform.position = transform.position;
@@ -438,5 +436,23 @@ public class Entity : MonoBehaviour
                 strongHit.transform.localEulerAngles = new Vector3(0, -180, 0);
             Instantiate(StrongHitTextEffect).transform.position = transform.position;
         }
+    }
+
+    IEnumerator DamagedEffectMat()
+    {
+        foreach (SpriteRenderer sp in GetComponentsInChildren<SpriteRenderer>())
+        {
+            if (oringMat == null)
+            {
+                oringMat = sp.material;
+            }
+            sp.material = hitMat;
+        }
+        yield return new WaitForSeconds(0.3f);
+        foreach (SpriteRenderer sp in GetComponentsInChildren<SpriteRenderer>())
+        {
+            sp.material = oringMat;
+        }
+        
     }
 }
