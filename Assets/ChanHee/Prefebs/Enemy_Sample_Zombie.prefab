@@ -208,8 +208,8 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -3.0468, y: -0.5554, z: -0.003920165}
-  m_LocalScale: {x: 0.96285, y: 0.90944004, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 2.5, y: 2.3613234, z: 2.5964584}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 5043751763445490697}
   - {fileID: 8506294756108490663}
@@ -369,6 +369,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a1045773e672824daf99f5c8b2edde4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hitMat: {fileID: 0}
   activeDesireWeapon: 0
   playerFinalBoss: {fileID: 0}
   desireWeaponFinalBoss: 0
@@ -376,7 +377,7 @@ MonoBehaviour:
   hp: 0
   mp: 0
   movement: {fileID: 0}
-  ai: {fileID: 0}
+  ai: {fileID: 4797484383125912977}
   waitTime: 0
   mpLock: 0
   maxHP: 80
@@ -665,6 +666,7 @@ MonoBehaviour:
   playerIsOwn: 0
   attType: 0
   isAbleDestroy: 0
+  WeaponCanAbleDestroy: 0
   DestroyEffect: {fileID: 0}
 --- !u!61 &6596073843690812047
 BoxCollider2D:

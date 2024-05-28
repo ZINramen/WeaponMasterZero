@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
@@ -35,7 +36,22 @@ public class LevelManager : MonoBehaviour
     {
         StartCoroutine(LoadSceneAsync(sceneName, transitionName));
     }
- 
+    
+    private void LoadNextScene(string transitionName)
+    {
+        Debug.Log("Loading next scene...");
+        string nextSceneName = SceneManager.GetSceneByBuildIndex(SceneManager.GetActiveScene().buildIndex + 1).name;
+        LoadScene(nextSceneName, transitionName);
+    }
+
+    public void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.P))
+        {
+            LoadNextScene("Fade");
+        }
+    }
+
     private IEnumerator LoadSceneAsync(string sceneName, string transitionName)
     {
         SceneTransition transition = transitions.First(t => t.name == transitionName);

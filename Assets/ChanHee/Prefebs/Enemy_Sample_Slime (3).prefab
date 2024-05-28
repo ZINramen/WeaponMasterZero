@@ -226,6 +226,7 @@ MonoBehaviour:
   playerIsOwn: 0
   attType: 0
   isAbleDestroy: 0
+  WeaponCanAbleDestroy: 0
   DestroyEffect: {fileID: 0}
 --- !u!61 &2800133710381014836
 BoxCollider2D:
@@ -436,7 +437,6 @@ MonoBehaviour:
   groundCheck: {fileID: 2701597602112995836}
   owner: {fileID: 0}
   temp: {fileID: 0}
-  onGround: 1
   ecActive: 0
   rotationZ: 0
   ani: {fileID: 0}
@@ -481,12 +481,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a1045773e672824daf99f5c8b2edde4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hitMat: {fileID: 0}
+  activeDesireWeapon: 0
+  playerFinalBoss: {fileID: 0}
+  desireWeaponFinalBoss: 0
   stun: 0
   hp: 0
   mp: 0
   movement: {fileID: 0}
   ai: {fileID: 5716018870202750792}
-  zombieAI: {fileID: 0}
   waitTime: 0
   mpLock: 0
   maxHP: 30
@@ -640,7 +643,11 @@ MonoBehaviour:
   AttackDelay: 0.2
   WalkName: isWalk
   AttackName: Punch
-  exclamationPointPrefab: {fileID: 0}
+  exclamationPointPrefab: {fileID: 719645088804361089, guid: 16cc8a617baaf9f43ad48cf2457b39e4, type: 3}
+  enableSpeedControl: 0
+  movement: {fileID: 0}
+  attackRange: 1
+  newLongRangeAttack: {fileID: 0}
 --- !u!212 &1585877985687377496
 SpriteRenderer:
   m_ObjectHideFlags: 0
