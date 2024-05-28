@@ -31,6 +31,7 @@ public class BulletCtrl : MonoBehaviour
 
     [SerializeField] private bool isPlayerParring;
     public int wallParringHP = 2;
+    private GameObject m_player;
 
     public bool Get_IsPlayerParring()
     {
@@ -54,15 +55,24 @@ public class BulletCtrl : MonoBehaviour
 
     public void Parring(GameObject player)
     {
+        m_player = player.gameObject.transform.parent.gameObject;
+        m_player.gameObject.GetComponent<StopTime>().DelayTime();
         StopMove();
         
         Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition) - player.transform.position;
         float angle = Mathf.Atan2(mousePos.y, mousePos.x) * Mathf.Rad2Deg;
 
-        this.gameObject.GetComponent<Bullet_HitCollder>().owner = player.GetComponent<Entity>();
+        this.gameObject.GetComponent<Bullet_HitCollder>().owner = m_player.GetComponent<Entity>();
         ShootingBullet(parrigForce, Quaternion.Euler(0, 0, angle));
 
         isPlayerParring = true;
+        StartCoroutine("returnTimeDelay", 0.1f);
+    }
+
+    private IEnumerator returnTimeDelay(float delay)
+    {
+        yield return new WaitForSecondsRealtime(delay);
+        m_player.gameObject.GetComponent<StopTime>().PlayALLTime();
     }
 
     public void StopMove()

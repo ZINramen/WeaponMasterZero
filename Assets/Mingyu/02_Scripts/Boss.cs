@@ -32,6 +32,13 @@ public class Boss_State
     public float p2_Skill1_dist;
     public float p2_Skill2_dist;
     public float p2_Skill3_dist;
+    
+    public int p1S1_PossibilityNumber;
+    public int p1S2_PossibilityNumber;
+    
+    public int p2S1_PossibilityNumber;
+    public int p2S2_PossibilityNumber;
+    public int p2S3_PossibilityNumber;
 
     public bool isAttacking = false;
     public bool isSkillReady = false;
@@ -73,7 +80,6 @@ public abstract class Boss : MonoBehaviour
     
     protected float skillDist;
     [SerializeField] protected bool isMoveEnd = false;
-    
     #region 충돌 박스 변수 (외부 ref)
     [SerializeField] protected GameObject[] DA_HitArea;
     [SerializeField] protected GameObject[] P1Skill1_HitArea;
@@ -88,6 +94,7 @@ public abstract class Boss : MonoBehaviour
 
     protected Material origin_Mat;
     [SerializeField] protected Material hit_Mat;
+    protected bool isNotHit = false;
 
     public BossType bossType;
     public bool isDie;
@@ -96,7 +103,13 @@ public abstract class Boss : MonoBehaviour
     // lled before the first frame update
     protected void Start()
     {
-        player = GameObject.FindWithTag("Player").gameObject;
+        GameObject[] playerTagObjects = GameObject.FindGameObjectsWithTag("Player");
+        foreach (GameObject playerTagObj in playerTagObjects)
+        {
+            if (playerTagObj.name == "APO")
+                player = playerTagObj;
+        }
+        
         origin_Mat = this.gameObject.GetComponent<SpriteRenderer>().material;
 
         myRd = this.gameObject.GetComponent<Movement>().GetBody();
@@ -162,7 +175,6 @@ public abstract class Boss : MonoBehaviour
     private void UpdateState()
     {
         player_pos = player.GetComponent<Transform>().position;
-        //distFrom_Player = Vector2.Distance(player_pos, transform.position);
         distFrom_Player = Mathf.Abs(player_pos.x - transform.position.x);
         
         // 상황에 따른 동작 구현 FSM
@@ -178,12 +190,9 @@ public abstract class Boss : MonoBehaviour
             {
                 // 보스 체력에 따라, 스킬이 나올것이 달라짐
                 bossHP_per = (this.GetComponent<Entity>().GetHp()) / (this.GetComponent<Entity>().maxHP);
-                if (bossHP_per >= 0.5f)
-                    iBossSkill = Random.Range((int)Boss_State.State.p1_Skill1, (int)Boss_State.State.p1_Skill2 + 1);
-                else
-                    iBossSkill = Random.Range((int)Boss_State.State.p2_Skill1, (int)Boss_State.State.p2_Skill3 + 1);
+                iBossSkill = EachBoss_SelectedSkill(bossState);
 
-                iBossSkill = (int)Boss_State.State.p1_Skill2;
+                iBossSkill = (int)Boss_State.State.p2_Skill2;   // # 특정 스킬 지정하기 Test
                 
                 sBossSkill = Change_IntToState(iBossSkill, ref skillDist);
                 Debug.Log("SkillName : " +  sBossSkill);
@@ -222,6 +231,36 @@ public abstract class Boss : MonoBehaviour
         }
     }
 
+    protected virtual int EachBoss_SelectedSkill(Boss_State currState)
+    {
+        int selectedNumber;
+        selectedNumber = Random.Range(0, 100);      // 0 ~ 99
+        
+        // 1phaze
+        if (bossHP_per >= 0.5f)
+        {
+            if (selectedNumber >= currState.p1S2_PossibilityNumber)
+                iBossSkill = (int)Boss_State.State.p1_Skill2;
+            
+            else
+                iBossSkill = (int)Boss_State.State.p1_Skill1;
+        }
+        
+        // 2phaze
+        else
+        {
+            if (selectedNumber >= currState.p2S3_PossibilityNumber)
+                iBossSkill = (int)Boss_State.State.p2_Skill3;
+            
+            else if(selectedNumber >= currState.p2S2_PossibilityNumber)
+                iBossSkill = (int)Boss_State.State.p2_Skill2;
+            
+            else
+                iBossSkill = (int)Boss_State.State.p2_Skill1;
+        }
+        return iBossSkill;
+    }
+
     private void UpdateAnimation()
     {
         animCtrl.SetBool("isTrace", bossState.currentState == Boss_State.State.trace);
@@ -242,13 +281,6 @@ public abstract class Boss : MonoBehaviour
             MoveSetting();
         }
     }
-
-    // protected virtual void MoveSetting()
-    // {
-    //     Vector2 velo = Vector2.zero;
-    //     this.transform.position = Vector2.SmoothDamp(this.transform.position, player_pos,
-    //         ref velo, move_Speed);
-    // }
     
     protected virtual void MoveSetting()
     {
@@ -259,7 +291,6 @@ public abstract class Boss : MonoBehaviour
         {
             Move(nextMove, nextMove > 0 ? 1 : -1);
         }
-        //else if(bossState.currentState == Boss_State.State.trace)
         else
         {
             Move(0, nextMove > 0 ? 1 : -1);
@@ -403,13 +434,30 @@ public abstract class Boss : MonoBehaviour
     #region 피격 모션 생성
     public void HitEffect()
     {
-        this.gameObject.GetComponent<SpriteRenderer>().material = hit_Mat;
+        if (this.gameObject.GetComponent<Entity>().DamageBlock != Entity.DefenseStatus.invincible)
+        {
+            if (bossType == BossType.Last)
+            {
+                if (this.gameObject.GetComponent<Entity>().playerFinalBoss)
+                    if (player.gameObject.GetComponent<AnimationManager>().ani.GetInteger("Weapon")
+                        != this.gameObject.GetComponent<Entity>().desireWeaponFinalBoss)
+                        return;
+
+                this.gameObject.transform.GetChild(0).gameObject.GetComponent<SpriteRenderer>().material = hit_Mat;
+            }
+            else
+                this.gameObject.GetComponent<SpriteRenderer>().material = hit_Mat;
+        }
+
         Invoke("Off_Effect", 0.3f);
     }
 
     private void Off_Effect()
     {
-        this.gameObject.GetComponent<SpriteRenderer>().material = origin_Mat;
+        if (bossType == BossType.Last)
+            this.gameObject.transform.GetChild(0).gameObject.GetComponent<SpriteRenderer>().material = origin_Mat;
+        else
+            this.gameObject.GetComponent<SpriteRenderer>().material = origin_Mat;
     }
     #endregion
     
@@ -462,7 +510,6 @@ public abstract class Boss : MonoBehaviour
         EachBoss_EndSkill();
         bossState.skill_CountTime = 0;
         isSelectSkill = false;
-        bossState.isSkillReady = false;
         
         animCtrl.SetInteger("Attack_Type", (int)Boss_State.State.idle);
         Invoke("EndSetting", 0.1f);

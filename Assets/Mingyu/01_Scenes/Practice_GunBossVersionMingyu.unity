@@ -445,6 +445,8 @@ MonoBehaviour:
   attackForce: 5
   thrustValue: 15
   owner: {fileID: 819132794}
+  oneHit: 0
+  playerIsOwn: 0
   attType: 0
   isAbleDestroy: 0
   DestroyEffect: {fileID: 0}
@@ -725,6 +727,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1704247545529518219, guid: e2f03ac0e90d84f4083d3f9121ad8f5f, type: 3}
+      propertyPath: timeScale
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1868984683984232959, guid: e2f03ac0e90d84f4083d3f9121ad8f5f, type: 3}
       propertyPath: maxHP
       value: 500
@@ -1676,6 +1682,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a1045773e672824daf99f5c8b2edde4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  activeDesireWeapon: 0
+  playerFinalBoss: {fileID: 0}
+  desireWeaponFinalBoss: 0
   stun: 0
   hp: 50
   mp: 0
@@ -1844,8 +1853,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3680a705c9684f447a509233e949e8d2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerApproachDist: 0
+  nextMove: 1
+  groundApproachDist: 0
   move_Speed: 2
+  isMoveEnd: 0
   DA_HitArea:
   - {fileID: 1841850083}
   - {fileID: 133789215}
@@ -1884,6 +1895,8 @@ MonoBehaviour:
   p2S3_AttackTotalCount: 3
   p2S3_delayTime: 2
   p2S3_BulletSpeed: 7
+  prefabMob: {fileID: 0}
+  prefabMobPos: {fileID: 0}
 --- !u!1 &833820676
 GameObject:
   m_ObjectHideFlags: 0
@@ -2728,6 +2741,8 @@ MonoBehaviour:
   attackForce: 10
   thrustValue: -0.5
   owner: {fileID: 0}
+  oneHit: 0
+  playerIsOwn: 0
   attType: 0
   isAbleDestroy: 0
   DestroyEffect: {fileID: 0}
@@ -3290,6 +3305,8 @@ MonoBehaviour:
   attackForce: 5
   thrustValue: 3
   owner: {fileID: 819132794}
+  oneHit: 0
+  playerIsOwn: 0
   attType: 0
   isAbleDestroy: 0
   DestroyEffect: {fileID: 0}
@@ -3567,6 +3584,8 @@ MonoBehaviour:
   attackForce: 5
   thrustValue: 7
   owner: {fileID: 819132794}
+  oneHit: 0
+  playerIsOwn: 0
   attType: 0
   isAbleDestroy: 0
   DestroyEffect: {fileID: 0}
@@ -3926,7 +3945,6 @@ MonoBehaviour:
   groundCheck: {fileID: 0}
   owner: {fileID: 0}
   temp: {fileID: 0}
-  onGround: 1
   ecActive: 0
   rotationZ: 0
   ani: {fileID: 4765302297919737294}
@@ -4009,6 +4027,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a1045773e672824daf99f5c8b2edde4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  activeDesireWeapon: 0
+  playerFinalBoss: {fileID: 0}
+  desireWeaponFinalBoss: 0
   stun: 0
   hp: 0
   mp: 0
@@ -4149,7 +4170,6 @@ MonoBehaviour:
   groundCheck: {fileID: 0}
   owner: {fileID: 0}
   temp: {fileID: 0}
-  onGround: 1
   ecActive: 0
   rotationZ: 0
   ani: {fileID: 0}
@@ -4180,6 +4200,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a1045773e672824daf99f5c8b2edde4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  activeDesireWeapon: 0
+  playerFinalBoss: {fileID: 0}
+  desireWeaponFinalBoss: 0
   stun: 0
   hp: 0
   mp: 0

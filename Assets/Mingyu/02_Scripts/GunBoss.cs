@@ -114,6 +114,13 @@ public class GunBoss : Boss
         state.p2_Skill1_dist = 5000f;
         state.p2_Skill2_dist = 5000f;
         state.p2_Skill3_dist = 5000f;
+        
+        state.p1S1_PossibilityNumber = 0;  // 0  ~ 49  50%
+        state.p1S2_PossibilityNumber = 50; // 50 ~ 99  50%
+    
+        state.p2S1_PossibilityNumber = 0;  // 0 ~ 29    30%
+        state.p2S2_PossibilityNumber = 30; // 30 ~ 59   30%
+        state.p2S3_PossibilityNumber = 60; // 60 ~ 99   40%
     }
     
     #region p1_Skill1_함수
