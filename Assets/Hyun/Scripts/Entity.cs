@@ -293,7 +293,7 @@ public class Entity : MonoBehaviour
         }
         DynamicCamera actionCam = Camera.main.GetComponent<DynamicCamera>();
 
-        if (Mathf.Abs(damageValue) > 10)
+        if (Mathf.Abs(damageValue) > 30)
         {
             if (actionCam)
                 actionCam.ShakeScreen(1f);
@@ -421,7 +421,7 @@ public class Entity : MonoBehaviour
 
     public void PlayHitEffect(float damageValue)
     {
-        if (damageValue < 15)
+        if (damageValue < 35)
         {
             Instantiate(HitEffect).transform.position = transform.position;
             Instantiate(HitTextEffect).transform.position = transform.position;

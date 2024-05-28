@@ -170,7 +170,7 @@ public class AnimationManager : MonoBehaviour
     }
     public void Hit(float power)
     {
-        if (Math.Abs(power) > 10)
+        if (Math.Abs(power) > 35)
         {
             if (!owner.stun)
             {
@@ -273,6 +273,8 @@ public class AnimationManager : MonoBehaviour
             if (Input.GetKeyDown(Punch))
             {
                 ani.SetTrigger("Punch");
+                ani.SetBool("waitLinkAttack", true);
+                StartCoroutine(WaitLink(1f));
             }
             if (Input.GetKeyDown(Kick) && ani.GetInteger("Gauge") > 0)
             {
@@ -323,5 +325,11 @@ public class AnimationManager : MonoBehaviour
     {
         yield return new WaitForSeconds(delay);
         unable_Dash = false;
+    }
+
+    IEnumerator WaitLink(float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        ani.SetBool("waitLinkAttack", false);
     }
 }

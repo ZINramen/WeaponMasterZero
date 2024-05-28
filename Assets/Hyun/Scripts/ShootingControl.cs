@@ -91,7 +91,7 @@ public class ShootingControl : MonoBehaviour
 
     public void RandomShooting(float shotArea)
     {
-        var targetingPos = owner.transform.position + new Vector3(UnityEngine.Random.Range(-shotArea, shotArea), UnityEngine.Random.Range(-shotArea, -shotArea / 2));
+        var targetingPos = owner.transform.position + new Vector3(UnityEngine.Random.Range(-shotArea, shotArea), UnityEngine.Random.Range(-shotArea, shotArea));
         Instantiate(shootingPrefab, targetingPos, Quaternion.identity).GetComponent<HitColider>().owner = owner;
     }
 

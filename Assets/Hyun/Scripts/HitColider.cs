@@ -31,9 +31,9 @@ public class HitColider : MonoBehaviour
     {
         EachObj_HitSetting(other);
         
-        if (playerIsOwn && other.CompareTag("Player"))
+        if (playerIsOwn && (other.CompareTag("Player")))
             return;
-        if (isAbleDestroy)
+        if (isAbleDestroy && (other.CompareTag("Enemy") || other.CompareTag("Untagged")))
         {
             if (DestroyEffect)
             {
