@@ -29,7 +29,7 @@ public class Entity : MonoBehaviour
 
     public Movement movement;
     public AISystem ai;
-
+    public AISystem_Old aiOld;
     public float waitTime = 0;
 
     public bool mpLock = false;
@@ -138,8 +138,11 @@ public class Entity : MonoBehaviour
             movement.enabled = false;
             movement.body.constraints = RigidbodyConstraints2D.FreezeAll;
             isDie = true;
-            if (ai)
+            if (ai && aiOld)
+            {
                 ai.enabled = false;
+                aiOld.enabled = false;
+            }
 
             if (CompareTag("Player") == false && CompareTag("Boss") == false)
             {
