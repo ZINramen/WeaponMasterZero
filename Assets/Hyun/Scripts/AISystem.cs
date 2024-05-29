@@ -91,7 +91,7 @@ public class AISystem : MonoBehaviour
         {
             if (enableSpeedControl)
             {
-                movement.speed = 0;
+                //movement.speed = 0;
             }
             move.h = 0;
             if (WalkName != "")

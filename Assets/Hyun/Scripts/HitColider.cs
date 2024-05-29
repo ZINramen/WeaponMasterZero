@@ -24,15 +24,21 @@ public class HitColider : MonoBehaviour
     }
     public AttackType attType = AttackType.none;
     public bool isAbleDestroy = false;
-    public bool WeaponCanAbleDestroy = false;
+    
     public GameObject DestroyEffect;
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        EachObj_HitSetting(other);
-        
+
+        if (owner == other.gameObject.GetComponent<Entity>())
+            return;
+        if (other.CompareTag("Camera"))
+            return;
         if (playerIsOwn && (other.CompareTag("Player")))
             return;
+        
+        EachObj_HitSetting(other);
+        
         if (isAbleDestroy && (other.CompareTag("Enemy") || other.CompareTag("Untagged")))
         {
             if (DestroyEffect)
@@ -41,19 +47,6 @@ public class HitColider : MonoBehaviour
             }
             EachObj_DeleteSetting(this.gameObject);
         }
-        else if (WeaponCanAbleDestroy)
-        {
-            HitColider hitData = other.GetComponent<HitColider>();
-            if (hitData && hitData.owner == Entity.Player &&  hitData.attType == AttackType.Player_SwordAtt)
-            {
-                if (DestroyEffect)
-                {
-                    Instantiate(DestroyEffect, transform.position, Quaternion.identity);
-                }
-                EachObj_DeleteSetting(this.gameObject);
-            }
-        }
-
         Entity entity = other.GetComponent<Entity>();
 
         // 보스에게 피격할 시, 날라가는 힘을 없앰

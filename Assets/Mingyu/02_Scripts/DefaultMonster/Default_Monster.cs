@@ -1,0 +1,201 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class Default_MonsterState
+{
+    public enum State 
+    { 
+        trace,
+        idle = 0,
+        DefaultAtt = 1
+    }
+    public State currentState;
+
+    public float traceDistance;
+    public float defaultAtt_dist;
+
+    public bool isAttacking = false;
+    public bool isStopTurn = false;
+}
+
+public abstract class Default_Monster : MonoBehaviour
+{
+    protected GameObject player;
+    protected Vector2 player_pos;
+    
+    protected float nextMove = 1;
+    protected bool isMove;
+    public float move_Speed;
+    private bool isEndSetting = false;
+
+    protected float stopDelayTime;
+    
+    protected RaycastHit2D rayHit;
+    
+    protected Rigidbody2D myRd;
+    protected Animator animCtrl;
+    
+    [SerializeField] protected Default_MonsterState monsterState;
+    protected bool isMoveEnd = false;
+    
+    [SerializeField] protected float distFrom_Player;
+    public bool isDie;
+
+    protected void Start()
+    {
+        GameObject[] playerTagObjects = GameObject.FindGameObjectsWithTag("Player");
+        foreach (GameObject playerTagObj in playerTagObjects)
+        {
+            if (playerTagObj.name == "APO")
+                player = playerTagObj;
+        }
+        
+        myRd = this.gameObject.GetComponent<Movement>().GetBody();
+        
+        Move(-move_Speed, -1);
+        
+        if (player != null)
+        {
+            player_pos = player.GetComponent<Transform>().position;
+        }
+
+        animCtrl = GetComponent<Animator>();
+    }
+    
+    protected abstract void Init_StateValueData(ref Default_MonsterState state);
+    
+    protected void Update()
+    {
+        if (this.gameObject.GetComponent<Entity>().GetHp() > 0 && !isEndSetting)
+        {
+            UpdateState();
+            UpdateAnimation();
+        }
+
+        if (isMoveEnd)
+        {
+            //StartCoroutine(StopMove());
+            isMoveEnd = false;
+        }
+    }
+    
+    protected IEnumerator StopMove()
+    {
+        while (myRd.velocity.magnitude > 0.5f)
+        {
+            yield return new WaitForSeconds(stopDelayTime);
+            myRd.velocity = Vector2.zero;
+        }
+    }
+    
+    public void MoveXPos_Mingyu(float x)
+    {
+        if (rayHit.collider == null)
+            x = 0;
+        
+        int plus = 1;
+        if (transform.localEulerAngles.y == 180) plus = -1;
+        myRd.AddForce(new Vector2(x * 100 * plus, 0));
+
+        isMoveEnd = true;
+    }
+
+    protected virtual float EachBossMoveSetting(RaycastHit2D rayHit, float x)
+    {
+        if (rayHit.collider == null)
+            return 0f;
+
+        return x;
+    }
+    
+    private void UpdateState()
+    {
+        Debug.Log(player.gameObject.name);
+        
+        player_pos = player.GetComponent<Transform>().position;
+        distFrom_Player = Mathf.Abs(player_pos.x - transform.position.x);
+        
+        // 상황에 따른 동작 구현 FSM
+        if (distFrom_Player >= monsterState.traceDistance)
+        {
+            monsterState.currentState = Default_MonsterState.State.idle;
+        }
+        
+        // 스킬 쿨타임 중일때
+        else if (!monsterState.isAttacking)
+        {
+            if (distFrom_Player >= monsterState.defaultAtt_dist)
+            {
+                monsterState.currentState = Default_MonsterState.State.trace;
+            }
+            else
+            {
+                myRd.velocity = Vector2.zero;
+                
+                monsterState.currentState = Default_MonsterState.State.DefaultAtt;
+                monsterState.isAttacking = true;
+            }
+        }
+    }
+
+    private void UpdateAnimation()
+    {
+        animCtrl.SetBool("isTrace", monsterState.currentState == Default_MonsterState.State.trace);
+        animCtrl.SetBool("isAttack", monsterState.isAttacking);
+        
+        if (monsterState.currentState == Default_MonsterState.State.trace)
+        {
+            Debug.Log("Move");
+            this.transform.rotation = Quaternion.Euler(0, this.transform.position.x > player_pos.x ? 0 : 180, 0);
+            MoveSetting();
+        }
+    }
+    
+    protected virtual void MoveSetting()
+    {
+        isMove = true;
+        nextMove = this.transform.position.x > player_pos.x ? -move_Speed : move_Speed;
+        
+        if (rayHit.collider != null)
+        {
+            Debug.Log("아 가자");
+            Move(nextMove, nextMove > 0 ? 1 : -1);
+        }
+        else
+        {
+            Debug.Log("아 안가자~ㄴ");
+            Move(0, nextMove > 0 ? 1 : -1);
+        }
+    }
+    
+    protected void Move(float inputNextMove, int turnValue)
+    {
+        myRd.velocity = new Vector2(inputNextMove, myRd.position.y);
+
+        Vector2 frontVec = new Vector2(myRd.position.x + turnValue * 2, myRd.position.y - 0.5f);
+        Debug.DrawRay(frontVec, Vector3.down, new Color(0, 0, 1));      // #Test용
+        
+        rayHit = Physics2D.Raycast(frontVec, Vector3.down, 1f, LayerMask.GetMask("Ground"));
+    }
+    
+    public void EndAttack()
+    {
+        isEndSetting = true;
+        isMove = false;
+        
+        monsterState.currentState = Default_MonsterState.State.idle;
+        animCtrl.SetBool("isAttack", false);
+        animCtrl.SetBool("isTrace", true);
+        
+        monsterState.isStopTurn = false;
+        monsterState.isAttacking = false;
+        
+        Invoke("EndSetting", 0.05f);
+    }
+    
+    private void EndSetting()
+    {
+        isEndSetting = false;
+    }
+}

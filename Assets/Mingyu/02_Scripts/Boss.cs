@@ -140,7 +140,6 @@ public abstract class Boss : MonoBehaviour
             StartCoroutine(StopMove());
             isMoveEnd = false;
         }
-            
     }
 
     protected IEnumerator StopMove()

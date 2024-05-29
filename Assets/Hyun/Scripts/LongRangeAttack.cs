@@ -20,6 +20,7 @@ public class LongRangeAttack : MonoBehaviour
         // 발사체 인스턴스 생성
         GameObject projectile = Instantiate(projectilePrefab, transform.position, Quaternion.identity);
         projectile.GetComponent<HitColider>().owner= GetComponent<Entity>();
+        
         // 발사체를 원하는 방향으로 이동시키는 물리적 힘을 추가
         Rigidbody2D rb = projectile.GetComponent<Rigidbody2D>();
         rb.velocity = direction.normalized * projectileSpeed;
