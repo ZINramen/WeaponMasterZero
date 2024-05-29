@@ -141,7 +141,11 @@ public abstract class Default_Monster : MonoBehaviour
 
     private void UpdateAnimation()
     {
-        animCtrl.SetBool("isTrace", monsterState.currentState == Default_MonsterState.State.trace);
+        if (monsterState.isAttacking == false)
+            animCtrl.SetBool("isTrace", monsterState.currentState == Default_MonsterState.State.trace);
+        else
+            animCtrl.SetBool("isTrace", false);
+        
         animCtrl.SetBool("isAttack", monsterState.isAttacking);
         
         if (monsterState.currentState == Default_MonsterState.State.trace)

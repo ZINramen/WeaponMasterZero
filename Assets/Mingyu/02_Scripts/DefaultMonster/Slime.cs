@@ -15,6 +15,8 @@ public class Slime : Default_Monster
     
     public void MoveXPos_Slime(float x)
     {
+        this.gameObject.GetComponent<Movement>().speed = 2f;
+        
         int plus = 1;
         if (transform.localEulerAngles.y == 180) plus = -1;
         myRd.AddForce(new Vector2(x * 100 * plus, plus * 100f), ForceMode2D.Impulse);
