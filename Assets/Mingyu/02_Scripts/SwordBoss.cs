@@ -125,9 +125,9 @@ public class SwordBoss : Boss
         Blade_SponPos = GameObject.Find("BladeSponPos").gameObject.transform;
          
         minAngle = -100f;
-        maxAngle = -30f;
+        maxAngle = -25f;
     
-        minSize = 0.3f;
+        minSize = 0.5f;
         maxSize = 0.7f;
          
         // skill4 칼날 공격 스킬
@@ -137,7 +137,7 @@ public class SwordBoss : Boss
 
         delete_LineTime = 0.3f;
         lineAnim_Time = 0.1f;
-        lineTotalCount = 15;
+        lineTotalCount = 20;
     }
     
     // protected override void MoveSetting()
