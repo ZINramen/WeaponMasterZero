@@ -5,12 +5,6 @@ using UnityEngine.Timeline;
 
 public class DialogueBubbleMixerBehaviour : PlayableBehaviour
 {
-    [SerializeField]   
-    private string dialogueText = "Sample Text";
-    
-    [SerializeField]
-    private float characterAnimateSpeed = 1000f;
-    
     // NOTE: This function is called at runtime and edit time.  Keep that in mind when setting the values of properties.
     public override void ProcessFrame(Playable playable, FrameData info, object playerData)
     {

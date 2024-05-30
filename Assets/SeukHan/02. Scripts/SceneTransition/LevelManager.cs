@@ -37,18 +37,19 @@ public class LevelManager : MonoBehaviour
         StartCoroutine(LoadSceneAsync(sceneName, transitionName));
     }
     
-    private void LoadNextScene(string transitionName)
+    private void LoadNextScene()
     {
         Debug.Log("Loading next scene...");
-        string nextSceneName = SceneManager.GetSceneByBuildIndex(SceneManager.GetActiveScene().buildIndex + 1).name;
-        LoadScene(nextSceneName, transitionName);
+        string pathToScene = SceneUtility.GetScenePathByBuildIndex(SceneManager.GetActiveScene().buildIndex + 1);
+        string nextSceneName = System.IO.Path.GetFileNameWithoutExtension(pathToScene);
+        LoadScene(nextSceneName, "CrossFade");
     }
 
     public void Update()
     {
         if (Input.GetKeyDown(KeyCode.P))
         {
-            LoadNextScene("Fade");
+            LoadNextScene();
         }
     }
 

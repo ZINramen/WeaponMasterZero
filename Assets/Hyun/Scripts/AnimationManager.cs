@@ -16,7 +16,6 @@ public class AnimationManager : MonoBehaviour
     bool onGround = true;
     public bool GetOnGround() { return onGround; }
 
-    public bool ecActive = false;
     public float rotationZ = 0;
 
     public enum AnimationState 
@@ -72,6 +71,14 @@ public class AnimationManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(owner && owner.movement.PlayerType)
+        {
+            isPlayer = true;
+        }
+        else
+        {
+            isPlayer = false;
+        }
         if (groundCheck)
         {
             if (groundCheck.GetOnGround)
@@ -89,12 +96,6 @@ public class AnimationManager : MonoBehaviour
                     {
                         ani.ResetTrigger("Jump");
                         ani.SetTrigger("Landing");
-                    }
-                    if (Ec && ecActive)
-                    {
-                        Ec.PlayEffect("bang", groundCheck.transform.position);
-
-                        ecActive = false;
                     }
                 }
             }
@@ -125,11 +126,6 @@ public class AnimationManager : MonoBehaviour
                         if (Input.GetKeyDown(Punch))
                         {
                             ani.SetTrigger("Punch");
-                        }
-                        if (Input.GetKeyDown(Kick))
-                        {
-                            ecActive = true;
-                            ani.SetTrigger("Kick");
                         }
                         if (Input.GetKeyDown(Dash) && !airDash)
                         {

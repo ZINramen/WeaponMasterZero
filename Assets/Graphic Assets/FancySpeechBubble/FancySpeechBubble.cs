@@ -1,17 +1,13 @@
 ﻿using System.Collections;
 using UnityEngine;
 using TMPro;
-using UnityEngine.UI;
 
 [RequireComponent(typeof(TextMeshProUGUI))]
 public class FancySpeechBubble : MonoBehaviour
 {
     public int characterStartSize = 1;
     public float characterAnimateSpeed = 1000f;
-    public Image bubbleBackground;
-    public float backgroundMinimumHeight;
-    public float backgroundVerticalMargin;
-    
+
     private string _rawText;
     public string rawText { get { return _rawText; } }
 
@@ -23,72 +19,11 @@ public class FancySpeechBubble : MonoBehaviour
         StopAllCoroutines();
         StartCoroutine(SetRoutine(text));
     }
-    
+
     public IEnumerator SetRoutine(string text)
     {
         _rawText = text;
-        yield return StartCoroutine(TestFit());
         yield return StartCoroutine(CharacterAnimation());
-    }
-
-    private IEnumerator TestFit()
-    {
-        TextMeshProUGUI label = GetComponent<TextMeshProUGUI>();
-        
-        // Set the alignment to be centered both horizontally and vertically
-        label.alignment = TextAlignmentOptions.Center;
-
-        float alpha = label.color.a;
-        label.color = new Color(label.color.r, label.color.g, label.color.b, 0f);
-
-        label.text = _rawText;
-
-        yield return new WaitForEndOfFrame();
-
-        float totalHeight = label.preferredHeight;
-        float totalWidth = label.preferredWidth; // Get the preferred width of the text
-
-        float backgroundHorizontalMargin = 30f; // Define a horizontal margin for the background
-        float backgroundMinimumWidth = 100f; // Define a minimum width for the background
-
-        if (bubbleBackground != null)
-        {
-            bubbleBackground.rectTransform.sizeDelta = new Vector2(
-                Mathf.Max(totalWidth + backgroundHorizontalMargin, backgroundMinimumWidth), // Set the width of the background
-                Mathf.Max(totalHeight + backgroundVerticalMargin, backgroundMinimumHeight));
-        }
-
-        _processedText = "";
-        string buffer = "";
-        string line = "";
-        float currentHeight = -1f;
-
-        foreach (string word in _rawText.Split(' '))
-        {
-            buffer += word + " ";
-            label.text = buffer;
-            yield return new WaitForEndOfFrame();
-
-            if (currentHeight < 0f)
-            {
-                currentHeight = label.preferredHeight;
-            }
-
-            if (currentHeight != label.preferredHeight)
-            {
-                currentHeight = label.preferredHeight;
-                _processedText += line.TrimEnd(' ') + "\n";
-                line = "";
-            }
-
-            line += word + " ";
-        }
-
-        _processedText += line;
-
-        label.text = "";
-        label.rectTransform.sizeDelta = new Vector2(label.rectTransform.sizeDelta.x, totalHeight);
-        label.color = new Color(label.color.r, label.color.g, label.color.b, alpha);
     }
 
     private IEnumerator CharacterAnimation()
@@ -96,7 +31,7 @@ public class FancySpeechBubble : MonoBehaviour
         TextMeshProUGUI label = GetComponent<TextMeshProUGUI>();
 
         string prefix = "";
-        foreach (char c in _processedText.ToCharArray())
+        foreach (char c in _rawText.ToCharArray())
         {
             float size = characterStartSize;
             while (size < label.fontSize)
@@ -109,6 +44,6 @@ public class FancySpeechBubble : MonoBehaviour
             prefix += c;
         }
 
-        label.text = _processedText;
+        label.text = _rawText;
     }
 }

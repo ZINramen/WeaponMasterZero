@@ -11,14 +11,16 @@ public class DialogueBubbleBehaviour : PlayableBehaviour
     private GameObject fancySpeechBubbleCanvas;
     private GameObject fancySpeechBubble;
     private GameObject fancySpeechBubbleText;
+    private GameObject fancySpeechBubbleScaler;
     
     public override void OnBehaviourPlay(Playable playable, FrameData info)
     {
         fancySpeechBubbleCanvas = GameObject.Find(objectName).transform.GetChild(0).gameObject;
+        fancySpeechBubbleScaler = fancySpeechBubbleCanvas.transform.GetChild(0).gameObject;
         
         if (fancySpeechBubbleCanvas != null)
         {
-            fancySpeechBubble = fancySpeechBubbleCanvas.transform.GetChild(0).gameObject;
+            fancySpeechBubble = fancySpeechBubbleScaler.transform.GetChild(0).gameObject;
             fancySpeechBubbleText = fancySpeechBubble.transform.GetChild(0).gameObject;
             
             // Enable the fancySpeechBubble GameObject
@@ -28,7 +30,6 @@ public class DialogueBubbleBehaviour : PlayableBehaviour
             if(fancySpeechBubbleText.GetComponent<FancySpeechBubble>() == null)
             {
                 Debug.LogError("FancySpeechBubble does not have FancySpeechBubble component");
-                return;
             }
             else
             {

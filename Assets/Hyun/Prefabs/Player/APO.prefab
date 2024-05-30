@@ -62309,6 +62309,7 @@ MonoBehaviour:
   playerIsOwn: 0
   attType: 1
   isAbleDestroy: 0
+  WeaponCanAbleDestroy: 0
   DestroyEffect: {fileID: 0}
 --- !u!61 &7077345072119766241
 BoxCollider2D:
@@ -62896,7 +62897,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
+  m_Mass: 2
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 1.5
@@ -62927,7 +62928,7 @@ MonoBehaviour:
   owner: {fileID: 0}
   h: 0
   body: {fileID: 0}
-  speed: 5
+  speed: 3
   super: 0
   JumpPower: 4
   PlayerType: 1
@@ -62968,6 +62969,7 @@ MonoBehaviour:
   UpArrow: 273
   Emotion_1: 0
   Heal: 113
+  Cutscenes: []
 --- !u!114 &5402530045787039823
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -62994,6 +62996,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a1045773e672824daf99f5c8b2edde4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hitMat: {fileID: 0}
   activeDesireWeapon: 0
   playerFinalBoss: {fileID: 0}
   desireWeaponFinalBoss: 0
@@ -63167,6 +63170,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 13699a7ca7f2c8a439dd0f9be40386a6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  timeScale: 0
 --- !u!114 &1876698464267050599
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -63187,6 +63191,7 @@ MonoBehaviour:
   bulletSpeed: 10
   shootingPrefab: {fileID: 3720463374832119540, guid: 9dd6a27bda622244dbdaea757186379a, type: 3}
   bombPrefab: {fileID: 5359057258020180228, guid: 68dff8d122492d2458ee91b827a96f26, type: 3}
+  HammerPrefab: {fileID: 0}
   fireTr: {fileID: 3301241753238690825}
   GunfireTr: {fileID: 7023572670391659190}
   GunGauge: {fileID: 2221291954312951389}
@@ -78657,10 +78662,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b8982125c5cfa9b4faccc3fb1bc827e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  haveDestroyArea: 0
   haveTarget: 0
   moveSpeed: 0
   fromParent: 1
+  NoDestroyButHide: 0
   delayTime: 0
+  maxValue: 10
   DestroyBeforeSpawnObject: {fileID: 0}
 --- !u!1 &8289554225892917950
 GameObject:
