@@ -13,6 +13,8 @@ public class Slime : Default_Monster
         stopDelayTime = 1.5f;
     }
     
+    protected override void MoveSetting() {}
+    
     public void MoveXPos_Slime(float x)
     {
         this.gameObject.GetComponent<Movement>().speed = 2f;
@@ -26,7 +28,7 @@ public class Slime : Default_Monster
 
     protected override void Init_StateValueData(ref Default_MonsterState state)
     {
-        state.defaultAtt_dist = 1.4f;
+        state.defaultAtt_dist = 0.4f;
         state.traceDistance = 5f;
     }
 }

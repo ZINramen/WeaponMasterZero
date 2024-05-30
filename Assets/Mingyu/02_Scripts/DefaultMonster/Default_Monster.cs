@@ -155,6 +155,11 @@ public abstract class Default_Monster : MonoBehaviour
             MoveSetting();
         }
     }
+
+    public virtual void HitMotion()
+    {
+        animCtrl.SetTrigger("Hit");
+    }
     
     protected virtual void MoveSetting()
     {
