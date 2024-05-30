@@ -18,10 +18,10 @@ public class Install_Ctrl : MonoBehaviour
     public bool isActive = false;
     public Entity BossObj;
 
-    [SerializeField] private float attack_Delay = 0.5f;
+    private float attack_Delay = 0.5f;
     private float attackCount = 0f;
 
-    [SerializeField] private GameObject[] BulletSpon_PosArr = new GameObject[4];
+    private GameObject[] BulletSpon_PosArr;
     [SerializeField] private GameObject General_Bullet_Pref;
     private Vector3 BulletSpon_Pos;
     private Bullet_Type bulletType;
@@ -38,8 +38,21 @@ public class Install_Ctrl : MonoBehaviour
     void Start()
     {
         myAnim = this.gameObject.GetComponent<Animator>();
+        InitValue();
         
         this.gameObject.SetActive(false);
+        
+    }
+
+    private void InitValue()
+    {
+        attack_Delay = 2.5f;
+
+        BulletSpon_PosArr = new GameObject[4];
+        BulletSpon_PosArr[0] = gameObject.transform.GetChild(0).gameObject;
+        BulletSpon_PosArr[1] = gameObject.transform.GetChild(1).gameObject;
+        BulletSpon_PosArr[2] = gameObject.transform.GetChild(2).gameObject;
+        BulletSpon_PosArr[3] = gameObject.transform.GetChild(3).gameObject;
     }
 
     private void Update()
@@ -60,7 +73,6 @@ public class Install_Ctrl : MonoBehaviour
         if (thisEntity && thisEntity.GetHp() != MaxHP)
         {
             myAnim.SetTrigger("Hit");
-            Debug.Log("tt");
         }
         myAnim.SetBool("isActive", isActive);
     }
