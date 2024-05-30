@@ -289,6 +289,7 @@ MonoBehaviour:
   playerIsOwn: 0
   attType: 0
   isAbleDestroy: 0
+  WeaponCanAbleDestroy: 0
   DestroyEffect: {fileID: 0}
 --- !u!1 &595508711176649116
 GameObject:
@@ -482,6 +483,7 @@ MonoBehaviour:
   playerIsOwn: 0
   attType: 0
   isAbleDestroy: 0
+  WeaponCanAbleDestroy: 0
   DestroyEffect: {fileID: 0}
 --- !u!61 &1017597132500582208
 BoxCollider2D:
@@ -681,6 +683,7 @@ MonoBehaviour:
   playerIsOwn: 0
   attType: 0
   isAbleDestroy: 0
+  WeaponCanAbleDestroy: 0
   DestroyEffect: {fileID: 0}
 --- !u!1 &988351149789685289
 GameObject:
@@ -835,6 +838,7 @@ MonoBehaviour:
   playerIsOwn: 0
   attType: 0
   isAbleDestroy: 0
+  WeaponCanAbleDestroy: 0
   DestroyEffect: {fileID: 0}
 --- !u!1 &1106007871822214390
 GameObject:
@@ -1083,6 +1087,7 @@ MonoBehaviour:
   playerIsOwn: 0
   attType: 0
   isAbleDestroy: 0
+  WeaponCanAbleDestroy: 0
   DestroyEffect: {fileID: 0}
 --- !u!58 &8410946980179617036
 CircleCollider2D:
@@ -1327,6 +1332,7 @@ MonoBehaviour:
   playerIsOwn: 0
   attType: 0
   isAbleDestroy: 0
+  WeaponCanAbleDestroy: 0
   DestroyEffect: {fileID: 0}
 --- !u!58 &8134464156891643994
 CircleCollider2D:
@@ -1473,6 +1479,7 @@ MonoBehaviour:
   playerIsOwn: 0
   attType: 0
   isAbleDestroy: 0
+  WeaponCanAbleDestroy: 0
   DestroyEffect: {fileID: 0}
 --- !u!58 &1801164376483941040
 CircleCollider2D:
@@ -1749,6 +1756,7 @@ MonoBehaviour:
   playerIsOwn: 0
   attType: 0
   isAbleDestroy: 0
+  WeaponCanAbleDestroy: 0
   DestroyEffect: {fileID: 0}
 --- !u!58 &7291594607841087553
 CircleCollider2D:
@@ -1938,6 +1946,7 @@ MonoBehaviour:
   playerIsOwn: 0
   attType: 0
   isAbleDestroy: 0
+  WeaponCanAbleDestroy: 0
   DestroyEffect: {fileID: 0}
 --- !u!1 &2718762196227357545
 GameObject:
@@ -2348,6 +2357,7 @@ Transform:
   - {fileID: 4389155671374545759}
   - {fileID: 1629414154923095846}
   - {fileID: 8195416203071512846}
+  - {fileID: 6097180090703816134}
   - {fileID: 3210695838158314168}
   - {fileID: 9188640021706188455}
   - {fileID: 4123058325471691511}
@@ -2367,7 +2377,6 @@ Transform:
   - {fileID: 4730502633911132668}
   - {fileID: 519164513746021984}
   - {fileID: 7154073232872178824}
-  - {fileID: 6097180090703816134}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!95 &6920579874090231421
@@ -2517,6 +2526,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a1045773e672824daf99f5c8b2edde4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hitMat: {fileID: 0}
   activeDesireWeapon: 0
   playerFinalBoss: {fileID: 0}
   desireWeaponFinalBoss: 0
@@ -2565,11 +2575,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 16f92228b016c0a42905220ded4cc0f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nextMove: 0
   groundApproachDist: 0
   move_Speed: 0
-  iBossSkill: 0
-  isMoveEnd: 0
   DA_HitArea: []
   P1Skill1_HitArea: []
   P1Skill2_HitArea: []
@@ -2579,17 +2586,23 @@ MonoBehaviour:
   hit_Mat: {fileID: 2100000, guid: 9a312534a97aeb14e89b5c7cc149b470, type: 2}
   bossType: 3
   isDie: 0
+  playerJump_Power: 0
   ShootingBullet_Pref: {fileID: 555014721428104510, guid: d2de8c682b312494cb9b6f19643186db, type: 3}
   ShootingBulletPos: {fileID: 6097180090703816134}
   bulletCount: 12
   shooting_AttTotalCount: 6
-  shooting_AttCount: 0
-  isIn_PlayerArea: 0
-  HandAtt_HitArea:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  AbsorbHand: {fileID: 0}
+  absorbAtt_DelayTime: 0
+  AbsorbAtt_TotalCount: 0
+  absorbHP_Amount: 0
+  downSpeed: 0
+  FistObj: {fileID: 0}
+  leftUP_FistSponPos: {fileID: 0}
+  rightDown_FistSponPos: {fileID: 0}
+  fistTotalCount: 0
+  fistDelayTime: 0
+  fistPower: 0
+  delete_FistCount: 0
   AttackAble_BackGroundData:
   - {fileID: 21300000, guid: 4c781c7a709eda541a03a0eaa4af2a48, type: 3}
   - {fileID: 21300000, guid: 981fd4b0cd062bb499084bc8852a84d2, type: 3}
@@ -2597,6 +2610,9 @@ MonoBehaviour:
   AttackAble_BackGround: {fileID: 0}
   attAble_AttType: 4
   change_AttTypeTime: 5
+  BubbleKey_Obj: {fileID: 0}
+  LockObj: {fileID: 0}
+  m_bubblePower: 0
 --- !u!82 &8824470522893194102
 AudioSource:
   m_ObjectHideFlags: 0
@@ -2813,6 +2829,7 @@ MonoBehaviour:
   playerIsOwn: 0
   attType: 0
   isAbleDestroy: 0
+  WeaponCanAbleDestroy: 0
   DestroyEffect: {fileID: 0}
 --- !u!58 &2883307072845242719
 CircleCollider2D:
@@ -3210,6 +3227,7 @@ MonoBehaviour:
   playerIsOwn: 0
   attType: 0
   isAbleDestroy: 0
+  WeaponCanAbleDestroy: 0
   DestroyEffect: {fileID: 0}
 --- !u!61 &6522793085619202901
 BoxCollider2D:
@@ -3450,6 +3468,7 @@ MonoBehaviour:
   playerIsOwn: 0
   attType: 0
   isAbleDestroy: 0
+  WeaponCanAbleDestroy: 0
   DestroyEffect: {fileID: 0}
 --- !u!58 &86358958774381600
 CircleCollider2D:
@@ -3856,6 +3875,7 @@ MonoBehaviour:
   playerIsOwn: 0
   attType: 0
   isAbleDestroy: 0
+  WeaponCanAbleDestroy: 0
   DestroyEffect: {fileID: 0}
 --- !u!1 &8525246796309041316
 GameObject:
