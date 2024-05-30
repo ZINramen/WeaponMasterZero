@@ -30,7 +30,7 @@ public class GunBoss : Boss
     Transform SignSpon_Pos;
     private List<GameObject> SignPref_dummyObjList = new List<GameObject>();
     
-    private const int totalsignCount = 6;
+    [SerializeField] private int totalsignCount = 6;
     private int signCount = 0;
     
     [SerializeField] private float signSpon_DelayTime = 0.5f;
