@@ -29,6 +29,8 @@ public abstract class Default_Monster : MonoBehaviour
     public float move_Speed;
     private bool isEndSetting = false;
 
+    protected GameObject AttHitCol;
+
     protected float stopDelayTime;
     
     protected RaycastHit2D rayHit;
@@ -111,8 +113,6 @@ public abstract class Default_Monster : MonoBehaviour
     
     private void UpdateState()
     {
-        Debug.Log(player.gameObject.name);
-        
         player_pos = player.GetComponent<Transform>().position;
         distFrom_Player = Mathf.Abs(player_pos.x - transform.position.x);
         
@@ -166,23 +166,44 @@ public abstract class Default_Monster : MonoBehaviour
         isMove = true;
         nextMove = this.transform.position.x > player_pos.x ? -move_Speed : move_Speed;
         
-        if (rayHit.collider != null)
+        Move(nextMove, nextMove > 0 ? 1 : -1);
+    }
+
+    protected void Check_AttackHitCol(int isOnColider)
+    {
+        if (AttHitCol == null)
+            return;
+        
+        DefaultMonster_OnColliderType(AttHitCol, isOnColider);
+    }
+    
+    private void DefaultMonster_OnColliderType(GameObject colliderObj, int i_CheckOnColier)
+    {
+        bool isOnColider;
+        if (i_CheckOnColier == 1) isOnColider = true;
+        else isOnColider = false;
+        
+        if (colliderObj.GetComponent<BoxCollider2D>() != null)
         {
-            Debug.Log("아 가자");
-            Move(nextMove, nextMove > 0 ? 1 : -1);
+            colliderObj.gameObject.GetComponent<BoxCollider2D>().enabled = isOnColider;
+        }
+        else if (colliderObj.GetComponent<CircleCollider2D>() != null)
+        {
+            colliderObj.gameObject.GetComponent<CircleCollider2D>().enabled = isOnColider;
+        }
+        else if (colliderObj.GetComponent<EdgeCollider2D>() != null)
+        {
+            colliderObj.gameObject.GetComponent<EdgeCollider2D>().enabled = isOnColider;
         }
         else
-        {
-            Debug.Log("아 안가자~ㄴ");
-            Move(0, nextMove > 0 ? 1 : -1);
-        }
+            return;
     }
     
     protected void Move(float inputNextMove, int turnValue)
     {
         myRd.velocity = new Vector2(inputNextMove, myRd.position.y);
 
-        Vector2 frontVec = new Vector2(myRd.position.x + turnValue * 2, myRd.position.y - 0.5f);
+        Vector2 frontVec = new Vector2(myRd.position.x, myRd.position.y - 0.5f);
         Debug.DrawRay(frontVec, Vector3.down, new Color(0, 0, 1));      // #Test용
         
         rayHit = Physics2D.Raycast(frontVec, Vector3.down, 1f, LayerMask.GetMask("Ground"));
