@@ -479,6 +479,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3728420857926953154, guid: 653be09cd99e655488bbf8f31d7e4dd5, type: 3}
+      propertyPath: projectilePrefab
+      value: 
+      objectReference: {fileID: 5833869227801868694, guid: 62a8b1d94a1893e4796c0193425447e7, type: 3}
     - target: {fileID: 7423419296902071340, guid: 653be09cd99e655488bbf8f31d7e4dd5, type: 3}
       propertyPath: m_Name
       value: AD_Slime
@@ -22673,11 +22677,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4318902352820783113, guid: ab4c0ef54fefcd44388eeb4055835e91, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 2.76
+      value: -1.04
       objectReference: {fileID: 0}
     - target: {fileID: 4318902352820783113, guid: ab4c0ef54fefcd44388eeb4055835e91, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.06
+      value: -3.38
       objectReference: {fileID: 0}
     - target: {fileID: 4318902352820783113, guid: ab4c0ef54fefcd44388eeb4055835e91, type: 3}
       propertyPath: m_LocalPosition.z
@@ -22714,6 +22718,10 @@ PrefabInstance:
     - target: {fileID: 5094439091505206354, guid: ab4c0ef54fefcd44388eeb4055835e91, type: 3}
       propertyPath: m_Name
       value: Tan_Slime
+      objectReference: {fileID: 0}
+    - target: {fileID: 5094439091505206354, guid: ab4c0ef54fefcd44388eeb4055835e91, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
