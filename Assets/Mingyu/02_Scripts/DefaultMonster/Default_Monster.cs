@@ -6,9 +6,9 @@ public class Default_MonsterState
 {
     public enum State 
     { 
-        trace,
         idle = 0,
-        DefaultAtt = 1
+        trace = 1,
+        DefaultAtt = 2
     }
     public State currentState;
 
@@ -22,7 +22,7 @@ public class Default_MonsterState
 public abstract class Default_Monster : MonoBehaviour
 {
     protected GameObject player;
-    protected Vector2 player_pos;
+    public Vector2 player_pos;
     
     protected float nextMove = 1;
     protected bool isMove;
@@ -38,7 +38,7 @@ public abstract class Default_Monster : MonoBehaviour
     protected Rigidbody2D myRd;
     protected Animator animCtrl;
     
-    [SerializeField] protected Default_MonsterState monsterState;
+    protected Default_MonsterState monsterState;
     protected bool isMoveEnd = false;
     
     [SerializeField] protected float distFrom_Player;
@@ -69,10 +69,13 @@ public abstract class Default_Monster : MonoBehaviour
     
     protected void Update()
     {
-        if (this.gameObject.GetComponent<Entity>().GetHp() > 0 && !isEndSetting)
+        Debug.Log(monsterState.currentState);
+        
+        if (this.gameObject.GetComponent<Entity>().GetHp() > 0)
         {
             UpdateState();
             UpdateAnimation();
+            UpdateSeeting();
         }
 
         if (isMoveEnd)
@@ -81,6 +84,8 @@ public abstract class Default_Monster : MonoBehaviour
             isMoveEnd = false;
         }
     }
+
+    protected virtual void UpdateSeeting() { }
     
     protected IEnumerator StopMove()
     {
@@ -120,9 +125,10 @@ public abstract class Default_Monster : MonoBehaviour
         if (distFrom_Player >= monsterState.traceDistance)
         {
             monsterState.currentState = Default_MonsterState.State.idle;
+            Move(0,1);
         }
         
-        // 스킬 쿨타임 중일때
+        // 공격중이 아니거나 && 맞는중이 아니라면
         else if (!monsterState.isAttacking)
         {
             if (distFrom_Player >= monsterState.defaultAtt_dist)
@@ -169,7 +175,7 @@ public abstract class Default_Monster : MonoBehaviour
         Move(nextMove, nextMove > 0 ? 1 : -1);
     }
 
-    protected void Check_AttackHitCol(int isOnColider)
+    public void Check_AttackHitCol(int isOnColider)
     {
         if (AttHitCol == null)
             return;
@@ -201,6 +207,8 @@ public abstract class Default_Monster : MonoBehaviour
     
     protected void Move(float inputNextMove, int turnValue)
     {
+        if (this.gameObject.GetComponent<Entity>().isDamaged) return;
+        
         myRd.velocity = new Vector2(inputNextMove, myRd.position.y);
 
         Vector2 frontVec = new Vector2(myRd.position.x, myRd.position.y - 0.5f);
@@ -211,17 +219,14 @@ public abstract class Default_Monster : MonoBehaviour
     
     public void EndAttack()
     {
-        isEndSetting = true;
+        monsterState.currentState = Default_MonsterState.State.idle;
+        Debug.Log("EndAtt");
         isMove = false;
         
-        monsterState.currentState = Default_MonsterState.State.idle;
         animCtrl.SetBool("isAttack", false);
-        animCtrl.SetBool("isTrace", true);
         
         monsterState.isStopTurn = false;
         monsterState.isAttacking = false;
-        
-        Invoke("EndSetting", 0.05f);
     }
     
     private void EndSetting()

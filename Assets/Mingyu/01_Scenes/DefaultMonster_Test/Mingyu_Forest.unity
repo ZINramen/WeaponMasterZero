@@ -487,6 +487,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: AD_Slime
       objectReference: {fileID: 0}
+    - target: {fileID: 7423419296902071340, guid: 653be09cd99e655488bbf8f31d7e4dd5, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -946,7 +950,7 @@ Transform:
   m_GameObject: {fileID: 519420028}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4.5246673, y: -0.34044003, z: -10.003921}
+  m_LocalPosition: {x: -4.9774885, y: -0.34300995, z: -10.003921}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2322,7 +2326,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6742957321019227575, guid: e2f03ac0e90d84f4083d3f9121ad8f5f, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -4.52
+      value: -8.03
       objectReference: {fileID: 0}
     - target: {fileID: 6742957321019227575, guid: e2f03ac0e90d84f4083d3f9121ad8f5f, type: 3}
       propertyPath: m_LocalPosition.y
@@ -2363,6 +2367,10 @@ PrefabInstance:
     - target: {fileID: 7851842501672214819, guid: e2f03ac0e90d84f4083d3f9121ad8f5f, type: 3}
       propertyPath: m_TagString
       value: Untagged
+      objectReference: {fileID: 0}
+    - target: {fileID: 7985976794028977897, guid: e2f03ac0e90d84f4083d3f9121ad8f5f, type: 3}
+      propertyPath: MaxDistance
+      value: 24.290081
       objectReference: {fileID: 0}
     - target: {fileID: 8420422611764709252, guid: e2f03ac0e90d84f4083d3f9121ad8f5f, type: 3}
       propertyPath: currentWeapon
@@ -2932,7 +2940,7 @@ Transform:
   m_GameObject: {fileID: 1132431273}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4.52, y: -1.6, z: -10.003921}
+  m_LocalPosition: {x: -8.03, y: -1.6, z: -10.003921}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -22721,7 +22729,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5094439091505206354, guid: ab4c0ef54fefcd44388eeb4055835e91, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

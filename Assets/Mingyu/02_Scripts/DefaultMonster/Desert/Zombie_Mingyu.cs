@@ -2,8 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TanSlime : Default_Monster
-{
+public class Zombie_Mingyu : Default_Monster
+{    
     [SerializeField] private float m_dAtt_dist;
     [SerializeField] private float m_traceDist;
     

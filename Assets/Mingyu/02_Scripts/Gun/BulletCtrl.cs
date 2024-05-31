@@ -62,7 +62,7 @@ public class BulletCtrl : MonoBehaviour
         Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition) - player.transform.position;
         float angle = Mathf.Atan2(mousePos.y, mousePos.x) * Mathf.Rad2Deg;
 
-        this.gameObject.GetComponent<Bullet_HitCollder>().owner = m_player.GetComponent<Entity>();
+        this.gameObject.GetComponent<HitColider>().owner = m_player.GetComponent<Entity>();
         ShootingBullet(parrigForce, Quaternion.Euler(0, 0, angle));
 
         isPlayerParring = true;

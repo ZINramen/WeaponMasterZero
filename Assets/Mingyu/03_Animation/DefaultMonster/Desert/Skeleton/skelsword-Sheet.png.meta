@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 9c08db3a59fd301438ce48bab42f7947
+guid: b49feec074096124f8e468bf10f03e07
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -34,7 +34,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 0
+    filterMode: 1
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -69,7 +69,7 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 4096
+    maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 1
@@ -94,7 +94,7 @@ TextureImporter:
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
-    buildTarget: Server
+    buildTarget: iPhone
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -107,8 +107,8 @@ TextureImporter:
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
-    buildTarget: iPhone
-    maxTextureSize: 4096
+    buildTarget: Android
+    maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 1
@@ -120,8 +120,8 @@ TextureImporter:
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
-    buildTarget: Android
-    maxTextureSize: 4096
+    buildTarget: Server
+    maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 1
@@ -136,232 +136,295 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Gun-Normal__0
+      name: skelsword-Sheet_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 1000
-        width: 500
-        height: 500
-      alignment: 9
-      pivot: {x: 0.42, y: 0.328}
+        y: 258
+        width: 162
+        height: 86
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4b9722be5305b2c4791d9cbaad531a71
-      internalID: -496311912
+      spriteID: 6f830acc9475f5f4e9b079850b331a0d
+      internalID: -2142212639
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Gun-Normal__1
+      name: skelsword-Sheet_1
       rect:
         serializedVersion: 2
-        x: 500
-        y: 1000
-        width: 500
-        height: 500
-      alignment: 9
-      pivot: {x: 0.42, y: 0.328}
+        x: 162
+        y: 258
+        width: 162
+        height: 86
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b85f994e1cf7d094bbb074bb1eefa360
-      internalID: 723116424
+      spriteID: 592aa0a7458d85345b4429b8989a1ca7
+      internalID: -1023249747
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Gun-Normal__2
+      name: skelsword-Sheet_2
       rect:
         serializedVersion: 2
-        x: 1000
-        y: 1000
-        width: 500
-        height: 500
-      alignment: 9
-      pivot: {x: 0.42, y: 0.328}
+        x: 324
+        y: 258
+        width: 162
+        height: 86
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: dc92e9da719dead4fa7b9de18876ba30
-      internalID: 660288445
+      spriteID: 21dc06dcd024fc1468fe3ad7a58cacdd
+      internalID: 923454531
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Gun-Normal__3
+      name: skelsword-Sheet_3
       rect:
         serializedVersion: 2
-        x: 1500
-        y: 1000
-        width: 500
-        height: 500
-      alignment: 9
-      pivot: {x: 0.42, y: 0.328}
+        x: 486
+        y: 258
+        width: 162
+        height: 86
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 477bce996de401c43907795c307a0179
-      internalID: 814721222
+      spriteID: d8860e5d40a21a1418c454e624798a5b
+      internalID: -895641238
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Gun-Normal__4
+      name: skelsword-Sheet_4
       rect:
         serializedVersion: 2
         x: 0
-        y: 500
-        width: 500
-        height: 500
-      alignment: 9
-      pivot: {x: 0.42, y: 0.328}
+        y: 172
+        width: 162
+        height: 86
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e9512e2df6250d547af1d5ae9acb89ea
-      internalID: 2024139107
+      spriteID: b13afbd1109948f489dfdd2216f14c08
+      internalID: 104724263
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Gun-Normal__5
+      name: skelsword-Sheet_5
       rect:
         serializedVersion: 2
-        x: 500
-        y: 500
-        width: 500
-        height: 500
-      alignment: 9
-      pivot: {x: 0.42, y: 0.328}
+        x: 162
+        y: 172
+        width: 162
+        height: 86
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3504bb015dd58704d8969dadb0707ebb
-      internalID: -139961728
+      spriteID: 28a1223359725f84cbbb6f09e39a9192
+      internalID: -913315251
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Gun-Normal__6
+      name: skelsword-Sheet_6
       rect:
         serializedVersion: 2
-        x: 1000
-        y: 500
-        width: 500
-        height: 500
-      alignment: 9
-      pivot: {x: 0.42, y: 0.328}
+        x: 324
+        y: 172
+        width: 162
+        height: 86
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3479b0357650e9e4dbf1ea6447b7e91e
-      internalID: -81915923
+      spriteID: be92e81fa274bb94bac8191369dc4b88
+      internalID: 1796191540
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Gun-Normal__7
+      name: skelsword-Sheet_7
       rect:
         serializedVersion: 2
-        x: 1500
-        y: 500
-        width: 500
-        height: 500
-      alignment: 9
-      pivot: {x: 0.42, y: 0.328}
+        x: 486
+        y: 172
+        width: 162
+        height: 86
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 40cd40ad2fd830d4693ac72e18894e63
-      internalID: -1678117831
+      spriteID: 44dc2e89c02c6374fa35394ba0b5378e
+      internalID: 1002404801
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Gun-Normal__8
+      name: skelsword-Sheet_8
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 86
+        width: 162
+        height: 86
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ad240da0fc409aa499f52470e1ce2603
+      internalID: -396373314
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: skelsword-Sheet_9
+      rect:
+        serializedVersion: 2
+        x: 162
+        y: 86
+        width: 162
+        height: 86
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e2cdfe8ca5eb25649b77c8f0ad132ede
+      internalID: 443704507
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: skelsword-Sheet_10
+      rect:
+        serializedVersion: 2
+        x: 324
+        y: 86
+        width: 162
+        height: 86
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 038d9bf9ae369784ea0e8ca314154cb3
+      internalID: -1701663219
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: skelsword-Sheet_11
+      rect:
+        serializedVersion: 2
+        x: 486
+        y: 86
+        width: 162
+        height: 86
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bb33168091f47c84081d0361c895d610
+      internalID: -577620774
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: skelsword-Sheet_12
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 500
-        height: 500
-      alignment: 9
-      pivot: {x: 0.42, y: 0.328}
+        width: 162
+        height: 86
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d82c76a502f76b8459db86893caf99f2
-      internalID: -207807581
+      spriteID: 049ca07d5315fab44950c6b7b008fcce
+      internalID: 1657112106
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Gun-Normal__9
+      name: skelsword-Sheet_13
       rect:
         serializedVersion: 2
-        x: 500
+        x: 162
         y: 0
-        width: 500
-        height: 500
-      alignment: 9
-      pivot: {x: 0.42, y: 0.328}
+        width: 162
+        height: 86
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 250ebdb51ba5a85428161157039af7fa
-      internalID: -546517111
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Gun-Normal__10
-      rect:
-        serializedVersion: 2
-        x: 1000
-        y: 0
-        width: 500
-        height: 500
-      alignment: 9
-      pivot: {x: 0.42, y: 0.328}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 2a3fc7e739d5ad94d9833aec24c45da2
-      internalID: -1032469590
+      spriteID: 1d7ed5c595f72a1449e8931d2964f91a
+      internalID: -1674456846
       vertices: []
       indices: 
       edges: []
@@ -377,17 +440,20 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Gun-Normal__0: -496311912
-      Gun-Normal__1: 723116424
-      Gun-Normal__10: 660288445
-      Gun-Normal__2: 814721222
-      Gun-Normal__3: 2024139107
-      Gun-Normal__4: -139961728
-      Gun-Normal__5: -81915923
-      Gun-Normal__6: -1678117831
-      Gun-Normal__7: -207807581
-      Gun-Normal__8: -546517111
-      Gun-Normal__9: -1032469590
+      skelsword-Sheet_0: -2142212639
+      skelsword-Sheet_1: -1023249747
+      skelsword-Sheet_10: -1701663219
+      skelsword-Sheet_11: -577620774
+      skelsword-Sheet_12: 1657112106
+      skelsword-Sheet_13: -1674456846
+      skelsword-Sheet_2: 923454531
+      skelsword-Sheet_3: -895641238
+      skelsword-Sheet_4: 104724263
+      skelsword-Sheet_5: -913315251
+      skelsword-Sheet_6: 1796191540
+      skelsword-Sheet_7: 1002404801
+      skelsword-Sheet_8: -396373314
+      skelsword-Sheet_9: 443704507
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
