@@ -201,10 +201,10 @@ public class LastBoss_Ctrl : Boss
         shooting_AttTotalCount = 6;
         
         // 흡수 손 
-        absorbAtt_DelayTime = 1f;
+        absorbAtt_DelayTime = 0.5f;
         AbsorbAtt_TotalCount = 4;
         absorbHP_Amount = 20f;
-        downSpeed = 8f;
+        downSpeed = 10f;
 
         // 주먹 난사
         leftUP_FistSponPos = GameObject.Find("LeftUP_HandSponPos").gameObject.transform;
