@@ -72,7 +72,7 @@ MonoBehaviour:
     m_Start: 2.35
     m_ClipIn: 0
     m_Asset: {fileID: -2934335176674966275}
-    m_Duration: 4.016667
+    m_Duration: 3.9999999999999996
     m_TimeScale: 1
     m_ParentTrack: {fileID: -7276529335198525686}
     m_EaseInDuration: 0
@@ -1003,25 +1003,7 @@ MonoBehaviour:
       m_RotationOrder: 4
     m_MixOutCurve:
       serializedVersion: 2
-      m_Curve:
-      - serializedVersion: 3
-        time: 0
-        value: 1
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 0
-        weightedMode: 0
-        inWeight: 0
-        outWeight: 0
-      - serializedVersion: 3
-        time: 1
-        value: 0
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 0
-        weightedMode: 0
-        inWeight: 0
-        outWeight: 0
+      m_Curve: []
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
@@ -1143,7 +1125,7 @@ MonoBehaviour:
   m_Children: []
   m_Clips:
   - m_Version: 1
-    m_Start: 6.85
+    m_Start: 5.95
     m_ClipIn: 0
     m_Asset: {fileID: 4266087995766045213}
     m_Duration: 1
@@ -1209,13 +1191,13 @@ MonoBehaviour:
     m_PostExtrapolationMode: 1
     m_PreExtrapolationMode: 1
     m_PostExtrapolationTime: 0
-    m_PreExtrapolationTime: 6.85
+    m_PreExtrapolationTime: 5.95
     m_DisplayName: SwordTrace
   - m_Version: 1
-    m_Start: 7.85
+    m_Start: 6.95
     m_ClipIn: 0
     m_Asset: {fileID: 1211044946082717469}
-    m_Duration: 0.5
+    m_Duration: 1.3999999999999995
     m_TimeScale: 1
     m_ParentTrack: {fileID: -5265058878061306648}
     m_EaseInDuration: 0
@@ -1277,9 +1259,78 @@ MonoBehaviour:
     m_Recordable: 1
     m_PostExtrapolationMode: 1
     m_PreExtrapolationMode: 1
-    m_PostExtrapolationTime: Infinity
+    m_PostExtrapolationTime: 2.1500000000000004
     m_PreExtrapolationTime: 0
     m_DisplayName: Recorded (3)
+  - m_Version: 1
+    m_Start: 10.5
+    m_ClipIn: 0
+    m_Asset: {fileID: 8203342023313039004}
+    m_Duration: 1.5
+    m_TimeScale: 1
+    m_ParentTrack: {fileID: -5265058878061306648}
+    m_EaseInDuration: 0
+    m_EaseOutDuration: 0
+    m_BlendInDuration: -1
+    m_BlendOutDuration: -1
+    m_MixInCurve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      - serializedVersion: 3
+        time: 1
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    m_MixOutCurve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      - serializedVersion: 3
+        time: 1
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    m_BlendInCurveMode: 0
+    m_BlendOutCurveMode: 0
+    m_ExposedParameterNames: []
+    m_AnimationCurves: {fileID: 0}
+    m_Recordable: 0
+    m_PostExtrapolationMode: 1
+    m_PreExtrapolationMode: 1
+    m_PostExtrapolationTime: Infinity
+    m_PreExtrapolationTime: 0
+    m_DisplayName: SwordGoBack
   m_Markers:
     m_Objects: []
   m_InfiniteClipPreExtrapolation: 0
@@ -1673,8 +1724,8 @@ AnimationClip:
       serializedVersion: 2
       m_Curve:
       - serializedVersion: 3
-        time: 0
-        value: {x: -0.22999573, y: 0, z: 0}
+        time: 0.90000004
+        value: {x: 0, y: 0, z: 0}
         inSlope: {x: 0, y: 0, z: 0}
         outSlope: {x: 0, y: 0, z: 0}
         tangentMode: 0
@@ -1690,7 +1741,7 @@ AnimationClip:
   m_PPtrCurves:
   - serializedVersion: 2
     curve:
-    - time: 0
+    - time: 0.90000004
       value: {fileID: -83474180, guid: 449d25a148ba55d44a0e0b02641a57ad, type: 3}
     attribute: m_Sprite
     path: 
@@ -1729,7 +1780,7 @@ AnimationClip:
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 0.016666668
+    m_StopTime: 0.9166667
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0
@@ -1750,8 +1801,8 @@ AnimationClip:
       serializedVersion: 2
       m_Curve:
       - serializedVersion: 3
-        time: 0
-        value: -0.22999573
+        time: 0.90000004
+        value: 0
         inSlope: 0
         outSlope: 0
         tangentMode: 136
@@ -1771,7 +1822,7 @@ AnimationClip:
       serializedVersion: 2
       m_Curve:
       - serializedVersion: 3
-        time: 0
+        time: 0.90000004
         value: 0
         inSlope: 0
         outSlope: 0
@@ -1792,7 +1843,7 @@ AnimationClip:
       serializedVersion: 2
       m_Curve:
       - serializedVersion: 3
-        time: 0
+        time: 0.90000004
         value: 0
         inSlope: 0
         outSlope: 0
@@ -1850,6 +1901,98 @@ MonoBehaviour:
   m_Loop: 0
   m_Version: 1
   m_Rotation: {x: 0, y: 0, z: 0, w: 1}
+--- !u!114 &-2826837597508071487
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3907c42cbea6c57458fb3ef67e148402, type: 3}
+  m_Name: Dialogue Bubble Track (1)
+  m_EditorClassIdentifier: 
+  m_Version: 3
+  m_AnimClip: {fileID: 0}
+  m_Locked: 0
+  m_Muted: 0
+  m_CustomPlayableFullTypename: 
+  m_Curves: {fileID: 0}
+  m_Parent: {fileID: 11400000}
+  m_Children: []
+  m_Clips:
+  - m_Version: 1
+    m_Start: 2.5
+    m_ClipIn: 0
+    m_Asset: {fileID: 6301614919136376924}
+    m_Duration: 1.5
+    m_TimeScale: 1
+    m_ParentTrack: {fileID: -2826837597508071487}
+    m_EaseInDuration: 0
+    m_EaseOutDuration: 0
+    m_BlendInDuration: 0
+    m_BlendOutDuration: 0
+    m_MixInCurve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      - serializedVersion: 3
+        time: 1
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    m_MixOutCurve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      - serializedVersion: 3
+        time: 1
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    m_BlendInCurveMode: 0
+    m_BlendOutCurveMode: 0
+    m_ExposedParameterNames: []
+    m_AnimationCurves: {fileID: 0}
+    m_Recordable: 0
+    m_PostExtrapolationMode: 0
+    m_PreExtrapolationMode: 0
+    m_PostExtrapolationTime: 0
+    m_PreExtrapolationTime: 0
+    m_DisplayName: DialogueBubbleClip
+  m_Markers:
+    m_Objects: []
 --- !u!114 &-2802623044540410313
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1872,7 +2015,7 @@ MonoBehaviour:
   m_Children: []
   m_Clips:
   - m_Version: 1
-    m_Start: 7.549999999999999
+    m_Start: 7.35
     m_ClipIn: 0
     m_Asset: {fileID: -8539924619595266087}
     m_Duration: 1
@@ -1938,7 +2081,7 @@ MonoBehaviour:
     m_PostExtrapolationMode: 1
     m_PreExtrapolationMode: 1
     m_PostExtrapolationTime: Infinity
-    m_PreExtrapolationTime: 7.549999999999999
+    m_PreExtrapolationTime: 7.35
     m_DisplayName: Recorded (4)
   m_Markers:
     m_Objects: []
@@ -2018,6 +2161,7 @@ MonoBehaviour:
   - {fileID: -5265058878061306648}
   - {fileID: -2802623044540410313}
   - {fileID: 7950392462973861883}
+  - {fileID: -2826837597508071487}
   m_FixedDuration: 0
   m_EditorSettings:
     m_Framerate: 60
@@ -2147,7 +2291,7 @@ MonoBehaviour:
   m_Name: Recorded (3)
   m_EditorClassIdentifier: 
   m_Clip: {fileID: -4591799988944432224}
-  m_Position: {x: -1.5, y: 0, z: 0}
+  m_Position: {x: -3, y: 0, z: 0}
   m_EulerAngles: {x: -0, y: 0, z: 0}
   m_UseTrackMatchFields: 1
   m_MatchTargetFields: 63
@@ -2169,7 +2313,7 @@ MonoBehaviour:
   m_Name: DialogueBubbleClip
   m_EditorClassIdentifier: 
   template:
-    text: "\uD06C\uC544\uC544\uC544\uC544\uC544\uC544\uC544\uC544\uC544\uC544\uC544\uC544\uC544\uC545"
+    text: "\uBB50\uAC00 \uC774\uB807\uAC8C \uBB34\uAC70\uC6CC...??"
     objectName: Enemy_Bag2
 --- !u!114 &4266087995766045213
 MonoBehaviour:
@@ -2205,7 +2349,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 15c38f6fa1940124db1ab7f6fe7268d1, type: 3}
   m_Name: Signal Emitter
   m_EditorClassIdentifier: 
-  m_Time: 11.5
+  m_Time: 12
   m_Retroactive: 0
   m_EmitOnce: 0
   m_Asset: {fileID: 11400000, guid: 158a8a2b07d333c49a81ebd7d6ede837, type: 2}
@@ -2595,6 +2739,21 @@ AnimationClip:
   m_HasGenericRootTransform: 1
   m_HasMotionFloatCurves: 0
   m_Events: []
+--- !u!114 &6301614919136376924
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b0dca6aeeb51dbd4a9c2665f5576da68, type: 3}
+  m_Name: DialogueBubbleClip(Clone)(Clone)
+  m_EditorClassIdentifier: 
+  template:
+    text: "\uC544\uC774\uACE0..!!!"
+    objectName: Enemy_Bag1
 --- !u!114 &7396563519807508495
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2633,10 +2792,10 @@ MonoBehaviour:
   m_Children: []
   m_Clips:
   - m_Version: 1
-    m_Start: 8.85
+    m_Start: 8.35
     m_ClipIn: 0
     m_Asset: {fileID: -2176348862041590473}
-    m_Duration: 2.5
+    m_Duration: 1.5
     m_TimeScale: 1
     m_ParentTrack: {fileID: 7950392462973861883}
     m_EaseInDuration: 0
@@ -2702,10 +2861,10 @@ MonoBehaviour:
     m_PreExtrapolationTime: 0
     m_DisplayName: DialogueBubbleClip
   - m_Version: 1
-    m_Start: 2.5
+    m_Start: 3.5
     m_ClipIn: 0
     m_Asset: {fileID: 2844008572453300705}
-    m_Duration: 2.45
+    m_Duration: 2.8499999999999996
     m_TimeScale: 1
     m_ParentTrack: {fileID: 7950392462973861883}
     m_EaseInDuration: 0
@@ -2772,6 +2931,28 @@ MonoBehaviour:
     m_DisplayName: DialogueBubbleClip
   m_Markers:
     m_Objects: []
+--- !u!114 &8203342023313039004
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 030f85c3f73729f4f976f66ffb23b875, type: 3}
+  m_Name: AnimationPlayableAsset(Clone)
+  m_EditorClassIdentifier: 
+  m_Clip: {fileID: 7400000, guid: 31a1ab6333334874fb766ff6eb4d1865, type: 2}
+  m_Position: {x: -3, y: 0, z: 0}
+  m_EulerAngles: {x: 0, y: 0, z: 0}
+  m_UseTrackMatchFields: 1
+  m_MatchTargetFields: 63
+  m_RemoveStartOffset: 1
+  m_ApplyFootIK: 1
+  m_Loop: 0
+  m_Version: 1
+  m_Rotation: {x: 0, y: 0, z: 0, w: 1}
 --- !u!114 &8457398552546543188
 MonoBehaviour:
   m_ObjectHideFlags: 1

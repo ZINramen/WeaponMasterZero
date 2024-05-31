@@ -29,7 +29,8 @@ public class FancySpeechBubble : MonoBehaviour
     private IEnumerator CharacterAnimation()
     {
         TextMeshProUGUI label = GetComponent<TextMeshProUGUI>();
-
+        label.enableWordWrapping = true;
+        
         string prefix = "";
         foreach (char c in _rawText.ToCharArray())
         {
