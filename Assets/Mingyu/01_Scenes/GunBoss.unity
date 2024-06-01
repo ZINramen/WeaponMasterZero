@@ -1523,6 +1523,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a1045773e672824daf99f5c8b2edde4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hitMat: {fileID: 0}
+  activeDesireWeapon: 0
+  playerFinalBoss: {fileID: 0}
+  desireWeaponFinalBoss: 0
   stun: 0
   hp: 50
   mp: 0
@@ -4041,7 +4045,6 @@ MonoBehaviour:
   groundCheck: {fileID: 0}
   owner: {fileID: 0}
   temp: {fileID: 0}
-  onGround: 1
   ecActive: 0
   rotationZ: 0
   ani: {fileID: 4765302297919737294}
@@ -4060,6 +4063,7 @@ MonoBehaviour:
   UpArrow: 0
   Emotion_1: 0
   Heal: 0
+  Cutscenes: []
 --- !u!212 &1109619504540197226
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -4124,6 +4128,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a1045773e672824daf99f5c8b2edde4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hitMat: {fileID: 0}
+  activeDesireWeapon: 0
+  playerFinalBoss: {fileID: 0}
+  desireWeaponFinalBoss: 0
   stun: 0
   hp: 0
   mp: 0
@@ -4264,7 +4272,6 @@ MonoBehaviour:
   groundCheck: {fileID: 0}
   owner: {fileID: 0}
   temp: {fileID: 0}
-  onGround: 1
   ecActive: 0
   rotationZ: 0
   ani: {fileID: 0}
@@ -4283,6 +4290,7 @@ MonoBehaviour:
   UpArrow: 0
   Emotion_1: 0
   Heal: 0
+  Cutscenes: []
 --- !u!114 &1729271090072754470
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4295,6 +4303,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a1045773e672824daf99f5c8b2edde4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hitMat: {fileID: 0}
+  activeDesireWeapon: 0
+  playerFinalBoss: {fileID: 0}
+  desireWeaponFinalBoss: 0
   stun: 0
   hp: 0
   mp: 0
@@ -4360,12 +4372,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6431b494ee8368b4295dbe7e7408336f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isOnline: 1
-  notDestroy: 1
-  item: 0
+  Effect: {fileID: 0}
   itemName: Sword
-  fixedItemName: 
-  effect: {fileID: 6327576377921704478, guid: 4ad8f787cd00dfb4ab2a63dff004bade, type: 3}
 --- !u!4 &2188234507358140019
 Transform:
   m_ObjectHideFlags: 0
@@ -4510,12 +4518,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6431b494ee8368b4295dbe7e7408336f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isOnline: 1
-  notDestroy: 1
-  item: 0
+  Effect: {fileID: 0}
   itemName: Hammer
-  fixedItemName: 
-  effect: {fileID: 6327576377921704478, guid: 4ad8f787cd00dfb4ab2a63dff004bade, type: 3}
 --- !u!114 &3575266871617177063
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4551,12 +4555,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6431b494ee8368b4295dbe7e7408336f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isOnline: 1
-  notDestroy: 1
-  item: 0
+  Effect: {fileID: 0}
   itemName: Kunai
-  fixedItemName: 
-  effect: {fileID: 6327576377921704478, guid: 4ad8f787cd00dfb4ab2a63dff004bade, type: 3}
 --- !u!1 &3612367623033837913
 GameObject:
   m_ObjectHideFlags: 0
@@ -4605,12 +4605,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6431b494ee8368b4295dbe7e7408336f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isOnline: 1
-  notDestroy: 1
-  item: 0
+  Effect: {fileID: 0}
   itemName: Gun
-  fixedItemName: 
-  effect: {fileID: 6327576377921704478, guid: 4ad8f787cd00dfb4ab2a63dff004bade, type: 3}
 --- !u!4 &4263743100409030768
 Transform:
   m_ObjectHideFlags: 0
@@ -5030,12 +5026,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6431b494ee8368b4295dbe7e7408336f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isOnline: 1
-  notDestroy: 1
-  item: 0
+  Effect: {fileID: 0}
   itemName: Potion
-  fixedItemName: 
-  effect: {fileID: 6327576377921704478, guid: 4ad8f787cd00dfb4ab2a63dff004bade, type: 3}
 --- !u!95 &6509775837422975330
 Animator:
   serializedVersion: 5

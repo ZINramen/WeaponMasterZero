@@ -334,6 +334,12 @@ public class Entity : MonoBehaviour
                 if (DamageBlock != DefenseStatus.Guard || damageValue == 0)
                     aManager.Hit(damageValue);
             }
+            else if (this.gameObject.GetComponent<Default_Monster>())
+            {
+                if (DamageBlock != DefenseStatus.Guard || damageValue == 0)
+                    this.gameObject.GetComponent<Default_Monster>().HitMotion();
+            }
+            
             if (flyingDamagedPower != 0)
             {
                 movement.Jump(flyingDamagedPower);

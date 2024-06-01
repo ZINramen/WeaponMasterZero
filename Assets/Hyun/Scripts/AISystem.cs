@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class AISystem : MonoBehaviour
 {
-    bool waitAttack = false;
-    bool eventEnd = false;
-    Entity owner;
+    public bool waitAttack = false;
+    public bool eventEnd = false;
+    public Entity owner;
 
     public GameObject player;
 
@@ -15,9 +15,9 @@ public class AISystem : MonoBehaviour
     public string WalkName; // 걷는 애니메이션 - 불 파라미터 이름. 빈칸이면 애니메이션 미존재
     public string AttackName; // 공격 애니메이션 - 트리거 파라미터 이름. 빈칸이면 애니메이션 미존재
     public GameObject exclamationPointPrefab;
-    bool exclamationPointShown = false;
-    GameObject exclamationPointInstance;
-    private float originalSpeed;
+    protected bool exclamationPointShown = false;
+    protected GameObject exclamationPointInstance;
+    protected float originalSpeed;
     public bool enableSpeedControl = false;
     public Movement movement;
     public float attackRange = 1f;
@@ -91,7 +91,7 @@ public class AISystem : MonoBehaviour
         {
             if (enableSpeedControl)
             {
-                movement.speed = 0;
+                //movement.speed = 0;
             }
             move.h = 0;
             if (WalkName != "")

@@ -24,7 +24,7 @@ public class HitColider : MonoBehaviour
     }
     public AttackType attType = AttackType.none;
     public bool isAbleDestroy = false;
-
+    
     public GameObject DestroyEffect;
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -38,12 +38,12 @@ public class HitColider : MonoBehaviour
             return;
 
         EachObj_HitSetting(other);
-
+        
         if (isAbleDestroy && (other.CompareTag("Enemy") || other.CompareTag("Untagged")))
         {
             if (DestroyEffect)
             {
-                Instantiate(DestroyEffect, transform.position, Quaternion.identity);
+               Instantiate(DestroyEffect, transform.position, Quaternion.identity);
             }
             EachObj_DeleteSetting(this.gameObject);
         }
