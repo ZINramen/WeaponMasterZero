@@ -369,7 +369,6 @@ MonoBehaviour:
   playerIsOwn: 0
   attType: 0
   isAbleDestroy: 0
-  WeaponCanAbleDestroy: 0
   DestroyEffect: {fileID: 0}
 --- !u!212 &133789219
 SpriteRenderer:
@@ -1393,6 +1392,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 372e54ac4cda7584585ba6ddcf03b087, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isStartToMute: 0
 --- !u!82 &819132790
 AudioSource:
   m_ObjectHideFlags: 0
@@ -1559,6 +1559,7 @@ MonoBehaviour:
   CoolTextEffect: {fileID: 6268643683504991078, guid: ac04799a645e5a54dbd564caba5de5ff, type: 3}
   emoticon: {fileID: 0}
   ultScreen: {fileID: 0}
+  GameoverUI: {fileID: 0}
 --- !u!50 &819132795
 Rigidbody2D:
   serializedVersion: 4
@@ -2636,7 +2637,6 @@ MonoBehaviour:
   playerIsOwn: 0
   attType: 0
   isAbleDestroy: 0
-  WeaponCanAbleDestroy: 0
   DestroyEffect: {fileID: 0}
 --- !u!212 &1346745383
 SpriteRenderer:
@@ -2726,7 +2726,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: 165.04, y: 10.701508}
+  m_AnchoredPosition: {x: 165.04, y: 10.701538}
   m_SizeDelta: {x: 146.94, y: 4.7638}
   m_Pivot: {x: 1, y: 1}
 --- !u!114 &1443100161
@@ -3237,7 +3237,6 @@ MonoBehaviour:
   playerIsOwn: 0
   attType: 0
   isAbleDestroy: 0
-  WeaponCanAbleDestroy: 0
   DestroyEffect: {fileID: 0}
 --- !u!212 &1758612920
 SpriteRenderer:
@@ -3438,7 +3437,6 @@ MonoBehaviour:
   playerIsOwn: 0
   attType: 0
   isAbleDestroy: 0
-  WeaponCanAbleDestroy: 0
   DestroyEffect: {fileID: 0}
 --- !u!212 &1841850087
 SpriteRenderer:
@@ -4060,7 +4058,6 @@ MonoBehaviour:
   groundCheck: {fileID: 0}
   owner: {fileID: 0}
   temp: {fileID: 0}
-  ecActive: 0
   rotationZ: 0
   ani: {fileID: 4765302297919737294}
   State: 0
@@ -4180,6 +4177,7 @@ MonoBehaviour:
   CoolTextEffect: {fileID: 6268643683504991078, guid: ac04799a645e5a54dbd564caba5de5ff, type: 3}
   emoticon: {fileID: 0}
   ultScreen: {fileID: 0}
+  GameoverUI: {fileID: 0}
 --- !u!1 &1288648209909555765
 GameObject:
   m_ObjectHideFlags: 0
@@ -4287,7 +4285,6 @@ MonoBehaviour:
   groundCheck: {fileID: 0}
   owner: {fileID: 0}
   temp: {fileID: 0}
-  ecActive: 0
   rotationZ: 0
   ani: {fileID: 0}
   State: 0
@@ -4355,6 +4352,7 @@ MonoBehaviour:
   CoolTextEffect: {fileID: 6268643683504991078, guid: ac04799a645e5a54dbd564caba5de5ff, type: 3}
   emoticon: {fileID: 0}
   ultScreen: {fileID: 0}
+  GameoverUI: {fileID: 0}
 --- !u!1 &1800730254972611389
 GameObject:
   m_ObjectHideFlags: 0
@@ -4387,7 +4385,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6431b494ee8368b4295dbe7e7408336f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  InteractionEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  isEnd: 0
   Effect: {fileID: 0}
+  pos: {x: 0, y: 0}
   itemName: Sword
 --- !u!4 &2188234507358140019
 Transform:
@@ -4533,7 +4536,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6431b494ee8368b4295dbe7e7408336f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  InteractionEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  isEnd: 0
   Effect: {fileID: 0}
+  pos: {x: 0, y: 0}
   itemName: Hammer
 --- !u!114 &3575266871617177063
 MonoBehaviour:
@@ -4570,7 +4578,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6431b494ee8368b4295dbe7e7408336f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  InteractionEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  isEnd: 0
   Effect: {fileID: 0}
+  pos: {x: 0, y: 0}
   itemName: Kunai
 --- !u!1 &3612367623033837913
 GameObject:
@@ -4620,7 +4633,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6431b494ee8368b4295dbe7e7408336f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  InteractionEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  isEnd: 0
   Effect: {fileID: 0}
+  pos: {x: 0, y: 0}
   itemName: Gun
 --- !u!4 &4263743100409030768
 Transform:
@@ -5041,7 +5059,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6431b494ee8368b4295dbe7e7408336f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  InteractionEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  isEnd: 0
   Effect: {fileID: 0}
+  pos: {x: 0, y: 0}
   itemName: Potion
 --- !u!95 &6509775837422975330
 Animator:
@@ -5609,6 +5632,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 372e54ac4cda7584585ba6ddcf03b087, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isStartToMute: 0
 --- !u!82 &8266854932642347384
 AudioSource:
   m_ObjectHideFlags: 0
