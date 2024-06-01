@@ -1,3 +1,4 @@
+using Cinemachine;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -45,7 +46,11 @@ public class DynamicCamera : MonoBehaviour
         offsetX = Random.Range(-shakePowerTemp, shakePowerTemp);
         offsetY = Random.Range(-shakePowerTemp, shakePowerTemp);
 
-        CamOffset.m_Offset = new Vector3(originCamOffset.x + offsetX, originCamOffset.y + offsetY);
+        if (CamOffset)
+        {
+            CamOffset.GetComponent<CinemachineVirtualCamera>().m_Lens.NearClipPlane = -10.0f;
+            CamOffset.m_Offset = new Vector3(originCamOffset.x + offsetX, originCamOffset.y + offsetY);
+        }
     }
     
     // Camera Vibration

@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 9104777606850399127}
   - component: {fileID: 8679556262959501602}
   - component: {fileID: 6935191652234398779}
+  - component: {fileID: 7044150452163475120}
   m_Layer: 0
   m_Name: PExplosion
   m_TagString: Untagged
@@ -107,9 +108,10 @@ MonoBehaviour:
   thrustValue: 0.5
   owner: {fileID: 0}
   oneHit: 1
-  playerIsOwn: 1
+  playerIsOwn: 0
   attType: 0
   isAbleDestroy: 0
+  WeaponCanAbleDestroy: 0
   DestroyEffect: {fileID: 0}
 --- !u!114 &8679556262959501602
 MonoBehaviour:
@@ -123,9 +125,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b8982125c5cfa9b4faccc3fb1bc827e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  haveDestroyArea: 0
+  haveTarget: 0
   moveSpeed: 0
   fromParent: 0
+  NoDestroyButHide: 0
   delayTime: 1
+  maxValue: 10
   DestroyBeforeSpawnObject: {fileID: 0}
 --- !u!61 &6935191652234398779
 BoxCollider2D:
@@ -172,6 +178,33 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!50 &7044150452163475120
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8598262321779666290}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 1
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1 &9084196063434998550
 GameObject:
   m_ObjectHideFlags: 0

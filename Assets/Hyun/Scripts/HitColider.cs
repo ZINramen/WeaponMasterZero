@@ -24,36 +24,29 @@ public class HitColider : MonoBehaviour
     }
     public AttackType attType = AttackType.none;
     public bool isAbleDestroy = false;
-    public bool WeaponCanAbleDestroy = false;
+
     public GameObject DestroyEffect;
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        EachObj_HitSetting(other);
-        
+
+        if (owner == other.gameObject.GetComponent<Entity>())
+            return;
+        if (other.CompareTag("Camera"))
+            return;
         if (playerIsOwn && (other.CompareTag("Player")))
             return;
+
+        EachObj_HitSetting(other);
+
         if (isAbleDestroy && (other.CompareTag("Enemy") || other.CompareTag("Untagged")))
         {
             if (DestroyEffect)
             {
-               Instantiate(DestroyEffect, transform.position, Quaternion.identity);
+                Instantiate(DestroyEffect, transform.position, Quaternion.identity);
             }
             EachObj_DeleteSetting(this.gameObject);
         }
-        else if (WeaponCanAbleDestroy)
-        {
-            HitColider hitData = other.GetComponent<HitColider>();
-            if (hitData && hitData.owner == Entity.Player &&  hitData.attType == AttackType.Player_SwordAtt)
-            {
-                if (DestroyEffect)
-                {
-                    Instantiate(DestroyEffect, transform.position, Quaternion.identity);
-                }
-                EachObj_DeleteSetting(this.gameObject);
-            }
-        }
-
         Entity entity = other.GetComponent<Entity>();
 
         // 보스에게 피격할 시, 날라가는 힘을 없앰
@@ -73,7 +66,7 @@ public class HitColider : MonoBehaviour
         {
             if (owner)
             {
-                owner.SetMp(owner.GetMp()+5);
+                owner.SetMp(owner.GetMp() + 5);
                 if ((owner.tag == "Player" && entity.tag != "Player") || (owner.tag != "Player" && entity.tag == "Player"))
                 {
                     if (telp)
@@ -89,7 +82,7 @@ public class HitColider : MonoBehaviour
                     {
                         entity.stun = stunTarget;
                         entity.flyingDamagedPower = flyingAttackForce;
-                        
+
                         if (owner.transform.position.x > entity.transform.position.x)
                         {
                             if (!owner || owner.movement.PlayerType || entity.movement.PlayerType)
@@ -118,7 +111,7 @@ public class HitColider : MonoBehaviour
     protected virtual void EachObj_HitSetting(Collider2D other)
     {
     }
-    
+
     protected virtual void EachObj_DeleteSetting(GameObject deleteObj)
     {
         Destroy(gameObject);

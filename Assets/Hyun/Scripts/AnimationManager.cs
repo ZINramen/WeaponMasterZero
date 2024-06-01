@@ -154,7 +154,7 @@ public class AnimationManager : MonoBehaviour
         ani.ResetTrigger("Catch");
         ani.ResetTrigger("Dodge");
         ani.ResetTrigger("Dash");
-        if (owner.ultScreen)
+        if (owner && owner.ultScreen)
         { 
             ani.ResetTrigger("Gun");
             ani.ResetTrigger("Sword");

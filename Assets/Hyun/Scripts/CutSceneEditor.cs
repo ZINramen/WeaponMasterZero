@@ -7,8 +7,8 @@ using UnityEngine.TextCore.Text;
 public class CutSceneEditor : MonoBehaviour
 {
     public UnityEvent[] dialogueEndActions;
-    public GameObject dialogue;
-    public ButtonInstant dialogueStartButton;
+    public FancySpeechBubble dialogue;
+    // public ButtonInstant dialogueStartButton;
     public Animator player; 
 
     [SerializeField]
@@ -35,23 +35,25 @@ public class CutSceneEditor : MonoBehaviour
 
     public void DialogueShowUP_NewPos(int pos) 
     {
-        dialogueStartButton.Restart_Text(pos);
+        // dialogueStartButton.Restart_Text(pos);
     }
 
-    public void DialogueShowUP() 
+    public void DialogueShowUP(string text) 
     {
-        dialogue.SetActive(true);
+        dialogue.transform.parent.gameObject.SetActive(true);
+        dialogue.Set(text);
     }
     private void Start()
     {
-        player = Entity.Player.aManager.ani;
+        if(Entity.Player)
+            player = Entity.Player.aManager.ani;
     }
     private void Update()
     {
-        //if (dialogue && !dialogue.activeSelf && currentActionNum != -1) 
-        //{
-        //    dialogueEndActions[currentActionNum].Invoke();
-        //    currentActionNum = -1;
-        //}
+        if (currentActionNum != -1)
+        {
+            dialogueEndActions[currentActionNum].Invoke();
+            currentActionNum = -1;
+        }
     }
 }
