@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class SoundManager : MonoBehaviour
 {
+    public bool isStartToMute;
     Mingyu_SoundManager master;
     AudioSource sound;
     // Start is called before the first frame update
@@ -14,6 +15,14 @@ public class SoundManager : MonoBehaviour
         if (master) 
         {
             SoundUpdatetoMaster();
+        }
+
+        if (isStartToMute)
+        {
+            foreach (AudioSource audio in FindObjectsOfType<AudioSource>())
+            {
+                audio.Stop();
+            }
         }
     }
 

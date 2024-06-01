@@ -69,7 +69,10 @@ public class Entity : MonoBehaviour
     public EmoticonController emoticon;
     public RectTransform ultScreen;
 
+    public GameObject GameoverUI;
+
     public static Entity Player;
+
     private void Awake()
     {
         // keyValues = (int[])System.Enum.GetValues(typeof(KeyCode));
@@ -124,6 +127,8 @@ public class Entity : MonoBehaviour
         //생사 상태 확인
         if (hp <= 0)
         {
+            if(movement && movement.PlayerType && GameoverUI)
+                Instantiate(GameoverUI);
             DamageBlock = DefenseStatus.invincible;
             if (aManager)
             {

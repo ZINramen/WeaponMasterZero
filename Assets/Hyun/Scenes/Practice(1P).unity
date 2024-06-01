@@ -640,7 +640,6 @@ MonoBehaviour:
   playerIsOwn: 0
   attType: 0
   isAbleDestroy: 0
-  WeaponCanAbleDestroy: 0
   DestroyEffect: {fileID: 0}
 --- !u!61 &92474535
 BoxCollider2D:
@@ -2696,7 +2695,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &884263980
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3203,6 +3202,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 372e54ac4cda7584585ba6ddcf03b087, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isStartToMute: 0
 --- !u!82 &1084042845
 AudioSource:
   m_ObjectHideFlags: 0
@@ -3392,6 +3392,7 @@ MonoBehaviour:
   CoolTextEffect: {fileID: 6268643683504991078, guid: ac04799a645e5a54dbd564caba5de5ff, type: 3}
   emoticon: {fileID: 0}
   ultScreen: {fileID: 0}
+  GameoverUI: {fileID: 0}
 --- !u!50 &1084042851
 Rigidbody2D:
   serializedVersion: 4
@@ -3548,7 +3549,6 @@ MonoBehaviour:
   groundCheck: {fileID: 0}
   owner: {fileID: 0}
   temp: {fileID: 0}
-  ecActive: 0
   rotationZ: 0
   ani: {fileID: 0}
   State: 0
@@ -5371,7 +5371,6 @@ MonoBehaviour:
   playerIsOwn: 0
   attType: 0
   isAbleDestroy: 0
-  WeaponCanAbleDestroy: 0
   DestroyEffect: {fileID: 0}
 --- !u!61 &1371737995
 BoxCollider2D:
@@ -5706,6 +5705,7 @@ MonoBehaviour:
   CoolTextEffect: {fileID: 6268643683504991078, guid: ac04799a645e5a54dbd564caba5de5ff, type: 3}
   emoticon: {fileID: 0}
   ultScreen: {fileID: 0}
+  GameoverUI: {fileID: 0}
 --- !u!114 &1434633796
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5722,7 +5722,6 @@ MonoBehaviour:
   groundCheck: {fileID: 0}
   owner: {fileID: 0}
   temp: {fileID: 0}
-  ecActive: 0
   rotationZ: 0
   ani: {fileID: 0}
   State: 0
@@ -5753,6 +5752,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 372e54ac4cda7584585ba6ddcf03b087, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isStartToMute: 0
 --- !u!82 &1434633798
 AudioSource:
   m_ObjectHideFlags: 0
@@ -6689,7 +6689,6 @@ MonoBehaviour:
   playerIsOwn: 0
   attType: 0
   isAbleDestroy: 0
-  WeaponCanAbleDestroy: 0
   DestroyEffect: {fileID: 0}
 --- !u!61 &1565877464
 BoxCollider2D:
@@ -7473,6 +7472,10 @@ PrefabInstance:
     - target: {fileID: 8598262321779666290, guid: 1e78488e3e63c3f41a57c05855207625, type: 3}
       propertyPath: m_Name
       value: PExplosion
+      objectReference: {fileID: 0}
+    - target: {fileID: 8598262321779666290, guid: 1e78488e3e63c3f41a57c05855207625, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -9448,6 +9451,7 @@ MonoBehaviour:
   CoolTextEffect: {fileID: 6268643683504991078, guid: ac04799a645e5a54dbd564caba5de5ff, type: 3}
   emoticon: {fileID: 2402971973615472524}
   ultScreen: {fileID: 3569671061502248777}
+  GameoverUI: {fileID: 0}
 --- !u!4 &197823435565182586
 Transform:
   m_ObjectHideFlags: 0
@@ -9780,7 +9784,6 @@ MonoBehaviour:
   groundCheck: {fileID: 0}
   owner: {fileID: 0}
   temp: {fileID: 0}
-  ecActive: 0
   rotationZ: 0
   ani: {fileID: 0}
   State: 0
@@ -14201,7 +14204,6 @@ MonoBehaviour:
   groundCheck: {fileID: 0}
   owner: {fileID: 0}
   temp: {fileID: 0}
-  ecActive: 0
   rotationZ: 0
   ani: {fileID: 0}
   State: 0
@@ -14538,6 +14540,7 @@ MonoBehaviour:
   CoolTextEffect: {fileID: 6268643683504991078, guid: ac04799a645e5a54dbd564caba5de5ff, type: 3}
   emoticon: {fileID: 0}
   ultScreen: {fileID: 0}
+  GameoverUI: {fileID: 0}
 --- !u!4 &1122869072164335905
 Transform:
   m_ObjectHideFlags: 0
@@ -14588,7 +14591,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1132637103192003758
 GameObject:
   m_ObjectHideFlags: 0
@@ -27724,7 +27727,6 @@ MonoBehaviour:
   groundCheck: {fileID: 0}
   owner: {fileID: 0}
   temp: {fileID: 0}
-  ecActive: 0
   rotationZ: 0
   ani: {fileID: 0}
   State: 0
@@ -28116,6 +28118,7 @@ MonoBehaviour:
   CoolTextEffect: {fileID: 6268643683504991078, guid: ac04799a645e5a54dbd564caba5de5ff, type: 3}
   emoticon: {fileID: 0}
   ultScreen: {fileID: 0}
+  GameoverUI: {fileID: 0}
 --- !u!1 &1731138688161489044
 GameObject:
   m_ObjectHideFlags: 0
@@ -35320,7 +35323,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6431b494ee8368b4295dbe7e7408336f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  InteractionEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  isEnd: 0
   Effect: {fileID: 0}
+  pos: {x: 0, y: 0}
   itemName: 
 --- !u!212 &2134635333174450857
 SpriteRenderer:
@@ -40932,6 +40940,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 372e54ac4cda7584585ba6ddcf03b087, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isStartToMute: 0
 --- !u!114 &3109911606090882365
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -46896,7 +46905,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6431b494ee8368b4295dbe7e7408336f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  InteractionEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  isEnd: 0
   Effect: {fileID: 0}
+  pos: {x: 0, y: 0}
   itemName: 
 --- !u!212 &3286631487823423358
 SpriteRenderer:
@@ -48472,7 +48486,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6431b494ee8368b4295dbe7e7408336f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  InteractionEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  isEnd: 0
   Effect: {fileID: 0}
+  pos: {x: 0, y: 0}
   itemName: 
 --- !u!1 &3609975590642154189
 GameObject:
@@ -49917,6 +49936,7 @@ MonoBehaviour:
   CoolTextEffect: {fileID: 6268643683504991078, guid: ac04799a645e5a54dbd564caba5de5ff, type: 3}
   emoticon: {fileID: 5375001145479121530}
   ultScreen: {fileID: 1575533933274364264}
+  GameoverUI: {fileID: 1164592305660603955, guid: f88948187b2d9604d93257d955ffad47, type: 3}
 --- !u!4 &3815474245383570029
 Transform:
   m_ObjectHideFlags: 0
@@ -56511,7 +56531,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6431b494ee8368b4295dbe7e7408336f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  InteractionEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  isEnd: 0
   Effect: {fileID: 0}
+  pos: {x: 0, y: 0}
   itemName: 
 --- !u!1 &4197279137204283635
 GameObject:
@@ -66326,7 +66351,6 @@ MonoBehaviour:
   playerIsOwn: 0
   attType: 0
   isAbleDestroy: 0
-  WeaponCanAbleDestroy: 0
   DestroyEffect: {fileID: 0}
 --- !u!224 &5177085584848724455
 RectTransform:
@@ -77907,7 +77931,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6431b494ee8368b4295dbe7e7408336f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  InteractionEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  isEnd: 0
   Effect: {fileID: 0}
+  pos: {x: 0, y: 0}
   itemName: 
 --- !u!1 &6392912070769092949
 GameObject:
@@ -86136,7 +86165,6 @@ MonoBehaviour:
   groundCheck: {fileID: 7550890912204535535}
   owner: {fileID: 0}
   temp: {fileID: 0}
-  ecActive: 0
   rotationZ: 0
   ani: {fileID: 0}
   State: 0
@@ -101036,7 +101064,6 @@ MonoBehaviour:
   playerIsOwn: 0
   attType: 1
   isAbleDestroy: 0
-  WeaponCanAbleDestroy: 0
   DestroyEffect: {fileID: 0}
 --- !u!222 &8005962426857264527
 CanvasRenderer:
@@ -116620,6 +116647,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 372e54ac4cda7584585ba6ddcf03b087, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isStartToMute: 0
 --- !u!82 &8266854932642347384
 AudioSource:
   m_ObjectHideFlags: 0
@@ -126237,6 +126265,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 372e54ac4cda7584585ba6ddcf03b087, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isStartToMute: 0
 --- !u!82 &9093744392106289597
 AudioSource:
   m_ObjectHideFlags: 0

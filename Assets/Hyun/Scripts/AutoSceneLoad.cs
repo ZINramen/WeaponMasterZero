@@ -19,7 +19,9 @@ public class AutoSceneLoad : MonoBehaviour
     IEnumerator Load() 
     {
         yield return new WaitForSeconds(delaytime);
-        if (sname != "Quit")
+        if (sname == "Restart")
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name, LoadSceneMode.Single);
+        else if (sname != "Quit")
             SceneManager.LoadScene(sname, LoadSceneMode.Single);
         else
             Application.Quit();
