@@ -44,6 +44,7 @@ public abstract class Default_Monster : MonoBehaviour
     [SerializeField] protected float distFrom_Player;
     public bool isDie;
     protected float groundApproachDist = 0;
+    protected bool isNot_ChangeState = false;
 
     protected void Start()
     {
@@ -123,7 +124,7 @@ public abstract class Default_Monster : MonoBehaviour
         distFrom_Player = Mathf.Abs(player_pos.x - transform.position.x);
         
         // 상황에 따른 동작 구현 FSM
-        if (distFrom_Player >= monsterState.traceDistance)
+        if (distFrom_Player >= monsterState.traceDistance && !isNot_ChangeState)
         {
             monsterState.currentState = Default_MonsterState.State.idle;
             Move(0,1);

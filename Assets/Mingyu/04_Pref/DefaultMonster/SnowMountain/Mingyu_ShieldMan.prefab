@@ -45,6 +45,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0644a85113403bf43a1768bbb2a4409b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  telp: 0
+  stunTarget: 0
+  flyingAttackForce: 0
+  attackForce: 10
+  thrustValue: 0.5
+  owner: {fileID: 0}
+  oneHit: 0
+  playerIsOwn: 0
+  attType: 0
+  isAbleDestroy: 0
+  DestroyEffect: {fileID: 0}
 --- !u!61 &2739523697278588418
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -475,3 +486,4 @@ MonoBehaviour:
   m_dAtt_dist: 8
   m_traceDist: 8
   rushSpeed: 4
+  Ground_Pref: {fileID: 5580675538917755586, guid: b628917b51ff9764585bd05ea858ba3c, type: 3}

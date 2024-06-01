@@ -7,10 +7,10 @@ public class Shield_HitCol : HitColider
 {
     protected override void EachObj_HitSetting(Collider2D other)
     {
-        if (other.gameObject.layer == 10 || other.gameObject.tag == "Camera")
+        if (other.gameObject.layer == 10)
         {
-            Debug.Log(other.gameObject.name);
             owner.gameObject.GetComponent<ShieldMon_Ctrl>().EndRush_Setting();
+            owner.gameObject.GetComponent<ShieldMon_Ctrl>().Destory_StopPos();
         }
     }
 }
