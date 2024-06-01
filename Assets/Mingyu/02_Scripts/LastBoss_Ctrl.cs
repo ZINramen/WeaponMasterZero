@@ -40,14 +40,14 @@ public class LastBoss_Ctrl : Boss
     #endregion
 
     #region 중력 변수
-    [SerializeField] private float playerJump_Power;
+    private float playerJump_Power;
     #endregion
     
     #region 탄막 발사 변수 Many Bullet용 // skill2
     [SerializeField] private GameObject ShootingBullet_Pref;
-    [SerializeField] private Transform ShootingBulletPos;
-    [SerializeField] private int bulletCount;                   // 한번 등장하는 총알 갯수
-    [SerializeField] private int shooting_AttTotalCount;        // 공격 횟수
+    private Transform ShootingBulletPos;
+    private int bulletCount;                   // 한번 등장하는 총알 갯수
+    private int shooting_AttTotalCount;        // 공격 횟수
     
     private float bullet_Degree = 0f;
     private bool isActive_Shooting = false;
@@ -81,10 +81,10 @@ public class LastBoss_Ctrl : Boss
     private float right_SponPos;
     private float SponYPos;
 
-    [SerializeField] private float absorbAtt_DelayTime;
-    [SerializeField] private int AbsorbAtt_TotalCount;
-    [SerializeField] private float absorbHP_Amount;
-    [SerializeField] private float downSpeed;
+    private float absorbAtt_DelayTime;
+    private int AbsorbAtt_TotalCount;
+    private float absorbHP_Amount;
+    private float downSpeed;
     
     private float absorbAtt_DelayCount;
     private int absorbAtt_Count;
@@ -95,12 +95,12 @@ public class LastBoss_Ctrl : Boss
     private LastBoss_FistAttType fistAttType;
 
     [SerializeField] private GameObject FistObj;
-    [SerializeField] private Transform leftUP_FistSponPos;
-    [SerializeField] private Transform rightDown_FistSponPos;
+    private Transform leftUP_FistSponPos;
+    private Transform rightDown_FistSponPos;
 
-    [SerializeField] private int fistTotalCount;
-    [SerializeField] private float fistDelayTime;
-    [SerializeField] private float fistPower;
+    private int fistTotalCount;
+    private float fistDelayTime;
+    private float fistPower;
     public int delete_FistCount;
 
     private int fistCount;
@@ -114,14 +114,18 @@ public class LastBoss_Ctrl : Boss
     private Entity LastBoss_Entity;
     private float changeAttack_AbleHP;
     
-    [SerializeField] private Sprite[] AttackAble_BackGroundData = new Sprite[3];
+    private Sprite[] AttackAble_BackGroundData;
+    [SerializeField] private Sprite SwordBG;
+    [SerializeField] private Sprite GunBG;
+    [SerializeField] private Sprite HammerBG;
+    
     [SerializeField] private GameObject AttackAble_BackGround;
     
     public enum PlayerAttackType { Sword = 1, Gun, Hammer, NotSetting }
-    [SerializeField] private PlayerAttackType attAble_AttType;
+    private PlayerAttackType attAble_AttType;
     private int random_AttAbleType;
 
-    [SerializeField] private float change_AttTypeTime = 5f;
+    private float change_AttTypeTime = 5f;
     private float change_AttTypeCount;
 
     private int beforeAttType = (int)PlayerAttackType.NotSetting;
@@ -136,7 +140,7 @@ public class LastBoss_Ctrl : Boss
     
     [SerializeField] private GameObject BubbleKey_Obj;
     [SerializeField] private GameObject LockObj;
-    [SerializeField] private float m_bubblePower;
+    private float m_bubblePower;
     private BubbleData currentBubble;
     
     public BubbleData Get_BubbleData() { return currentBubble; }
@@ -152,6 +156,7 @@ public class LastBoss_Ctrl : Boss
         Init_StateValueData(ref bossState);
         
         bossType = BossType.Last;
+        Init_ValueData();
 
         LastBoss_Entity = this.gameObject.GetComponent<Entity>();
         changeAttack_AbleHP = LastBoss_Entity.maxHP / 2;
@@ -181,6 +186,41 @@ public class LastBoss_Ctrl : Boss
         random_AttAbleType = (int)PlayerAttackType.NotSetting;
 
         bullet_Degree = 360f / bulletCount;
+    }
+    
+    protected override void Init_ValueData()
+    {
+        // 이동 관련 변수
+        move_Speed = 0f;
+        groundApproachDist = 0f;
+
+        // 중력 패턴
+        playerJump_Power = 60f;
+        ShootingBulletPos = this.gameObject.transform.GetChild(5).transform;
+        bulletCount = 12;
+        shooting_AttTotalCount = 6;
+        
+        // 흡수 손 
+        absorbAtt_DelayTime = 0.5f;
+        AbsorbAtt_TotalCount = 4;
+        absorbHP_Amount = 20f;
+        downSpeed = 10f;
+
+        // 주먹 난사
+        leftUP_FistSponPos = GameObject.Find("LeftUP_HandSponPos").gameObject.transform;
+        rightDown_FistSponPos = GameObject.Find("RightDown_HandSponPos").gameObject.transform;
+
+        fistTotalCount = 10;
+        fistDelayTime = 0.7f;
+        fistPower = 20f;
+        
+        AttackAble_BackGroundData = new Sprite[3];
+        AttackAble_BackGroundData[0] = SwordBG;
+        AttackAble_BackGroundData[1] = GunBG;
+        AttackAble_BackGroundData[2] = HammerBG;
+
+        change_AttTypeTime = 10f;
+        m_bubblePower = 3f;
     }
     
     protected override void Init_StateValueData(ref Boss_State state)
@@ -380,10 +420,12 @@ public class LastBoss_Ctrl : Boss
     public void Select_ShootingType()
     {
         int shootingType = Random.Range((int)FireAtt_Type.ManyAtt, (int)FireAtt_Type.TwoAtt + 1);
-        if (dAttType_int == (int)FireAtt_Type.ManyAtt) isShooting_ManyAtt = true;
+        if (shootingType == (int)FireAtt_Type.ManyAtt) isShooting_ManyAtt = true;
         else isShooting_ManyAtt = false;
 
         //isShooting_ManyAtt = false; // Test
+        
+        Debug.Log(shootingType);
 
         animCtrl.SetBool("is_ManyFire", isShooting_ManyAtt);
     }

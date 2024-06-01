@@ -91,6 +91,7 @@ MonoBehaviour:
   playerIsOwn: 0
   attType: 0
   isAbleDestroy: 0
+  WeaponCanAbleDestroy: 0
   DestroyEffect: {fileID: 1245487429816736, guid: 9f6904c71c126e4409c840914c58193f, type: 3}
   HP: 0
 --- !u!114 &2955158954142693220
@@ -123,7 +124,6 @@ GameObject:
   - component: {fileID: 3046617266877794024}
   - component: {fileID: 2386614059248061666}
   - component: {fileID: 517934669810810686}
-  - component: {fileID: 3627473259804595431}
   m_Layer: 12
   m_Name: SnowBall
   m_TagString: Untagged
@@ -294,6 +294,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a1045773e672824daf99f5c8b2edde4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hitMat: {fileID: 0}
   activeDesireWeapon: 0
   playerFinalBoss: {fileID: 0}
   desireWeaponFinalBoss: 0
@@ -367,27 +368,3 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   projectilePrefab: {fileID: 0}
   projectileSpeed: 10
---- !u!114 &3627473259804595431
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5863413222475620570}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 34194569ef3e6a442810468dc531beb1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  telp: 0
-  stunTarget: 0
-  flyingAttackForce: 0
-  attackForce: 10
-  thrustValue: 0.5
-  owner: {fileID: 0}
-  oneHit: 0
-  playerIsOwn: 0
-  attType: 0
-  isAbleDestroy: 0
-  DestroyEffect: {fileID: 0}
-  HP: 0

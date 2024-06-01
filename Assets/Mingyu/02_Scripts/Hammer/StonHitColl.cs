@@ -12,7 +12,7 @@ public class StonHitColl : HitColider
 
     protected override void EachObj_HitSetting(Collider2D other)
     {
-        if (other != owner)
+        if (other != owner && !other.gameObject.name.Contains("IceRain"))
             isAbleDestroy = true;
     }
 }

@@ -100,10 +100,10 @@ Transform:
   m_LocalScale: {x: 2, y: 2, z: 2}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 6654653129009539740}
   - {fileID: 4346130297719949734}
   - {fileID: 1167980094938296364}
   - {fileID: 3883949988595093039}
+  - {fileID: 6654653129009539740}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &8972528504043861560
@@ -152,7 +152,7 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 0.97, y: 0.98}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -211,9 +211,9 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0.004149258, y: 0}
   serializedVersion: 2
-  m_Radius: 0.5
+  m_Radius: 0.24412924
 --- !u!114 &2599128377267093597
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -226,6 +226,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a1045773e672824daf99f5c8b2edde4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hitMat: {fileID: 0}
+  activeDesireWeapon: 0
+  playerFinalBoss: {fileID: 0}
+  desireWeaponFinalBoss: 0
   stun: 0
   hp: 0
   mp: 0
@@ -323,12 +327,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isActive: 0
   BossObj: {fileID: 0}
-  attack_Delay: 2.5
-  BulletSpon_PosArr:
-  - {fileID: 2962666102986397601}
-  - {fileID: 6519371839702964116}
-  - {fileID: 6223885244715860303}
-  - {fileID: 6585407844020015042}
   General_Bullet_Pref: {fileID: 5418670801975883608, guid: 7b8de8dc512294c4c889c4813461c5eb, type: 3}
 --- !u!82 &3249167281556291664
 AudioSource:

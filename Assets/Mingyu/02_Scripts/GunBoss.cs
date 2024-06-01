@@ -10,7 +10,7 @@ public class GunBoss : Boss
 {
     [SerializeField] private GameObject General_BulletPref;
     [SerializeField] private GameObject Parrying_BulletPref;
-    [SerializeField] private GameObject videoEffect;
+    private GameObject videoEffect;
     
     #region 평타 관련 변수 모음
 
@@ -33,49 +33,48 @@ public class GunBoss : Boss
     private const int totalsignCount = 6;
     private int signCount = 0;
     
-    [SerializeField] private float signSpon_DelayTime = 0.5f;
+    private float signSpon_DelayTime = 0.5f;
     private float signAttDelayTime;
     
-    [SerializeField] private float signDeleteTime = 0.2f;
+    private float signDeleteTime = 0.2f;
     
     private float signSpon_WaitTime = 0f;
     private bool isReady_CreateSign = false;
     #endregion
     
     #region p1_Skill2_변수 모음
-    [SerializeField] private float boomAtt_delayTime;
-    [SerializeField] private Transform Dynamite_SponPos;
+    private float boomAtt_delayTime;
+    private Transform Dynamite_SponPos;
     [SerializeField] private GameObject DynamitePref;
     private GameObject DynamitePref_dummyObj;
     #endregion
 
     #region p2_Skill1_변수 모음
-    [SerializeField] private GameObject InstallPref;
-    [SerializeField] private GameObject[] Install_PrefArr = new GameObject[3];
+    private GameObject[] Install_PrefArr = new GameObject[3];
     private GameObject InstallPref_dummyObj;
     #endregion
     
     #region p2_Skill2_변수 모음
 
-    [SerializeField] private Transform LeftShootingPos;
-    [SerializeField] private Transform RightShootingPos;
+    private Transform LeftShootingPos;
+    private Transform RightShootingPos;
     
-    [SerializeField] private float minAngle = -60f;
-    [SerializeField] private float maxAngle = 240f;
-    [SerializeField] private float p2Skill2_TotalBulletCount = 6;
+    private float minAngle = -60f;
+    private float maxAngle = 240f;
+    private float p2Skill2_TotalBulletCount = 6;
     #endregion
 
     #region p2_Skill3_변수 모음
-    [SerializeField] private Transform P2Skill3_SponMaxPos;
-    [SerializeField] private int p2S3_BulletTotalCount = 8;
-    [SerializeField] private float p2S3_SponMinYpos;
-    [SerializeField] private GameObject p2S3_Plate;
+    private Transform P2Skill3_SponMaxPos;
+    private int p2S3_BulletTotalCount = 8;
+    private float p2S3_SponMinYpos;
+    private GameObject p2S3_Plate;
     
-    [SerializeField] private int p2S3_AttackTotalCount;
+    private int p2S3_AttackTotalCount;
     private int p2S3_AttackCount;
     
-    [SerializeField] private float p2S3_delayTime;
-    [SerializeField] private float p2S3_BulletSpeed;
+    private float p2S3_delayTime;
+    private float p2S3_BulletSpeed;
     private float p2S3_delayCount;
     private bool isReady_P2S3;
 
@@ -93,6 +92,7 @@ public class GunBoss : Boss
         bossState = new Boss_State();
         Init_StateValueData(ref bossState);
         bossType = BossType.Gun;
+        Init_ValueData();
 
         signAttDelayTime = (signSpon_DelayTime * totalsignCount) + 0.5f;    // 표식 생성 p1s1
         selectedTurn_State.Add(Boss_State.State.p1_Skill2);             // 다이너마이트 p1s2 스킬 도중 회전 가능
@@ -100,6 +100,60 @@ public class GunBoss : Boss
         p2S3_Plate.gameObject.SetActive(false);
         
         interval_Ypos = (P2Skill3_SponMaxPos.position.y - p2S3_SponMinYpos) / p2S3_BulletTotalCount;
+    }
+    
+    protected override void Init_ValueData()
+    {
+        // 이동 관련 변수
+        move_Speed = 3f;
+        groundApproachDist = 0.5f;
+        
+        // 평타 관련 변수
+        DA_HitArea = new GameObject[3];
+        DA_HitArea[0] = this.transform.GetChild(0).gameObject;
+        DA_HitArea[1] = this.transform.GetChild(1).gameObject;
+        DA_HitArea[2] = this.transform.GetChild(2).gameObject;
+
+        videoEffect = GameObject.Find("SandWind_Effect").gameObject;
+
+        // 표식 공격 관련 변수
+        signSpon_DelayTime = 0.2f;
+        signDeleteTime = 0.2f;
+        
+        // 다이너 마이트 공격 관련 변수
+        boomAtt_delayTime = 0.4f;
+        Dynamite_SponPos = this.transform.GetChild(3).gameObject.transform;
+        
+        // 설치기 관련 변수
+        GameObject installObj_Parent = GameObject.Find("InstallObj").gameObject;
+        
+        Install_PrefArr = new GameObject[3];
+        Install_PrefArr[0] = installObj_Parent.gameObject.transform.GetChild(0).gameObject;
+        Install_PrefArr[1] = installObj_Parent.gameObject.transform.GetChild(1).gameObject;
+        Install_PrefArr[2] = installObj_Parent.gameObject.transform.GetChild(2).gameObject;
+
+        // 총쏘기 패턴
+        LeftShootingPos = this.transform.GetChild(4).gameObject.transform;
+        RightShootingPos = this.transform.GetChild(5).gameObject.transform;
+
+        minAngle = -60f;
+        maxAngle = 240f;
+
+        p2Skill2_TotalBulletCount = 6;
+        
+        // 총알 벽 패턴
+        P2Skill3_SponMaxPos = GameObject.Find("Left_BulletSponYMaxPos").gameObject.transform;
+        p2S3_Plate = GameObject.Find("Plate_p2s3").gameObject;
+        
+        p2S3_BulletTotalCount = 8;
+        p2S3_SponMinYpos = -1.5f;
+        p2S3_delayCount = 2;
+        p2S3_BulletSpeed = 7;
+        isReady_P2S3 = false;
+
+        p2S3_AttackTotalCount = 3;
+        p2S3_AttackCount = 0;
+        p2S3_delayTime = 2f;
     }
 
     protected override void Init_StateValueData(ref Boss_State state)

@@ -11,30 +11,30 @@ using Random = UnityEngine.Random;
 public class SwordBoss : Boss
 {
     #region p1_Skill1_변수 모음
-    [SerializeField] private Transform skillSpon_Pos;
+    private Transform skillSpon_Pos;
     [SerializeField] private GameObject GSkill_Pref;
     private GameObject GSkill_dummyObj;
     #endregion
     
     #region p2_Skill1_변수 모음
-    [SerializeField] private Transform p2_Skill1_MoonPos;
+    private Transform p2_Skill1_MoonPos;
     [SerializeField] private GameObject Curr_BossPos_Pref;
     private GameObject dummy_Obj;
 
     [SerializeField] private GameObject BladePref;
-    [SerializeField] private Transform Blade_SponPos;
+    private Transform Blade_SponPos;
     private GameObject bladeDummy;
     
-    [SerializeField] public float minAngle = -70f;
-    [SerializeField] public float maxAngle = -20f;
+    private float minAngle = -70f;
+    private float maxAngle = -20f;
     
-    [SerializeField] public float minSize = 0.3f;
-    [SerializeField] public float maxSize = 0.6f;
+    private float minSize = 0.3f;
+    private float maxSize = 0.6f;
     #endregion
 
     #region p2_Skill2_변수 모음
     private bool isHit_Player_fromP2S2;
-    [SerializeField] private float p2s2Att_force;
+    private float p2s2Att_force;
     [SerializeField] private GameObject bossHit_Area;
     private GameObject dummyArea;
     
@@ -47,18 +47,18 @@ public class SwordBoss : Boss
     #region p2_Skill3_변수 모음
     [SerializeField] private GameObject Horizontal_LinePref;
     [SerializeField] private GameObject Vertical_LinePref;
-    [SerializeField] private Transform Right_MaxXY_SponPos;
-    [SerializeField] private Transform Left_MinXY_SponPos;
+    private Transform Right_MaxXY_SponPos;
+    private Transform Left_MinXY_SponPos;
     
-    [SerializeField] private float delete_LineTime = 0.3f;
+    private float delete_LineTime;
     private List<GameObject> dummy_LinePref_List = new List<GameObject>();
     
-    [SerializeField] private float lineAnim_Time;
+    private float lineAnim_Time;
     private GameObject LinePref_Type;
     
     private bool isReadyCreate_Line;
-    [SerializeField] private int lineTotalCount = 6;
-    private int lineCount = 0;
+    private int lineTotalCount;
+    private int lineCount;
     private float createLine_Count;
     #endregion
     
@@ -71,6 +71,7 @@ public class SwordBoss : Boss
         Init_StateValueData(ref bossState);
         
         bossType = BossType.Sword;
+        Init_ValueData();
     }
 
     protected override void Init_StateValueData(ref Boss_State state)
@@ -92,6 +93,51 @@ public class SwordBoss : Boss
         state.p2S1_PossibilityNumber = 0;  // 0 ~ 29    30%
         state.p2S2_PossibilityNumber = 30; // 30 ~ 59   30%
         state.p2S3_PossibilityNumber = 60; // 60 ~ 99   40%
+    }
+
+    protected override void Init_ValueData()
+    {
+        // 이동 관련 변수
+        move_Speed = 3f;
+        groundApproachDist = 0f;
+        
+        // 평타 관련 변수
+        DA_HitArea = new GameObject[3];
+        DA_HitArea[0] = this.transform.GetChild(0).gameObject;
+        DA_HitArea[1] = this.transform.GetChild(1).gameObject;
+        DA_HitArea[2] = this.transform.GetChild(2).gameObject;
+
+        P1Skill1_HitArea = new GameObject[1];
+        P1Skill1_HitArea[0] = this.transform.GetChild(3).gameObject;
+        
+        P1Skill2_HitArea = new GameObject[2];
+        P1Skill2_HitArea[0] = this.transform.GetChild(4).gameObject;
+        P1Skill2_HitArea[1] = this.transform.GetChild(5).gameObject;
+
+        P2Skill2_HitArea = new GameObject[1];
+        P2Skill2_HitArea[0] = this.transform.GetChild(6).gameObject;
+        
+        // skill1 충격파 스킬
+        skillSpon_Pos = this.transform.GetChild(7).gameObject.transform;
+         
+        // skill3 칼날 공격 스킬
+        p2_Skill1_MoonPos = GameObject.Find("MoonPos").gameObject.transform;
+        Blade_SponPos = GameObject.Find("BladeSponPos").gameObject.transform;
+         
+        minAngle = -100f;
+        maxAngle = -25f;
+    
+        minSize = 0.5f;
+        maxSize = 0.7f;
+         
+        // skill4 칼날 공격 스킬
+        p2s2Att_force = 70;
+        Right_MaxXY_SponPos = GameObject.Find("Right_MaxXYPos").gameObject.transform;
+        Left_MinXY_SponPos = GameObject.Find("Left_MaxXYPos").gameObject.transform;
+
+        delete_LineTime = 0.3f;
+        lineAnim_Time = 0.1f;
+        lineTotalCount = 20;
     }
     
     // protected override void MoveSetting()

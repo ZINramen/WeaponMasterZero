@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
+using UnityEditor.Build;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.UIElements;
@@ -53,9 +54,9 @@ public abstract class Boss : MonoBehaviour
     protected GameObject player;
     protected Vector2 player_pos;
     
-    [SerializeField] protected float nextMove = 1;
+    protected float nextMove;
     protected RaycastHit2D rayHit;
-    [SerializeField] protected float groundApproachDist;
+    [SerializeField] protected float groundApproachDist; // 변경 해야함
     protected bool isMove;
     
     public float move_Speed;
@@ -78,7 +79,7 @@ public abstract class Boss : MonoBehaviour
     private bool isSelectSkill = false;
     
     protected float skillDist;
-    [SerializeField] protected bool isMoveEnd = false;
+    protected bool isMoveEnd = false;
     #region 충돌 박스 변수 (외부 ref)
     [SerializeField] protected GameObject[] DA_HitArea;
     [SerializeField] protected GameObject[] P1Skill1_HitArea;
@@ -120,9 +121,13 @@ public abstract class Boss : MonoBehaviour
         }
 
         animCtrl = GetComponent<Animator>();
+
+        isMoveEnd = false;
     }
 
     protected abstract void Init_StateValueData(ref Boss_State state);
+
+    protected virtual void Init_ValueData() {}
 
     // Update is called once per frame
     protected void Update()
@@ -140,6 +145,7 @@ public abstract class Boss : MonoBehaviour
             StartCoroutine(StopMove());
             isMoveEnd = false;
         }
+            
     }
 
     protected IEnumerator StopMove()
@@ -162,12 +168,12 @@ public abstract class Boss : MonoBehaviour
         isMoveEnd = true;
     }
 
-    protected virtual float EachBossMoveSetting(RaycastHit2D rayHit, float x)
+    protected virtual float EachBossMoveSetting(RaycastHit2D rayHit, float input_x)
     {
         if (rayHit.collider == null)
             return 0f;
 
-        return x;
+        return input_x;
     }
 
     private void UpdateState()
@@ -190,7 +196,7 @@ public abstract class Boss : MonoBehaviour
                 bossHP_per = (this.GetComponent<Entity>().GetHp()) / (this.GetComponent<Entity>().maxHP);
                 iBossSkill = EachBoss_SelectedSkill(bossState);
 
-                //iBossSkill = (int)Boss_State.State.p2_Skill2;   // # 특정 스킬 지정하기 Test
+                //iBossSkill = (int)Boss_State.State.p2_Skill3;   // # 특정 스킬 지정하기 Test
                 
                 sBossSkill = Change_IntToState(iBossSkill, ref skillDist);
                 Debug.Log("SkillName : " +  sBossSkill);

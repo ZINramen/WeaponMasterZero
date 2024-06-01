@@ -20,47 +20,47 @@ public class HammerBoss : Boss
     private int dAttType_int;
     
     [SerializeField] private GameObject Shock_wave;
-    [SerializeField] private Transform ShockWave_SponPos;
-    [SerializeField] private float sW_AttackPower;
+    private Transform ShockWave_SponPos;
+    private float sW_AttackPower;
     
     private GameObject dummyShock_waveL;
     private GameObject dummyShock_waveR;
     #endregion
     
     #region P1_Skill1
-    [SerializeField] private GameObject[] FallGrounds = new GameObject[3];
+    private GameObject[] FallGrounds;
     private int fallGround_index = 0;
     private int fallGround_TotalCount = 3;
 
-    [SerializeField] private float shakePower;
+    private float shakePower;
     #endregion
     
     #region P1_Skill2
     private bool is_PermanentMove;
-    [SerializeField] private float p1_Skill2_MoveSpeed;
+    private float p1_Skill2_MoveSpeed;
     private float originSpeed;
     #endregion
 
     #region P2_Skill1
     [SerializeField] private GameObject SnowPref;
-    [SerializeField] private GameObject RushTrail;
+    private GameObject RushTrail;
     
-    [SerializeField] private float rushSpeed;
+    private float rushSpeed;
     private float rush_GroundInterval = 2f;
     private float origin_GroundInterval;
     private bool isRush_P2S1 = false;
     
-    [SerializeField] private Transform SnowSponPos;
-    [SerializeField] private float snowForce;
-    [SerializeField] private float p2S1_DelayTime;
+    private Transform SnowSponPos;
+    private float snowForce;
+    private float p2S1_DelayTime;
     
     private GameObject dummy_SnowObj;
     #endregion
     
     #region P2_Skill2
-    [SerializeField] private GameObject StonPref;
-    [SerializeField] private Transform StonSponPos;
-    [SerializeField] private float stonForce;
+    [SerializeField] private GameObject StonPref; 
+    private Transform StonSponPos;
+    private float stonForce;
     private GameObject dummy_StonObj;
     #endregion
     
@@ -72,19 +72,19 @@ public class HammerBoss : Boss
     private GameObject RightWall;
     private GameObject[] WallObjs;
 
-    [SerializeField] private Transform P2S3_SponYPos;
+    private Transform P2S3_SponYPos;
     private float left_SponPos;
     private float right_SponPos;
     private float iceRainGravity;
     
-    [SerializeField] private int p2S3_IceRainTotalCount;
+    private int p2S3_IceRainTotalCount;
     private int p2S3_IceRainCount;
     
-    [SerializeField] private float p2S3_AttTime;
+    private float p2S3_AttTime;
     private float p2S3_DelayTime;
     private float p2S3_DelayCount;
 
-    [SerializeField] private bool isActiveSkill_p2S3 = false;
+    private bool isActiveSkill_p2S3 = false;
     #endregion
     
     void Start()
@@ -97,6 +97,8 @@ public class HammerBoss : Boss
         selectedTurn_State.Add(Boss_State.State.DefaultAtt);
         selectedTurn_State.Add(Boss_State.State.p1_Skill1);
         selectedTurn_State.Add(Boss_State.State.p2_Skill1);
+
+        Init_ValueData();
 
         RushTrail.gameObject.SetActive(false);
         
@@ -134,6 +136,73 @@ public class HammerBoss : Boss
         state.p2S2_PossibilityNumber = 30; // 30 ~ 59   30%
         state.p2S3_PossibilityNumber = 60; // 60 ~ 99   40%
     }
+    
+    protected override void Init_ValueData()
+    {
+        // 이동 관련 변수
+        move_Speed = 3f;
+        groundApproachDist = 3f;
+        
+        // 평타 관련 변수
+        DA_HitArea = new GameObject[3];
+        DA_HitArea[0] = this.transform.GetChild(0).gameObject;
+        DA_HitArea[1] = this.transform.GetChild(1).gameObject;
+        DA_HitArea[2] = this.transform.GetChild(2).gameObject;
+        
+        ShockWave_SponPos = this.transform.GetChild(3).gameObject.transform;
+
+        P1Skill1_HitArea = new GameObject[4];
+        P1Skill1_HitArea[0] = this.transform.GetChild(5).gameObject;
+        P1Skill1_HitArea[1] = this.transform.GetChild(6).gameObject;
+        P1Skill1_HitArea[2] = this.transform.GetChild(7).gameObject;
+        P1Skill1_HitArea[3] = this.transform.GetChild(8).gameObject;
+        
+        P1Skill2_HitArea = new GameObject[1];
+        P1Skill2_HitArea[0] = this.transform.GetChild(10).gameObject;
+        
+        P2Skill1_HitArea = new GameObject[1];
+        P2Skill1_HitArea[0] = this.transform.GetChild(12).gameObject;
+        RushTrail = this.transform.GetChild(13).gameObject;
+        
+        P2Skill2_HitArea = new GameObject[1];
+        P2Skill2_HitArea[0] = this.transform.GetChild(15).gameObject;
+        
+        P2Skill3_HitArea = new GameObject[1];
+        P2Skill3_HitArea[0] = this.transform.GetChild(0).gameObject;
+        
+        SnowSponPos = this.transform.GetChild(17).gameObject.transform;
+        StonSponPos = this.transform.GetChild(18).gameObject.transform;
+
+        // 충격파 (강 공격)
+        sW_AttackPower = 10f;
+        
+        // 땅 떨구기 Skill1
+        FallGrounds = new GameObject[3];
+        GameObject FallGrounds_Parent = GameObject.Find("FallGround").gameObject;
+        FallGrounds[0] = FallGrounds_Parent.transform.GetChild(0).gameObject;
+        FallGrounds[1] = FallGrounds_Parent.transform.GetChild(1).gameObject;
+        FallGrounds[2] = FallGrounds_Parent.transform.GetChild(2).gameObject;
+
+        shakePower = 1f;
+
+        // 뱅글 뱅글 패턴 Skill2
+        p1_Skill2_MoveSpeed = 7f;
+        
+        // 눈덩이 굴리기 패턴
+        rushSpeed = 12f;
+        snowForce = 100000f;
+        p2S1_DelayTime = 1.5f;
+        rush_GroundInterval = 2f;
+        
+        // 돌 던지기 패턴
+        stonForce = 40f;
+        
+        // 고드름 떨구기
+        P2S3_SponYPos = GameObject.Find("P2_Skill3_SponYPos").gameObject.transform;
+        p2S3_IceRainTotalCount = 20;
+        p2S3_AttTime = 2f;
+        isActiveSkill_p2S3 = false;
+    }
 
     #region 평타 관련 함수
     public void DAttack_SponShockWave()
@@ -170,7 +239,7 @@ public class HammerBoss : Boss
         
         // 내려찍는 패턴에서 ray cast값을 통해 collider값을 확인하여, 넘어가면 반대로 뛰어록 설정
         // 해당 값이 가장 안정적임
-        x = (groundApproachDist - 2f) * -1;
+        x = groundApproachDist * -30;
         
         if (rayHit.collider == null 
             && bossState.currentState == Boss_State.State.p1_Skill1)
