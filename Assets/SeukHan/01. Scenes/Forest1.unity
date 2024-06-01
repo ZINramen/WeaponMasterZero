@@ -1151,7 +1151,7 @@ Transform:
   m_GameObject: {fileID: 519420028}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 66.79, y: 8.9, z: -10.003921}
+  m_LocalPosition: {x: -3.5071087, y: -0.33905983, z: -10.003921}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3042,11 +3042,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6742957321019227575, guid: e2f03ac0e90d84f4083d3f9121ad8f5f, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 66.79
+      value: -9.22
       objectReference: {fileID: 0}
     - target: {fileID: 6742957321019227575, guid: e2f03ac0e90d84f4083d3f9121ad8f5f, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 7.9
+      value: -2.6
       objectReference: {fileID: 0}
     - target: {fileID: 6742957321019227575, guid: e2f03ac0e90d84f4083d3f9121ad8f5f, type: 3}
       propertyPath: m_LocalPosition.z
@@ -3492,7 +3492,7 @@ Transform:
   m_GameObject: {fileID: 1132431273}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 66.79, y: 7.9, z: -10.003921}
+  m_LocalPosition: {x: -9.22, y: -2.6, z: -10.003921}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -4539,8 +4539,8 @@ PolygonCollider2D:
   m_Points:
     m_Paths:
     - - {x: 31.8544, y: 5.185999}
-      - {x: -18.158978, y: 4.3542113}
-      - {x: -18.06416, y: -8.744577}
+      - {x: -16.63145, y: 4.5304646}
+      - {x: -16.654135, y: -8.744577}
       - {x: 7.328413, y: -8.600442}
       - {x: 104.19969, y: -8.001961}
       - {x: 105.92999, y: -7.633335}
@@ -5863,7 +5863,6 @@ MonoBehaviour:
   playerIsOwn: 0
   attType: 0
   isAbleDestroy: 0
-  WeaponCanAbleDestroy: 0
   DestroyEffect: {fileID: 0}
 --- !u!61 &1722447274
 BoxCollider2D:
