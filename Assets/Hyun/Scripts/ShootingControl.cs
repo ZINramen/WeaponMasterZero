@@ -32,7 +32,7 @@ public class ShootingControl : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        owner = transform.root.GetComponent<Entity>();
+        owner = transform.GetComponent<Entity>();
     }
 
     // Update is called once per frame
@@ -92,7 +92,7 @@ public class ShootingControl : MonoBehaviour
 
     public void SpawnHammer()
     {
-        Instantiate(HammerPrefab, transform.position + Vector3.right * 3 + new Vector3(0, 15), Quaternion.identity);
+        Instantiate(HammerPrefab, transform.position + transform.right * 3 + new Vector3(0, 15), Quaternion.identity);
     }
 
     public void RandomShooting(float shotArea)

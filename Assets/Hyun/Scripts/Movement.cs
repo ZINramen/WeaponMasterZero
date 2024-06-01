@@ -76,7 +76,7 @@ public class Movement : MonoBehaviour
             }
             if (PlayerType)
                 Move();
-            else if (owner.ai)
+            else if (owner && owner.ai)
                 owner.ai.AIMove();
         }
     }

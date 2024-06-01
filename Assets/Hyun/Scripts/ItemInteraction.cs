@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
+
 public class ItemInteraction : MonoBehaviour
 {
     //public bool isOnline = true;
@@ -19,9 +21,12 @@ public class ItemInteraction : MonoBehaviour
 
     //public GameObject effect;
 
+    public UnityEvent InteractionEvent;
+    public bool isEnd = false;
     public GameObject Effect;
     DynamicCamera cam;
 
+    public Vector2 pos;
     public string itemName;
     private void Start()
     {
@@ -42,22 +47,47 @@ public class ItemInteraction : MonoBehaviour
         }
     }
 
-    //private void OnTriggerEnter2D(Collider2D coll)
-    //{
-    //    //switch (item) 
-    //    //{
-    //    //    case ItemType.Skill :
-    //    //        SkillManager skills = coll.GetComponent<SkillManager>();
-    //    //        if (!skills) return;
-    //    //        break;
-    //    //}
-    //    //if (!notDestroy)
-    //    //{
-    //    //    GameObject eff = Instantiate(effect);
-    //    //    eff.transform.position = transform.position;
-    //    //    Destroy(gameObject);
-    //    //}
-    //}
+    private void OnTriggerEnter2D(Collider2D coll)
+    {
+        if (isEnd)
+            return;
+        if(itemName == "Stop")
+        {
+            Entity.Player.movement.speed = 0;
+        }
+        if (itemName == "PunchDestroy")
+        {
+            HitColider hitC =  coll.GetComponent<HitColider>();
+            if (hitC == null) return;
+            Instantiate(Effect, transform.position, Quaternion.identity);
+            isEnd = true;
+            Destroy(gameObject);
+        }
+        if(itemName == "Teleport")
+        {
+            if(coll.gameObject == Entity.Player.gameObject)
+            {
+                coll.transform.position = pos;
+            }
+        }
+        if (itemName == "Event")
+        {
+            InteractionEvent.Invoke();
+        }
+        //switch (item) 
+        //{
+        //    case ItemType.Skill :
+        //        SkillManager skills = coll.GetComponent<SkillManager>();
+        //        if (!skills) return;
+        //        break;
+        //}
+        //if (!notDestroy)
+        //{
+        //    GameObject eff = Instantiate(effect);
+        //    eff.transform.position = transform.position;
+        //    Destroy(gameObject);
+        //}
+    }
 
     //IEnumerator SpawnItem() 
     //{
