@@ -43,6 +43,7 @@ public abstract class Default_Monster : MonoBehaviour
     
     [SerializeField] protected float distFrom_Player;
     public bool isDie;
+    protected float groundApproachDist = 0;
 
     protected void Start()
     {
@@ -75,7 +76,7 @@ public abstract class Default_Monster : MonoBehaviour
         {
             UpdateState();
             UpdateAnimation();
-            UpdateSeeting();
+            UpdateSetting();
         }
 
         if (isMoveEnd)
@@ -85,7 +86,7 @@ public abstract class Default_Monster : MonoBehaviour
         }
     }
 
-    protected virtual void UpdateSeeting() { }
+    protected virtual void UpdateSetting() { }
     
     protected IEnumerator StopMove()
     {
@@ -211,7 +212,7 @@ public abstract class Default_Monster : MonoBehaviour
         
         myRd.velocity = new Vector2(inputNextMove, myRd.position.y);
 
-        Vector2 frontVec = new Vector2(myRd.position.x, myRd.position.y - 0.5f);
+        Vector2 frontVec = new Vector2(myRd.position.x + groundApproachDist * turnValue, myRd.position.y - 0.5f);
         Debug.DrawRay(frontVec, Vector3.down, new Color(0, 0, 1));      // #Test용
         
         rayHit = Physics2D.Raycast(frontVec, Vector3.down, 1f, LayerMask.GetMask("Ground"));

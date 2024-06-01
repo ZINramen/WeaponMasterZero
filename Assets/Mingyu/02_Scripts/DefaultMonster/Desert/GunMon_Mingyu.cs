@@ -31,7 +31,7 @@ public class GunMon_Mingyu : Default_Monster
         state.traceDistance = m_traceDist;
     }
 
-    protected override void UpdateSeeting()
+    protected override void UpdateSetting()
     {
         if (isShooting)
         {
