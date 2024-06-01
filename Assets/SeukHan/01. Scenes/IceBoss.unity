@@ -1203,7 +1203,6 @@ MonoBehaviour:
   playerIsOwn: 0
   attType: 0
   isAbleDestroy: 0
-  WeaponCanAbleDestroy: 0
   DestroyEffect: {fileID: 0}
 --- !u!212 &133465765
 SpriteRenderer:
@@ -1742,7 +1741,6 @@ MonoBehaviour:
   playerIsOwn: 0
   attType: 0
   isAbleDestroy: 0
-  WeaponCanAbleDestroy: 0
   DestroyEffect: {fileID: 0}
 --- !u!212 &200627444
 SpriteRenderer:
@@ -2356,7 +2354,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b4ce593b6814cab438038862bf29951f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nextRoom: IceBoss
+  nextRoom: PracticeHammer
   transitionName: ReverseWipe
 --- !u!114 &444653355
 MonoBehaviour:
@@ -3124,7 +3122,6 @@ MonoBehaviour:
   playerIsOwn: 0
   attType: 0
   isAbleDestroy: 0
-  WeaponCanAbleDestroy: 0
   DestroyEffect: {fileID: 0}
 --- !u!212 &565280994
 SpriteRenderer:
@@ -3279,7 +3276,6 @@ MonoBehaviour:
   playerIsOwn: 0
   attType: 0
   isAbleDestroy: 0
-  WeaponCanAbleDestroy: 0
   DestroyEffect: {fileID: 0}
 --- !u!212 &594078315
 SpriteRenderer:
@@ -3874,6 +3870,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 372e54ac4cda7584585ba6ddcf03b087, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isStartToMute: 0
 --- !u!82 &819132790
 AudioSource:
   m_ObjectHideFlags: 0
@@ -4052,6 +4049,7 @@ MonoBehaviour:
   CoolTextEffect: {fileID: 6268643683504991078, guid: ac04799a645e5a54dbd564caba5de5ff, type: 3}
   emoticon: {fileID: 0}
   ultScreen: {fileID: 0}
+  GameoverUI: {fileID: 0}
 --- !u!50 &819132795
 Rigidbody2D:
   serializedVersion: 4
@@ -4201,10 +4199,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 912a950953cb77347b4450b860d15bda, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nextMove: 1
   groundApproachDist: 1
   move_Speed: 3
-  isMoveEnd: 0
   DA_HitArea:
   - {fileID: 1841850083}
   - {fileID: 1758612917}
@@ -4226,28 +4222,9 @@ MonoBehaviour:
   bossType: 2
   isDie: 0
   Shock_wave: {fileID: 3063523473088549609, guid: 4aa65513a914e7a43a5866bba52a66cb, type: 3}
-  ShockWave_SponPos: {fileID: 1654521093}
-  sW_AttackPower: 10
-  FallGrounds:
-  - {fileID: 211003908}
-  - {fileID: 184534951}
-  - {fileID: 1818052330}
-  shakePower: 1
-  p1_Skill2_MoveSpeed: 7
   SnowPref: {fileID: 5863413222475620570, guid: 825b14f1a10435f49b688dde3148e9fd, type: 3}
-  RushTrail: {fileID: 172872299}
-  rushSpeed: 12
-  SnowSponPos: {fileID: 1827003077}
-  snowForce: 100000
-  p2S1_DelayTime: 1.5
   StonPref: {fileID: 5863413222475620570, guid: 25acb0599ce80be44a4c57c187ac3606, type: 3}
-  StonSponPos: {fileID: 744023917}
-  stonForce: 40
   IceRain_Pref: {fileID: 3430882382853528406, guid: 4b827a954e1cf344ea898b572dde0036, type: 3}
-  P2S3_SponYPos: {fileID: 1450706406}
-  p2S3_IceRainTotalCount: 20
-  p2S3_AttTime: 2
-  isActiveSkill_p2S3: 0
 --- !u!1 &821999643
 GameObject:
   m_ObjectHideFlags: 0
@@ -4606,7 +4583,6 @@ MonoBehaviour:
   playerIsOwn: 0
   attType: 0
   isAbleDestroy: 0
-  WeaponCanAbleDestroy: 0
   DestroyEffect: {fileID: 0}
 --- !u!212 &853093629
 SpriteRenderer:
@@ -5204,7 +5180,6 @@ MonoBehaviour:
   playerIsOwn: 0
   attType: 0
   isAbleDestroy: 0
-  WeaponCanAbleDestroy: 0
   DestroyEffect: {fileID: 0}
 --- !u!212 &1176683956
 SpriteRenderer:
@@ -6063,7 +6038,6 @@ MonoBehaviour:
   playerIsOwn: 0
   attType: 0
   isAbleDestroy: 0
-  WeaponCanAbleDestroy: 0
   DestroyEffect: {fileID: 0}
 --- !u!212 &1434664250
 SpriteRenderer:
@@ -6875,7 +6849,6 @@ MonoBehaviour:
   playerIsOwn: 0
   attType: 0
   isAbleDestroy: 0
-  WeaponCanAbleDestroy: 0
   DestroyEffect: {fileID: 0}
 --- !u!212 &1654521095
 SpriteRenderer:
@@ -7318,7 +7291,6 @@ MonoBehaviour:
   playerIsOwn: 0
   attType: 0
   isAbleDestroy: 0
-  WeaponCanAbleDestroy: 0
   DestroyEffect: {fileID: 0}
 --- !u!212 &1758612920
 SpriteRenderer:
@@ -7628,7 +7600,6 @@ MonoBehaviour:
   playerIsOwn: 0
   attType: 0
   isAbleDestroy: 0
-  WeaponCanAbleDestroy: 0
   DestroyEffect: {fileID: 0}
 --- !u!212 &1824410650
 SpriteRenderer:
@@ -7814,7 +7785,6 @@ MonoBehaviour:
   playerIsOwn: 0
   attType: 0
   isAbleDestroy: 0
-  WeaponCanAbleDestroy: 0
   DestroyEffect: {fileID: 0}
 --- !u!212 &1841850087
 SpriteRenderer:

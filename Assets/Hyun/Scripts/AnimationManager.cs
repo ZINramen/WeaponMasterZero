@@ -304,7 +304,7 @@ public class AnimationManager : MonoBehaviour
             {
                 unable_Dash = true;
                 ani.SetTrigger("Dash");
-                StartCoroutine(DelayDash(0.5f));
+                StartCoroutine(DelayDash(1f));
             }
             if (Input.GetKeyUp(Catch))
             {

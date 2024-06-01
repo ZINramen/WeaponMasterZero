@@ -164,7 +164,6 @@ MonoBehaviour:
   playerIsOwn: 0
   attType: 0
   isAbleDestroy: 0
-  WeaponCanAbleDestroy: 0
   DestroyEffect: {fileID: 0}
 --- !u!61 &7490730
 BoxCollider2D:
@@ -364,7 +363,6 @@ MonoBehaviour:
   playerIsOwn: 0
   attType: 0
   isAbleDestroy: 0
-  WeaponCanAbleDestroy: 0
   DestroyEffect: {fileID: 0}
 --- !u!212 &34777439
 SpriteRenderer:
@@ -918,11 +916,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2461925021502211775, guid: 06e48d987e62bf64fa4daecced7985ac, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -0.23
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2461925021502211775, guid: 06e48d987e62bf64fa4daecced7985ac, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0.83
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2461925021502211775, guid: 06e48d987e62bf64fa4daecced7985ac, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -1891,7 +1889,6 @@ MonoBehaviour:
   playerIsOwn: 0
   attType: 0
   isAbleDestroy: 0
-  WeaponCanAbleDestroy: 0
   DestroyEffect: {fileID: 0}
 --- !u!212 &269988541
 SpriteRenderer:
@@ -2871,10 +2868,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2af3f7c914eb9974b9d0fa676c512c7e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nextMove: 1
   groundApproachDist: 0
   move_Speed: 2
-  isMoveEnd: 0
   DA_HitArea:
   - {fileID: 904051380}
   - {fileID: 640432526}
@@ -2891,25 +2886,12 @@ MonoBehaviour:
   hit_Mat: {fileID: 2100000, guid: 9a312534a97aeb14e89b5c7cc149b470, type: 2}
   bossType: 0
   isDie: 0
-  skillSpon_Pos: {fileID: 1443104142}
   GSkill_Pref: {fileID: 6626768178652176019, guid: 314bfef4e974b3948a57977739f2cb74, type: 3}
-  p2_Skill1_MoonPos: {fileID: 152036466}
   Curr_BossPos_Pref: {fileID: 7783963316370124347, guid: 44f18f0286e681747a051b5c2b36f290, type: 3}
   BladePref: {fileID: 5925929291915557867, guid: 8f0de5e519690514fa8d603945b18127, type: 3}
-  Blade_SponPos: {fileID: 1748161822}
-  minAngle: -100
-  maxAngle: -30
-  minSize: 0.3
-  maxSize: 0.7
-  p2s2Att_force: 40
   bossHit_Area: {fileID: 5380510675326920505, guid: 7367002df9ae4044da5c2033429bad56, type: 3}
   Horizontal_LinePref: {fileID: 400998881470783629, guid: a5680686b98b6d24081ad9582ed94a87, type: 3}
   Vertical_LinePref: {fileID: 400998881470783629, guid: 311382d06d142d846920b85ba56ed94b, type: 3}
-  Right_MaxXY_SponPos: {fileID: 1843871047}
-  Left_MinXY_SponPos: {fileID: 1443450417}
-  delete_LineTime: 0.3
-  lineAnim_Time: 0.1
-  lineTotalCount: 15
 --- !u!114 &563375696
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2922,6 +2904,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 372e54ac4cda7584585ba6ddcf03b087, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isStartToMute: 0
 --- !u!95 &563375697
 Animator:
   serializedVersion: 5
@@ -3004,6 +2987,7 @@ MonoBehaviour:
   CoolTextEffect: {fileID: 6268643683504991078, guid: ac04799a645e5a54dbd564caba5de5ff, type: 3}
   emoticon: {fileID: 0}
   ultScreen: {fileID: 0}
+  GameoverUI: {fileID: 0}
 --- !u!50 &563375699
 Rigidbody2D:
   serializedVersion: 4
@@ -3643,7 +3627,6 @@ MonoBehaviour:
   playerIsOwn: 0
   attType: 0
   isAbleDestroy: 0
-  WeaponCanAbleDestroy: 0
   DestroyEffect: {fileID: 0}
 --- !u!212 &640432529
 SpriteRenderer:
@@ -5137,7 +5120,6 @@ MonoBehaviour:
   playerIsOwn: 0
   attType: 0
   isAbleDestroy: 0
-  WeaponCanAbleDestroy: 0
   DestroyEffect: {fileID: 0}
 --- !u!212 &904051383
 SpriteRenderer:
@@ -7571,7 +7553,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b4ce593b6814cab438038862bf29951f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nextRoom: Desert1
+  nextRoom: PracticeSword
   transitionName: ReverseWipe
 --- !u!1001 &1217084477
 PrefabInstance:
@@ -10037,7 +10019,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!95 &1885453520
 Animator:
   serializedVersion: 5
@@ -10420,7 +10402,6 @@ MonoBehaviour:
   playerIsOwn: 0
   attType: 0
   isAbleDestroy: 0
-  WeaponCanAbleDestroy: 0
   DestroyEffect: {fileID: 0}
 --- !u!212 &1959588392
 SpriteRenderer:
@@ -10659,7 +10640,6 @@ MonoBehaviour:
   playerIsOwn: 0
   attType: 0
   isAbleDestroy: 0
-  WeaponCanAbleDestroy: 0
   DestroyEffect: {fileID: 0}
 --- !u!212 &1990726837
 SpriteRenderer:
@@ -10738,11 +10718,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1156898880603730392, guid: 06e48d987e62bf64fa4daecced7985ac, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 0
+      value: -11.8
       objectReference: {fileID: 0}
     - target: {fileID: 1156898880603730392, guid: 06e48d987e62bf64fa4daecced7985ac, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 0
+      value: -6.7
       objectReference: {fileID: 0}
     - target: {fileID: 1652880562482149692, guid: 06e48d987e62bf64fa4daecced7985ac, type: 3}
       propertyPath: m_IsActive
@@ -10850,11 +10830,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2461925021502211775, guid: 06e48d987e62bf64fa4daecced7985ac, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0.1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2461925021502211775, guid: 06e48d987e62bf64fa4daecced7985ac, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 1.03
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2461925021502211775, guid: 06e48d987e62bf64fa4daecced7985ac, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x

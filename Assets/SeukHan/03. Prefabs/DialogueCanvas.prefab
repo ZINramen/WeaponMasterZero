@@ -132,7 +132,7 @@ MonoBehaviour:
   m_margin: {x: 5.286804, y: 0, z: -6.1916885, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  m_hasFontAssetChanged: 1
+  m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
 --- !u!114 &7438687899143156238
@@ -148,7 +148,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   characterStartSize: 1
-  characterAnimateSpeed: 500
+  characterAnimateSpeed: 700
 --- !u!1 &1912221198911056468
 GameObject:
   m_ObjectHideFlags: 0
@@ -161,6 +161,7 @@ GameObject:
   - component: {fileID: 3751190666009683670}
   - component: {fileID: 5369995028390253847}
   - component: {fileID: 2584335718385325855}
+  - component: {fileID: 7679408275492240048}
   m_Layer: 5
   m_Name: DialogueCanvas
   m_TagString: Untagged
@@ -233,7 +234,7 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
-  m_PresetInfoIsWorld: 1
+  m_PresetInfoIsWorld: 0
 --- !u!114 &2584335718385325855
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -251,6 +252,19 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!114 &7679408275492240048
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1912221198911056468}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 54c77da7a1bc1924daa119fb9729dcdb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Left: 0
 --- !u!1 &3600587172331495720
 GameObject:
   m_ObjectHideFlags: 0
