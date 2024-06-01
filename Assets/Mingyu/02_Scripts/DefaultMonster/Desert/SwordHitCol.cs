@@ -16,15 +16,20 @@ public class SwordHitCol : HitColider
 
             if (player != null && player.gameObject.GetComponent<Entity>().GetHp() > 0)
             {
+                player.gameObject.GetComponent<StopTime>().DelayTime();
+                
                 owner.gameObject.GetComponent<Animator>().SetTrigger("Stun");
                 owner.gameObject.GetComponent<Skeleton>().ParringHit();
-
-                owner.gameObject.GetComponent<Skeleton>().EndAttack();
                 owner.gameObject.GetComponent<Default_Monster>().Check_AttackHitCol(0);
-
-                float attackDamage = other.gameObject.GetComponent<HitColider>().attackForce;
-                owner.gameObject.GetComponent<Entity>().Damaged(attackDamage * 2);
+                
+                StartCoroutine("returnTimeDelay", player);
             }
         }
+    }
+    
+    private IEnumerator returnTimeDelay(GameObject m_player)
+    {
+        yield return new WaitForSecondsRealtime(0.5f);
+        m_player.gameObject.GetComponent<StopTime>().PlayALLTime();
     }
 }

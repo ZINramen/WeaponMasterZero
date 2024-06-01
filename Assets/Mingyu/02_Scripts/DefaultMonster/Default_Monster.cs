@@ -128,7 +128,7 @@ public abstract class Default_Monster : MonoBehaviour
             Move(0,1);
         }
         
-        // 공격중이 아니거나 && 맞는중이 아니라면
+        // 공격중이 아니거라면
         else if (!monsterState.isAttacking)
         {
             if (distFrom_Player >= monsterState.defaultAtt_dist)
@@ -215,6 +215,11 @@ public abstract class Default_Monster : MonoBehaviour
         Debug.DrawRay(frontVec, Vector3.down, new Color(0, 0, 1));      // #Test용
         
         rayHit = Physics2D.Raycast(frontVec, Vector3.down, 1f, LayerMask.GetMask("Ground"));
+    }
+
+    protected void AbleTurn()
+    {
+        this.transform.rotation = Quaternion.Euler(0, this.transform.position.x > player_pos.x ? 0 : 180, 0);
     }
     
     public void EndAttack()

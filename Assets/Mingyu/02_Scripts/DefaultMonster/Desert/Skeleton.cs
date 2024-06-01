@@ -32,7 +32,7 @@ public class Skeleton : Default_Monster
     public void ParringHit()
     {
         this.gameObject.GetComponent<SpriteRenderer>().material = hitMat;
-        Invoke("ReturnMat", 0.05f);
+        Invoke("ReturnMat", 0.1f);
     }
 
     private void ReturnMat()
