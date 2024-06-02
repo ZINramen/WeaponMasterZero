@@ -120,6 +120,7 @@ public class LastBoss_Ctrl : Boss
     [SerializeField] private Sprite HammerBG;
     
     private GameObject AttackAble_UI;
+    private GameObject BackGround;
     
     public enum PlayerAttackType { Sword = 1, Gun, Hammer, NotSetting }
     private PlayerAttackType attAble_AttType;
@@ -221,6 +222,8 @@ public class LastBoss_Ctrl : Boss
         
         AttackAble_UI = this.gameObject.transform.GetChild(6).gameObject;
         AttackAble_UI.gameObject.SetActive(false);
+        
+        BackGround = GameObject.Find("BackGround").gameObject;
 
         change_AttTypeTime = 10f;
         m_bubblePower = 3f;
@@ -297,7 +300,6 @@ public class LastBoss_Ctrl : Boss
             }
             
             change_AttTypeCount += Time.deltaTime;
-            Debug.Log(change_AttTypeCount);
             
             if (change_AttTypeCount >= change_AttTypeTime)
             {
@@ -588,9 +590,12 @@ public class LastBoss_Ctrl : Boss
         
         while(beforeAttType == random_AttAbleType)
             random_AttAbleType = Random.Range((int)PlayerAttackType.Sword, (int)PlayerAttackType.Hammer + 1);
-
+        
         beforeAttType = random_AttAbleType;
         attAble_AttType = AttAbleSkill_ToEnum(random_AttAbleType);
+        
+        SetFalse_BGSetting();
+        BackGround.transform.GetChild(random_AttAbleType - 1).gameObject.SetActive(true);
         
         AttackAble_UI.gameObject.GetComponent<SpriteRenderer>().sprite = AttackAble_BackGroundData[random_AttAbleType - 1];
         LastBoss_Entity.desireWeaponFinalBoss = random_AttAbleType;
@@ -608,6 +613,13 @@ public class LastBoss_Ctrl : Boss
         
         else
             return PlayerAttackType.Hammer;
+    }
+
+    private void SetFalse_BGSetting()
+    {
+        BackGround.transform.GetChild(0).gameObject.SetActive(false);
+        BackGround.transform.GetChild(1).gameObject.SetActive(false);
+        BackGround.transform.GetChild(2).gameObject.SetActive(false);
     }
     #endregion
     
