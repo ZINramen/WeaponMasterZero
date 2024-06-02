@@ -12,7 +12,11 @@ public class StonHitColl : HitColider
 
     protected override void EachObj_HitSetting(Collider2D other)
     {
-        if (other != owner && !other.gameObject.name.Contains("IceRain"))
-            isAbleDestroy = true;
+        if (owner != Entity.Player)
+        {
+            if (other.gameObject.name.Contains("APO") &&
+                other.gameObject.GetComponent<SkillManager>())
+                isAbleDestroy = true;
+        }
     }
 }

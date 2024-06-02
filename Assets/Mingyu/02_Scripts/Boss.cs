@@ -80,13 +80,16 @@ public abstract class Boss : MonoBehaviour
     
     protected float skillDist;
     protected bool isMoveEnd = false;
-    #region 충돌 박스 변수 (외부 ref)
-    [SerializeField] protected GameObject[] DA_HitArea;
-    [SerializeField] protected GameObject[] P1Skill1_HitArea;
-    [SerializeField] protected GameObject[] P1Skill2_HitArea;
-    [SerializeField] protected GameObject[] P2Skill1_HitArea;
-    [SerializeField] protected GameObject[] P2Skill2_HitArea;
-    [SerializeField] protected GameObject[] P2Skill3_HitArea;
+
+    [SerializeField] private GameObject DashBan_Obj;
+    private GameObject dummyDashBanObj;
+    #region 충돌 박스 변수
+    protected GameObject[] DA_HitArea;
+    protected GameObject[] P1Skill1_HitArea;
+    protected GameObject[] P1Skill2_HitArea;
+    protected GameObject[] P2Skill1_HitArea;
+    protected GameObject[] P2Skill2_HitArea;
+    protected GameObject[] P2Skill3_HitArea;
     #endregion
     
     protected Animator animCtrl;
@@ -196,7 +199,7 @@ public abstract class Boss : MonoBehaviour
                 bossHP_per = (this.GetComponent<Entity>().GetHp()) / (this.GetComponent<Entity>().maxHP);
                 iBossSkill = EachBoss_SelectedSkill(bossState);
 
-                iBossSkill = (int)Boss_State.State.p2_Skill2;   // # 특정 스킬 지정하기 Test
+                iBossSkill = (int)Boss_State.State.p2_Skill1;   // # 특정 스킬 지정하기 Test
                 
                 sBossSkill = Change_IntToState(iBossSkill, ref skillDist);
                 Debug.Log("SkillName : " +  sBossSkill);
@@ -311,6 +314,32 @@ public abstract class Boss : MonoBehaviour
         Debug.DrawRay(frontVec, Vector3.down, new Color(0, 0, 1));      // #Test용
         
         rayHit = Physics2D.Raycast(frontVec, Vector3.down, 1f, LayerMask.GetMask("Ground"));
+    }
+
+    protected void Spon_PlayerDashBan()
+    {
+        Debug.Log("생성");
+        
+        if (DashBan_Obj)
+        {
+            player.gameObject.GetComponent<Movement>().BlockDash = true;
+
+            Vector2 sponPos = new Vector2(player_pos.x, player_pos.y + 0.8f);
+            
+            dummyDashBanObj = GameObject.Instantiate(DashBan_Obj, sponPos, Quaternion.identity);
+            dummyDashBanObj.transform.parent = player.transform;
+        }
+    }
+
+    protected void Destroy_PlayerDashBan()
+    {
+        Debug.Log("삭제");
+        
+        if (DashBan_Obj)
+        {
+            player.gameObject.GetComponent<Movement>().BlockDash = false;
+            Destroy(dummyDashBanObj);
+        }
     }
 
     protected virtual void EachBoss_UpdateSetting() { }

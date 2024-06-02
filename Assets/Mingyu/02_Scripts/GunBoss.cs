@@ -330,6 +330,8 @@ public class GunBoss : Boss
     #region p2_Skill3_함수
     public void Set_AttackSetting_P2S3()
     {
+        Spon_PlayerDashBan();
+        
         isReady_P2S3 = true;
         this.gameObject.GetComponent<Rigidbody2D>().simulated = false;
         p2S3_Plate.gameObject.SetActive(true);
@@ -389,6 +391,8 @@ public class GunBoss : Boss
 
     private void End_P2Skill3()
     {
+        Destroy_PlayerDashBan();
+        
         isReady_P2S3 = false;
         p2S3_AttackCount = 0;
         
@@ -428,7 +432,7 @@ public class GunBoss : Boss
         }
         else if (p2S3_AttackCount >= p2S3_AttackTotalCount)
         {
-            Invoke("End_P2Skill3", 1f);
+            Invoke("End_P2Skill3", 2.5f);
         }
     }
 
