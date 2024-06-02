@@ -123,7 +123,7 @@ public class AnimationManager : MonoBehaviour
                         {
                             ani.SetTrigger("Punch");
                         }
-                        if (Input.GetKeyDown(Dash) && !airDash)
+                        if (Input.GetKeyDown(Dash) && !airDash && !owner.movement.BlockDash)
                         {
                             airDash = true;
                             ani.SetTrigger("Dash");
@@ -296,7 +296,7 @@ public class AnimationManager : MonoBehaviour
             {
                 ani.SetBool("Defense", false);
             }
-            if (Input.GetKeyDown(Dash) && !ani.GetBool("Down") && !unable_Dash)
+            if (Input.GetKeyDown(Dash) && !ani.GetBool("Down") && !unable_Dash && !owner.movement.BlockDash)
             {
                 unable_Dash = true;
                 ani.SetTrigger("Dash");
