@@ -96,6 +96,10 @@ public class Entity : MonoBehaviour
 
     private void Update()
     {
+        if (Input.GetKeyDown(KeyCode.Z))
+        {
+            SetMp(maxMp);
+        }
         if (isDie)
             return;
         if (ultScreen)
