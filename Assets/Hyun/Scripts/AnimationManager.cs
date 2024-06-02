@@ -81,6 +81,10 @@ public class AnimationManager : MonoBehaviour
         }
         if (groundCheck)
         {
+            if (!groundCheck.owner)
+            {
+                groundCheck.owner = owner;
+            }
             if (groundCheck.GetOnGround)
             {
                 if (onGround && State != AnimationState.Normal)
@@ -101,14 +105,6 @@ public class AnimationManager : MonoBehaviour
             }
             else
             {
-                if (State == AnimationState.Normal)
-                {
-                    if (isHuman)
-                    {
-                        ani.SetTrigger("fall");
-
-                    }
-                }
                 if (onGround)
                 {
                     onGround = false;

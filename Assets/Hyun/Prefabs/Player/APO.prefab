@@ -62309,7 +62309,6 @@ MonoBehaviour:
   playerIsOwn: 0
   attType: 1
   isAbleDestroy: 0
-  WeaponCanAbleDestroy: 0
   DestroyEffect: {fileID: 0}
 --- !u!61 &7077345072119766241
 BoxCollider2D:
@@ -62951,7 +62950,6 @@ MonoBehaviour:
   groundCheck: {fileID: 5028401689260475662}
   owner: {fileID: 0}
   temp: {fileID: 0}
-  ecActive: 0
   rotationZ: 0
   ani: {fileID: 0}
   State: 0
@@ -63024,7 +63022,6 @@ MonoBehaviour:
   DamageBlock: 0
   currentCombo: 0
   maxcombo: 10
-  ComboUI: {fileID: 2320536752282502563, guid: 02f78935d275c27478963ecf2e2006de, type: 3}
   isDamaged: 0
   HitEffect: {fileID: 5302201665987482517, guid: 10ecd86e54fbd744baa1f69bb0995cc2, type: 3}
   StrongHitEffect: {fileID: 5942996768073886119, guid: a1a7b4ac36c2cac4690161d6213c9499, type: 3}
@@ -63033,6 +63030,7 @@ MonoBehaviour:
   CoolTextEffect: {fileID: 6268643683504991078, guid: ac04799a645e5a54dbd564caba5de5ff, type: 3}
   emoticon: {fileID: 7464022481887345051}
   ultScreen: {fileID: 4098051588899277449}
+  GameoverUI: {fileID: 0}
 --- !u!114 &8420422611764709252
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -63158,6 +63156,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 372e54ac4cda7584585ba6ddcf03b087, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isStartToMute: 0
 --- !u!114 &1704247545529518219
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -86151,8 +86150,8 @@ Transform:
   m_GameObject: {fileID: 9219308786454547420}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.03, y: -0.38, z: 0.0030135643}
-  m_LocalScale: {x: 0.21196377, y: 0.11008558, z: 1}
+  m_LocalPosition: {x: -0.0355, y: -0.371, z: 0.0030135643}
+  m_LocalScale: {x: 0.15059632, y: 0.09215264, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 6742957321019227575}

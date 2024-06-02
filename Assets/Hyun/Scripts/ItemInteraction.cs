@@ -28,6 +28,18 @@ public class ItemInteraction : MonoBehaviour
 
     public Vector2 pos;
     public string itemName;
+
+    GameObject target;
+    
+    public void Jumping(float value)
+    {
+        Movement move = null;
+        if (target)
+            move = target.GetComponent<Movement>();
+        if(move)
+            move.Jump(value);
+    }
+
     private void Start()
     {
         //if (itemName == "")
@@ -49,6 +61,7 @@ public class ItemInteraction : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D coll)
     {
+        target = coll.gameObject;
         if (isEnd)
             return;
         if(itemName == "Stop")
@@ -88,7 +101,10 @@ public class ItemInteraction : MonoBehaviour
         //    Destroy(gameObject);
         //}
     }
-
+    private void OnTriggerExit2D(Collider2D coll)
+    {
+        target = null;
+    }
     //IEnumerator SpawnItem() 
     //{
     //    int value = 0;
