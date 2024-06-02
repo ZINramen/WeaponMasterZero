@@ -13,21 +13,27 @@ public class MobSpawner : MonoBehaviour
 
     private int enemyCount = 0; // Add this line
 
+    public Transform Monsters;
+
+    public void CheckMobStart()
+    {
+        StartCoroutine(CheckMob());
+    }
+
     public void SpawnMob()
     {
         foreach (var pos in MobSpawnPoint)
         {
             Instantiate(MobPrefab[Random.Range(0, MobPrefab.Length)], pos.position, Quaternion.identity);
         }
-        StartCoroutine(CheckMob());
     }
 
     private void OnTriggerStay2D(Collider2D other)
     {
-        if (other.CompareTag("Enemy"))
-        {
-            enemyCount++; // Increment the enemy count
-        }
+        //if (other.CompareTag("Enemy"))
+        //{
+            //enemyCount++; // Increment the enemy count
+        //}
     }
 
     IEnumerator CheckMob()
@@ -35,7 +41,7 @@ public class MobSpawner : MonoBehaviour
         while (true)
         {
             yield return new WaitForSeconds(0.5f);
-            if (enemyCount == 0) // Check if the enemy count is zero
+            if (Monsters.childCount == 0) // Check if the enemy count is zero
             {
                 enemyCleared?.Invoke();
                 StopAllCoroutines();

@@ -269,7 +269,7 @@ MonoBehaviour:
   ai: {fileID: 0}
   waitTime: 0
   mpLock: 0
-  maxHP: 9999
+  maxHP: 30
   maxMp: 100
   target:
     serializedVersion: 2
@@ -295,6 +295,7 @@ MonoBehaviour:
   CoolTextEffect: {fileID: 6268643683504991078, guid: ac04799a645e5a54dbd564caba5de5ff, type: 3}
   emoticon: {fileID: 0}
   ultScreen: {fileID: 0}
+  GameoverUI: {fileID: 0}
 --- !u!82 &5816130845905001592
 AudioSource:
   m_ObjectHideFlags: 0
@@ -403,6 +404,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 372e54ac4cda7584585ba6ddcf03b087, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isStartToMute: 0
 --- !u!212 &7358944215422340444
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -526,6 +528,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c47fcbec6067774418aa32afe95c953a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player_pos: {x: 0, y: 0}
   move_Speed: 3
   distFrom_Player: 0
   isDie: 0

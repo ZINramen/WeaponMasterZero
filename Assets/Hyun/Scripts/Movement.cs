@@ -84,6 +84,15 @@ public class Movement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (owner == Entity.Player)
+        {
+            if (h != 0)
+            {
+                animator.SetBool("isWalk", true);
+            }
+            else
+                animator.SetBool("isWalk", false);
+        }
         PhysicChange();
         if (super)
             SuperMove();
@@ -114,14 +123,11 @@ public class Movement : MonoBehaviour
 
         if (h != 0)
         {
-            animator.SetBool("isWalk", true);
             if (h < 0)
                 transform.localEulerAngles = new Vector3(0, 180, 0);
             else
                 transform.localEulerAngles = new Vector3(0, 0, 0);
         }
-        else
-            animator.SetBool("isWalk", false);
     }
 
     public void Jump(float bonus_value)

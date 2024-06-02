@@ -12,6 +12,7 @@ namespace Venogear2DPlatformer
         public float moveSpeed;
         public float fleeSpeed;
         public float distance;
+        public float maxDistance;
         public bool AttackOrFlee;
 
         private bool startMoving;
@@ -31,6 +32,10 @@ namespace Venogear2DPlatformer
         {
             distance = Vector2.Distance(transform.position, target.transform.position);
 
+            if(startMoving && maxDistance < distance)
+            {
+                Destroy(gameObject);
+            }
             // Flip sprite if chase
             if (target.position.x > transform.position.x && AttackOrFlee == true)
             { spriteRenderer.flipX = false; }

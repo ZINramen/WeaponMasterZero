@@ -71,7 +71,7 @@ public abstract class Default_Monster : MonoBehaviour
     
     protected void Update()
     {
-        Debug.Log(monsterState.currentState);
+        //Debug.Log(monsterState.currentState);
         
         if (this.gameObject.GetComponent<Entity>().GetHp() > 0)
         {
@@ -211,7 +211,7 @@ public abstract class Default_Monster : MonoBehaviour
     {
         if (this.gameObject.GetComponent<Entity>().isDamaged) return;
         
-        myRd.velocity = new Vector2(inputNextMove, myRd.position.y);
+        myRd.velocity = new Vector2(inputNextMove, myRd.velocity.y); // y축 속도는 기존 속도로 적용. (기존엔 위치 값 넣어서 확 떨어짐.)
 
         Vector2 frontVec = new Vector2(myRd.position.x + groundApproachDist * turnValue, myRd.position.y - 0.5f);
         Debug.DrawRay(frontVec, Vector3.down, new Color(0, 0, 1));      // #Test용

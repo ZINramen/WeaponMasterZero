@@ -7,6 +7,7 @@ using static UnityEngine.EventSystems.EventTrigger;
 
 public class Entity : MonoBehaviour
 {
+    DefenseStatus EarlyStatus;
     public Material hitMat;
     Material oringMat;
     SpriteRenderer sp;
@@ -54,7 +55,7 @@ public class Entity : MonoBehaviour
     [Header("Combo")]
     [SerializeField] private int currentCombo = 0;
     public int maxcombo = 6;
-    public ComboView ComboUI;
+    //public ComboView ComboUI;
 
     [Header("Additional Effect")]
     public bool isDamaged = false;
@@ -141,19 +142,27 @@ public class Entity : MonoBehaviour
 
             hp = 0;
             movement.enabled = false;
-            movement.body.constraints = RigidbodyConstraints2D.FreezeAll;
+            //movement.body.constraints = RigidbodyConstraints2D.FreezeAll;
             isDie = true;
             if (ai)
                 ai.enabled = false;
 
             if (CompareTag("Player") == false && CompareTag("Boss") == false)
             {
-                Destroy(gameObject, 5);
+                Destroy(gameObject, 2);
             }
             OnDie.Invoke();
         }
     }
 
+    public void SupermanState(bool value)
+    {
+        EarlyStatus = DamageBlock;
+        if (value)
+            DamageBlock = DefenseStatus.invincible;
+        else
+            DamageBlock = EarlyStatus;
+    }
     public void Destroy_Entity(float delay)
     {
         Destroy(gameObject, delay);
@@ -346,10 +355,10 @@ public class Entity : MonoBehaviour
             }
             if (DamageBlock != DefenseStatus.Guard && damageValue != 0)
             {
-                if (ComboUI)
-                {
-                    Instantiate(ComboUI);
-                }
+                //if (ComboUI)
+                //{
+                //    Instantiate(ComboUI);
+                //}
 
                 // 맞는 방향으로 회전
                 //if (!gameObject.CompareTag("Boss"))

@@ -48,7 +48,7 @@ MonoBehaviour:
   telp: 0
   stunTarget: 0
   flyingAttackForce: 5
-  attackForce: 10
+  attackForce: 1
   thrustValue: 0.2
   owner: {fileID: 969155841169485377}
   oneHit: 0
@@ -63,7 +63,7 @@ BoxCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2701355142406637283}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IncludeLayers:
@@ -88,7 +88,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: -0.002084542, y: -0.1892463}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -99,7 +99,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 0.23707202, y: 0.6215074}
   m_EdgeRadius: 0
 --- !u!1 &5094439091505206354
 GameObject:
@@ -178,7 +178,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 4
+  m_GravityScale: 1
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -236,7 +236,7 @@ MonoBehaviour:
   ai: {fileID: 0}
   waitTime: 0
   mpLock: 0
-  maxHP: 9999
+  maxHP: 10
   maxMp: 100
   target:
     serializedVersion: 2
@@ -253,7 +253,6 @@ MonoBehaviour:
   DamageBlock: 0
   currentCombo: 0
   maxcombo: 20
-  ComboUI: {fileID: 2320536752282502563, guid: 02f78935d275c27478963ecf2e2006de, type: 3}
   isDamaged: 0
   HitEffect: {fileID: 5302201665987482517, guid: 10ecd86e54fbd744baa1f69bb0995cc2, type: 3}
   StrongHitEffect: {fileID: 5942996768073886119, guid: a1a7b4ac36c2cac4690161d6213c9499, type: 3}
@@ -262,6 +261,7 @@ MonoBehaviour:
   CoolTextEffect: {fileID: 6268643683504991078, guid: ac04799a645e5a54dbd564caba5de5ff, type: 3}
   emoticon: {fileID: 0}
   ultScreen: {fileID: 0}
+  GameoverUI: {fileID: 0}
 --- !u!82 &1050621008380596419
 AudioSource:
   m_ObjectHideFlags: 0
@@ -370,6 +370,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 372e54ac4cda7584585ba6ddcf03b087, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isStartToMute: 0
 --- !u!212 &6611825661281304411
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -479,6 +480,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a999762304923ef44ad536d9e1757da4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player_pos: {x: 0, y: 0}
   move_Speed: 1.5
   distFrom_Player: 0
   isDie: 0
