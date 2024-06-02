@@ -45,6 +45,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8faf252014a19b942bc4983ce0bcf63a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  NoDamage: 0
   telp: 0
   stunTarget: 0
   flyingAttackForce: 0
@@ -53,9 +54,8 @@ MonoBehaviour:
   owner: {fileID: 0}
   oneHit: 0
   playerIsOwn: 1
-  attType: 0
+  attType: 3
   isAbleDestroy: 0
-  WeaponCanAbleDestroy: 0
   DestroyEffect: {fileID: 0}
 --- !u!61 &2344437769028101604
 BoxCollider2D:
@@ -469,7 +469,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6431b494ee8368b4295dbe7e7408336f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  donHit: 0
+  InteractionEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  isEnd: 0
   Effect: {fileID: 3573865903208570641}
+  pos: {x: 0, y: 0}
   itemName: Hammer
 --- !u!114 &2331150776463488394
 MonoBehaviour:
@@ -483,6 +489,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b8982125c5cfa9b4faccc3fb1bc827e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  collDestroy: 0
   haveDestroyArea: 0
   haveTarget: 0
   moveSpeed: 0
