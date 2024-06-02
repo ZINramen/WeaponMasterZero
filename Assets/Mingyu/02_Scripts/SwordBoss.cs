@@ -217,9 +217,6 @@ public class SwordBoss : Boss
         Invoke("Appear_Boss", 1f);
         this.transform.position = dummy_Obj.gameObject.transform.position;
         Destroy(dummy_Obj);
-        
-        this.GetComponent<Rigidbody2D>().simulated = true;
-
     }
     
     private void Appear_Boss()
@@ -289,8 +286,6 @@ public class SwordBoss : Boss
         Invoke("Appear_Boss", 1f);
         this.transform.position = dummy_Obj.gameObject.transform.position;
         Destroy(dummy_Obj);
-        
-        this.GetComponent<Rigidbody2D>().simulated = true;
 
         dummy_LinePref_List.Clear();
         createLine_Count = 0f;
@@ -298,7 +293,6 @@ public class SwordBoss : Boss
 
     protected override void EachBoss_UpdateSetting()
     {
-        
         if (lineCount < lineTotalCount && isReadyCreate_Line)
         {
             createLine_Count += Time.deltaTime;
@@ -370,6 +364,8 @@ public class SwordBoss : Boss
         Debug.Log("EachBoss_ES");
         isHit_Player_fromP2S2 = false;
         animCtrl.SetBool("isLanding", false);
+        
+        this.GetComponent<Rigidbody2D>().simulated = true;
     }
     #endregion
 }
