@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
@@ -70,7 +71,7 @@ public class Entity : MonoBehaviour
     public EmoticonController emoticon;
     public RectTransform ultScreen;
 
-    public GameObject GameoverUI;
+    GameObject GameoverUI;
 
     public static Entity Player;
 
@@ -128,8 +129,10 @@ public class Entity : MonoBehaviour
         //생사 상태 확인
         if (hp <= 0)
         {
-            if(movement && movement.PlayerType && GameoverUI)
-                Instantiate(GameoverUI);
+            if (movement && movement.PlayerType && !GameoverUI)
+            {
+                GameoverUI = (GameObject)Instantiate(Resources.Load("UI/GameoverUI"));
+            }
             DamageBlock = DefenseStatus.invincible;
             if (aManager)
             {

@@ -21,6 +21,8 @@ public class ItemInteraction : MonoBehaviour
 
     //public GameObject effect;
 
+    public bool donHit = false;
+
     public UnityEvent InteractionEvent;
     public bool isEnd = false;
     public GameObject Effect;
@@ -61,6 +63,16 @@ public class ItemInteraction : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D coll)
     {
+        if (donHit)
+        {
+            Entity eTarget = null;
+            if (coll.GetComponent<HitColider>())
+                eTarget = coll.GetComponent<HitColider>().owner;
+            if (eTarget)
+            {
+                eTarget.SetHp(0);
+            }
+        }
         target = coll.gameObject;
         if (isEnd)
             return;

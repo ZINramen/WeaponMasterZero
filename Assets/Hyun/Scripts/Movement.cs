@@ -7,6 +7,7 @@ public class Movement : MonoBehaviour
     GameObject boss;
     public bool Alway; // 어떤 개체든 항상 movementForce로 움직일 수 있도록 함.
 
+    public bool BlockDash = false; // 대시 불가
 
     public Entity owner;
 
