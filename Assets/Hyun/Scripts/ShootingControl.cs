@@ -118,24 +118,25 @@ public class ShootingControl : MonoBehaviour
 
     public void ThrowStone()
     {
-        if (owner.transform.rotation.y == 0)
-        {
-            var stone = Instantiate(StonePrefab, owner.transform.position + new Vector3(1.5f, 0.3f),
-                Quaternion.identity);
-            stone.GetComponent<Rigidbody2D>().AddForce(owner.transform.right * 10000);
-        }
-        else
-        {
-            var stone = Instantiate(StonePrefab, owner.transform.position + new Vector3(-1.5f, 0.3f),
-                Quaternion.identity);
-            stone.GetComponent<Rigidbody2D>().AddForce(owner.transform.right * 10000);
-        }
+        float tempPosX;
+        if (owner.transform.rotation.y == 0) tempPosX = 1.5f;
+        else tempPosX = -1.5f;
+        
+        var stone = Instantiate(StonePrefab, owner.transform.position + new Vector3(tempPosX, 0.3f),
+            Quaternion.identity);
+        stone.GetComponent<Rigidbody2D>().AddForce(owner.transform.right * 10000);
     }
     
     public void ShockWave()
     {
-        var shockWave = Instantiate(ShockWavePrefab, owner.transform.position, Quaternion.identity);
+        float tempPosX;
+        if (owner.transform.rotation.y == 0) tempPosX = 0.5f;
+        else tempPosX = -0.5f;
+        
+        var shockWave = Instantiate(ShockWavePrefab, owner.transform.position + new Vector3(tempPosX, -0.5f),
+            Quaternion.identity);
         shockWave.GetComponent<HitColider>().owner = owner;
+        shockWave.GetComponent<Rigidbody2D>().AddForce(owner.transform.right * 10000);
     }
     
     IEnumerator Reload()
