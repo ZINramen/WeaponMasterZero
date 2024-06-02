@@ -19,6 +19,8 @@ public class ShootingControl : MonoBehaviour
     public GameObject shootingPrefab;
     public GameObject bombPrefab;
     public GameObject HammerPrefab;
+    public GameObject StonePrefab;
+    public GameObject ShockWavePrefab;
 
     public Transform fireTr;
     public Transform GunfireTr;
@@ -114,6 +116,28 @@ public class ShootingControl : MonoBehaviour
         bomb.GetComponent<Rigidbody2D>().AddForce((owner.transform.right + owner.transform.up) * 100);
     }
 
+    public void ThrowStone()
+    {
+        if (owner.transform.rotation.y == 0)
+        {
+            var stone = Instantiate(StonePrefab, owner.transform.position + new Vector3(1.5f, 0.3f),
+                Quaternion.identity);
+            stone.GetComponent<Rigidbody2D>().AddForce(owner.transform.right * 10000);
+        }
+        else
+        {
+            var stone = Instantiate(StonePrefab, owner.transform.position + new Vector3(-1.5f, 0.3f),
+                Quaternion.identity);
+            stone.GetComponent<Rigidbody2D>().AddForce(owner.transform.right * 10000);
+        }
+    }
+    
+    public void ShockWave()
+    {
+        var shockWave = Instantiate(ShockWavePrefab, owner.transform.position, Quaternion.identity);
+        shockWave.GetComponent<HitColider>().owner = owner;
+    }
+    
     IEnumerator Reload()
     {
         while (GunGauge.fillAmount != 1)

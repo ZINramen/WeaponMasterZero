@@ -62924,6 +62924,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Alway: 0
+  BlockDash: 0
   owner: {fileID: 0}
   h: 0
   body: {fileID: 0}
@@ -62967,7 +62968,8 @@ MonoBehaviour:
   UpArrow: 273
   Emotion_1: 0
   Heal: 113
-  Cutscenes: []
+  Cutscenes:
+  - {fileID: 6915026681310021189, guid: 2fdafde921f78884b9a2f2bbedbc09ea, type: 3}
 --- !u!114 &5402530045787039823
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -63030,7 +63032,6 @@ MonoBehaviour:
   CoolTextEffect: {fileID: 6268643683504991078, guid: ac04799a645e5a54dbd564caba5de5ff, type: 3}
   emoticon: {fileID: 7464022481887345051}
   ultScreen: {fileID: 4098051588899277449}
-  GameoverUI: {fileID: 0}
 --- !u!114 &8420422611764709252
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -63190,7 +63191,9 @@ MonoBehaviour:
   bulletSpeed: 10
   shootingPrefab: {fileID: 3720463374832119540, guid: 9dd6a27bda622244dbdaea757186379a, type: 3}
   bombPrefab: {fileID: 5359057258020180228, guid: 68dff8d122492d2458ee91b827a96f26, type: 3}
-  HammerPrefab: {fileID: 0}
+  HammerPrefab: {fileID: 4822297563414658317, guid: 144a49077aec5f947ab9f41f0578acce, type: 3}
+  StonePrefab: {fileID: 5863413222475620570, guid: 18a8bcd36588e3048acee08509fd65aa, type: 3}
+  ShockWavePrefab: {fileID: 6626768178652176019, guid: 314bfef4e974b3948a57977739f2cb74, type: 3}
   fireTr: {fileID: 3301241753238690825}
   GunfireTr: {fileID: 7023572670391659190}
   GunGauge: {fileID: 2221291954312951389}
@@ -86265,6 +86268,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 32bf50a30d2fbe244ad305aafa4d14a7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  owner: {fileID: 0}
 --- !u!50 &8105312422903608257
 Rigidbody2D:
   serializedVersion: 4
