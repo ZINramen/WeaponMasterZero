@@ -119,7 +119,8 @@ public class LastBoss_Ctrl : Boss
     [SerializeField] private Sprite GunBG;
     [SerializeField] private Sprite HammerBG;
     
-    [SerializeField] private GameObject AttackAble_BackGround;
+    private GameObject AttackAble_UI;
+    private GameObject BackGround;
     
     public enum PlayerAttackType { Sword = 1, Gun, Hammer, NotSetting }
     private PlayerAttackType attAble_AttType;
@@ -218,6 +219,11 @@ public class LastBoss_Ctrl : Boss
         AttackAble_BackGroundData[0] = SwordBG;
         AttackAble_BackGroundData[1] = GunBG;
         AttackAble_BackGroundData[2] = HammerBG;
+        
+        AttackAble_UI = this.gameObject.transform.GetChild(6).gameObject;
+        AttackAble_UI.gameObject.SetActive(false);
+        
+        BackGround = GameObject.Find("BackGround").gameObject;
 
         change_AttTypeTime = 10f;
         m_bubblePower = 3f;
@@ -288,10 +294,12 @@ public class LastBoss_Ctrl : Boss
         if (LastBoss_Entity.GetHp() <= changeAttack_AbleHP)
         {
             if (attAble_AttType == PlayerAttackType.NotSetting && !LastBoss_Entity.activeDesireWeapon)
+            {
+                AttackAble_UI.gameObject.SetActive(true);
                 Setting_AbleAttType();
+            }
             
             change_AttTypeCount += Time.deltaTime;
-            Debug.Log(change_AttTypeCount);
             
             if (change_AttTypeCount >= change_AttTypeTime)
             {
@@ -350,6 +358,8 @@ public class LastBoss_Ctrl : Boss
         {
             isActive_Absorb = false;
             animCtrl.SetBool("isEnd_Absorb", true);
+            
+            Destroy_PlayerDashBan();
         }
 
         if (isActive_Fist && fistCount < fistTotalCount)
@@ -434,6 +444,7 @@ public class LastBoss_Ctrl : Boss
     #region 흡수 공격 skill 3 함수
     public void AttackAbsorb_Skill3()
     {
+        Spon_PlayerDashBan();
         isActive_Absorb = true;
     }
 
@@ -579,11 +590,14 @@ public class LastBoss_Ctrl : Boss
         
         while(beforeAttType == random_AttAbleType)
             random_AttAbleType = Random.Range((int)PlayerAttackType.Sword, (int)PlayerAttackType.Hammer + 1);
-
+        
         beforeAttType = random_AttAbleType;
         attAble_AttType = AttAbleSkill_ToEnum(random_AttAbleType);
         
-        AttackAble_BackGround.gameObject.GetComponent<SpriteRenderer>().sprite = AttackAble_BackGroundData[random_AttAbleType - 1];
+        SetFalse_BGSetting();
+        BackGround.transform.GetChild(random_AttAbleType - 1).gameObject.SetActive(true);
+        
+        AttackAble_UI.gameObject.GetComponent<SpriteRenderer>().sprite = AttackAble_BackGroundData[random_AttAbleType - 1];
         LastBoss_Entity.desireWeaponFinalBoss = random_AttAbleType;
         
         animCtrl.SetBool("isActive_Teleport", false);
@@ -599,6 +613,13 @@ public class LastBoss_Ctrl : Boss
         
         else
             return PlayerAttackType.Hammer;
+    }
+
+    private void SetFalse_BGSetting()
+    {
+        BackGround.transform.GetChild(0).gameObject.SetActive(false);
+        BackGround.transform.GetChild(1).gameObject.SetActive(false);
+        BackGround.transform.GetChild(2).gameObject.SetActive(false);
     }
     #endregion
     

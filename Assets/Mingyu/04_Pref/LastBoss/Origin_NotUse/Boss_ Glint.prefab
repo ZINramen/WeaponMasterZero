@@ -289,7 +289,6 @@ MonoBehaviour:
   playerIsOwn: 0
   attType: 0
   isAbleDestroy: 0
-  WeaponCanAbleDestroy: 0
   DestroyEffect: {fileID: 0}
 --- !u!1 &595508711176649116
 GameObject:
@@ -449,7 +448,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 2
+  m_SortingOrder: 0
   m_Sprite: {fileID: -2048290144, guid: 10b3abb3383cac448ae22bb04e9f8406, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 1
@@ -483,7 +482,6 @@ MonoBehaviour:
   playerIsOwn: 0
   attType: 0
   isAbleDestroy: 0
-  WeaponCanAbleDestroy: 0
   DestroyEffect: {fileID: 0}
 --- !u!61 &1017597132500582208
 BoxCollider2D:
@@ -683,7 +681,6 @@ MonoBehaviour:
   playerIsOwn: 0
   attType: 0
   isAbleDestroy: 0
-  WeaponCanAbleDestroy: 0
   DestroyEffect: {fileID: 0}
 --- !u!1 &988351149789685289
 GameObject:
@@ -838,7 +835,6 @@ MonoBehaviour:
   playerIsOwn: 0
   attType: 0
   isAbleDestroy: 0
-  WeaponCanAbleDestroy: 0
   DestroyEffect: {fileID: 0}
 --- !u!1 &1106007871822214390
 GameObject:
@@ -1082,12 +1078,11 @@ MonoBehaviour:
   flyingAttackForce: 0
   attackForce: 10
   thrustValue: 0.5
-  owner: {fileID: 0}
+  owner: {fileID: 5864137460049584861}
   oneHit: 0
   playerIsOwn: 0
   attType: 0
   isAbleDestroy: 0
-  WeaponCanAbleDestroy: 0
   DestroyEffect: {fileID: 0}
 --- !u!58 &8410946980179617036
 CircleCollider2D:
@@ -1224,6 +1219,90 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &1449232642554519390
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2987158338237809922}
+  - component: {fileID: 7441236655051899094}
+  m_Layer: 3
+  m_Name: Square
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2987158338237809922
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1449232642554519390}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 2.77, y: 1.66, z: 0}
+  m_LocalScale: {x: 0.17799, y: 0.17799, z: 0.17799}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6048216593931354487}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!212 &7441236655051899094
+SpriteRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1449232642554519390}
+  m_Enabled: 0
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_Sprite: {fileID: 21300000, guid: 4c781c7a709eda541a03a0eaa4af2a48, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_FlipX: 0
+  m_FlipY: 0
+  m_DrawMode: 0
+  m_Size: {x: 1, y: 1}
+  m_AdaptiveModeThreshold: 0.5
+  m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 1
+  m_MaskInteraction: 0
+  m_SpriteSortPoint: 0
 --- !u!1 &2102879213417040095
 GameObject:
   m_ObjectHideFlags: 0
@@ -1327,12 +1406,11 @@ MonoBehaviour:
   flyingAttackForce: 0
   attackForce: 10
   thrustValue: 0.5
-  owner: {fileID: 0}
+  owner: {fileID: 5864137460049584861}
   oneHit: 0
   playerIsOwn: 0
   attType: 0
   isAbleDestroy: 0
-  WeaponCanAbleDestroy: 0
   DestroyEffect: {fileID: 0}
 --- !u!58 &8134464156891643994
 CircleCollider2D:
@@ -1474,12 +1552,11 @@ MonoBehaviour:
   flyingAttackForce: 0
   attackForce: 10
   thrustValue: 0.5
-  owner: {fileID: 0}
+  owner: {fileID: 5864137460049584861}
   oneHit: 0
   playerIsOwn: 0
   attType: 0
   isAbleDestroy: 0
-  WeaponCanAbleDestroy: 0
   DestroyEffect: {fileID: 0}
 --- !u!58 &1801164376483941040
 CircleCollider2D:
@@ -1604,7 +1681,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -2
   m_Sprite: {fileID: -75716216, guid: 3e6c58c7fd302d5419f70d360c9fc50c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 1
@@ -1751,12 +1828,11 @@ MonoBehaviour:
   flyingAttackForce: 0
   attackForce: 10
   thrustValue: 0.5
-  owner: {fileID: 0}
+  owner: {fileID: 5864137460049584861}
   oneHit: 0
   playerIsOwn: 0
   attType: 0
   isAbleDestroy: 0
-  WeaponCanAbleDestroy: 0
   DestroyEffect: {fileID: 0}
 --- !u!58 &7291594607841087553
 CircleCollider2D:
@@ -1946,7 +2022,6 @@ MonoBehaviour:
   playerIsOwn: 0
   attType: 0
   isAbleDestroy: 0
-  WeaponCanAbleDestroy: 0
   DestroyEffect: {fileID: 0}
 --- !u!1 &2718762196227357545
 GameObject:
@@ -2020,7 +2095,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingOrder: -1
   m_Sprite: {fileID: 1251874656, guid: b2c24047e6f67cc4fa2672a654eddb49, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -2358,6 +2433,7 @@ Transform:
   - {fileID: 1629414154923095846}
   - {fileID: 8195416203071512846}
   - {fileID: 6097180090703816134}
+  - {fileID: 2987158338237809922}
   - {fileID: 3210695838158314168}
   - {fileID: 9188640021706188455}
   - {fileID: 4123058325471691511}
@@ -2478,7 +2554,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 7
 --- !u!70 &7217948101277009233
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -2554,7 +2630,6 @@ MonoBehaviour:
   DamageBlock: 0
   currentCombo: 0
   maxcombo: 10
-  ComboUI: {fileID: 2320536752282502563, guid: 02f78935d275c27478963ecf2e2006de, type: 3}
   isDamaged: 0
   HitEffect: {fileID: 5302201665987482517, guid: 10ecd86e54fbd744baa1f69bb0995cc2, type: 3}
   StrongHitEffect: {fileID: 5942996768073886119, guid: a1a7b4ac36c2cac4690161d6213c9499, type: 3}
@@ -2577,42 +2652,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   groundApproachDist: 0
   move_Speed: 0
-  DA_HitArea: []
-  P1Skill1_HitArea: []
-  P1Skill2_HitArea: []
-  P2Skill1_HitArea: []
-  P2Skill2_HitArea: []
-  P2Skill3_HitArea: []
+  DashBan_Obj: {fileID: 3663585148305855693, guid: b1125a9a0a3752346b5343412b612337, type: 3}
   hit_Mat: {fileID: 2100000, guid: 9a312534a97aeb14e89b5c7cc149b470, type: 2}
   bossType: 3
   isDie: 0
-  playerJump_Power: 0
   ShootingBullet_Pref: {fileID: 555014721428104510, guid: d2de8c682b312494cb9b6f19643186db, type: 3}
-  ShootingBulletPos: {fileID: 6097180090703816134}
-  bulletCount: 12
-  shooting_AttTotalCount: 6
-  AbsorbHand: {fileID: 0}
-  absorbAtt_DelayTime: 0
-  AbsorbAtt_TotalCount: 0
-  absorbHP_Amount: 0
-  downSpeed: 0
-  FistObj: {fileID: 0}
-  leftUP_FistSponPos: {fileID: 0}
-  rightDown_FistSponPos: {fileID: 0}
-  fistTotalCount: 0
-  fistDelayTime: 0
-  fistPower: 0
+  AbsorbHand: {fileID: 7801138083066790131, guid: ef24b785b1d220e4ab10e096c76db907, type: 3}
+  FistObj: {fileID: 2680245390076671524, guid: e80b8343f3b9d514195ccd9809d7974f, type: 3}
   delete_FistCount: 0
-  AttackAble_BackGroundData:
-  - {fileID: 21300000, guid: 4c781c7a709eda541a03a0eaa4af2a48, type: 3}
-  - {fileID: 21300000, guid: 981fd4b0cd062bb499084bc8852a84d2, type: 3}
-  - {fileID: 21300000, guid: 5273c5fe84de1124e8ba74863b21ce40, type: 3}
-  AttackAble_BackGround: {fileID: 0}
-  attAble_AttType: 4
-  change_AttTypeTime: 5
-  BubbleKey_Obj: {fileID: 0}
-  LockObj: {fileID: 0}
-  m_bubblePower: 0
+  SwordBG: {fileID: 21300000, guid: 4c781c7a709eda541a03a0eaa4af2a48, type: 3}
+  GunBG: {fileID: 21300000, guid: 981fd4b0cd062bb499084bc8852a84d2, type: 3}
+  HammerBG: {fileID: 21300000, guid: 5273c5fe84de1124e8ba74863b21ce40, type: 3}
+  BubbleKey_Obj: {fileID: 5500764307751271247, guid: 64047f127b550004ab7a5ee687890cbd, type: 3}
+  LockObj: {fileID: 6462758585308034143, guid: 96799984c8a62c2499cc7f8b3f550dbc, type: 3}
 --- !u!82 &8824470522893194102
 AudioSource:
   m_ObjectHideFlags: 0
@@ -2721,6 +2773,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 372e54ac4cda7584585ba6ddcf03b087, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isStartToMute: 0
 --- !u!1 &3688933922466071284
 GameObject:
   m_ObjectHideFlags: 0
@@ -2824,12 +2877,11 @@ MonoBehaviour:
   flyingAttackForce: 0
   attackForce: 10
   thrustValue: 0.5
-  owner: {fileID: 0}
+  owner: {fileID: 5864137460049584861}
   oneHit: 0
   playerIsOwn: 0
   attType: 0
   isAbleDestroy: 0
-  WeaponCanAbleDestroy: 0
   DestroyEffect: {fileID: 0}
 --- !u!58 &2883307072845242719
 CircleCollider2D:
@@ -3193,7 +3245,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 2
+  m_SortingOrder: 0
   m_Sprite: {fileID: -2048290144, guid: 10b3abb3383cac448ae22bb04e9f8406, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -3227,7 +3279,6 @@ MonoBehaviour:
   playerIsOwn: 0
   attType: 0
   isAbleDestroy: 0
-  WeaponCanAbleDestroy: 0
   DestroyEffect: {fileID: 0}
 --- !u!61 &6522793085619202901
 BoxCollider2D:
@@ -3463,12 +3514,11 @@ MonoBehaviour:
   flyingAttackForce: 0
   attackForce: 10
   thrustValue: 0.5
-  owner: {fileID: 0}
+  owner: {fileID: 5864137460049584861}
   oneHit: 0
   playerIsOwn: 0
   attType: 0
   isAbleDestroy: 0
-  WeaponCanAbleDestroy: 0
   DestroyEffect: {fileID: 0}
 --- !u!58 &86358958774381600
 CircleCollider2D:
@@ -3875,7 +3925,6 @@ MonoBehaviour:
   playerIsOwn: 0
   attType: 0
   isAbleDestroy: 0
-  WeaponCanAbleDestroy: 0
   DestroyEffect: {fileID: 0}
 --- !u!1 &8525246796309041316
 GameObject:
@@ -4033,7 +4082,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -2
   m_Sprite: {fileID: -75716216, guid: 3e6c58c7fd302d5419f70d360c9fc50c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0

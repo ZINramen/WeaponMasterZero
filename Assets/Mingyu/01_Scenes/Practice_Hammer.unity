@@ -383,7 +383,6 @@ MonoBehaviour:
   playerIsOwn: 0
   attType: 0
   isAbleDestroy: 0
-  WeaponCanAbleDestroy: 0
   DestroyEffect: {fileID: 0}
 --- !u!212 &133465765
 SpriteRenderer:
@@ -922,7 +921,6 @@ MonoBehaviour:
   playerIsOwn: 0
   attType: 0
   isAbleDestroy: 0
-  WeaponCanAbleDestroy: 0
   DestroyEffect: {fileID: 0}
 --- !u!212 &200627444
 SpriteRenderer:
@@ -1790,7 +1788,6 @@ MonoBehaviour:
   playerIsOwn: 0
   attType: 0
   isAbleDestroy: 0
-  WeaponCanAbleDestroy: 0
   DestroyEffect: {fileID: 0}
 --- !u!212 &565280994
 SpriteRenderer:
@@ -1945,7 +1942,6 @@ MonoBehaviour:
   playerIsOwn: 0
   attType: 0
   isAbleDestroy: 0
-  WeaponCanAbleDestroy: 0
   DestroyEffect: {fileID: 0}
 --- !u!212 &594078315
 SpriteRenderer:
@@ -2203,6 +2199,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 372e54ac4cda7584585ba6ddcf03b087, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isStartToMute: 0
 --- !u!82 &819132790
 AudioSource:
   m_ObjectHideFlags: 0
@@ -2360,7 +2357,6 @@ MonoBehaviour:
   DamageBlock: 0
   currentCombo: 0
   maxcombo: 10
-  ComboUI: {fileID: 2320536752282502563, guid: 02f78935d275c27478963ecf2e2006de, type: 3}
   isDamaged: 0
   HitEffect: {fileID: 5302201665987482517, guid: 10ecd86e54fbd744baa1f69bb0995cc2, type: 3}
   StrongHitEffect: {fileID: 5942996768073886119, guid: a1a7b4ac36c2cac4690161d6213c9499, type: 3}
@@ -2496,6 +2492,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Alway: 0
+  BlockDash: 0
   owner: {fileID: 819132794}
   h: 0
   body: {fileID: 0}
@@ -2520,12 +2517,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   groundApproachDist: 3
   move_Speed: 3
-  DA_HitArea: []
-  P1Skill1_HitArea: []
-  P1Skill2_HitArea: []
-  P2Skill1_HitArea: []
-  P2Skill2_HitArea: []
-  P2Skill3_HitArea: []
+  DashBan_Obj: {fileID: 3663585148305855693, guid: b1125a9a0a3752346b5343412b612337, type: 3}
   hit_Mat: {fileID: 2100000, guid: 9a312534a97aeb14e89b5c7cc149b470, type: 2}
   bossType: 2
   isDie: 0
@@ -2846,7 +2838,6 @@ MonoBehaviour:
   playerIsOwn: 0
   attType: 0
   isAbleDestroy: 0
-  WeaponCanAbleDestroy: 0
   DestroyEffect: {fileID: 0}
 --- !u!212 &853093629
 SpriteRenderer:
@@ -3390,7 +3381,6 @@ MonoBehaviour:
   playerIsOwn: 0
   attType: 0
   isAbleDestroy: 0
-  WeaponCanAbleDestroy: 0
   DestroyEffect: {fileID: 0}
 --- !u!212 &1176683956
 SpriteRenderer:
@@ -3649,7 +3639,6 @@ MonoBehaviour:
   playerIsOwn: 0
   attType: 0
   isAbleDestroy: 0
-  WeaponCanAbleDestroy: 0
   DestroyEffect: {fileID: 0}
 --- !u!212 &1346745383
 SpriteRenderer:
@@ -3804,7 +3793,6 @@ MonoBehaviour:
   playerIsOwn: 0
   attType: 0
   isAbleDestroy: 0
-  WeaponCanAbleDestroy: 0
   DestroyEffect: {fileID: 0}
 --- !u!212 &1434664250
 SpriteRenderer:
@@ -4332,7 +4320,6 @@ MonoBehaviour:
   playerIsOwn: 0
   attType: 0
   isAbleDestroy: 0
-  WeaponCanAbleDestroy: 0
   DestroyEffect: {fileID: 0}
 --- !u!212 &1654521095
 SpriteRenderer:
@@ -4705,7 +4692,6 @@ MonoBehaviour:
   playerIsOwn: 0
   attType: 0
   isAbleDestroy: 0
-  WeaponCanAbleDestroy: 0
   DestroyEffect: {fileID: 0}
 --- !u!212 &1758612920
 SpriteRenderer:
@@ -5015,7 +5001,6 @@ MonoBehaviour:
   playerIsOwn: 0
   attType: 0
   isAbleDestroy: 0
-  WeaponCanAbleDestroy: 0
   DestroyEffect: {fileID: 0}
 --- !u!212 &1824410650
 SpriteRenderer:
@@ -5201,7 +5186,6 @@ MonoBehaviour:
   playerIsOwn: 0
   attType: 0
   isAbleDestroy: 0
-  WeaponCanAbleDestroy: 0
   DestroyEffect: {fileID: 0}
 --- !u!212 &1841850087
 SpriteRenderer:
@@ -6072,7 +6056,6 @@ MonoBehaviour:
   groundCheck: {fileID: 0}
   owner: {fileID: 0}
   temp: {fileID: 0}
-  ecActive: 0
   rotationZ: 0
   ani: {fileID: 4765302297919737294}
   State: 0
@@ -6090,6 +6073,7 @@ MonoBehaviour:
   UpArrow: 0
   Emotion_1: 0
   Heal: 0
+  Cutscenes: []
 --- !u!212 &1109619504540197226
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -6182,7 +6166,6 @@ MonoBehaviour:
   DamageBlock: 0
   currentCombo: 0
   maxcombo: 20
-  ComboUI: {fileID: 2320536752282502563, guid: 02f78935d275c27478963ecf2e2006de, type: 3}
   isDamaged: 0
   HitEffect: {fileID: 5302201665987482517, guid: 10ecd86e54fbd744baa1f69bb0995cc2, type: 3}
   StrongHitEffect: {fileID: 5942996768073886119, guid: a1a7b4ac36c2cac4690161d6213c9499, type: 3}
@@ -6298,7 +6281,6 @@ MonoBehaviour:
   groundCheck: {fileID: 0}
   owner: {fileID: 0}
   temp: {fileID: 0}
-  ecActive: 0
   rotationZ: 0
   ani: {fileID: 0}
   State: 0
@@ -6316,6 +6298,7 @@ MonoBehaviour:
   UpArrow: 0
   Emotion_1: 0
   Heal: 0
+  Cutscenes: []
 --- !u!114 &1729271090072754470
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6356,7 +6339,6 @@ MonoBehaviour:
   DamageBlock: 0
   currentCombo: 0
   maxcombo: 10
-  ComboUI: {fileID: 2320536752282502563, guid: 02f78935d275c27478963ecf2e2006de, type: 3}
   isDamaged: 0
   HitEffect: {fileID: 5302201665987482517, guid: 10ecd86e54fbd744baa1f69bb0995cc2, type: 3}
   StrongHitEffect: {fileID: 5942996768073886119, guid: a1a7b4ac36c2cac4690161d6213c9499, type: 3}
@@ -6397,12 +6379,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6431b494ee8368b4295dbe7e7408336f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isOnline: 1
-  notDestroy: 1
-  item: 0
+  donHit: 0
+  InteractionEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  isEnd: 0
+  Effect: {fileID: 0}
+  pos: {x: 0, y: 0}
   itemName: Sword
-  fixedItemName: 
-  effect: {fileID: 6327576377921704478, guid: 4ad8f787cd00dfb4ab2a63dff004bade, type: 3}
 --- !u!4 &2188234507358140019
 Transform:
   m_ObjectHideFlags: 0
@@ -6547,12 +6531,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6431b494ee8368b4295dbe7e7408336f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isOnline: 1
-  notDestroy: 1
-  item: 0
+  donHit: 0
+  InteractionEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  isEnd: 0
+  Effect: {fileID: 0}
+  pos: {x: 0, y: 0}
   itemName: Hammer
-  fixedItemName: 
-  effect: {fileID: 6327576377921704478, guid: 4ad8f787cd00dfb4ab2a63dff004bade, type: 3}
 --- !u!114 &3575266871617177063
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6566,6 +6552,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Alway: 0
+  BlockDash: 0
   owner: {fileID: 0}
   h: 0
   body: {fileID: 0}
@@ -6588,12 +6575,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6431b494ee8368b4295dbe7e7408336f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isOnline: 1
-  notDestroy: 1
-  item: 0
+  donHit: 0
+  InteractionEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  isEnd: 0
+  Effect: {fileID: 0}
+  pos: {x: 0, y: 0}
   itemName: Kunai
-  fixedItemName: 
-  effect: {fileID: 6327576377921704478, guid: 4ad8f787cd00dfb4ab2a63dff004bade, type: 3}
 --- !u!1 &3612367623033837913
 GameObject:
   m_ObjectHideFlags: 0
@@ -6642,12 +6631,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6431b494ee8368b4295dbe7e7408336f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isOnline: 1
-  notDestroy: 1
-  item: 0
+  donHit: 0
+  InteractionEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  isEnd: 0
+  Effect: {fileID: 0}
+  pos: {x: 0, y: 0}
   itemName: Gun
-  fixedItemName: 
-  effect: {fileID: 6327576377921704478, guid: 4ad8f787cd00dfb4ab2a63dff004bade, type: 3}
 --- !u!4 &4263743100409030768
 Transform:
   m_ObjectHideFlags: 0
@@ -7067,12 +7058,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6431b494ee8368b4295dbe7e7408336f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isOnline: 1
-  notDestroy: 1
-  item: 0
+  donHit: 0
+  InteractionEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  isEnd: 0
+  Effect: {fileID: 0}
+  pos: {x: 0, y: 0}
   itemName: Potion
-  fixedItemName: 
-  effect: {fileID: 6327576377921704478, guid: 4ad8f787cd00dfb4ab2a63dff004bade, type: 3}
 --- !u!95 &6509775837422975330
 Animator:
   serializedVersion: 5
@@ -7639,6 +7632,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 372e54ac4cda7584585ba6ddcf03b087, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isStartToMute: 0
 --- !u!82 &8266854932642347384
 AudioSource:
   m_ObjectHideFlags: 0

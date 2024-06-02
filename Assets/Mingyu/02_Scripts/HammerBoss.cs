@@ -51,7 +51,7 @@ public class HammerBoss : Boss
     private bool isRush_P2S1 = false;
     
     private Transform SnowSponPos;
-    private float snowForce;
+    private float snowSpeed;
     private float p2S1_DelayTime;
     
     private GameObject dummy_SnowObj;
@@ -190,7 +190,7 @@ public class HammerBoss : Boss
         
         // 눈덩이 굴리기 패턴
         rushSpeed = 12f;
-        snowForce = 100000f;
+        snowSpeed = 8f;
         p2S1_DelayTime = 1.5f;
         rush_GroundInterval = 2f;
         
@@ -295,6 +295,8 @@ public class HammerBoss : Boss
     #region P2_Skill1 함수
     public void Rush_P2S1()
     {
+        Spon_PlayerDashBan();
+        
         isRush_P2S1 = true;
         RushTrail.gameObject.SetActive(true);
         groundApproachDist = rush_GroundInterval;
@@ -315,11 +317,16 @@ public class HammerBoss : Boss
         
         dummy_SnowObj = Instantiate(SnowPref, SnowSponPos.position, quaternion.identity);
         dummy_SnowObj.transform.GetChild(0).gameObject.GetComponent<SnowBall_HitColl>().owner = this.gameObject.GetComponent<Entity>();
-        
-        dummy_SnowObj.gameObject.GetComponent<Rigidbody2D>().AddForce(
-            (this.transform.localEulerAngles.y == 180 ? Vector2.right : Vector2.left) * snowForce, ForceMode2D.Impulse);
+
+        dummy_SnowObj.transform.GetChild(0).gameObject.GetComponent<SnowBall_HitColl>().moveSpeed
+            = this.transform.eulerAngles.y == 180 ? snowSpeed : -snowSpeed;
         
         Invoke("EndSkill", p2S1_DelayTime);
+    }
+    
+    public void Destroy_SnowBall()
+    {
+        Destroy_PlayerDashBan();
     }
     #endregion
     

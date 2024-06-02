@@ -123,6 +123,37 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &35314167
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 35314168}
+  m_Layer: 0
+  m_Name: Test3
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &35314168
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 35314167}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1226885951}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &82478552
 GameObject:
   m_ObjectHideFlags: 0
@@ -254,7 +285,6 @@ MonoBehaviour:
   playerIsOwn: 0
   attType: 0
   isAbleDestroy: 0
-  WeaponCanAbleDestroy: 0
   DestroyEffect: {fileID: 0}
 --- !u!61 &111014403
 BoxCollider2D:
@@ -559,17 +589,70 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &405218657 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 5864137460049584861, guid: 2a374d2cf30fd614694ad0cfe0706f3c, type: 3}
-  m_PrefabInstance: {fileID: 1097129333}
+--- !u!1 &242379940
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1097129334}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9a1045773e672824daf99f5c8b2edde4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 242379941}
+  m_Layer: 0
+  m_Name: Gun
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &242379941
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 242379940}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1353758856}
+  m_Father: {fileID: 1917181748}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &356876471
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 356876472}
+  m_Layer: 0
+  m_Name: Sword
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &356876472
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 356876471}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1517541885}
+  m_Father: {fileID: 1917181748}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &456577350
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -703,7 +786,6 @@ MonoBehaviour:
   playerIsOwn: 0
   attType: 0
   isAbleDestroy: 0
-  WeaponCanAbleDestroy: 0
   DestroyEffect: {fileID: 0}
 --- !u!61 &457508288
 BoxCollider2D:
@@ -1115,7 +1197,6 @@ MonoBehaviour:
   playerIsOwn: 0
   attType: 0
   isAbleDestroy: 0
-  WeaponCanAbleDestroy: 0
   DestroyEffect: {fileID: 0}
 --- !u!61 &569389033
 BoxCollider2D:
@@ -1472,7 +1553,6 @@ MonoBehaviour:
   playerIsOwn: 0
   attType: 0
   isAbleDestroy: 0
-  WeaponCanAbleDestroy: 0
   DestroyEffect: {fileID: 0}
 --- !u!61 &640837186
 BoxCollider2D:
@@ -1873,7 +1953,6 @@ MonoBehaviour:
   playerIsOwn: 0
   attType: 0
   isAbleDestroy: 0
-  WeaponCanAbleDestroy: 0
   DestroyEffect: {fileID: 0}
 --- !u!61 &826828071
 BoxCollider2D:
@@ -2284,37 +2363,9 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 308952803881130099, guid: 2a374d2cf30fd614694ad0cfe0706f3c, type: 3}
-      propertyPath: m_SortingOrder
-      value: -2
-      objectReference: {fileID: 0}
-    - target: {fileID: 678699392500745428, guid: 2a374d2cf30fd614694ad0cfe0706f3c, type: 3}
-      propertyPath: m_SortingOrder
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 743622985900273326, guid: 2a374d2cf30fd614694ad0cfe0706f3c, type: 3}
-      propertyPath: owner
-      value: 
-      objectReference: {fileID: 405218657}
-    - target: {fileID: 1188095185183963883, guid: 2a374d2cf30fd614694ad0cfe0706f3c, type: 3}
-      propertyPath: owner
-      value: 
-      objectReference: {fileID: 405218657}
-    - target: {fileID: 1900706584935134913, guid: 2a374d2cf30fd614694ad0cfe0706f3c, type: 3}
-      propertyPath: owner
-      value: 
-      objectReference: {fileID: 405218657}
-    - target: {fileID: 2619406666446113131, guid: 2a374d2cf30fd614694ad0cfe0706f3c, type: 3}
-      propertyPath: owner
-      value: 
-      objectReference: {fileID: 405218657}
     - target: {fileID: 3655505074529073543, guid: 2a374d2cf30fd614694ad0cfe0706f3c, type: 3}
       propertyPath: m_Name
       value: Boss_ Glint
-      objectReference: {fileID: 0}
-    - target: {fileID: 3887296284544498052, guid: 2a374d2cf30fd614694ad0cfe0706f3c, type: 3}
-      propertyPath: m_SortingOrder
-      value: -1
       objectReference: {fileID: 0}
     - target: {fileID: 6048216593931354487, guid: 2a374d2cf30fd614694ad0cfe0706f3c, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2356,132 +2407,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6188881497920904718, guid: 2a374d2cf30fd614694ad0cfe0706f3c, type: 3}
-      propertyPath: owner
+    - target: {fileID: 7441236655051899094, guid: 2a374d2cf30fd614694ad0cfe0706f3c, type: 3}
+      propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 405218657}
-    - target: {fileID: 6767662857469185480, guid: 2a374d2cf30fd614694ad0cfe0706f3c, type: 3}
-      propertyPath: m_SortingOrder
-      value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6863091440223345420, guid: 2a374d2cf30fd614694ad0cfe0706f3c, type: 3}
-      propertyPath: owner
-      value: 
-      objectReference: {fileID: 405218657}
-    - target: {fileID: 7165676077906497274, guid: 2a374d2cf30fd614694ad0cfe0706f3c, type: 3}
-      propertyPath: m_SortingOrder
-      value: -2
-      objectReference: {fileID: 0}
-    - target: {fileID: 8261943556768627245, guid: 2a374d2cf30fd614694ad0cfe0706f3c, type: 3}
-      propertyPath: GunBG
-      value: 
-      objectReference: {fileID: 21300000, guid: 981fd4b0cd062bb499084bc8852a84d2, type: 3}
-    - target: {fileID: 8261943556768627245, guid: 2a374d2cf30fd614694ad0cfe0706f3c, type: 3}
-      propertyPath: isDie
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8261943556768627245, guid: 2a374d2cf30fd614694ad0cfe0706f3c, type: 3}
-      propertyPath: FistObj
-      value: 
-      objectReference: {fileID: 2680245390076671524, guid: e80b8343f3b9d514195ccd9809d7974f, type: 3}
-    - target: {fileID: 8261943556768627245, guid: 2a374d2cf30fd614694ad0cfe0706f3c, type: 3}
-      propertyPath: LockObj
-      value: 
-      objectReference: {fileID: 6462758585308034143, guid: 96799984c8a62c2499cc7f8b3f550dbc, type: 3}
-    - target: {fileID: 8261943556768627245, guid: 2a374d2cf30fd614694ad0cfe0706f3c, type: 3}
-      propertyPath: SwordBG
-      value: 
-      objectReference: {fileID: 21300000, guid: 4c781c7a709eda541a03a0eaa4af2a48, type: 3}
-    - target: {fileID: 8261943556768627245, guid: 2a374d2cf30fd614694ad0cfe0706f3c, type: 3}
-      propertyPath: HammerBG
-      value: 
-      objectReference: {fileID: 21300000, guid: 5273c5fe84de1124e8ba74863b21ce40, type: 3}
-    - target: {fileID: 8261943556768627245, guid: 2a374d2cf30fd614694ad0cfe0706f3c, type: 3}
-      propertyPath: downSpeed
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 8261943556768627245, guid: 2a374d2cf30fd614694ad0cfe0706f3c, type: 3}
-      propertyPath: fistPower
-      value: 20
-      objectReference: {fileID: 0}
-    - target: {fileID: 8261943556768627245, guid: 2a374d2cf30fd614694ad0cfe0706f3c, type: 3}
-      propertyPath: AbsorbHand
-      value: 
-      objectReference: {fileID: 7801138083066790131, guid: ef24b785b1d220e4ab10e096c76db907, type: 3}
-    - target: {fileID: 8261943556768627245, guid: 2a374d2cf30fd614694ad0cfe0706f3c, type: 3}
-      propertyPath: BubbleKey_Obj
-      value: 
-      objectReference: {fileID: 5500764307751271247, guid: 64047f127b550004ab7a5ee687890cbd, type: 3}
-    - target: {fileID: 8261943556768627245, guid: 2a374d2cf30fd614694ad0cfe0706f3c, type: 3}
-      propertyPath: KeyBubble_Obj
-      value: 
-      objectReference: {fileID: 4029360389876844580, guid: d37f9a96c34613f41956d217845e6534, type: 3}
-    - target: {fileID: 8261943556768627245, guid: 2a374d2cf30fd614694ad0cfe0706f3c, type: 3}
-      propertyPath: fistDelayTime
-      value: 0.7
-      objectReference: {fileID: 0}
-    - target: {fileID: 8261943556768627245, guid: 2a374d2cf30fd614694ad0cfe0706f3c, type: 3}
-      propertyPath: m_bubblePower
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 8261943556768627245, guid: 2a374d2cf30fd614694ad0cfe0706f3c, type: 3}
-      propertyPath: fistTotalCount
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 8261943556768627245, guid: 2a374d2cf30fd614694ad0cfe0706f3c, type: 3}
-      propertyPath: absorbHP_Amount
-      value: 20
-      objectReference: {fileID: 0}
-    - target: {fileID: 8261943556768627245, guid: 2a374d2cf30fd614694ad0cfe0706f3c, type: 3}
-      propertyPath: playerJump_Power
-      value: 60
-      objectReference: {fileID: 0}
-    - target: {fileID: 8261943556768627245, guid: 2a374d2cf30fd614694ad0cfe0706f3c, type: 3}
-      propertyPath: change_AttTypeTime
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 8261943556768627245, guid: 2a374d2cf30fd614694ad0cfe0706f3c, type: 3}
-      propertyPath: leftUP_FistSponPos
-      value: 
-      objectReference: {fileID: 984391264}
-    - target: {fileID: 8261943556768627245, guid: 2a374d2cf30fd614694ad0cfe0706f3c, type: 3}
-      propertyPath: absorbAtt_DelayTime
+    - target: {fileID: 7441236655051899094, guid: 2a374d2cf30fd614694ad0cfe0706f3c, type: 3}
+      propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 8261943556768627245, guid: 2a374d2cf30fd614694ad0cfe0706f3c, type: 3}
-      propertyPath: AbsorbAtt_TotalCount
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 8261943556768627245, guid: 2a374d2cf30fd614694ad0cfe0706f3c, type: 3}
-      propertyPath: AttackAble_BackGround
-      value: 
-      objectReference: {fileID: 1917181746}
-    - target: {fileID: 8261943556768627245, guid: 2a374d2cf30fd614694ad0cfe0706f3c, type: 3}
-      propertyPath: rightDown_FistSponPos
-      value: 
-      objectReference: {fileID: 1677496960}
-    - target: {fileID: 8261943556768627245, guid: 2a374d2cf30fd614694ad0cfe0706f3c, type: 3}
-      propertyPath: HandAtt_HitArea.Array.data[0]
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 8261943556768627245, guid: 2a374d2cf30fd614694ad0cfe0706f3c, type: 3}
-      propertyPath: HandAtt_HitArea.Array.data[1]
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 8261943556768627245, guid: 2a374d2cf30fd614694ad0cfe0706f3c, type: 3}
-      propertyPath: HandAtt_HitArea.Array.data[2]
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 8261943556768627245, guid: 2a374d2cf30fd614694ad0cfe0706f3c, type: 3}
-      propertyPath: HandAtt_HitArea.Array.data[3]
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 8605315837702270110, guid: 2a374d2cf30fd614694ad0cfe0706f3c, type: 3}
-      propertyPath: m_Constraints
-      value: 7
-      objectReference: {fileID: 0}
-    - target: {fileID: 9046019861908221460, guid: 2a374d2cf30fd614694ad0cfe0706f3c, type: 3}
-      propertyPath: m_SortingOrder
+    - target: {fileID: 7441236655051899094, guid: 2a374d2cf30fd614694ad0cfe0706f3c, type: 3}
+      propertyPath: m_WasSpriteAssigned
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -2653,7 +2588,6 @@ MonoBehaviour:
   playerIsOwn: 0
   attType: 0
   isAbleDestroy: 0
-  WeaponCanAbleDestroy: 0
   DestroyEffect: {fileID: 0}
 --- !u!61 &1191065937
 BoxCollider2D:
@@ -2820,6 +2754,38 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1226885950
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1226885951}
+  m_Layer: 0
+  m_Name: Hammer
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &1226885951
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1226885950}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 35314168}
+  m_Father: {fileID: 1917181748}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1244391197
 GameObject:
   m_ObjectHideFlags: 0
@@ -2899,6 +2865,37 @@ Transform:
   - {fileID: 1191065935}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1353758855
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1353758856}
+  m_Layer: 0
+  m_Name: Test2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1353758856
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1353758855}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 242379941}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1469041985
 GameObject:
   m_ObjectHideFlags: 0
@@ -2955,7 +2952,6 @@ MonoBehaviour:
   playerIsOwn: 0
   attType: 0
   isAbleDestroy: 0
-  WeaponCanAbleDestroy: 0
   DestroyEffect: {fileID: 0}
 --- !u!61 &1469041988
 BoxCollider2D:
@@ -3054,6 +3050,37 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &1517541884
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1517541885}
+  m_Layer: 0
+  m_Name: Test1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1517541885
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1517541884}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 356876472}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1595100735
 GameObject:
   m_ObjectHideFlags: 0
@@ -3408,7 +3435,10 @@ Transform:
   m_LocalPosition: {x: -0.38, y: 6.1, z: -0.43}
   m_LocalScale: {x: 3.9006631, y: 3.4191751, z: 3.9006631}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 356876472}
+  - {fileID: 242379941}
+  - {fileID: 1226885951}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2145907894
@@ -3536,7 +3566,7 @@ Transform:
   m_GameObject: {fileID: 2145907894}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -0.13, y: 0, z: 0}
   m_LocalScale: {x: 28.446331, y: 2.3926666, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

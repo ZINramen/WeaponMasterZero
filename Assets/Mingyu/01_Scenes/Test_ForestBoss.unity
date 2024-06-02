@@ -164,7 +164,6 @@ MonoBehaviour:
   playerIsOwn: 0
   attType: 0
   isAbleDestroy: 0
-  WeaponCanAbleDestroy: 0
   DestroyEffect: {fileID: 0}
 --- !u!61 &7490730
 BoxCollider2D:
@@ -273,7 +272,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -0.08, y: 0.34, z: 0}
-  m_LocalScale: {x: 1.4633597, y: 2.3938687, z: 1}
+  m_LocalScale: {x: 1.9938276, y: 2.3938687, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 563375702}
@@ -364,7 +363,6 @@ MonoBehaviour:
   playerIsOwn: 0
   attType: 0
   isAbleDestroy: 0
-  WeaponCanAbleDestroy: 0
   DestroyEffect: {fileID: 0}
 --- !u!212 &34777439
 SpriteRenderer:
@@ -1766,7 +1764,6 @@ MonoBehaviour:
   playerIsOwn: 0
   attType: 0
   isAbleDestroy: 0
-  WeaponCanAbleDestroy: 0
   DestroyEffect: {fileID: 0}
 --- !u!212 &269988541
 SpriteRenderer:
@@ -2724,6 +2721,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Alway: 0
+  BlockDash: 0
   owner: {fileID: 563375698}
   h: 0
   body: {fileID: 0}
@@ -2775,6 +2773,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 372e54ac4cda7584585ba6ddcf03b087, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isStartToMute: 0
 --- !u!95 &563375697
 Animator:
   serializedVersion: 5
@@ -2848,7 +2847,6 @@ MonoBehaviour:
   DamageBlock: 0
   currentCombo: 0
   maxcombo: 10
-  ComboUI: {fileID: 2320536752282502563, guid: 02f78935d275c27478963ecf2e2006de, type: 3}
   isDamaged: 0
   HitEffect: {fileID: 5302201665987482517, guid: 10ecd86e54fbd744baa1f69bb0995cc2, type: 3}
   StrongHitEffect: {fileID: 5942996768073886119, guid: a1a7b4ac36c2cac4690161d6213c9499, type: 3}
@@ -2980,7 +2978,7 @@ Transform:
   m_GameObject: {fileID: 563375692}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3.3, y: 0.067, z: 0}
+  m_LocalPosition: {x: 0.03, y: 0.067, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -3496,7 +3494,6 @@ MonoBehaviour:
   playerIsOwn: 0
   attType: 0
   isAbleDestroy: 0
-  WeaponCanAbleDestroy: 0
   DestroyEffect: {fileID: 0}
 --- !u!212 &640432529
 SpriteRenderer:
@@ -4134,7 +4131,7 @@ GameObject:
   - component: {fileID: 763396944}
   - component: {fileID: 763396943}
   m_Layer: 0
-  m_Name: Square (3)
+  m_Name: Right
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4246,7 +4243,7 @@ Transform:
   m_GameObject: {fileID: 763396942}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 9.7, y: 3.5586, z: 0}
+  m_LocalPosition: {x: 10.72, y: 3.5586, z: 0}
   m_LocalScale: {x: 1.9032701, y: 13.54991, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -4655,7 +4652,6 @@ MonoBehaviour:
   playerIsOwn: 0
   attType: 0
   isAbleDestroy: 0
-  WeaponCanAbleDestroy: 0
   DestroyEffect: {fileID: 0}
 --- !u!212 &904051383
 SpriteRenderer:
@@ -8104,6 +8100,10 @@ PlayableDirector:
     value: {fileID: 2098014669}
   - key: {fileID: -3227850658462902902, guid: 61f209869a90120498d9d6c96c05436c, type: 2}
     value: {fileID: 1927215420}
+  - key: {fileID: -6056554765699645327, guid: 61f209869a90120498d9d6c96c05436c, type: 2}
+    value: {fileID: 0}
+  - key: {fileID: -2442102921518083421, guid: 61f209869a90120498d9d6c96c05436c, type: 2}
+    value: {fileID: 0}
   m_ExposedReferences:
     m_References:
     - ad582ad8471907f44b2f4cdc33b17a0a: {fileID: 94984138}
@@ -8346,7 +8346,7 @@ GameObject:
   - component: {fileID: 1570956460}
   - component: {fileID: 1570956459}
   m_Layer: 10
-  m_Name: Square (2)
+  m_Name: Ground
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9598,7 +9598,7 @@ GameObject:
   - component: {fileID: 1910558973}
   - component: {fileID: 1910558972}
   m_Layer: 0
-  m_Name: Square (4)
+  m_Name: Left
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9710,7 +9710,7 @@ Transform:
   m_GameObject: {fileID: 1910558971}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -10.5, y: 3.5586, z: 0}
+  m_LocalPosition: {x: -10.71, y: 3.5586, z: 0}
   m_LocalScale: {x: 1.9032701, y: 13.54991, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -9879,7 +9879,6 @@ MonoBehaviour:
   playerIsOwn: 0
   attType: 0
   isAbleDestroy: 0
-  WeaponCanAbleDestroy: 0
   DestroyEffect: {fileID: 0}
 --- !u!212 &1959588392
 SpriteRenderer:
@@ -10118,7 +10117,6 @@ MonoBehaviour:
   playerIsOwn: 0
   attType: 0
   isAbleDestroy: 0
-  WeaponCanAbleDestroy: 0
   DestroyEffect: {fileID: 0}
 --- !u!212 &1990726837
 SpriteRenderer:
