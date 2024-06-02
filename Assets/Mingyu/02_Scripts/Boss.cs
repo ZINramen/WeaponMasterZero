@@ -199,7 +199,7 @@ public abstract class Boss : MonoBehaviour
                 bossHP_per = (this.GetComponent<Entity>().GetHp()) / (this.GetComponent<Entity>().maxHP);
                 iBossSkill = EachBoss_SelectedSkill(bossState);
 
-                iBossSkill = (int)Boss_State.State.p2_Skill1;   // # 특정 스킬 지정하기 Test
+                //iBossSkill = (int)Boss_State.State.p2_Skill2;   // # 특정 스킬 지정하기 Test
                 
                 sBossSkill = Change_IntToState(iBossSkill, ref skillDist);
                 Debug.Log("SkillName : " +  sBossSkill);
@@ -368,27 +368,27 @@ public abstract class Boss : MonoBehaviour
             TrustValue_Setting(DA_HitArea[index]);
             EachBoss_OnHitSetting();
         }
-        else if (P1Skill1_HitArea.Length != 0 && bossState.currentState == Boss_State.State.p1_Skill1)
+        else if (bossState.currentState == Boss_State.State.p1_Skill1 && P1Skill1_HitArea.Length != 0)
         {
             TrustValue_Setting(P1Skill1_HitArea[index]);
             EachBoss_OnHitSetting();
         }
-        else if (P1Skill2_HitArea.Length != 0 && bossState.currentState == Boss_State.State.p1_Skill2)
+        else if (bossState.currentState == Boss_State.State.p1_Skill2 && P1Skill2_HitArea.Length != 0)
         {
             TrustValue_Setting(P1Skill2_HitArea[index]);
             EachBoss_OnHitSetting();
         }
-        else if (P2Skill1_HitArea.Length != 0 && bossState.currentState == Boss_State.State.p2_Skill1)
+        else if (bossState.currentState == Boss_State.State.p2_Skill1 && P2Skill1_HitArea.Length != 0)
         {
             TrustValue_Setting(P2Skill1_HitArea[index]);
             EachBoss_OnHitSetting();
         }
-        else if (P2Skill2_HitArea.Length != 0 && bossState.currentState == Boss_State.State.p2_Skill2)
+        else if (bossState.currentState == Boss_State.State.p2_Skill2 && P2Skill2_HitArea.Length != 0)
         {
             TrustValue_Setting(P2Skill2_HitArea[index]);
             EachBoss_OnHitSetting();
         }
-        else if (P2Skill3_HitArea.Length != 0 && bossState.currentState == Boss_State.State.p2_Skill3)
+        else if (bossState.currentState == Boss_State.State.p2_Skill3 && P2Skill3_HitArea.Length != 0)
         {
             TrustValue_Setting(P2Skill3_HitArea[index]);
             EachBoss_OnHitSetting();

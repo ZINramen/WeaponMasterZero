@@ -16,7 +16,7 @@ public class GroundChecker : MonoBehaviour
     }
     private void OnTriggerStay2D(Collider2D collision)
     {
-        if(!collision.gameObject.CompareTag("Player") && !collision.gameObject.CompareTag("Camera") && !collision.gameObject.CompareTag("Particle"))
+        if(!collision.gameObject.CompareTag("Player") && !collision.gameObject.CompareTag("Camera") && !collision.gameObject.CompareTag("Boss") && !collision.gameObject.CompareTag("Particle"))
             onGround = true;
 
     }

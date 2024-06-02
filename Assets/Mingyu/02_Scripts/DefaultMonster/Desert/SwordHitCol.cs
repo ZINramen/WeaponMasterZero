@@ -3,24 +3,25 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Rendering;
 
-public class SwordHitCol : HitColider
+public class SwordHitCol : MonoBehaviour
 {
-    protected override void EachObj_HitSetting(Collider2D other)
+    private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.gameObject.GetComponent<HitColider>() &&
-            other.gameObject.GetComponent<HitColider>().attType == AttackType.Player_SwordAtt)
+            other.gameObject.GetComponent<HitColider>().attType == HitColider.AttackType.Player_SwordAtt)
         {
             Debug.Log("패링");
-            
             GameObject player = other.gameObject.transform.parent.gameObject;
 
             if (player != null && player.gameObject.GetComponent<Entity>().GetHp() > 0)
             {
                 player.gameObject.GetComponent<StopTime>().DelayTime();
                 
-                owner.gameObject.GetComponent<Animator>().SetTrigger("Stun");
-                owner.gameObject.GetComponent<Skeleton>().ParringHit();
-                owner.gameObject.GetComponent<Default_Monster>().Check_AttackHitCol(0);
+                this.transform.parent.GetComponent<Default_Monster>().Check_AttackHitCol(0);
+                this.transform.parent.GetComponent<Skeleton>().ParringCheck(0);
+                
+                this.transform.parent.GetComponent<Animator>().SetTrigger("Stun");
+                this.transform.parent.GetComponent<Skeleton>().ParringHit();
                 
                 StartCoroutine("returnTimeDelay", player);
             }

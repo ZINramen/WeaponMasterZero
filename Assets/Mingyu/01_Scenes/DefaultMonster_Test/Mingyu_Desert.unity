@@ -377,7 +377,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 983611486230121155, guid: 5a71e4bd8d63b754e9e2f0e85966e54b, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1122151599190929135, guid: 5a71e4bd8d63b754e9e2f0e85966e54b, type: 3}
       propertyPath: rushSpeed
@@ -572,6 +572,7 @@ MonoBehaviour:
   MobPrefab:
   - {fileID: 353623281338993640, guid: 8deac000c68926741ab8bd2bf2b7ff25, type: 3}
   - {fileID: 4478715530957999408, guid: 1cf515f619cf38042baf4c8e1d8fc35d, type: 3}
+  Monsters: {fileID: 0}
 --- !u!61 &375038723
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -35059,19 +35060,7 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1025736697677280141, guid: 666d880358df59b4aa417772796f93b1, type: 3}
-      propertyPath: attackForce
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 1025736697677280141, guid: 666d880358df59b4aa417772796f93b1, type: 3}
-      propertyPath: thrustValue
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 1025736697677280141, guid: 666d880358df59b4aa417772796f93b1, type: 3}
-      propertyPath: flyingAttackForce
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 8702947001473449213, guid: 666d880358df59b4aa417772796f93b1, type: 3}
+    - target: {fileID: 8242989288678488533, guid: 666d880358df59b4aa417772796f93b1, type: 3}
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
@@ -35118,10 +35107,6 @@ PrefabInstance:
     - target: {fileID: 9019826742011640304, guid: 666d880358df59b4aa417772796f93b1, type: 3}
       propertyPath: m_Name
       value: Mingyu_Skeleton
-      objectReference: {fileID: 0}
-    - target: {fileID: 9019826742011640304, guid: 666d880358df59b4aa417772796f93b1, type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

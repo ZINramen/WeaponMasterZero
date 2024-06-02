@@ -56,6 +56,7 @@ public class BulletCtrl : MonoBehaviour
     public void Parring(GameObject player)
     {
         m_player = player.gameObject.transform.parent.gameObject;
+        m_player.gameObject.GetComponent<StopTime>().timeScale = 0.2f;
         m_player.gameObject.GetComponent<StopTime>().DelayTime();
         StopMove();
         
@@ -66,7 +67,7 @@ public class BulletCtrl : MonoBehaviour
         ShootingBullet(parrigForce, Quaternion.Euler(0, 0, angle));
 
         isPlayerParring = true;
-        StartCoroutine("returnTimeDelay", 0.1f);
+        StartCoroutine("returnTimeDelay", 0.3f);
     }
 
     private IEnumerator returnTimeDelay(float delay)

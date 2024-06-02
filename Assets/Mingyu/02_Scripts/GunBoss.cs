@@ -30,7 +30,7 @@ public class GunBoss : Boss
     Transform SignSpon_Pos;
     private List<GameObject> SignPref_dummyObjList = new List<GameObject>();
     
-    private const int totalsignCount = 6;
+    private int totalsignCount = 6;
     private int signCount = 0;
     
     private float signSpon_DelayTime = 0.5f;
@@ -43,7 +43,6 @@ public class GunBoss : Boss
     #endregion
     
     #region p1_Skill2_변수 모음
-    private float boomAtt_delayTime;
     private Transform Dynamite_SponPos;
     [SerializeField] private GameObject DynamitePref;
     private GameObject DynamitePref_dummyObj;
@@ -117,11 +116,11 @@ public class GunBoss : Boss
         videoEffect = GameObject.Find("SandWind_Effect").gameObject;
 
         // 표식 공격 관련 변수
-        signSpon_DelayTime = 0.2f;
+        totalsignCount = 20;
+        signSpon_DelayTime = 0.12f;
         signDeleteTime = 0.2f;
         
         // 다이너 마이트 공격 관련 변수
-        boomAtt_delayTime = 0.4f;
         Dynamite_SponPos = this.transform.GetChild(3).gameObject.transform;
         
         // 설치기 관련 변수
@@ -201,7 +200,12 @@ public class GunBoss : Boss
     private void Create_AttSign()
     {
         Transform playerPos = player.transform;
-        GameObject dummyObj = Instantiate(SignPref, playerPos.position, quaternion.identity);
+        
+        float randomX = Random.Range(-1f, 1f);
+        float randomY = Random.Range(-1f, 1f);
+        Vector3 randomPos = new Vector3(playerPos.position.x + randomX, playerPos.position.y + randomY, playerPos.position.z);
+        
+        GameObject dummyObj = Instantiate(SignPref, randomPos, quaternion.identity);
         dummyObj.GetComponent<HitColider>().owner = this.gameObject.GetComponent<Entity>();
         SignPref_dummyObjList.Add(dummyObj);
     }

@@ -231,9 +231,15 @@ public class SwordBoss : Boss
     {
         this.GetComponent<Rigidbody2D>().simulated = false;
         this.transform.position = new Vector2(player_pos.x, p2_Skill1_MoonPos.transform.position.y);
+    }
 
+    public void WarningArea()
+    {
         dummyArea = Instantiate(bossHit_Area, new Vector3(0, 0, 0), Quaternion.identity);
-        dummyArea.GetComponent<LineRenderer>().SetPosition(0, this.transform.position);
+
+        Vector3 spawnYpos = new Vector3(this.transform.position.x, this.transform.position.y + 2f,
+            this.transform.position.z);
+        dummyArea.GetComponent<LineRenderer>().SetPosition(0, spawnYpos);
 
         Vector3 boss_OnlyXpos = new Vector3(this.transform.position.x, -0.83f, this.transform.position.z);
         dummyArea.GetComponent<LineRenderer>().SetPosition(1, boss_OnlyXpos);
@@ -366,6 +372,11 @@ public class SwordBoss : Boss
         animCtrl.SetBool("isLanding", false);
         
         this.GetComponent<Rigidbody2D>().simulated = true;
+    }
+
+    public void Turn()
+    {
+        this.transform.rotation = Quaternion.Euler(0, this.transform.position.x > player_pos.x ? 0 : 180, 0);
     }
     #endregion
 }
