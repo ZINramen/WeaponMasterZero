@@ -178,7 +178,7 @@ public class HammerBoss : Boss
         
         // 땅 떨구기 Skill1
         FallGrounds = new GameObject[3];
-        GameObject FallGrounds_Parent = GameObject.Find("FallGround").gameObject;
+        GameObject FallGrounds_Parent = GameObject.Find("Grid").gameObject;
         FallGrounds[0] = FallGrounds_Parent.transform.GetChild(0).gameObject;
         FallGrounds[1] = FallGrounds_Parent.transform.GetChild(1).gameObject;
         FallGrounds[2] = FallGrounds_Parent.transform.GetChild(2).gameObject;
@@ -264,8 +264,8 @@ public class HammerBoss : Boss
         
         else if (FallGrounds[fallGround_index].gameObject.activeSelf == true)
         {
-            FallGrounds[fallGround_index].gameObject.GetComponent<Rigidbody2D>().simulated = true;
-            FallGrounds[fallGround_index].transform.parent.GetComponent<FallGroundSize>().FallGround();
+            FallGrounds[fallGround_index].gameObject.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Dynamic;
+            //FallGrounds[fallGround_index].transform.parent.GetComponent<FallGroundSize>().FallGround();
             Invoke("Delete_FallGround", 0.3f);
         }
     }
