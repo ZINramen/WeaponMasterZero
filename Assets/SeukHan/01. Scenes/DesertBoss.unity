@@ -3713,7 +3713,6 @@ MonoBehaviour:
   DamageBlock: 0
   currentCombo: 0
   maxcombo: 10
-  ComboUI: {fileID: 2320536752282502563, guid: 02f78935d275c27478963ecf2e2006de, type: 3}
   isDamaged: 0
   HitEffect: {fileID: 5302201665987482517, guid: 10ecd86e54fbd744baa1f69bb0995cc2, type: 3}
   StrongHitEffect: {fileID: 5942996768073886119, guid: a1a7b4ac36c2cac4690161d6213c9499, type: 3}
@@ -3722,7 +3721,6 @@ MonoBehaviour:
   CoolTextEffect: {fileID: 6268643683504991078, guid: ac04799a645e5a54dbd564caba5de5ff, type: 3}
   emoticon: {fileID: 0}
   ultScreen: {fileID: 0}
-  GameoverUI: {fileID: 0}
 --- !u!50 &819132795
 Rigidbody2D:
   serializedVersion: 4
@@ -3836,6 +3834,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Alway: 0
+  BlockDash: 0
   owner: {fileID: 819132794}
   h: 0
   body: {fileID: 0}
@@ -5707,7 +5706,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1946360746
 MonoBehaviour:
   m_ObjectHideFlags: 0

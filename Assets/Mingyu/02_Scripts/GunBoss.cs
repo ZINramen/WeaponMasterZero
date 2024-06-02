@@ -59,8 +59,8 @@ public class GunBoss : Boss
     private Transform LeftShootingPos;
     private Transform RightShootingPos;
     
-    private float minAngle = -60f;
-    private float maxAngle = 240f;
+    private float minAngle_R = 0;
+    private float maxAngle_R = 0;
     private float p2Skill2_TotalBulletCount = 6;
     #endregion
 
@@ -136,10 +136,10 @@ public class GunBoss : Boss
         LeftShootingPos = this.transform.GetChild(4).gameObject.transform;
         RightShootingPos = this.transform.GetChild(5).gameObject.transform;
 
-        minAngle = -60f;
-        maxAngle = 240f;
+        minAngle_R = -30f;
+        maxAngle_R = 60f;
 
-        p2Skill2_TotalBulletCount = 6;
+        p2Skill2_TotalBulletCount = 10;
         
         // 총알 벽 패턴
         P2Skill3_SponMaxPos = GameObject.Find("Left_BulletSponYMaxPos").gameObject.transform;
@@ -160,7 +160,7 @@ public class GunBoss : Boss
     {
         state.defaultAtt_dist = 1f;
 
-        state.skill_CoolTime = 5.0f;
+        state.skill_CoolTime = 1.0f;
     
         state.p1_Skill1_dist = 5000f;
         state.p1_Skill2_dist = 4.5f;
@@ -276,19 +276,41 @@ public class GunBoss : Boss
     
     public void Attack_p2Skill2()
     {
-        float angleInterval = (maxAngle - minAngle) / p2Skill2_TotalBulletCount;
+        float angleInterval = (maxAngle_R - minAngle_R) / (p2Skill2_TotalBulletCount / 2);
         float randomRotationZ;
-        
-        for (int i = 0; i < p2Skill2_TotalBulletCount / 2; i++)
+
+        GameObject tempObj;
+        if (this.transform.eulerAngles.y == 180)
         {
-            randomRotationZ = Random.Range(minAngle + (angleInterval * i), minAngle + angleInterval + (angleInterval * i));
-            Shoot_ParringBullet(randomRotationZ, RightShootingPos);
+            for (int i = 0; i < p2Skill2_TotalBulletCount / 2; i++)
+            {
+                randomRotationZ = Random.Range(minAngle_R + (angleInterval * i), minAngle_R + angleInterval + (angleInterval * i));
+                Shoot_ParringBullet(randomRotationZ, LeftShootingPos);
+            }
+        
+            for (int i = 0; i < p2Skill2_TotalBulletCount / 2; i++)
+            {
+                float minAngle_L = 180f - minAngle_R;
+                randomRotationZ = Random.Range(minAngle_L - (angleInterval * i), minAngle_L - angleInterval - (angleInterval * i));
+                Shoot_ParringBullet(randomRotationZ, RightShootingPos);
+            }
         }
-        
-        for (int i = (int) p2Skill2_TotalBulletCount / 2; i < p2Skill2_TotalBulletCount; i++)
+        else
         {
-            randomRotationZ = Random.Range(minAngle + (angleInterval * i), minAngle + angleInterval + (angleInterval * i));
-            Shoot_ParringBullet(randomRotationZ,LeftShootingPos );
+            for (int i = 0; i < p2Skill2_TotalBulletCount / 2; i++)
+            {
+                randomRotationZ = Random.Range(minAngle_R + (angleInterval * i),
+                    minAngle_R + angleInterval + (angleInterval * i));
+                Shoot_ParringBullet(randomRotationZ, RightShootingPos);
+            }
+
+            for (int i = 0; i < p2Skill2_TotalBulletCount / 2; i++)
+            {
+                float minAngle_L = 180f - minAngle_R;
+                randomRotationZ = Random.Range(minAngle_L - (angleInterval * i),
+                    minAngle_L - angleInterval - (angleInterval * i));
+                Shoot_ParringBullet(randomRotationZ, LeftShootingPos);
+            }
         }
     }
 
