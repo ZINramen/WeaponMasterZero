@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class HitColider : MonoBehaviour
 {
+    public bool NoDamage = false;
     public bool telp = false;
     public bool stunTarget = false;
     public float flyingAttackForce = 0;
@@ -29,7 +30,6 @@ public class HitColider : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-
         if (owner == other.gameObject.GetComponent<Entity>())
             return;
         if (other.CompareTag("Camera"))
@@ -38,7 +38,7 @@ public class HitColider : MonoBehaviour
             return;
 
         EachObj_HitSetting(other);
-        
+
         if (isAbleDestroy && (other.CompareTag("Enemy") || other.CompareTag("Untagged")))
         {
             if (DestroyEffect)
@@ -46,6 +46,8 @@ public class HitColider : MonoBehaviour
                Instantiate(DestroyEffect, transform.position, Quaternion.identity);
             }
             EachObj_DeleteSetting(this.gameObject);
+            if (NoDamage)
+                return;
         }
         Entity entity = other.GetComponent<Entity>();
 

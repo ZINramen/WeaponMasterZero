@@ -8,6 +8,7 @@ using UnityEngine.UI;
 
 public class ShootingControl : MonoBehaviour
 {
+    Vector3 AtargetingPos;
     public bool WhenTargeting = true;
     public Texture2D targetingImage;
 
@@ -44,7 +45,7 @@ public class ShootingControl : MonoBehaviour
         if (WhenTargeting)
         {
             Cursor.SetCursor(targetingImage, Vector2.zero, CursorMode.Auto);
-            var targetingPos = Camera.main.ScreenToWorldPoint(Input.mousePosition + new Vector3(20, -20, 0));
+            AtargetingPos = Camera.main.ScreenToWorldPoint(Input.mousePosition + new Vector3(20, -20, 0));
 
             var dir = Input.mousePosition - Camera.main.WorldToScreenPoint(transform.position);
             var angle = MathF.Atan2(dir.x, dir.y) * Mathf.Rad2Deg;
@@ -68,7 +69,7 @@ public class ShootingControl : MonoBehaviour
                     var obj = Instantiate(bullet, fireTr.position, Quaternion.identity);
                     obj.GetComponent<HitColider>().owner = owner;
                     Destroyer d = obj.GetComponent<Destroyer>();
-                    obj.transform.LookAt(targetingPos);
+                    obj.transform.LookAt(AtargetingPos);
                     d.moveSpeed = bulletSpeed;
                     d.haveTarget = true;
                     if (gunAnimator != null)
@@ -112,9 +113,13 @@ public class ShootingControl : MonoBehaviour
     }
     public void ThrowBomb()
     {
-        var bomb = Instantiate(bombPrefab, owner.transform.position + new Vector3(0,1), Quaternion.identity);
-        bomb.GetComponent<Rigidbody2D>().AddForce((owner.transform.right + owner.transform.up) * 100);
+        var obj = Instantiate(bombPrefab, fireTr.position, Quaternion.identity);
+        Destroyer d = obj.GetComponent<Destroyer>();
+        obj.transform.LookAt(AtargetingPos);
+        d.moveSpeed = bulletSpeed;
+        d.haveTarget = true;
     }
+
 
     public void ThrowStone()
     {

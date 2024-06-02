@@ -16,13 +16,13 @@ public class ShowWave_HitCollider : HitColider
         Debug.Log(other.gameObject.layer.ToString());
 
         // 오너거나 땅에 부딪히거나 같은 충격파에 부딪히면, 처리가 안됨
-        if (other != owner
+        if (other.gameObject.GetComponent<Entity>() != owner
             && other.gameObject.layer.ToString() != groundLayerNum
-            && !other.gameObject.name.Contains("ShockWave")) 
+            && !other.gameObject.name.Contains("ShockWave") 
+            && !other.gameObject.CompareTag("Camera")
+            && !other.gameObject.CompareTag("Particle")) 
         {
             isAbleDestroy = true;
-            Debug.Log(other.gameObject.name);
-            
         }
     }
 }

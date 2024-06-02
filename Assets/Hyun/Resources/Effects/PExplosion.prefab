@@ -10,10 +10,10 @@ GameObject:
   m_Component:
   - component: {fileID: 8049663674535539280}
   - component: {fileID: 7269788422443740446}
-  - component: {fileID: 9104777606850399127}
   - component: {fileID: 8679556262959501602}
   - component: {fileID: 6935191652234398779}
   - component: {fileID: 7044150452163475120}
+  - component: {fileID: 3197208635213642760}
   m_Layer: 0
   m_Name: PExplosion
   m_TagString: Untagged
@@ -31,7 +31,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2, y: 2, z: 2}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 6975144648303530720}
@@ -89,30 +89,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &9104777606850399127
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8598262321779666290}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8faf252014a19b942bc4983ce0bcf63a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  telp: 0
-  stunTarget: 0
-  flyingAttackForce: 0
-  attackForce: 30
-  thrustValue: 0.5
-  owner: {fileID: 0}
-  oneHit: 1
-  playerIsOwn: 0
-  attType: 0
-  isAbleDestroy: 0
-  WeaponCanAbleDestroy: 0
-  DestroyEffect: {fileID: 0}
 --- !u!114 &8679556262959501602
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -125,6 +101,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b8982125c5cfa9b4faccc3fb1bc827e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  collDestroy: 0
   haveDestroyArea: 0
   haveTarget: 0
   moveSpeed: 0
@@ -165,7 +142,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0.0172863, y: 0.03457278}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -176,7 +153,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 2.3022404, y: 2.3829103}
   m_EdgeRadius: 0
 --- !u!50 &7044150452163475120
 Rigidbody2D:
@@ -205,6 +182,30 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &3197208635213642760
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8598262321779666290}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8faf252014a19b942bc4983ce0bcf63a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  NoDamage: 0
+  telp: 0
+  stunTarget: 0
+  flyingAttackForce: 0
+  attackForce: 30
+  thrustValue: 0
+  owner: {fileID: 0}
+  oneHit: 0
+  playerIsOwn: 1
+  attType: 0
+  isAbleDestroy: 0
+  DestroyEffect: {fileID: 0}
 --- !u!1 &9084196063434998550
 GameObject:
   m_ObjectHideFlags: 0
@@ -1185,9 +1186,9 @@ ParticleSystem:
     enabled: 1
     curve:
       serializedVersion: 2
-      minMaxState: 1
-      scalar: 1
-      minScalar: 1
+      minMaxState: 3
+      scalar: 0.5
+      minScalar: 0.5
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -1238,7 +1239,7 @@ ParticleSystem:
         m_RotationOrder: 4
     y:
       serializedVersion: 2
-      minMaxState: 1
+      minMaxState: 3
       scalar: 1
       minScalar: 1
       maxCurve:
@@ -1291,7 +1292,7 @@ ParticleSystem:
         m_RotationOrder: 4
     z:
       serializedVersion: 2
-      minMaxState: 1
+      minMaxState: 3
       scalar: 1
       minScalar: 1
       maxCurve:
@@ -5008,7 +5009,7 @@ ParticleSystemRenderer:
   m_MeshDistribution: 0
   m_SortMode: 0
   m_MinParticleSize: 0
-  m_MaxParticleSize: 0.5
+  m_MaxParticleSize: 1
   m_CameraVelocityScale: 0
   m_VelocityScale: 0
   m_LengthScale: 2

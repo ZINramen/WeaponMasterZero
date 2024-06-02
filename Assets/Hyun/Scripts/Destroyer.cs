@@ -6,6 +6,8 @@ using UnityEngine;
 
 public class Destroyer : MonoBehaviour
 {
+    bool end = false;
+    public bool collDestroy = false;
     public bool haveDestroyArea = false;
     public bool haveTarget = false;
 
@@ -52,15 +54,15 @@ public class Destroyer : MonoBehaviour
             {
                 if (!haveDestroyArea)
                 {
-                    StartCoroutine(SpawnObjectAndDestroy());
+                    StartCoroutine("SpawnObjectAndDestroy");
                 }
                 else if (transform.position.x > maxValue || transform.position.y > maxValue)
                 {
-                    StartCoroutine(SpawnObjectAndDestroy());
+                    StartCoroutine("SpawnObjectAndDestroy");
                 }
                 else if (transform.position.x < -maxValue || transform.position.y < -maxValue)
                 {
-                    StartCoroutine(SpawnObjectAndDestroy());
+                    StartCoroutine("SpawnObjectAndDestroy");
                 }
             }
         }
@@ -77,6 +79,39 @@ public class Destroyer : MonoBehaviour
         {
             startDestroy = false;
             gameObject.SetActive(false);
+        }
+    }
+
+    void OnCollisionEnter2D(Collision2D collision)
+    {
+
+        if (!end)
+        if (collDestroy)
+        {
+            Entity et = collision.gameObject.GetComponent<Entity>();
+            if (et && et.gameObject.tag != "Player")
+            {
+                if (DestroyBeforeSpawnObject != null)
+                    Instantiate(DestroyBeforeSpawnObject, transform.position, Quaternion.identity);
+                end = true;
+                Destroy(gameObject);
+            }
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if(!end)
+        if (collDestroy)
+        {
+            Entity et = other.gameObject.GetComponent<Entity>();
+            if (et && et.gameObject.tag != "Player")
+            {  
+                if (DestroyBeforeSpawnObject != null)
+                    Instantiate(DestroyBeforeSpawnObject, transform.position, Quaternion.identity);
+                end = true;
+                Destroy(gameObject);
+            }
         }
     }
 }
