@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: DialogueBubbleClip(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)
   m_EditorClassIdentifier: 
   template:
-    text: "\uD798\uC758 \uCC28\uC774\uB97C \uC54C\uB824\uC8FC\uB9C8!!"
+    text: "\uD798\uC758 \uCC28\uC774\uB97C \uC54C\uB824\uC8FC\uC9C0!!"
     objectName: APO
 --- !u!114 &-8485585423796906604
 MonoBehaviour:
@@ -43,7 +43,7 @@ MonoBehaviour:
   m_Name: DialogueBubbleClip(Clone)(Clone)
   m_EditorClassIdentifier: 
   template:
-    text: "\uB4DC\uB514\uC5B4 \uBD80\uD65C\uC774\uB2E4."
+    text: "\uB054\uCC0D\uD55C \uC2DC\uAC04\uC774\uC5C8\uB2E4."
     objectName: 'Boss: Glint'
 --- !u!114 &-7455276831900881558
 MonoBehaviour:
@@ -70,7 +70,7 @@ MonoBehaviour:
     m_Start: 17.583333333333332
     m_ClipIn: 0
     m_Asset: {fileID: 2156745516535920379}
-    m_Duration: 16.300000000000004
+    m_Duration: 14.3
     m_TimeScale: 1
     m_ParentTrack: {fileID: -7455276831900881558}
     m_EaseInDuration: 0
@@ -306,7 +306,7 @@ MonoBehaviour:
   m_Name: TimeDilationClip
   m_EditorClassIdentifier: 
   template:
-    timeScale: 2
+    timeScale: 1
 --- !u!114 &-6908860941726726809
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -320,8 +320,7 @@ MonoBehaviour:
   m_Name: DialogueBubbleClip(Clone)(Clone)(Clone)
   m_EditorClassIdentifier: 
   template:
-    text: "\uB098\uB97C \uBD09\uC778\uD558\uB358 \uBD09\uC778\uC11D\uB3C4 \uC774\uC820
-      \uC5C6\uC9C0..!"
+    text: "\uD558\uC9C0\uB9CC \uBD09\uC778\uC11D\uB3C4 \uC774\uC820 \uC0AC\uB77C\uC84C\uC9C0..!"
     objectName: 'Boss: Glint'
 --- !u!114 &-5156682926879189987
 MonoBehaviour:
@@ -335,7 +334,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 15c38f6fa1940124db1ab7f6fe7268d1, type: 3}
   m_Name: Signal Emitter
   m_EditorClassIdentifier: 
-  m_Time: 33.88333333333334
+  m_Time: 31.883333333333333
   m_Retroactive: 0
   m_EmitOnce: 0
   m_Asset: {fileID: 11400000, guid: a955bbc6acd8e1f4f8adf97945349078, type: 2}
@@ -367,9 +366,8 @@ MonoBehaviour:
   m_Name: DialogueBubbleClip(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)
   m_EditorClassIdentifier: 
   template:
-    text: "\uC5B4\uB460\uC774 \uC788\uB294 \uACF3\uC5D4 \uBE5B\uB3C4 \uC788\uB294
-      \uBC95\uC774\uC9C0..!"
-    objectName: APO
+    text: "\uB124 \uB140\uC11D... \uC774\uBC88\uC5D4 \uBC18\uB4DC\uC2DC \uC8FD\uC5EC\uC8FC\uB9C8..!!!"
+    objectName: 'Boss: Glint'
 --- !u!114 &-153607326955780098
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -428,8 +426,7 @@ MonoBehaviour:
   m_Name: DialogueBubbleClip(Clone)(Clone)(Clone)(Clone)
   m_EditorClassIdentifier: 
   template:
-    text: "\uC751..? \uBB50\uB0D0 \uB124\uB188\uC740.. \uB0A0 \uB9C9\uC73C\uB824\uB294
-      \uC6A9\uC0AC\uC778\uAC00..?"
+    text: "\uC751..? \uB124\uB188\uC740.. \uADF8\uB54C\uC758 \uADF8 \uC6A9\uC0AC\uC778\uAC00..?!"
     objectName: 'Boss: Glint'
 --- !u!114 &2156745516535920379
 MonoBehaviour:
@@ -1030,7 +1027,7 @@ MonoBehaviour:
     m_Start: 27.399999999999995
     m_ClipIn: 0
     m_Asset: {fileID: -8700786782133476696}
-    m_Duration: 3.7833333333333314
+    m_Duration: 4.483333333333338
     m_TimeScale: 1
     m_ParentTrack: {fileID: 4085500900030175858}
     m_EaseInDuration: 0
@@ -1144,7 +1141,7 @@ MonoBehaviour:
     m_Start: 0
     m_ClipIn: 0
     m_Asset: {fileID: -7235180554848723213}
-    m_Duration: 33.88333333333334
+    m_Duration: 31.883333333333333
     m_TimeScale: 1
     m_ParentTrack: {fileID: 4613276169621014096}
     m_EaseInDuration: 0
@@ -1248,7 +1245,7 @@ MonoBehaviour:
   m_Name: DialogueBubbleClip
   m_EditorClassIdentifier: 
   template:
-    text: "\uD06C\uD558\uD558\uD558\uD56E"
+    text: "\uD06C\uD558\uD558\uD558\uD558\uD56B"
     objectName: 'Boss: Glint'
 --- !u!114 &7551285464416350876
 MonoBehaviour:
@@ -1263,6 +1260,6 @@ MonoBehaviour:
   m_Name: DialogueBubbleClip(Clone)(Clone)(Clone)
   m_EditorClassIdentifier: 
   template:
-    text: "\uC9C0\uAE08\uC774\uC57C\uB9D0\uB85C \uC774 \uB300\uB9C8\uC655 Glint\uB2D8\uAED8\uC11C
-      \uC190\uC218 \uC138\uC0C1\uC744 \uBA78\uD558\uACA0\uB2E4.!!"
+    text: "\uC774\uBC88\uC5D0\uC57C\uB9D0\uB85C \uC774 \uB300\uB9C8\uC655 Glint\uB2D8\uAED8\uC11C
+      \uC190\uC218 \uC138\uC0C1\uC744 \uBA78\uD574\uC8FC\uB9C8..!!"
     objectName: 'Boss: Glint'
