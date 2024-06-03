@@ -90,7 +90,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.52362645, y: -0.35735083}
+  m_Offset: {x: -0.51186025, y: -0.35735083}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -101,7 +101,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.30531257, y: 2.8232188}
+  m_Size: {x: 0.28178054, y: 2.8232188}
   m_EdgeRadius: 0
 --- !u!1 &983611486230121155
 GameObject:
@@ -485,10 +485,11 @@ MonoBehaviour:
   player_pos: {x: 0, y: 0}
   move_Speed: 2
   distFrom_Player: 0
+  Exclamation: {fileID: 8391314663403983471, guid: 95921e6fd65263841b25156c8e0aa124, type: 3}
   isDie: 0
-  m_dAtt_dist: 8
-  m_traceDist: 1
-  rushSpeed: 4
+  m_dAtt_dist: 15
+  m_traceDist: 15
+  rushSpeed: 5
   NoRush: 0
   hit: {fileID: 4302453249068177083}
   isRush: 0

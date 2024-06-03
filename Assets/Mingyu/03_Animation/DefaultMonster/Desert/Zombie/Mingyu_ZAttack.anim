@@ -22,11 +22,11 @@ AnimationClip:
     curve:
     - time: 0
       value: {fileID: -3083797204854299636, guid: 963ded53fc02e7f4299f6e9dd78e34cb, type: 3}
-    - time: 0.25
+    - time: 0.5833333
       value: {fileID: -3083797204854299636, guid: 963ded53fc02e7f4299f6e9dd78e34cb, type: 3}
-    - time: 0.33333334
+    - time: 0.6666667
       value: {fileID: 8762002660294841320, guid: 963ded53fc02e7f4299f6e9dd78e34cb, type: 3}
-    - time: 0.75
+    - time: 1.0833334
       value: {fileID: -732216037755190969, guid: 963ded53fc02e7f4299f6e9dd78e34cb, type: 3}
     attribute: m_Sprite
     path: 
@@ -59,7 +59,7 @@ AnimationClip:
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 0.8333333
+    m_StopTime: 1.1666667
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0
@@ -79,28 +79,42 @@ AnimationClip:
   m_HasGenericRootTransform: 0
   m_HasMotionFloatCurves: 0
   m_Events:
-  - time: 0.25
+  - time: 0
+    functionName: ParringCheck
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 1
+    messageOptions: 0
+  - time: 0.5833333
+    functionName: ParringCheck
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 0.5833333
     functionName: MoveXPos_Mingyu
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: -15
     intParameter: 0
     messageOptions: 0
-  - time: 0.33333334
+  - time: 0.6666667
     functionName: Check_AttackHitCol
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 1
     messageOptions: 0
-  - time: 0.41666666
+  - time: 0.75
     functionName: Check_AttackHitCol
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
-  - time: 0.75
+  - time: 1.0833334
     functionName: EndAttack
     data: 
     objectReferenceParameter: {fileID: 0}

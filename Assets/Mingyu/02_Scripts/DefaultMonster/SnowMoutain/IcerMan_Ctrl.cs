@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -32,5 +33,17 @@ public class IcerMan_Ctrl : Default_Monster
         {
             state.defaultAtt_dist = m_dAtt_dist;
             state.traceDistance = m_traceDist;
+        }
+
+        private void OnTriggerEnter2D(Collider2D other)
+        {
+            if (other.gameObject.GetComponent<HitColider>())
+            {
+                if (other.gameObject.GetComponent<HitColider>().attType == HitColider.AttackType.Player_SwordAtt)
+                {
+                    other.transform.parent.GetComponent<Movement>().SetMovementForceX(-50);
+                    other.transform.parent.GetComponent<Animator>().SetTrigger("Hit");
+                }
+            }
         }
 }

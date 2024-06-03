@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Mathematics;
 using UnityEngine;
+using UnityEngine.Rendering.UI;
 
 public class Default_MonsterState
 {
@@ -42,6 +44,9 @@ public abstract class Default_Monster : MonoBehaviour
     protected bool isMoveEnd = false;
     
     [SerializeField] protected float distFrom_Player;
+    [SerializeField] private GameObject Exclamation;
+    private bool isSpawnExclamation;
+        
     public bool isDie;
     protected float groundApproachDist = 0;
     protected bool isNot_ChangeState = false;
@@ -131,6 +136,17 @@ public abstract class Default_Monster : MonoBehaviour
             if (distFrom_Player >= monsterState.defaultAtt_dist)
             {
                 monsterState.currentState = Default_MonsterState.State.trace;
+
+                if (!isSpawnExclamation && Exclamation)
+                {
+                    isSpawnExclamation = true;
+                    Vector3 spawnPos = new Vector3(this.transform.position.x, 
+                        this.transform.position.y + 0.8f,
+                        this.transform.position.z);
+                    
+                    GameObject dummyEx = GameObject.Instantiate(Exclamation, spawnPos, Quaternion.identity);
+                    dummyEx.gameObject.transform.parent = this.gameObject.transform;
+                }
             }
             else
             {

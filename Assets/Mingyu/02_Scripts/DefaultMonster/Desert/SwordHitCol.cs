@@ -16,12 +16,20 @@ public class SwordHitCol : MonoBehaviour
             if (player != null && player.gameObject.GetComponent<Entity>().GetHp() > 0)
             {
                 player.gameObject.GetComponent<StopTime>().DelayTime();
-                
                 this.transform.parent.GetComponent<Default_Monster>().Check_AttackHitCol(0);
-                this.transform.parent.GetComponent<Skeleton>().ParringCheck(0);
+                
+                if (this.transform.parent.GetComponent<Skeleton>())
+                {
+                    this.transform.parent.GetComponent<Skeleton>().ParringCheck(0);
+                    this.transform.parent.GetComponent<Skeleton>().ParringHit();
+                }
+                else if (this.transform.parent.GetComponent<Zombie_Mingyu>())
+                {
+                    this.transform.parent.GetComponent<Zombie_Mingyu>().ParringCheck(0);
+                    this.transform.parent.GetComponent<Zombie_Mingyu>().ParringHit();
+                }
                 
                 this.transform.parent.GetComponent<Animator>().SetTrigger("Stun");
-                this.transform.parent.GetComponent<Skeleton>().ParringHit();
                 
                 StartCoroutine("returnTimeDelay", player);
             }
