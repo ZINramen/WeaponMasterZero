@@ -28,7 +28,7 @@ public class HitColider : MonoBehaviour
     
     public GameObject DestroyEffect;
 
-    private void OnTriggerEnter2D(Collider2D other)
+    protected void OnTriggerEnter2D(Collider2D other)
     {
         if (owner == other.gameObject.GetComponent<Entity>())
             return;

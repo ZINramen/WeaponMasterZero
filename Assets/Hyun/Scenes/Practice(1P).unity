@@ -218,7 +218,7 @@ GameObject:
   - component: {fileID: 24267300}
   - component: {fileID: 24267299}
   - component: {fileID: 24267298}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Square (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -630,6 +630,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8faf252014a19b942bc4983ce0bcf63a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  NoDamage: 0
   telp: 0
   stunTarget: 0
   flyingAttackForce: 0
@@ -1127,7 +1128,7 @@ GameObject:
   - component: {fileID: 294105474}
   - component: {fileID: 294105473}
   - component: {fileID: 294105472}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Square (6)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3333,6 +3334,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Alway: 0
+  BlockDash: 0
   owner: {fileID: 0}
   h: 0
   body: {fileID: 0}
@@ -3383,7 +3385,6 @@ MonoBehaviour:
   DamageBlock: 0
   currentCombo: 0
   maxcombo: 10
-  ComboUI: {fileID: 2320536752282502563, guid: 02f78935d275c27478963ecf2e2006de, type: 3}
   isDamaged: 0
   HitEffect: {fileID: 5302201665987482517, guid: 10ecd86e54fbd744baa1f69bb0995cc2, type: 3}
   StrongHitEffect: {fileID: 5942996768073886119, guid: a1a7b4ac36c2cac4690161d6213c9499, type: 3}
@@ -3392,7 +3393,6 @@ MonoBehaviour:
   CoolTextEffect: {fileID: 6268643683504991078, guid: ac04799a645e5a54dbd564caba5de5ff, type: 3}
   emoticon: {fileID: 0}
   ultScreen: {fileID: 0}
-  GameoverUI: {fileID: 0}
 --- !u!50 &1084042851
 Rigidbody2D:
   serializedVersion: 4
@@ -3579,6 +3579,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e01d69820ea46f640afc899e4b8e0465, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  waitAttack: 0
+  eventEnd: 0
+  owner: {fileID: 0}
   player: {fileID: 0}
   detectionRange: 5
   AttackDelay: 0.5
@@ -3969,6 +3972,63 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1001 &1138783644
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 983611486230121155, guid: 5a71e4bd8d63b754e9e2f0e85966e54b, type: 3}
+      propertyPath: m_Name
+      value: Mingyu_ShieldMan
+      objectReference: {fileID: 0}
+    - target: {fileID: 8001548387668804280, guid: 5a71e4bd8d63b754e9e2f0e85966e54b, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 1.36
+      objectReference: {fileID: 0}
+    - target: {fileID: 8001548387668804280, guid: 5a71e4bd8d63b754e9e2f0e85966e54b, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.05
+      objectReference: {fileID: 0}
+    - target: {fileID: 8001548387668804280, guid: 5a71e4bd8d63b754e9e2f0e85966e54b, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.0039202
+      objectReference: {fileID: 0}
+    - target: {fileID: 8001548387668804280, guid: 5a71e4bd8d63b754e9e2f0e85966e54b, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8001548387668804280, guid: 5a71e4bd8d63b754e9e2f0e85966e54b, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8001548387668804280, guid: 5a71e4bd8d63b754e9e2f0e85966e54b, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8001548387668804280, guid: 5a71e4bd8d63b754e9e2f0e85966e54b, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8001548387668804280, guid: 5a71e4bd8d63b754e9e2f0e85966e54b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8001548387668804280, guid: 5a71e4bd8d63b754e9e2f0e85966e54b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 180
+      objectReference: {fileID: 0}
+    - target: {fileID: 8001548387668804280, guid: 5a71e4bd8d63b754e9e2f0e85966e54b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 5a71e4bd8d63b754e9e2f0e85966e54b, type: 3}
 --- !u!1 &1139478853
 GameObject:
   m_ObjectHideFlags: 0
@@ -4064,6 +4124,10 @@ PrefabInstance:
     - target: {fileID: 3720463374832119540, guid: 4f842be6cf201a24985bcff3f1268e03, type: 3}
       propertyPath: m_Name
       value: EnergyBall
+      objectReference: {fileID: 0}
+    - target: {fileID: 3720463374832119540, guid: 4f842be6cf201a24985bcff3f1268e03, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8589427614158005577, guid: 4f842be6cf201a24985bcff3f1268e03, type: 3}
       propertyPath: m_LocalPosition.x
@@ -4472,7 +4536,7 @@ GameObject:
   - component: {fileID: 1219336214}
   - component: {fileID: 1219336213}
   - component: {fileID: 1219336212}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Square (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4904,6 +4968,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 13699a7ca7f2c8a439dd0f9be40386a6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  inputCanPlayTime: 0
+  keyc: 0
   timeScale: 0
 --- !u!1 &1347870385
 GameObject:
@@ -5361,6 +5427,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8faf252014a19b942bc4983ce0bcf63a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  NoDamage: 0
   telp: 0
   stunTarget: 0
   flyingAttackForce: 0
@@ -5495,7 +5562,7 @@ GameObject:
   - component: {fileID: 1433368376}
   - component: {fileID: 1433368375}
   - component: {fileID: 1433368374}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Square (7)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5639,7 +5706,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1434633794
 Transform:
   m_ObjectHideFlags: 0
@@ -5696,7 +5763,6 @@ MonoBehaviour:
   DamageBlock: 0
   currentCombo: 0
   maxcombo: 10
-  ComboUI: {fileID: 2320536752282502563, guid: 02f78935d275c27478963ecf2e2006de, type: 3}
   isDamaged: 0
   HitEffect: {fileID: 5302201665987482517, guid: 10ecd86e54fbd744baa1f69bb0995cc2, type: 3}
   StrongHitEffect: {fileID: 5942996768073886119, guid: a1a7b4ac36c2cac4690161d6213c9499, type: 3}
@@ -5705,7 +5771,6 @@ MonoBehaviour:
   CoolTextEffect: {fileID: 6268643683504991078, guid: ac04799a645e5a54dbd564caba5de5ff, type: 3}
   emoticon: {fileID: 0}
   ultScreen: {fileID: 0}
-  GameoverUI: {fileID: 0}
 --- !u!114 &1434633796
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5883,6 +5948,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Alway: 0
+  BlockDash: 0
   owner: {fileID: 0}
   h: 0
   body: {fileID: 0}
@@ -6679,6 +6745,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8faf252014a19b942bc4983ce0bcf63a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  NoDamage: 0
   telp: 0
   stunTarget: 0
   flyingAttackForce: 0
@@ -7078,7 +7145,7 @@ GameObject:
   - component: {fileID: 1616629798}
   - component: {fileID: 1616629797}
   - component: {fileID: 1616629796}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Square (5)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8281,7 +8348,7 @@ GameObject:
   - component: {fileID: 2145907897}
   - component: {fileID: 2145907896}
   - component: {fileID: 2145907895}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Square (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9442,7 +9509,6 @@ MonoBehaviour:
   DamageBlock: 0
   currentCombo: 0
   maxcombo: 10
-  ComboUI: {fileID: 2320536752282502563, guid: 02f78935d275c27478963ecf2e2006de, type: 3}
   isDamaged: 0
   HitEffect: {fileID: 5302201665987482517, guid: 10ecd86e54fbd744baa1f69bb0995cc2, type: 3}
   StrongHitEffect: {fileID: 5942996768073886119, guid: a1a7b4ac36c2cac4690161d6213c9499, type: 3}
@@ -9451,7 +9517,6 @@ MonoBehaviour:
   CoolTextEffect: {fileID: 6268643683504991078, guid: ac04799a645e5a54dbd564caba5de5ff, type: 3}
   emoticon: {fileID: 2402971973615472524}
   ultScreen: {fileID: 3569671061502248777}
-  GameoverUI: {fileID: 0}
 --- !u!4 &197823435565182586
 Transform:
   m_ObjectHideFlags: 0
@@ -9544,6 +9609,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b8982125c5cfa9b4faccc3fb1bc827e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  collDestroy: 0
   haveDestroyArea: 0
   haveTarget: 0
   moveSpeed: 0
@@ -14531,7 +14597,6 @@ MonoBehaviour:
   DamageBlock: 0
   currentCombo: 0
   maxcombo: 20
-  ComboUI: {fileID: 2320536752282502563, guid: 02f78935d275c27478963ecf2e2006de, type: 3}
   isDamaged: 0
   HitEffect: {fileID: 5302201665987482517, guid: 10ecd86e54fbd744baa1f69bb0995cc2, type: 3}
   StrongHitEffect: {fileID: 5942996768073886119, guid: a1a7b4ac36c2cac4690161d6213c9499, type: 3}
@@ -14540,7 +14605,6 @@ MonoBehaviour:
   CoolTextEffect: {fileID: 6268643683504991078, guid: ac04799a645e5a54dbd564caba5de5ff, type: 3}
   emoticon: {fileID: 0}
   ultScreen: {fileID: 0}
-  GameoverUI: {fileID: 0}
 --- !u!4 &1122869072164335905
 Transform:
   m_ObjectHideFlags: 0
@@ -15734,6 +15798,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Alway: 0
+  BlockDash: 0
   owner: {fileID: 0}
   h: 0
   body: {fileID: 0}
@@ -28109,7 +28174,6 @@ MonoBehaviour:
   DamageBlock: 0
   currentCombo: 0
   maxcombo: 10
-  ComboUI: {fileID: 2320536752282502563, guid: 02f78935d275c27478963ecf2e2006de, type: 3}
   isDamaged: 0
   HitEffect: {fileID: 5302201665987482517, guid: 10ecd86e54fbd744baa1f69bb0995cc2, type: 3}
   StrongHitEffect: {fileID: 5942996768073886119, guid: a1a7b4ac36c2cac4690161d6213c9499, type: 3}
@@ -28118,7 +28182,6 @@ MonoBehaviour:
   CoolTextEffect: {fileID: 6268643683504991078, guid: ac04799a645e5a54dbd564caba5de5ff, type: 3}
   emoticon: {fileID: 0}
   ultScreen: {fileID: 0}
-  GameoverUI: {fileID: 0}
 --- !u!1 &1731138688161489044
 GameObject:
   m_ObjectHideFlags: 0
@@ -35323,6 +35386,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6431b494ee8368b4295dbe7e7408336f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  donHit: 0
   InteractionEvent:
     m_PersistentCalls:
       m_Calls: []
@@ -40365,6 +40429,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Alway: 0
+  BlockDash: 0
   owner: {fileID: 0}
   h: 0
   body: {fileID: 0}
@@ -46905,6 +46970,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6431b494ee8368b4295dbe7e7408336f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  donHit: 0
   InteractionEvent:
     m_PersistentCalls:
       m_Calls: []
@@ -48399,6 +48465,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Alway: 0
+  BlockDash: 0
   owner: {fileID: 0}
   h: 0
   body: {fileID: 0}
@@ -48486,6 +48553,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6431b494ee8368b4295dbe7e7408336f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  donHit: 0
   InteractionEvent:
     m_PersistentCalls:
       m_Calls: []
@@ -49927,7 +49995,6 @@ MonoBehaviour:
   DamageBlock: 0
   currentCombo: 0
   maxcombo: 10
-  ComboUI: {fileID: 2320536752282502563, guid: 02f78935d275c27478963ecf2e2006de, type: 3}
   isDamaged: 0
   HitEffect: {fileID: 5302201665987482517, guid: 10ecd86e54fbd744baa1f69bb0995cc2, type: 3}
   StrongHitEffect: {fileID: 5942996768073886119, guid: a1a7b4ac36c2cac4690161d6213c9499, type: 3}
@@ -49936,7 +50003,6 @@ MonoBehaviour:
   CoolTextEffect: {fileID: 6268643683504991078, guid: ac04799a645e5a54dbd564caba5de5ff, type: 3}
   emoticon: {fileID: 5375001145479121530}
   ultScreen: {fileID: 1575533933274364264}
-  GameoverUI: {fileID: 1164592305660603955, guid: f88948187b2d9604d93257d955ffad47, type: 3}
 --- !u!4 &3815474245383570029
 Transform:
   m_ObjectHideFlags: 0
@@ -50696,6 +50762,8 @@ MonoBehaviour:
   shootingPrefab: {fileID: 3720463374832119540, guid: 9dd6a27bda622244dbdaea757186379a, type: 3}
   bombPrefab: {fileID: 5359057258020180228, guid: 68dff8d122492d2458ee91b827a96f26, type: 3}
   HammerPrefab: {fileID: 4822297563414658317, guid: 144a49077aec5f947ab9f41f0578acce, type: 3}
+  StonePrefab: {fileID: 0}
+  ShockWavePrefab: {fileID: 0}
   fireTr: {fileID: 59112032725610472}
   GunfireTr: {fileID: 5510965409641355607}
   GunGauge: {fileID: 3733979651206596028}
@@ -56531,6 +56599,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6431b494ee8368b4295dbe7e7408336f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  donHit: 0
   InteractionEvent:
     m_PersistentCalls:
       m_Calls: []
@@ -56637,6 +56706,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 13699a7ca7f2c8a439dd0f9be40386a6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  inputCanPlayTime: 0
+  keyc: 0
   timeScale: 0
 --- !u!4 &4227670732739792180
 Transform:
@@ -66341,6 +66412,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8faf252014a19b942bc4983ce0bcf63a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  NoDamage: 0
   telp: 0
   stunTarget: 0
   flyingAttackForce: 3
@@ -76129,6 +76201,10 @@ PrefabInstance:
       propertyPath: m_Color.r
       value: 0.8941177
       objectReference: {fileID: 0}
+    - target: {fileID: 4898871073350778536, guid: e2f03ac0e90d84f4083d3f9121ad8f5f, type: 3}
+      propertyPath: attackForce
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 6227755902309650506, guid: e2f03ac0e90d84f4083d3f9121ad8f5f, type: 3}
       propertyPath: m_Name
       value: APO
@@ -77931,6 +78007,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6431b494ee8368b4295dbe7e7408336f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  donHit: 0
   InteractionEvent:
     m_PersistentCalls:
       m_Calls: []
@@ -89296,6 +89373,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 32bf50a30d2fbe244ad305aafa4d14a7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  owner: {fileID: 0}
 --- !u!114 &7557992001231622150
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -101054,6 +101132,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8faf252014a19b942bc4983ce0bcf63a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  NoDamage: 0
   telp: 0
   stunTarget: 0
   flyingAttackForce: 0
@@ -125035,7 +125114,7 @@ GameObject:
   - component: {fileID: 4225761741095254890}
   - component: {fileID: 3965701743640964486}
   m_Layer: 3
-  m_Name: APO (Test)
+  m_Name: APO
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -126243,6 +126322,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Alway: 0
+  BlockDash: 0
   owner: {fileID: 0}
   h: 0
   body: {fileID: 0}
@@ -126955,3 +127035,4 @@ SceneRoots:
   - {fileID: 1177057727}
   - {fileID: 884263984}
   - {fileID: 3714928074637577678}
+  - {fileID: 1138783644}

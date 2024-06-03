@@ -48,12 +48,7 @@ public abstract class Default_Monster : MonoBehaviour
 
     protected void Start()
     {
-        GameObject[] playerTagObjects = GameObject.FindGameObjectsWithTag("Player");
-        foreach (GameObject playerTagObj in playerTagObjects)
-        {
-            if (playerTagObj.name == "APO")
-                player = playerTagObj;
-        }
+        player = Entity.Player.gameObject;
         
         myRd = this.gameObject.GetComponent<Movement>().GetBody();
         

@@ -45,17 +45,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0644a85113403bf43a1768bbb2a4409b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  NoDamage: 0
   telp: 0
   stunTarget: 0
   flyingAttackForce: 0
   attackForce: 10
   thrustValue: 0.5
-  owner: {fileID: 0}
+  owner: {fileID: 7341027814915803845}
   oneHit: 0
   playerIsOwn: 0
   attType: 0
   isAbleDestroy: 0
   DestroyEffect: {fileID: 0}
+  targetPosX: 0
 --- !u!61 &2739523697278588418
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -63,7 +65,7 @@ BoxCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 562539197988119063}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IncludeLayers:
@@ -136,7 +138,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 2.04, y: -1.7, z: -0.0039202}
-  m_LocalScale: {x: 2.0690513, y: 2.0690513, z: 2.9557877}
+  m_LocalScale: {x: 1.5495814, y: 1.5495814, z: 2.213688}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1997482778545063461}
@@ -255,6 +257,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Alway: 0
+  BlockDash: 0
   owner: {fileID: 0}
   h: 0
   body: {fileID: 0}
@@ -288,7 +291,7 @@ MonoBehaviour:
   ai: {fileID: 0}
   waitTime: 0
   mpLock: 0
-  maxHP: 200
+  maxHP: 30
   maxMp: 100
   target:
     serializedVersion: 2
@@ -305,7 +308,6 @@ MonoBehaviour:
   DamageBlock: 0
   currentCombo: 0
   maxcombo: 20
-  ComboUI: {fileID: 2320536752282502563, guid: 02f78935d275c27478963ecf2e2006de, type: 3}
   isDamaged: 0
   HitEffect: {fileID: 5302201665987482517, guid: 10ecd86e54fbd744baa1f69bb0995cc2, type: 3}
   StrongHitEffect: {fileID: 5942996768073886119, guid: a1a7b4ac36c2cac4690161d6213c9499, type: 3}
@@ -422,6 +424,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 372e54ac4cda7584585ba6ddcf03b087, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isStartToMute: 0
 --- !u!61 &8503018620022488504
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -480,10 +483,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player_pos: {x: 0, y: 0}
-  move_Speed: 0
+  move_Speed: 2
   distFrom_Player: 0
   isDie: 0
   m_dAtt_dist: 8
-  m_traceDist: 8
+  m_traceDist: 1
   rushSpeed: 4
-  Ground_Pref: {fileID: 5580675538917755586, guid: b628917b51ff9764585bd05ea858ba3c, type: 3}
+  NoRush: 0
+  hit: {fileID: 4302453249068177083}
+  isRush: 0

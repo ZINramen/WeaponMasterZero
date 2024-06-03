@@ -5,12 +5,29 @@ using UnityEngine.Rendering;
 
 public class Shield_HitCol : HitColider
 {
-    protected override void EachObj_HitSetting(Collider2D other)
+    ShieldMon_Ctrl smc;
+    public float targetPosX;
+
+    private void Start()
     {
-        if (other.gameObject.layer == 10)
+        smc = owner.GetComponent<ShieldMon_Ctrl>();
+    }
+
+    public void Update()
+    {
+        if (Mathf.Abs(owner.transform.position.x - targetPosX) < 1f)
         {
-            owner.gameObject.GetComponent<ShieldMon_Ctrl>().EndRush_Setting();
-            owner.gameObject.GetComponent<ShieldMon_Ctrl>().Destory_StopPos();
+            owner.GetComponent<ShieldMon_Ctrl>().EndRush();
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        base.OnTriggerEnter2D(collision);
+        if(collision.gameObject.layer == 10)
+        {
+            smc.EndRush();
+            owner.transform.rotation = Quaternion.Euler(0, owner.transform.localEulerAngles.x == 0 ? 180 : 0, 0);
         }
     }
 }
