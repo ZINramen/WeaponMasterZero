@@ -50,6 +50,7 @@ public class SwordBoss : Boss
     private Transform Right_MaxXY_SponPos;
     private Transform Left_MinXY_SponPos;
     
+    [SerializeField] private AudioClip LineBreak_Sound;
     private float delete_LineTime;
     private List<GameObject> dummy_LinePref_List = new List<GameObject>();
     
@@ -137,7 +138,7 @@ public class SwordBoss : Boss
 
         delete_LineTime = 0.3f;
         lineAnim_Time = 0.1f;
-        lineTotalCount = 20;
+        lineTotalCount = 35;
     }
     
     // protected override void MoveSetting()
@@ -340,6 +341,8 @@ public class SwordBoss : Boss
                 foreach (GameObject dummy_LinePref in dummy_LinePref_List)
                     dummy_LinePref.GetComponent<Line_Ctrl>().EndAnimation();
 
+                gameObject.GetComponent<AudioSource>().PlayOneShot(LineBreak_Sound);
+                
                 isReadyCreate_Line = false;
                 lineCount = 0;
             }
