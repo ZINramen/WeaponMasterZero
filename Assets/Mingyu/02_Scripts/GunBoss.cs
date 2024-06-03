@@ -159,7 +159,7 @@ public class GunBoss : Boss
     {
         state.defaultAtt_dist = 1f;
 
-        state.skill_CoolTime = 1.0f;
+        state.skill_CoolTime = 5.0f;
     
         state.p1_Skill1_dist = 5000f;
         state.p1_Skill2_dist = 4.5f;
@@ -446,13 +446,40 @@ public class GunBoss : Boss
         {
             isSelect_DAttType = true;
 
-            dAttType_int = Random.Range((int)DAtt_Type.SpinAtt, (int)DAtt_Type.DownAtt + 1);
-            if (dAttType_int == 1) isSpinAtt = false;
+            // dAttType_int = Random.Range((int)DAtt_Type.SpinAtt, (int)DAtt_Type.DownAtt + 1);
+            // if (dAttType_int == 1) isSpinAtt = false;
+            // else isSpinAtt = true;
+
+            dAttType_int++;
+            
+            // 시연용 코드
+            if (dAttType_int % 2 == 0) isSpinAtt = false;
             else isSpinAtt = true;
 
             animCtrl.SetBool("isSpinAtt", isSpinAtt);
         }
     }
+    
+    #region 시연용 코드
+
+    protected override int EachBoss_SelectedSkill(Boss_State currState)
+    {
+        skill_PlusNumber++;
+        
+        if (bossHP_per >= 0.5f)
+        {
+            iBossSkill = 2 + (skill_PlusNumber % 2);
+        }
+            
+        // 2phaze
+        else
+        {
+            iBossSkill = 4 + (skill_PlusNumber % 3);
+        }
+        return iBossSkill;
+    }
+    
+    #endregion
     
     #region 엔드 세팅
     protected override void EachBoss_EndAttack()

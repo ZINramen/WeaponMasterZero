@@ -254,40 +254,61 @@ public class LastBoss_Ctrl : Boss
         {
             isSelect_DAttType = true;
 
-            dAttType_int = Random.Range((int)DAtt_Type.LeftAtt, (int)DAtt_Type.RightAtt + 1);
-            if (dAttType_int == (int)DAtt_Type.LeftAtt) isLeftAtt = true;
+            // dAttType_int = Random.Range((int)DAtt_Type.LeftAtt, (int)DAtt_Type.RightAtt + 1);
+            // if (dAttType_int == (int)DAtt_Type.LeftAtt) isLeftAtt = true;
+            // else isLeftAtt = false;
+            
+            dAttType_int++;
+            
+            // 시연용 코드
+            if (dAttType_int % 2 == 0) isLeftAtt = true;
             else isLeftAtt = false;
 
             animCtrl.SetBool("is_DAtt_L", isLeftAtt);
         }
     }
     
+    // protected override int EachBoss_SelectedSkill(Boss_State currState)
+    // {
+    //     int selectedNumber;
+    //     selectedNumber = Random.Range(0, 100);      // 0 ~ 99
+    //
+    //     if (selectedNumber >= currState.p2S3_PossibilityNumber)
+    //         iBossSkill = (int)Boss_State.State.p2_Skill3;
+    //     
+    //     else if(selectedNumber >= currState.p2S2_PossibilityNumber)
+    //         iBossSkill = (int)Boss_State.State.p2_Skill2;
+    //
+    //     else if(selectedNumber >= currState.p2S1_PossibilityNumber)
+    //         iBossSkill = (int)Boss_State.State.p2_Skill1;
+    //     
+    //     else if (selectedNumber >= currState.p1S2_PossibilityNumber)
+    //     {
+    //         Select_ShootingType();
+    //         iBossSkill = (int)Boss_State.State.p1_Skill2;
+    //     }
+    //     
+    //     else
+    //         iBossSkill = (int)Boss_State.State.p1_Skill1;
+    //     
+    //     return iBossSkill;
+    // }
+
+    #region 시연용 코드
     protected override int EachBoss_SelectedSkill(Boss_State currState)
     {
-        int selectedNumber;
-        selectedNumber = Random.Range(0, 100);      // 0 ~ 99
+        skill_PlusNumber++;
+        
+        Select_ShootingType();
+        iBossSkill = 2 + (skill_PlusNumber % 6); // 2 ~ 7
 
-        if (selectedNumber >= currState.p2S3_PossibilityNumber)
-            iBossSkill = (int)Boss_State.State.p2_Skill3;
-        
-        else if(selectedNumber >= currState.p2S2_PossibilityNumber)
-            iBossSkill = (int)Boss_State.State.p2_Skill2;
-
-        else if(selectedNumber >= currState.p2S1_PossibilityNumber)
-            iBossSkill = (int)Boss_State.State.p2_Skill1;
-        
-        else if (selectedNumber >= currState.p1S2_PossibilityNumber)
-        {
-            Select_ShootingType();
-            iBossSkill = (int)Boss_State.State.p1_Skill2;
-        }
-        
-        else
-            iBossSkill = (int)Boss_State.State.p1_Skill1;
+        if (iBossSkill == 4) iBossSkill = 3;
+        else if (iBossSkill > 4) iBossSkill--;
         
         return iBossSkill;
     }
-
+    #endregion
+    
     protected override void EachBoss_UpdateSetting()
     {
         // 체력이 50% 이하라면, 공격타입을 결정할 수 있게 진행
@@ -429,13 +450,13 @@ public class LastBoss_Ctrl : Boss
 
     public void Select_ShootingType()
     {
-        int shootingType = Random.Range((int)FireAtt_Type.ManyAtt, (int)FireAtt_Type.TwoAtt + 1);
-        if (shootingType == (int)FireAtt_Type.ManyAtt) isShooting_ManyAtt = true;
-        else isShooting_ManyAtt = false;
+        // int shootingType = Random.Range((int)FireAtt_Type.ManyAtt, (int)FireAtt_Type.TwoAtt + 1);
+        // if (shootingType == (int)FireAtt_Type.ManyAtt) isShooting_ManyAtt = true;
+        // else isShooting_ManyAtt = false;
 
         //isShooting_ManyAtt = false; // Test
-        
-        Debug.Log(shootingType);
+        isShooting_ManyAtt = isLeftAtt; // 시연용
+        Debug.Log(isShooting_ManyAtt);
 
         animCtrl.SetBool("is_ManyFire", isShooting_ManyAtt);
     }

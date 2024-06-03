@@ -15,6 +15,8 @@ public class SnowBall_HitColl : HitColider
     private void Start()
     {
         HP = MaxHP;
+        
+        Destroy(this.gameObject, 5f);
     }
 
     private void Update()
@@ -62,5 +64,14 @@ public class SnowBall_HitColl : HitColider
         
         owner.gameObject.GetComponent<HammerBoss>().Destroy_SnowBall();
         Destroy(deleteObj.transform.parent.gameObject);
+    }
+
+    private void OnDestroy()
+    {
+        if (DestroyEffect)
+        {
+            Instantiate(DestroyEffect, transform.position, Quaternion.identity);
+        }
+        EachObj_DeleteSetting(this.gameObject);
     }
 }
