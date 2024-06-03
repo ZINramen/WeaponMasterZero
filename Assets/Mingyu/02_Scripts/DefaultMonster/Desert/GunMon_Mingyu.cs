@@ -9,7 +9,8 @@ public class GunMon_Mingyu : Default_Monster
     [SerializeField] private GameObject ParringBullet;
     private Transform shootingPos;
     private GameObject dummyParringBullet;
-    
+    public GameObject ShootEffect;
+
     [SerializeField] private float m_dAtt_dist;
     [SerializeField] private float m_traceDist;
     
@@ -47,10 +48,12 @@ public class GunMon_Mingyu : Default_Monster
         }
     }
 
+
     public void ShootingAttack()
     {
         this.transform.rotation = Quaternion.Euler(0, this.transform.position.x > player_pos.x ? 0 : 180, 0);
         dummyParringBullet = GameObject.Instantiate(ParringBullet, shootingPos.position, Quaternion.identity);
+        GameObject.Instantiate(ShootEffect, shootingPos.position, Quaternion.identity);
 
         Vector2 startPos = this.transform.position;
         Vector2 endPos = this.gameObject.GetComponent<Default_Monster>().player_pos;

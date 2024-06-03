@@ -51,7 +51,16 @@ public abstract class Default_Monster : MonoBehaviour
     public bool isDie;
     protected float groundApproachDist = 0;
     protected bool isNot_ChangeState = false;
-
+    bool dontRot = false; 
+    
+    public void SetRot(bool value)
+    {
+        dontRot = value;
+        if (!value)
+        {
+            this.transform.rotation = Quaternion.Euler(0, this.transform.position.x > player_pos.x ? 0 : 180, 0);
+        }
+    }
     protected void Start()
     {
         player = Entity.Player.gameObject;
@@ -171,7 +180,8 @@ public abstract class Default_Monster : MonoBehaviour
         if (monsterState.currentState == Default_MonsterState.State.trace)
         {
             Debug.Log("Move");
-            this.transform.rotation = Quaternion.Euler(0, this.transform.position.x > player_pos.x ? 0 : 180, 0);
+            if (!dontRot)
+                this.transform.rotation = Quaternion.Euler(0, this.transform.position.x > player_pos.x ? 0 : 180, 0);
             MoveSetting();
         }
     }
@@ -249,7 +259,8 @@ public abstract class Default_Monster : MonoBehaviour
 
     protected void AbleTurn()
     {
-        this.transform.rotation = Quaternion.Euler(0, this.transform.position.x > player_pos.x ? 0 : 180, 0);
+        if (!dontRot)
+            this.transform.rotation = Quaternion.Euler(0, this.transform.position.x > player_pos.x ? 0 : 180, 0);
     }
     
     public void EndAttack()

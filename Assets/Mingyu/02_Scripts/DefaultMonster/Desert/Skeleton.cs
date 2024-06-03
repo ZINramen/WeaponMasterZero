@@ -11,7 +11,15 @@ public class Skeleton : Default_Monster
     private Material originMat;
 
     private GameObject parringHit;
-    
+
+    public void SetRot_True()
+    {
+        SetRot(true);
+    }
+    public void SetRot_False()
+    {
+        SetRot(false);
+    }
     void Start()
     {
         base.Start();
