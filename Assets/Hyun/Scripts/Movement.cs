@@ -167,7 +167,7 @@ public class Movement : MonoBehaviour
 
     public void Freeze()
     {
-        body.constraints = RigidbodyConstraints2D.FreezePositionY & RigidbodyConstraints2D.FreezeRotation;
+        body.constraints = RigidbodyConstraints2D.FreezeAll;
     }
     public void PushBack(float force)
     {

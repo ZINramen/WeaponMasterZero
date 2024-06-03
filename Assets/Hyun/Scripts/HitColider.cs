@@ -13,6 +13,7 @@ public class HitColider : MonoBehaviour
     public float thrustValue = 0.5f;
     public Entity owner;
 
+    public bool attach = false;
     public bool oneHit = false;
     public bool playerIsOwn = false;
 
@@ -66,6 +67,12 @@ public class HitColider : MonoBehaviour
 
         if (entity && entity.GetHp() > 0)
         {
+            if (attach)
+            {
+                entity.movement.Freeze();
+                entity.SetHp(0, true);
+                return;
+            }
             if (owner)
             {
                 owner.SetMp(owner.GetMp() + 5);

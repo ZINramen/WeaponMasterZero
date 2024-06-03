@@ -274,11 +274,12 @@ public class Entity : MonoBehaviour
     }
 
     // hp 임의 변경 : 아이템용이다.
-    public void SetHp(float value)
+    public void SetHp(float value, bool noeffect = false)
     {
         if (hp > value)
         {
-            PlayHitEffect(10);
+            if (!noeffect)
+                PlayHitEffect(10);
             AddMp(2);
         }
         if (value > maxHP)
