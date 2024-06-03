@@ -5,12 +5,17 @@ using UnityEngine.Rendering;
 
 public class SwordHitCol : MonoBehaviour
 {
+    public Movement m;
+    public AudioSource HitSound;
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.gameObject.GetComponent<HitColider>() &&
             other.gameObject.GetComponent<HitColider>().attType == HitColider.AttackType.Player_SwordAtt)
         {
             Debug.Log("패링");
+            if(HitSound)
+                HitSound.Play();
+
             GameObject player = other.gameObject.transform.parent.gameObject;
 
             if (player != null && player.gameObject.GetComponent<Entity>().GetHp() > 0)
