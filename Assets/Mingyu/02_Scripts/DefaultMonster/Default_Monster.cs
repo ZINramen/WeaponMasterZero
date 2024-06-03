@@ -41,6 +41,7 @@ public abstract class Default_Monster : MonoBehaviour
     protected Animator animCtrl;
     
     protected Default_MonsterState monsterState;
+    [SerializeField] private bool isFall_Monster;
     protected bool isMoveEnd = false;
     
     [SerializeField] protected float distFrom_Player;
@@ -185,7 +186,23 @@ public abstract class Default_Monster : MonoBehaviour
         isMove = true;
         nextMove = this.transform.position.x > player_pos.x ? -move_Speed : move_Speed;
         
-        Move(nextMove, nextMove > 0 ? 1 : -1);
+        if (isFall_Monster)
+        {
+            Move(nextMove, nextMove > 0 ? 1 : -1);
+        }
+        else
+        {
+            groundApproachDist = 0.5f;
+            
+            if (rayHit.collider != null)
+            {
+                Move(nextMove, nextMove > 0 ? 1 : -1);
+            }
+            else
+            {
+                Move(0, nextMove > 0 ? 1 : -1);
+            }
+        }
     }
 
     public void Check_AttackHitCol(int isOnColider)

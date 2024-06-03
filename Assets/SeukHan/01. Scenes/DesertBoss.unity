@@ -1369,6 +1369,7 @@ MonoBehaviour:
   attackForce: 5
   thrustValue: 15
   owner: {fileID: 819132794}
+  attach: 0
   oneHit: 0
   playerIsOwn: 0
   attType: 0
@@ -2408,6 +2409,7 @@ GameObject:
   m_Component:
   - component: {fileID: 518831120}
   - component: {fileID: 518831119}
+  - component: {fileID: 518831121}
   m_Layer: 0
   m_Name: BossCam
   m_TagString: Camera
@@ -2470,6 +2472,27 @@ Transform:
   - {fileID: 1286767819}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &518831121
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 518831118}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -3316,11 +3339,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1156898880603730392, guid: 06e48d987e62bf64fa4daecced7985ac, type: 3}
       propertyPath: m_SizeDelta.x
-      value: -11.8
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1156898880603730392, guid: 06e48d987e62bf64fa4daecced7985ac, type: 3}
       propertyPath: m_SizeDelta.y
-      value: -6.7
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1652880562482149692, guid: 06e48d987e62bf64fa4daecced7985ac, type: 3}
       propertyPath: m_IsActive
@@ -3689,7 +3712,7 @@ MonoBehaviour:
   ai: {fileID: 0}
   waitTime: 0
   mpLock: 0
-  maxHP: 50
+  maxHP: 400
   maxMp: 100
   target:
     serializedVersion: 2
@@ -3928,11 +3951,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1156898880603730392, guid: 06e48d987e62bf64fa4daecced7985ac, type: 3}
       propertyPath: m_SizeDelta.x
-      value: -11.8
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1156898880603730392, guid: 06e48d987e62bf64fa4daecced7985ac, type: 3}
       propertyPath: m_SizeDelta.y
-      value: -6.7
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1652880562482149692, guid: 06e48d987e62bf64fa4daecced7985ac, type: 3}
       propertyPath: m_IsActive
@@ -4277,7 +4300,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 63774787, guid: c57e8c5f9bfddb740aebec38dd03ad82, type: 3}
+  m_Sprite: {fileID: -546934056, guid: 146d4269ea93d644cb85247246b24584, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 1
   m_FlipY: 0
@@ -5203,6 +5226,7 @@ MonoBehaviour:
   attackForce: 5
   thrustValue: 3
   owner: {fileID: 819132794}
+  attach: 0
   oneHit: 0
   playerIsOwn: 0
   attType: 0
@@ -5435,6 +5459,7 @@ MonoBehaviour:
   attackForce: 5
   thrustValue: 15
   owner: {fileID: 819132794}
+  attach: 0
   oneHit: 0
   playerIsOwn: 0
   attType: 0
@@ -5805,6 +5830,8 @@ PlayableDirector:
     value: {fileID: 519420035}
   - key: {fileID: -7107909135500425657, guid: b020bad6e370d034db99a031a820a2ad, type: 2}
     value: {fileID: 1156925974}
+  - key: {fileID: -9080360567243064438, guid: b020bad6e370d034db99a031a820a2ad, type: 2}
+    value: {fileID: 518831121}
   m_ExposedReferences:
     m_References:
     - 84623d895c2700749a5a64b098f7e8a6: {fileID: 650737220}

@@ -32,6 +32,8 @@ public class BulletCtrl : MonoBehaviour
     [SerializeField] private bool isPlayerParring;
     public int wallParringHP = 2;
     private GameObject m_player;
+    
+    private AudioSource audioSource;
 
     public bool Get_IsPlayerParring()
     {
@@ -40,6 +42,7 @@ public class BulletCtrl : MonoBehaviour
     
     private void Start()
     {
+        audioSource = this.gameObject.GetComponent<AudioSource>();
         shootingDir.z = install_ZValue;
         
         myRd = this.gameObject.GetComponent<Rigidbody2D>();
@@ -67,6 +70,7 @@ public class BulletCtrl : MonoBehaviour
         ShootingBullet(parrigForce, Quaternion.Euler(0, 0, angle));
 
         isPlayerParring = true;
+        audioSource.Play();
         StartCoroutine("returnTimeDelay", 0.3f);
     }
 

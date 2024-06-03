@@ -219,7 +219,7 @@ MonoBehaviour:
   ai: {fileID: 0}
   waitTime: 0
   mpLock: 0
-  maxHP: 9999
+  maxHP: 50
   maxMp: 100
   target:
     serializedVersion: 2
@@ -416,5 +416,5 @@ MonoBehaviour:
   Exclamation: {fileID: 8391314663403983471, guid: 95921e6fd65263841b25156c8e0aa124, type: 3}
   isDie: 0
   IceBall: {fileID: 851773297638645320, guid: fa53492a887119b4ebcf2e86c00f8528, type: 3}
-  m_dAtt_dist: 4
-  m_traceDist: 8
+  m_dAtt_dist: 10
+  m_traceDist: 12

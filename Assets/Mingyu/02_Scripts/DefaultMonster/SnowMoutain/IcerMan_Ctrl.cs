@@ -26,24 +26,12 @@ public class IcerMan_Ctrl : Default_Monster
             icerEntity.playerFinalBoss = player.gameObject.GetComponent<Entity>();
             icerEntity.activeDesireWeapon = true;
             
-            icerEntity.desireWeaponFinalBoss = (int)(HitColider.AttackType.Player_GunAtt);
+            icerEntity.desireWeaponFinalBoss = (int)(HitColider.AttackType.Player_SwordAtt);
         }
     
         protected override void Init_StateValueData(ref Default_MonsterState state)
         {
             state.defaultAtt_dist = m_dAtt_dist;
             state.traceDistance = m_traceDist;
-        }
-
-        private void OnTriggerEnter2D(Collider2D other)
-        {
-            if (other.gameObject.GetComponent<HitColider>())
-            {
-                if (other.gameObject.GetComponent<HitColider>().attType == HitColider.AttackType.Player_SwordAtt)
-                {
-                    other.transform.parent.GetComponent<Movement>().SetMovementForceX(-50);
-                    other.transform.parent.GetComponent<Animator>().SetTrigger("Hit");
-                }
-            }
         }
 }

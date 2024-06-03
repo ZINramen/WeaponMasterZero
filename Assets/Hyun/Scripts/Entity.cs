@@ -230,7 +230,7 @@ public class Entity : MonoBehaviour
     {
         Vector2 start = transform.position;
         RaycastHit2D[] hit;
-        hit = Physics2D.RaycastAll(start, transform.right, 100, target);
+        hit = Physics2D.RaycastAll(start, transform.right, 10, target);
 
         foreach (RaycastHit2D hitTarget in hit)
         {

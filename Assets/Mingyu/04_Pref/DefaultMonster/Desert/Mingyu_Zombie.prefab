@@ -142,6 +142,7 @@ MonoBehaviour:
   attackForce: 10
   thrustValue: 0.2
   owner: {fileID: 969155841169485377}
+  attach: 0
   oneHit: 0
   playerIsOwn: 0
   attType: 0
@@ -381,7 +382,7 @@ MonoBehaviour:
   ai: {fileID: 0}
   waitTime: 0
   mpLock: 0
-  maxHP: 200
+  maxHP: 100
   maxMp: 100
   target:
     serializedVersion: 2
@@ -574,9 +575,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player_pos: {x: 0, y: 0}
   move_Speed: 1
+  isFall_Monster: 1
   distFrom_Player: 0
   Exclamation: {fileID: 8391314663403983471, guid: 95921e6fd65263841b25156c8e0aa124, type: 3}
   isDie: 0
   m_dAtt_dist: 0.5
-  m_traceDist: 4
+  m_traceDist: 6
   hitMat: {fileID: 2100000, guid: 9a312534a97aeb14e89b5c7cc149b470, type: 2}
