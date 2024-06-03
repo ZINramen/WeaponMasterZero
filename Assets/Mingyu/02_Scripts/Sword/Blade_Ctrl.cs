@@ -8,8 +8,8 @@ public class Blade_Ctrl : MonoBehaviour
 {
     private Rigidbody2D myRd;
     private Animator myAnimCtrl;
-    [SerializeField] private float forceAmount = 30f;
-
+    [SerializeField] private float forceAmount;
+    
     public void OwnerSetting(GameObject boss)
     {
         this.gameObject.GetComponent<BladeHitColl>().owner = boss.gameObject.GetComponent<Entity>();

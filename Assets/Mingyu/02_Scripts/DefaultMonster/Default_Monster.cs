@@ -41,8 +41,8 @@ public abstract class Default_Monster : MonoBehaviour
     protected Animator animCtrl;
     
     protected Default_MonsterState monsterState;
-    [SerializeField] private bool isFall_Monster;
     protected bool isMoveEnd = false;
+    [SerializeField] private bool isFall_Monster;
     
     [SerializeField] protected float distFrom_Player;
     [SerializeField] private GameObject Exclamation;

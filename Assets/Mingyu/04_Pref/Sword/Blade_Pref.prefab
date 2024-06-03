@@ -173,7 +173,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 971ba63b53d51bd4e86ac7c76e06805c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  forceAmount: 10
+  forceAmount: 22
 --- !u!95 &6290311685474259811
 Animator:
   serializedVersion: 5
@@ -207,10 +207,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 309359ffc9b493048a4410761c41f3aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  NoDamage: 0
   telp: 0
   stunTarget: 0
   flyingAttackForce: 0
-  attackForce: 10
+  attackForce: 40
   thrustValue: 0.5
   owner: {fileID: 0}
   oneHit: 0
