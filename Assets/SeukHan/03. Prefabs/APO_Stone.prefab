@@ -161,14 +161,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 23f6751e4d6f71a4c83dc44f4fad52a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  NoDamage: 0
   telp: 0
   stunTarget: 1
   flyingAttackForce: 0
   attackForce: 10
   thrustValue: -0.5
   owner: {fileID: 0}
+  attach: 0
   oneHit: 0
   playerIsOwn: 0
-  attType: 0
+  attType: 3
   isAbleDestroy: 0
   DestroyEffect: {fileID: 8979116212189742952, guid: 5a478860de01e9041aca0033b9c5e2e8, type: 3}

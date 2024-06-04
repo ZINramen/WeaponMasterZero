@@ -377,7 +377,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 983611486230121155, guid: 5a71e4bd8d63b754e9e2f0e85966e54b, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1122151599190929135, guid: 5a71e4bd8d63b754e9e2f0e85966e54b, type: 3}
       propertyPath: rushSpeed
@@ -572,6 +572,7 @@ MonoBehaviour:
   MobPrefab:
   - {fileID: 353623281338993640, guid: 8deac000c68926741ab8bd2bf2b7ff25, type: 3}
   - {fileID: 4478715530957999408, guid: 1cf515f619cf38042baf4c8e1d8fc35d, type: 3}
+  Monsters: {fileID: 0}
 --- !u!61 &375038723
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -3545,7 +3546,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 983611486230121155, guid: c18b11e85791a6244bb8123fe2260c2f, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8001548387668804280, guid: c18b11e85791a6244bb8123fe2260c2f, type: 3}
       propertyPath: m_LocalPosition.x
@@ -3615,6 +3616,14 @@ PrefabInstance:
     - target: {fileID: 4388115088744480764, guid: e2f03ac0e90d84f4083d3f9121ad8f5f, type: 3}
       propertyPath: JumpPower
       value: 3.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4898871073350778536, guid: e2f03ac0e90d84f4083d3f9121ad8f5f, type: 3}
+      propertyPath: attType
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4898871073350778536, guid: e2f03ac0e90d84f4083d3f9121ad8f5f, type: 3}
+      propertyPath: playerIsOwn
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6227755902309650506, guid: e2f03ac0e90d84f4083d3f9121ad8f5f, type: 3}
       propertyPath: m_Name

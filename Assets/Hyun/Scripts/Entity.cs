@@ -17,6 +17,8 @@ public class Entity : MonoBehaviour
     public bool activeDesireWeapon = false; 
     public Entity playerFinalBoss;
     public int desireWeaponFinalBoss = 0;
+
+    public int triggerObj_HitType = 0;
     ////////////////////////////////////////
 
     public bool stun = false;
@@ -301,8 +303,12 @@ public class Entity : MonoBehaviour
 
     public void Damaged(float damageValue, float thrustValue = 0.5f)
     {
-        if (activeDesireWeapon 
-            && playerFinalBoss && playerFinalBoss.aManager.ani.GetInteger("Weapon") != desireWeaponFinalBoss) 
+        Debug.Log("AttType : "  + triggerObj_HitType);
+        
+        if (activeDesireWeapon && 
+            playerFinalBoss && 
+            (triggerObj_HitType != desireWeaponFinalBoss && 
+             triggerObj_HitType != (int)HitColider.AttackType.Player_FinishdAtt)) 
             return;
 
         if (DamageBlock == DefenseStatus.invincible) return;

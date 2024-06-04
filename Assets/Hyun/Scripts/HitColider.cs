@@ -22,6 +22,7 @@ public class HitColider : MonoBehaviour
         none,
         Player_SwordAtt,
         Player_GunAtt,
+        Player_Hammer,
         Player_FinishdAtt
     }
     public AttackType attType = AttackType.none;
@@ -67,6 +68,8 @@ public class HitColider : MonoBehaviour
 
         if (entity && entity.GetHp() > 0)
         {
+            other.GetComponent<Entity>().triggerObj_HitType = (int)attType;
+            
             if (attach)
             {
                 entity.movement.Freeze();
