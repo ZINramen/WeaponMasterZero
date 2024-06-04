@@ -39,7 +39,9 @@ public class Movement : MonoBehaviour
     [Header("2P Move : I J K L")]
     public bool is2P = false;
     public PhysicsMaterial2D pMaterial;
-    
+
+    bool isTrace = false;
+    Vector3 targetPosition;
 
     public void SetPlayerType(bool value) 
     {
@@ -59,6 +61,30 @@ public class Movement : MonoBehaviour
         body = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
     }
+
+    public void TracePlayerPos()
+    {
+        if (Entity.Player.aManager.groundCheck.GetOnGround)
+        {
+            animator.SetTrigger("isRush");
+            isTrace = true;
+            targetPosition = Entity.Player.transform.position;
+        }
+    }
+
+    public void SeePlayer()
+    {
+
+        if (Entity.Player.transform.position.x > transform.position.x)
+        {
+            transform.localEulerAngles = new Vector3(0, 180, 0);
+        }
+        else
+        {
+            transform.localEulerAngles = new Vector3(0, 0, 0);
+        }
+    }
+
 
     public void PhysicChange() 
     {
@@ -85,6 +111,18 @@ public class Movement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (isTrace)
+        {
+            if (Vector3.Distance(transform.position, targetPosition) > 0.5f && Mathf.Abs(transform.position.y - targetPosition.y) < 0.5f)
+            {
+                transform.position = Vector3.MoveTowards(transform.position, targetPosition, Time.deltaTime * speed);
+            }
+            else
+            {
+                animator.SetTrigger("EndRush");
+                isTrace = false;
+            }
+        }
         if (owner == Entity.Player)
         {
             if (h != 0)
