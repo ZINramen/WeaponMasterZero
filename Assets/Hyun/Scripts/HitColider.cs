@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using static UnityEngine.Rendering.DebugUI;
 
 public class HitColider : MonoBehaviour
 {
@@ -67,6 +68,23 @@ public class HitColider : MonoBehaviour
 
         if (entity && entity.GetHp() > 0)
         {
+            if (entity.shield)
+            {
+                if (entity.shield.transform.position.x > entity.transform.position.x)
+                {
+                    if(entity.shield.transform.position.x <= transform.position.x)
+                    {
+                        return;
+                    }
+                }
+                else if(entity.shield.transform.position.x < entity.transform.position.x)
+                {
+                    if (entity.shield.transform.position.x >= transform.position.x)
+                    {
+                        return;
+                    }
+                }
+            }
             if (attach)
             {
                 entity.movement.Freeze();

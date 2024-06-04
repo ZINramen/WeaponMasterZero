@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static UnityEngine.RuleTile.TilingRuleOutput;
 
 public class Movement : MonoBehaviour
 {
@@ -57,7 +58,6 @@ public class Movement : MonoBehaviour
     void Awake()
     {
         boss = GameObject.FindWithTag("Boss");
-        Application.targetFrameRate = 60;
         body = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
     }
@@ -66,6 +66,7 @@ public class Movement : MonoBehaviour
     {
         if (Entity.Player.aManager.groundCheck.GetOnGround)
         {
+            animator.SetBool("EndRush", false);
             animator.SetTrigger("isRush");
             isTrace = true;
             targetPosition = Entity.Player.transform.position;
@@ -113,13 +114,13 @@ public class Movement : MonoBehaviour
     {
         if (isTrace)
         {
-            if (Vector3.Distance(transform.position, targetPosition) > 0.5f && Mathf.Abs(transform.position.y - targetPosition.y) < 0.5f)
+            if (Mathf.Abs((int)transform.position.x - (int)targetPosition.x) > 0 || Mathf.Abs((int)transform.position.y - (int)targetPosition.y) < 1)
             {
-                transform.position = Vector3.MoveTowards(transform.position, targetPosition, Time.deltaTime * speed);
+                transform.position = Vector3.MoveTowards(transform.position, new Vector3(targetPosition.x, transform.position.y), Time.deltaTime * speed);
             }
             else
             {
-                animator.SetTrigger("EndRush");
+                animator.SetBool("EndRush", true);
                 isTrace = false;
             }
         }

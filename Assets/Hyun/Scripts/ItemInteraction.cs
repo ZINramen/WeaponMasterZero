@@ -22,8 +22,6 @@ public class ItemInteraction : MonoBehaviour
 
     //public GameObject effect;
 
-    public bool OnlySee = false; 
-    public bool isParrying;
     public bool playerTaget = false;
     public bool donHit = false;
 
@@ -67,15 +65,6 @@ public class ItemInteraction : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D coll)
     {
-        if (isParrying)
-        {
-            HitColider h = coll.gameObject.GetComponent<HitColider>();
-            if(h.attType == HitColider.AttackType.Player_SwordAtt)
-            {
-                if(!OnlySee || h.owner.transform.eulerAngles == transform.eulerAngles)
-                    InteractionEvent.Invoke();
-            }
-        }
         if (playerTaget && !coll.gameObject.CompareTag("Player")) return;
         if (donHit)
         {
