@@ -5,7 +5,6 @@ using UnityEngine;
 public class Chaser : MonoBehaviour
 {
     SpriteRenderer sp;
-    bool isChase = false;
     bool death = false;
 
     [SerializeField]

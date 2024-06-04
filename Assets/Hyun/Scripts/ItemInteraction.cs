@@ -53,14 +53,25 @@ public class ItemInteraction : MonoBehaviour
         cam = Camera.main.GetComponent<DynamicCamera>();
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void Update()
     {
-        if (itemName == "Hammer")
+        if(!isEnd)
+        if (itemName == "Hammer" && Mathf.Abs((int)transform.position.y - (int)Entity.Player.aManager.groundCheck.transform.position.y) < 5)
         {
+            isEnd = true;
+            Rigidbody2D rb = GetComponent<Rigidbody2D>();
+            rb.velocity = Vector2.zero;
+            rb.constraints = RigidbodyConstraints2D.FreezeAll;
+
             GetComponent<AudioSource>().Play();
             cam.ShakeScreen(3);
             Effect.SetActive(true);
         }
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+
     }
 
     private void OnTriggerEnter2D(Collider2D coll)
