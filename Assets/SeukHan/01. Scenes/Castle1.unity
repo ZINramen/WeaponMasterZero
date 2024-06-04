@@ -633,7 +633,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!320 &193789340
 PlayableDirector:
   m_ObjectHideFlags: 0
@@ -744,68 +744,6 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 1
           m_CallState: 2
---- !u!1001 &488863170
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 548031675}
-    m_Modifications:
-    - target: {fileID: 983611486230121155, guid: c18b11e85791a6244bb8123fe2260c2f, type: 3}
-      propertyPath: m_Name
-      value: Mingyu_IceMan
-      objectReference: {fileID: 0}
-    - target: {fileID: 8001548387668804280, guid: c18b11e85791a6244bb8123fe2260c2f, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 4.29
-      objectReference: {fileID: 0}
-    - target: {fileID: 8001548387668804280, guid: c18b11e85791a6244bb8123fe2260c2f, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 34.9
-      objectReference: {fileID: 0}
-    - target: {fileID: 8001548387668804280, guid: c18b11e85791a6244bb8123fe2260c2f, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -0.0039202
-      objectReference: {fileID: 0}
-    - target: {fileID: 8001548387668804280, guid: c18b11e85791a6244bb8123fe2260c2f, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8001548387668804280, guid: c18b11e85791a6244bb8123fe2260c2f, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8001548387668804280, guid: c18b11e85791a6244bb8123fe2260c2f, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8001548387668804280, guid: c18b11e85791a6244bb8123fe2260c2f, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8001548387668804280, guid: c18b11e85791a6244bb8123fe2260c2f, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8001548387668804280, guid: c18b11e85791a6244bb8123fe2260c2f, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8001548387668804280, guid: c18b11e85791a6244bb8123fe2260c2f, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: c18b11e85791a6244bb8123fe2260c2f, type: 3}
---- !u!4 &488863171 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 8001548387668804280, guid: c18b11e85791a6244bb8123fe2260c2f, type: 3}
-  m_PrefabInstance: {fileID: 488863170}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &525668608
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -933,9 +871,6 @@ Transform:
   - {fileID: 1838241100}
   - {fileID: 749135165}
   - {fileID: 1562908713}
-  - {fileID: 488863171}
-  - {fileID: 1064289057}
-  - {fileID: 1203165481}
   - {fileID: 1193340284}
   - {fileID: 68476753}
   - {fileID: 645651278}
@@ -1157,7 +1092,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7786220365793647194, guid: 06e48d987e62bf64fa4daecced7985ac, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 40
+      value: 56.01
       objectReference: {fileID: 0}
     - target: {fileID: 7786220365793647194, guid: 06e48d987e62bf64fa4daecced7985ac, type: 3}
       propertyPath: m_AnchoredPosition.x
@@ -1165,7 +1100,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7786220365793647194, guid: 06e48d987e62bf64fa4daecced7985ac, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -20
+      value: -28.005
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -42532,68 +42467,6 @@ Transform:
   - {fileID: 1737131641}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1001 &1064289056
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 548031675}
-    m_Modifications:
-    - target: {fileID: 983611486230121155, guid: c18b11e85791a6244bb8123fe2260c2f, type: 3}
-      propertyPath: m_Name
-      value: Mingyu_IceMan (2)
-      objectReference: {fileID: 0}
-    - target: {fileID: 8001548387668804280, guid: c18b11e85791a6244bb8123fe2260c2f, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 39.59
-      objectReference: {fileID: 0}
-    - target: {fileID: 8001548387668804280, guid: c18b11e85791a6244bb8123fe2260c2f, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 35.88
-      objectReference: {fileID: 0}
-    - target: {fileID: 8001548387668804280, guid: c18b11e85791a6244bb8123fe2260c2f, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -0.0039202
-      objectReference: {fileID: 0}
-    - target: {fileID: 8001548387668804280, guid: c18b11e85791a6244bb8123fe2260c2f, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8001548387668804280, guid: c18b11e85791a6244bb8123fe2260c2f, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8001548387668804280, guid: c18b11e85791a6244bb8123fe2260c2f, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8001548387668804280, guid: c18b11e85791a6244bb8123fe2260c2f, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8001548387668804280, guid: c18b11e85791a6244bb8123fe2260c2f, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8001548387668804280, guid: c18b11e85791a6244bb8123fe2260c2f, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8001548387668804280, guid: c18b11e85791a6244bb8123fe2260c2f, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: c18b11e85791a6244bb8123fe2260c2f, type: 3}
---- !u!4 &1064289057 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 8001548387668804280, guid: c18b11e85791a6244bb8123fe2260c2f, type: 3}
-  m_PrefabInstance: {fileID: 1064289056}
-  m_PrefabAsset: {fileID: 0}
 --- !u!850595691 &1127098260
 LightingSettings:
   m_ObjectHideFlags: 0
@@ -42803,68 +42676,6 @@ PrefabInstance:
 Transform:
   m_CorrespondingSourceObject: {fileID: 8952527584869854090, guid: 666d880358df59b4aa417772796f93b1, type: 3}
   m_PrefabInstance: {fileID: 1193340283}
-  m_PrefabAsset: {fileID: 0}
---- !u!1001 &1203165480
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 548031675}
-    m_Modifications:
-    - target: {fileID: 983611486230121155, guid: c18b11e85791a6244bb8123fe2260c2f, type: 3}
-      propertyPath: m_Name
-      value: Mingyu_IceMan (4)
-      objectReference: {fileID: 0}
-    - target: {fileID: 8001548387668804280, guid: c18b11e85791a6244bb8123fe2260c2f, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 65.98
-      objectReference: {fileID: 0}
-    - target: {fileID: 8001548387668804280, guid: c18b11e85791a6244bb8123fe2260c2f, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 35.9
-      objectReference: {fileID: 0}
-    - target: {fileID: 8001548387668804280, guid: c18b11e85791a6244bb8123fe2260c2f, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -0.0039202
-      objectReference: {fileID: 0}
-    - target: {fileID: 8001548387668804280, guid: c18b11e85791a6244bb8123fe2260c2f, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8001548387668804280, guid: c18b11e85791a6244bb8123fe2260c2f, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8001548387668804280, guid: c18b11e85791a6244bb8123fe2260c2f, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8001548387668804280, guid: c18b11e85791a6244bb8123fe2260c2f, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8001548387668804280, guid: c18b11e85791a6244bb8123fe2260c2f, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8001548387668804280, guid: c18b11e85791a6244bb8123fe2260c2f, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8001548387668804280, guid: c18b11e85791a6244bb8123fe2260c2f, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: c18b11e85791a6244bb8123fe2260c2f, type: 3}
---- !u!4 &1203165481 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 8001548387668804280, guid: c18b11e85791a6244bb8123fe2260c2f, type: 3}
-  m_PrefabInstance: {fileID: 1203165480}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1470393990
 PrefabInstance:

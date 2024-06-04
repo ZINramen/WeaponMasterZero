@@ -51,6 +51,16 @@ public class LevelManager : MonoBehaviour
         {
             LoadNextScene();
         }
+
+        if (Input.GetKey(KeyCode.L))
+        {
+            Time.timeScale = 2f;
+        }
+        
+        if (Input.GetKeyUp(KeyCode.L))
+        {
+            Time.timeScale = 1f;
+        }
     }
 
     private IEnumerator LoadSceneAsync(string sceneName, string transitionName)

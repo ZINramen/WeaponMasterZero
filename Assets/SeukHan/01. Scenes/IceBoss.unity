@@ -3583,7 +3583,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &546303650
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3644,6 +3644,8 @@ PlayableDirector:
     value: {fileID: 1590316803}
   - key: {fileID: 1997578417128712344, guid: 0d213ff53a6ce88469abaebe9dfabbe0, type: 2}
     value: {fileID: 666898427}
+  - key: {fileID: -6858737564982577924, guid: 0d213ff53a6ce88469abaebe9dfabbe0, type: 2}
+    value: {fileID: 1243446135}
   m_ExposedReferences:
     m_References:
     - 364102754eb18e242bbfb30836fce492: {fileID: 666898425}
@@ -4905,6 +4907,7 @@ MonoBehaviour:
   activeDesireWeapon: 0
   playerFinalBoss: {fileID: 0}
   desireWeaponFinalBoss: 0
+  triggerObj_HitType: 0
   stun: 0
   hp: 50
   mp: 0
@@ -5284,7 +5287,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: a8fcb5605a707c14e830a3e7fc5ffb84, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 0145ff1bd5c36b94a910b5c2cb399a0c, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 0.42
   m_Pitch: 1
@@ -6531,11 +6534,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1156898880603730392, guid: 06e48d987e62bf64fa4daecced7985ac, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 0
+      value: -11.8
       objectReference: {fileID: 0}
     - target: {fileID: 1156898880603730392, guid: 06e48d987e62bf64fa4daecced7985ac, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 0
+      value: -6.7
       objectReference: {fileID: 0}
     - target: {fileID: 1652880562482149692, guid: 06e48d987e62bf64fa4daecced7985ac, type: 3}
       propertyPath: m_IsActive
@@ -6659,7 +6662,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2461925021502211775, guid: 06e48d987e62bf64fa4daecced7985ac, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 1.2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2461925021502211775, guid: 06e48d987e62bf64fa4daecced7985ac, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -6737,13 +6740,42 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 1912221198911056468, guid: 06e48d987e62bf64fa4daecced7985ac, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1243446135}
   m_SourcePrefab: {fileID: 100100000, guid: 06e48d987e62bf64fa4daecced7985ac, type: 3}
 --- !u!224 &1243446133 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 2461925021502211775, guid: 06e48d987e62bf64fa4daecced7985ac, type: 3}
   m_PrefabInstance: {fileID: 1243446132}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1243446134 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1912221198911056468, guid: 06e48d987e62bf64fa4daecced7985ac, type: 3}
+  m_PrefabInstance: {fileID: 1243446132}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &1243446135
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1243446134}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &1333294751
 GameObject:
   m_ObjectHideFlags: 0
@@ -7785,11 +7817,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1156898880603730392, guid: 06e48d987e62bf64fa4daecced7985ac, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 0
+      value: -11.8
       objectReference: {fileID: 0}
     - target: {fileID: 1156898880603730392, guid: 06e48d987e62bf64fa4daecced7985ac, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 0
+      value: -6.7
       objectReference: {fileID: 0}
     - target: {fileID: 1652880562482149692, guid: 06e48d987e62bf64fa4daecced7985ac, type: 3}
       propertyPath: m_IsActive
@@ -8418,7 +8450,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1590316800}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -3.74, y: 1, z: -13.459742}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
