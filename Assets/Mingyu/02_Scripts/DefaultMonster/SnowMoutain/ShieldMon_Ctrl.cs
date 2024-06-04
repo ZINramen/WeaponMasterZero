@@ -75,8 +75,13 @@ public class ShieldMon_Ctrl : Default_Monster
     public void Rush()
     {
         if (NoRush) return;
-        RaycastHit2D hit2D = Physics2D.Raycast(transform.position - transform.right * 2f, -transform.right, 8);
-        if (hit2D && hit2D.transform == Entity.Player.transform)
+        RaycastHit2D hit2D = Physics2D.Raycast(transform.position - transform.right * 1f, -transform.right, 20, LayerMask.GetMask("Entity"));
+        if (hit2D)
+        {
+            Debug.Log(hit2D.transform.gameObject);
+
+        }
+        if (hit2D && hit2D.transform.CompareTag("Player"))
         {
             if (!isNot_ChangeState)
             {

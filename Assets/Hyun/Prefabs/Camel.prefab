@@ -94,7 +94,6 @@ GameObject:
   m_Component:
   - component: {fileID: 3944104445196812285}
   - component: {fileID: 2222056227976631878}
-  - component: {fileID: 2244417381068542201}
   - component: {fileID: 6491189895720039475}
   - component: {fileID: 5676239800690447743}
   - component: {fileID: 2613744688315712677}
@@ -142,27 +141,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &2244417381068542201
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8069811635679862702}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8faf252014a19b942bc4983ce0bcf63a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  telp: 0
-  stunTarget: 0
-  flyingAttackForce: 2
-  attackForce: 10
-  thrustValue: 0.5
-  owner: {fileID: 0}
-  attType: 0
-  isAbleDestroy: 0
-  DestroyEffect: {fileID: 0}
 --- !u!61 &6491189895720039475
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -220,9 +198,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b8982125c5cfa9b4faccc3fb1bc827e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  collDestroy: 0
+  haveDestroyArea: 0
+  haveTarget: 0
   moveSpeed: 3
   fromParent: 0
+  NoDestroyButHide: 0
   delayTime: 50
+  maxValue: 10
+  DestroyBeforeSpawnObject: {fileID: 0}
 --- !u!50 &2613744688315712677
 Rigidbody2D:
   serializedVersion: 4
