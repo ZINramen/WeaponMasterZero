@@ -3662,6 +3662,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 13699a7ca7f2c8a439dd0f9be40386a6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  inputCanPlayTime: 0
+  keyc: 0
   timeScale: 0
 --- !u!1 &1347870385
 GameObject:
@@ -4119,12 +4121,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8faf252014a19b942bc4983ce0bcf63a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  NoDamage: 0
   telp: 0
   stunTarget: 0
   flyingAttackForce: 0
   attackForce: 10
   thrustValue: 0.5
   owner: {fileID: 0}
+  attach: 0
   oneHit: 0
   playerIsOwn: 0
   attType: 0
@@ -4430,6 +4434,7 @@ MonoBehaviour:
   activeDesireWeapon: 0
   playerFinalBoss: {fileID: 0}
   desireWeaponFinalBoss: 0
+  triggerObj_HitType: 0
   stun: 0
   hp: 0
   mp: 0
@@ -4454,7 +4459,6 @@ MonoBehaviour:
   DamageBlock: 0
   currentCombo: 0
   maxcombo: 10
-  ComboUI: {fileID: 2320536752282502563, guid: 02f78935d275c27478963ecf2e2006de, type: 3}
   isDamaged: 0
   HitEffect: {fileID: 5302201665987482517, guid: 10ecd86e54fbd744baa1f69bb0995cc2, type: 3}
   StrongHitEffect: {fileID: 5942996768073886119, guid: a1a7b4ac36c2cac4690161d6213c9499, type: 3}
@@ -4463,7 +4467,6 @@ MonoBehaviour:
   CoolTextEffect: {fileID: 6268643683504991078, guid: ac04799a645e5a54dbd564caba5de5ff, type: 3}
   emoticon: {fileID: 0}
   ultScreen: {fileID: 0}
-  GameoverUI: {fileID: 0}
 --- !u!114 &1434633796
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4641,6 +4644,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Alway: 0
+  BlockDash: 0
   owner: {fileID: 0}
   h: 0
   body: {fileID: 0}
@@ -5072,6 +5076,10 @@ PrefabInstance:
     - target: {fileID: 5890594618895870417, guid: 657c27fd6dd5f8745975e6f429601ecd, type: 3}
       propertyPath: m_Name
       value: LevelManager
+      objectReference: {fileID: 0}
+    - target: {fileID: 5890594618895870417, guid: 657c27fd6dd5f8745975e6f429601ecd, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -5534,12 +5542,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8faf252014a19b942bc4983ce0bcf63a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  NoDamage: 0
   telp: 0
   stunTarget: 0
   flyingAttackForce: 0
   attackForce: 10
   thrustValue: 0.5
   owner: {fileID: 1434633795}
+  attach: 0
   oneHit: 0
   playerIsOwn: 0
   attType: 0
@@ -7506,6 +7516,7 @@ MonoBehaviour:
   activeDesireWeapon: 0
   playerFinalBoss: {fileID: 0}
   desireWeaponFinalBoss: 0
+  triggerObj_HitType: 0
   stun: 0
   hp: 0
   mp: 0
@@ -7530,7 +7541,6 @@ MonoBehaviour:
   DamageBlock: 0
   currentCombo: 0
   maxcombo: 10
-  ComboUI: {fileID: 2320536752282502563, guid: 02f78935d275c27478963ecf2e2006de, type: 3}
   isDamaged: 0
   HitEffect: {fileID: 5302201665987482517, guid: 10ecd86e54fbd744baa1f69bb0995cc2, type: 3}
   StrongHitEffect: {fileID: 5942996768073886119, guid: a1a7b4ac36c2cac4690161d6213c9499, type: 3}
@@ -7539,7 +7549,6 @@ MonoBehaviour:
   CoolTextEffect: {fileID: 6268643683504991078, guid: ac04799a645e5a54dbd564caba5de5ff, type: 3}
   emoticon: {fileID: 2402971973615472524}
   ultScreen: {fileID: 3569671061502248777}
-  GameoverUI: {fileID: 0}
 --- !u!4 &197823435565182586
 Transform:
   m_ObjectHideFlags: 0
@@ -9651,6 +9660,7 @@ MonoBehaviour:
   activeDesireWeapon: 0
   playerFinalBoss: {fileID: 0}
   desireWeaponFinalBoss: 0
+  triggerObj_HitType: 0
   stun: 0
   hp: 0
   mp: 0
@@ -9675,7 +9685,6 @@ MonoBehaviour:
   DamageBlock: 0
   currentCombo: 0
   maxcombo: 20
-  ComboUI: {fileID: 2320536752282502563, guid: 02f78935d275c27478963ecf2e2006de, type: 3}
   isDamaged: 0
   HitEffect: {fileID: 5302201665987482517, guid: 10ecd86e54fbd744baa1f69bb0995cc2, type: 3}
   StrongHitEffect: {fileID: 5942996768073886119, guid: a1a7b4ac36c2cac4690161d6213c9499, type: 3}
@@ -9684,7 +9693,6 @@ MonoBehaviour:
   CoolTextEffect: {fileID: 6268643683504991078, guid: ac04799a645e5a54dbd564caba5de5ff, type: 3}
   emoticon: {fileID: 0}
   ultScreen: {fileID: 0}
-  GameoverUI: {fileID: 0}
 --- !u!1 &1127854463121461540
 GameObject:
   m_ObjectHideFlags: 0
@@ -11216,6 +11224,7 @@ MonoBehaviour:
   activeDesireWeapon: 0
   playerFinalBoss: {fileID: 0}
   desireWeaponFinalBoss: 0
+  triggerObj_HitType: 0
   stun: 0
   hp: 0
   mp: 0
@@ -11240,7 +11249,6 @@ MonoBehaviour:
   DamageBlock: 0
   currentCombo: 0
   maxcombo: 10
-  ComboUI: {fileID: 2320536752282502563, guid: 02f78935d275c27478963ecf2e2006de, type: 3}
   isDamaged: 0
   HitEffect: {fileID: 5302201665987482517, guid: 10ecd86e54fbd744baa1f69bb0995cc2, type: 3}
   StrongHitEffect: {fileID: 5942996768073886119, guid: a1a7b4ac36c2cac4690161d6213c9499, type: 3}
@@ -11249,7 +11257,6 @@ MonoBehaviour:
   CoolTextEffect: {fileID: 6268643683504991078, guid: ac04799a645e5a54dbd564caba5de5ff, type: 3}
   emoticon: {fileID: 0}
   ultScreen: {fileID: 0}
-  GameoverUI: {fileID: 0}
 --- !u!212 &1752622763424313328
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -11971,6 +11978,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6431b494ee8368b4295dbe7e7408336f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  OnlySee: 0
+  isParrying: 0
+  playerTaget: 0
+  donHit: 0
   InteractionEvent:
     m_PersistentCalls:
       m_Calls: []
@@ -13797,6 +13808,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Alway: 0
+  BlockDash: 0
   owner: {fileID: 0}
   h: 0
   body: {fileID: 0}
@@ -14574,6 +14586,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6431b494ee8368b4295dbe7e7408336f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  OnlySee: 0
+  isParrying: 0
+  playerTaget: 0
+  donHit: 0
   InteractionEvent:
     m_PersistentCalls:
       m_Calls: []
@@ -15224,6 +15240,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Alway: 0
+  BlockDash: 0
   owner: {fileID: 0}
   h: 0
   body: {fileID: 0}
@@ -15277,6 +15294,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6431b494ee8368b4295dbe7e7408336f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  OnlySee: 0
+  isParrying: 0
+  playerTaget: 0
+  donHit: 0
   InteractionEvent:
     m_PersistentCalls:
       m_Calls: []
@@ -21377,6 +21398,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6431b494ee8368b4295dbe7e7408336f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  OnlySee: 0
+  isParrying: 0
+  playerTaget: 0
+  donHit: 0
   InteractionEvent:
     m_PersistentCalls:
       m_Calls: []
@@ -23657,12 +23682,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8faf252014a19b942bc4983ce0bcf63a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  NoDamage: 0
   telp: 0
   stunTarget: 0
   flyingAttackForce: 3
   attackForce: 10
   thrustValue: 0.5
   owner: {fileID: 188581462109976468}
+  attach: 0
   oneHit: 0
   playerIsOwn: 0
   attType: 0
@@ -26964,6 +26991,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6431b494ee8368b4295dbe7e7408336f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  OnlySee: 0
+  isParrying: 0
+  playerTaget: 0
+  donHit: 0
   InteractionEvent:
     m_PersistentCalls:
       m_Calls: []
@@ -38937,6 +38968,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Alway: 0
+  BlockDash: 0
   owner: {fileID: 0}
   h: 0
   body: {fileID: 0}

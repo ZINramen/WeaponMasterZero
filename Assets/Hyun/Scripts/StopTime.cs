@@ -23,6 +23,7 @@ public class StopTime : MonoBehaviour
 
     public void StopALLTime() 
     {
+        Debug.Log("StopALLTime");
         Time.timeScale = 0;
     }
 

@@ -3542,13 +3542,6 @@ AnimationClip:
   m_HasGenericRootTransform: 0
   m_HasMotionFloatCurves: 0
   m_Events:
-  - time: 0
-    functionName: ReduceGauge
-    data: 
-    objectReferenceParameter: {fileID: 0}
-    floatParameter: 0
-    intParameter: 0
-    messageOptions: 0
   - time: 0.41666666
     functionName: PlaySound
     data: 
@@ -3579,6 +3572,13 @@ AnimationClip:
     messageOptions: 0
   - time: 1.0166667
     functionName: SpawnHammer
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 1.0166667
+    functionName: ReduceGauge
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
