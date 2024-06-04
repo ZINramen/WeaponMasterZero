@@ -1,3 +1,4 @@
+using DG.Tweening;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -33,10 +34,10 @@ public class RushHitColl : MonoBehaviour
         if (other.gameObject.name == "APO")
         {
             other.gameObject.GetComponent<Animator>().SetTrigger("Hit");
-            if(this.gameObject.transform.parent.localRotation.y == 180)
-                other.gameObject.GetComponent<Rigidbody2D>().AddForce(Vector2.left * XPower, ForceMode2D.Impulse);
+            if (this.gameObject.transform.parent.eulerAngles.y != 0)
+                other.gameObject.transform.DOMoveX(-XPower, 1);
             else
-                other.gameObject.GetComponent<Rigidbody2D>().AddForce(Vector2.right * XPower, ForceMode2D.Impulse);
+                other.gameObject.transform.DOMoveX(XPower, 1);
 
             other.gameObject.GetComponent<Movement>().Jump(YPower);
         }
