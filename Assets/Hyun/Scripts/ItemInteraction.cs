@@ -70,7 +70,7 @@ public class ItemInteraction : MonoBehaviour
         if (isParrying)
         {
             HitColider h = coll.gameObject.GetComponent<HitColider>();
-            if(h.attType == HitColider.AttackType.Player_SwordAtt)
+            if(h && h.attType == HitColider.AttackType.Player_SwordAtt)
             {
                 if(!OnlySee || h.owner.transform.eulerAngles == transform.eulerAngles)
                     InteractionEvent.Invoke();

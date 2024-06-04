@@ -232,7 +232,11 @@ public class Entity : MonoBehaviour
     {
         Vector2 start = transform.position;
         RaycastHit2D[] hit;
-        hit = Physics2D.RaycastAll(start, transform.right, 10, target);
+        
+        Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+
+        Vector3 endPos = (mousePos - this.transform.position).normalized;
+        hit = Physics2D.RaycastAll(start, endPos, 15, target);
 
         foreach (RaycastHit2D hitTarget in hit)
         {
@@ -242,9 +246,9 @@ public class Entity : MonoBehaviour
                 if (enemy)
                 {
                     if (enemy.transform.position.x <= transform.position.x)
-                        transform.position = new Vector2(enemy.transform.position.x + 0.5f, transform.position.y);
+                        transform.position = new Vector2(enemy.transform.position.x, enemy.transform.position.y);
                     else
-                        transform.position = new Vector2(enemy.transform.position.x - 0.5f, transform.position.y);
+                        transform.position = new Vector2(enemy.transform.position.x, enemy.transform.position.y);
 
                     break;
                 }

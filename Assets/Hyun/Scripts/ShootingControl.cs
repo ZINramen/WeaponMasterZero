@@ -106,7 +106,10 @@ public class ShootingControl : MonoBehaviour
 
     public void SimpleShoot(float speed)
     {
-        var obj = Instantiate(bullet, GunfireTr.position, transform.rotation);
+        Vector2 len = this.gameObject.GetComponent<Movement>().mousePos - this.gameObject.transform.position;
+        float z = Mathf.Atan2(len.y, len.x) * Mathf.Rad2Deg;
+        
+        var obj = Instantiate(bullet, GunfireTr.position, Quaternion.Euler(0f, 0f, z));
         obj.GetComponent<HitColider>().owner = owner;
         Destroyer d = obj.GetComponent<Destroyer>();
         d.moveSpeed = speed;
