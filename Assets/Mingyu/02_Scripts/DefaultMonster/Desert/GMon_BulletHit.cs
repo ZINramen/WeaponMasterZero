@@ -25,14 +25,9 @@ public class GMon_BulletHit : HitColider
                 this.gameObject.GetComponent<BulletCtrl>().Parring(other.gameObject);
             }
             
-            // 맞은 대상이 owner, 총알이 맞거나
-            if(other.gameObject.GetComponent<Entity>() == owner || other.gameObject.GetComponent<BulletCtrl>() ) {}
-        
-            else if(this.gameObject.GetComponent<BulletCtrl>().Get_IsPlayerParring()) {}
-            
-            else
-                this.gameObject.GetComponent<BulletCtrl>().BrokenBullet();
-            
+            // 플레이어한테 맞거나, 땅에 맞으면 사라짐
+            if(other.gameObject.name == "APO" || other.gameObject.layer == 10)
+                this.gameObject.GetComponent<BulletCtrl>().DestoryBullet();
             }
     }
 }

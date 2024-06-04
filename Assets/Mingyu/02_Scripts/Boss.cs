@@ -202,7 +202,7 @@ public abstract class Boss : MonoBehaviour
                 bossHP_per = (this.GetComponent<Entity>().GetHp()) / (this.GetComponent<Entity>().maxHP);
                 iBossSkill = EachBoss_SelectedSkill(bossState);
 
-                //iBossSkill = (int)Boss_State.State.p2_Skill2;   // # 특정 스킬 지정하기 Test
+                iBossSkill = (int)Boss_State.State.p2_Skill1;   // # 특정 스킬 지정하기 Test
                 
                 sBossSkill = Change_IntToState(iBossSkill, ref skillDist);
                 Debug.Log("SkillName : " +  sBossSkill);

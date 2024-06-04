@@ -2,6 +2,8 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Rendering;
+using Random = UnityEngine.Random;
 
 public class IcerMan_Ctrl : Default_Monster
 {
@@ -44,18 +46,28 @@ public class IcerMan_Ctrl : Default_Monster
         {
             if (other.gameObject.GetComponent<HitColider>())
             {
-                if (other.gameObject.GetComponent<HitColider>().attType == HitColider.AttackType.Player_GunAtt)
+                if (other.gameObject.GetComponent<HitColider>().attType == HitColider.AttackType.Player_GunAtt
+                    && other.gameObject.GetComponent<HitColider>().owner != icerEntity)
                 {
-                    Debug.Log("맞음" + other.gameObject.name);
+                    Debug.Log("맞음" + other.gameObject.GetComponent<HitColider>().attType);
                     
-                     GameObject dummyBullet = GameObject.Instantiate(Parringbullet, ParringPos.position, Quaternion.identity);
+                     Vector3 StartPoint = new Vector3(this.transform.position.x + 0.1f, this.transform.position.y - 0.1f,
+                         this.transform.position.z);
+                     
+                     GameObject dummyBullet = GameObject.Instantiate(Parringbullet, this.transform.position, Quaternion.identity);
                      dummyBullet.gameObject.GetComponent<HitColider>().owner = icerEntity;
-
-                     Vector3 AttackDir = (this.transform.position - other.transform.position).normalized;
+                     
+                     float randomX_Angle = Random.Range(-0.05f, 0.05f);
+                     float randomY_Angle = Random.Range(-0.05f, 0.05f);
+                     
+                     Vector3 EndPoint = new Vector3(other.transform.position.x + randomX_Angle,
+                         other.transform.position.y + randomY_Angle,
+                         other.transform.position.z);
+                     
+                     Vector3 AttackDir = ( StartPoint - EndPoint).normalized;
                      
                     dummyBullet.gameObject.GetComponent<Rigidbody2D>()
                         .AddForce(parringSpeed * -AttackDir, ForceMode2D.Impulse);
-
                 }
             }
         }

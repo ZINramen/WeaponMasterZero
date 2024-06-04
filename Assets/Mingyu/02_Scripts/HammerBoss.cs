@@ -44,6 +44,7 @@ public class HammerBoss : Boss
     #region P2_Skill1
     [SerializeField] private GameObject SnowPref;
     private GameObject RushTrail;
+    private GameObject RushCollider;
     
     private float rushSpeed;
     private float rush_GroundInterval = 2f;
@@ -120,7 +121,7 @@ public class HammerBoss : Boss
     {
         state.defaultAtt_dist = 1.4f;
 
-        state.skill_CoolTime = 6f;
+        state.skill_CoolTime = 1f;
     
         state.p1_Skill1_dist = 6f;
         state.p1_Skill2_dist = 1.8f;
@@ -163,15 +164,16 @@ public class HammerBoss : Boss
         P2Skill1_HitArea = new GameObject[1];
         P2Skill1_HitArea[0] = this.transform.GetChild(12).gameObject;
         RushTrail = this.transform.GetChild(13).gameObject;
+        RushCollider = this.transform.GetChild(14).gameObject;
         
         P2Skill2_HitArea = new GameObject[1];
-        P2Skill2_HitArea[0] = this.transform.GetChild(15).gameObject;
+        P2Skill2_HitArea[0] = this.transform.GetChild(16).gameObject;
         
         P2Skill3_HitArea = new GameObject[1];
         P2Skill3_HitArea[0] = this.transform.GetChild(0).gameObject;
         
-        SnowSponPos = this.transform.GetChild(17).gameObject.transform;
-        StonSponPos = this.transform.GetChild(18).gameObject.transform;
+        SnowSponPos = this.transform.GetChild(18).gameObject.transform;
+        StonSponPos = this.transform.GetChild(19).gameObject.transform;
 
         // 충격파 (강 공격)
         sW_AttackPower = 15f;
@@ -299,6 +301,9 @@ public class HammerBoss : Boss
         
         isRush_P2S1 = true;
         RushTrail.gameObject.SetActive(true);
+        RushCollider.gameObject.GetComponent<BoxCollider2D>().enabled = true;
+        RushCollider.gameObject.GetComponent<RushHitColl>().isRush = true;
+        
         groundApproachDist = rush_GroundInterval;
 
         this.gameObject.GetComponent<Entity>().DamageBlock = Entity.DefenseStatus.invincible;
@@ -308,6 +313,9 @@ public class HammerBoss : Boss
     {
         RushTrail.gameObject.SetActive(false);
         this.gameObject.GetComponent<Entity>().DamageBlock = Entity.DefenseStatus.Nope;
+        
+        RushCollider.gameObject.GetComponent<BoxCollider2D>().enabled = false;
+        RushCollider.gameObject.GetComponent<RushHitColl>().isRush = false;
     }
     
     public void AttackP2_S1()
