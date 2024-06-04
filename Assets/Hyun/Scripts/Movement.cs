@@ -39,7 +39,9 @@ public class Movement : MonoBehaviour
     [Header("2P Move : I J K L")]
     public bool is2P = false;
     public PhysicsMaterial2D pMaterial;
-    
+
+    bool isTrace = false;
+    Vector3 targetPosition;
 
     public void SetPlayerType(bool value) 
     {
@@ -62,14 +64,11 @@ public class Movement : MonoBehaviour
 
     public void TracePlayerPos()
     {
-        if (Vector3.Distance(transform.position, Entity.Player.transform.position) > 0.5f && Entity.Player.aManager.groundCheck.GetOnGround)
+        if (Entity.Player.aManager.groundCheck.GetOnGround)
         {
-            SeePlayer();
-            transform.position = Vector3.MoveTowards(transform.position, Entity.Player.transform.position, Time.deltaTime * speed * 5);
-        }
-        else
-        {
-            animator.SetTrigger("EndRush"); 
+            animator.SetTrigger("isRush");
+            isTrace = true;
+            targetPosition = Entity.Player.transform.position;
         }
     }
 
@@ -112,6 +111,18 @@ public class Movement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (isTrace)
+        {
+            if (Vector3.Distance(transform.position, targetPosition) > 0.5f && Mathf.Abs(transform.position.y - targetPosition.y) < 0.5f)
+            {
+                transform.position = Vector3.MoveTowards(transform.position, targetPosition, Time.deltaTime * speed);
+            }
+            else
+            {
+                animator.SetTrigger("EndRush");
+                isTrace = false;
+            }
+        }
         if (owner == Entity.Player)
         {
             if (h != 0)
