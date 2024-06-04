@@ -60,6 +60,33 @@ public class Movement : MonoBehaviour
         animator = GetComponent<Animator>();
     }
 
+    public void TracePlayerPos()
+    {
+        if (Vector3.Distance(transform.position, Entity.Player.transform.position) > 0.5f && Entity.Player.aManager.groundCheck.GetOnGround)
+        {
+            SeePlayer();
+            transform.position = Vector3.MoveTowards(transform.position, Entity.Player.transform.position, Time.deltaTime * speed * 5);
+        }
+        else
+        {
+            animator.SetTrigger("EndRush"); 
+        }
+    }
+
+    public void SeePlayer()
+    {
+
+        if (Entity.Player.transform.position.x > transform.position.x)
+        {
+            transform.localEulerAngles = new Vector3(0, 180, 0);
+        }
+        else
+        {
+            transform.localEulerAngles = new Vector3(0, 0, 0);
+        }
+    }
+
+
     public void PhysicChange() 
     {
         if (StopMove)

@@ -9,8 +9,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1997482778545063461}
-  - component: {fileID: 4302453249068177083}
   - component: {fileID: 2739523697278588418}
+  - component: {fileID: 4682131218409785782}
   m_Layer: 0
   m_Name: AttackHitCol
   m_TagString: Untagged
@@ -33,31 +33,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 8001548387668804280}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &4302453249068177083
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 562539197988119063}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0644a85113403bf43a1768bbb2a4409b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  NoDamage: 0
-  telp: 0
-  stunTarget: 0
-  flyingAttackForce: 0
-  attackForce: 10
-  thrustValue: 0.5
-  owner: {fileID: 7341027814915803845}
-  oneHit: 0
-  playerIsOwn: 0
-  attType: 0
-  isAbleDestroy: 0
-  DestroyEffect: {fileID: 0}
-  targetPosX: 0
 --- !u!61 &2739523697278588418
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -103,6 +78,31 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.28178054, y: 2.8232188}
   m_EdgeRadius: 0
+--- !u!114 &4682131218409785782
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 562539197988119063}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8faf252014a19b942bc4983ce0bcf63a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  NoDamage: 0
+  telp: 0
+  stunTarget: 0
+  flyingAttackForce: 0
+  attackForce: 10
+  thrustValue: 0.5
+  owner: {fileID: 0}
+  attach: 0
+  oneHit: 0
+  playerIsOwn: 0
+  attType: 0
+  isAbleDestroy: 0
+  DestroyEffect: {fileID: 0}
 --- !u!1 &983611486230121155
 GameObject:
   m_ObjectHideFlags: 0
@@ -120,7 +120,7 @@ GameObject:
   - component: {fileID: 5140428068449285089}
   - component: {fileID: 3770409007314017513}
   - component: {fileID: 8503018620022488504}
-  - component: {fileID: 1122151599190929135}
+  - component: {fileID: 6495918869422147201}
   m_Layer: 3
   m_Name: Mingyu_ShieldMan
   m_TagString: Enemy
@@ -470,7 +470,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.4602152, y: 0.73200846}
   m_EdgeRadius: 0
---- !u!114 &1122151599190929135
+--- !u!114 &6495918869422147201
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -479,17 +479,28 @@ MonoBehaviour:
   m_GameObject: {fileID: 983611486230121155}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e27b24a87dec57c4882cbcab4746fd51, type: 3}
+  m_Script: {fileID: 11500000, guid: 13cfae3c537bd3c46a37a53d1670d00f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player_pos: {x: 0, y: 0}
-  move_Speed: 2
-  distFrom_Player: 0
-  Exclamation: {fileID: 8391314663403983471, guid: 95921e6fd65263841b25156c8e0aa124, type: 3}
-  isDie: 0
-  m_dAtt_dist: 15
-  m_traceDist: 15
-  rushSpeed: 5
-  NoRush: 0
-  hit: {fileID: 4302453249068177083}
-  isRush: 0
+  skillManager: {fileID: 0}
+  groundCheck: {fileID: 0}
+  owner: {fileID: 7341027814915803845}
+  temp: {fileID: 0}
+  rotationZ: 0
+  ani: {fileID: 0}
+  State: 0
+  isPlayer: 0
+  isHuman: 0
+  Ec: {fileID: 0}
+  Punch: 0
+  Kick: 0
+  Guard: 0
+  Catch: 0
+  Dash: 0
+  Backstep: 0
+  Jump: 0
+  DownArrow: 0
+  UpArrow: 0
+  Emotion_1: 0
+  Heal: 0
+  Cutscenes: []

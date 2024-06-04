@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -21,6 +22,7 @@ public class ItemInteraction : MonoBehaviour
 
     //public GameObject effect;
 
+    public bool playerTaget = false;
     public bool donHit = false;
 
     public UnityEvent InteractionEvent;
@@ -63,6 +65,8 @@ public class ItemInteraction : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D coll)
     {
+        Debug.Log(coll.gameObject);
+        if (playerTaget && !coll.gameObject.CompareTag("Player")) return;
         if (donHit)
         {
             Entity eTarget = null;
