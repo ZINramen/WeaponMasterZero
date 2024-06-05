@@ -115,7 +115,9 @@ public class Movement : MonoBehaviour
     {
         if (isTrace)
         {
-            if (Mathf.Abs((int)transform.position.x - (int)targetPosition.x) > 0 || Mathf.Abs((int)transform.position.y - (int)targetPosition.y) < 1)
+            Debug.Log("target : " + targetPosition);
+            Debug.Log(Mathf.Abs((int)transform.position.x - (int)targetPosition.x));
+            if (Mathf.Abs((int)transform.position.x - (int)targetPosition.x) > 1) 
             {
                 transform.position = Vector3.MoveTowards(transform.position, new Vector3(targetPosition.x, transform.position.y), Time.deltaTime * speed);
             }
