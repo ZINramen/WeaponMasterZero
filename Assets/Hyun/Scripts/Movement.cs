@@ -9,6 +9,7 @@ public class Movement : MonoBehaviour
     public bool Alway; // 어떤 개체든 항상 movementForce로 움직일 수 있도록 함.
 
     public bool BlockDash = false; // 대시 불가
+    public Vector3 mousePos;
 
     public Entity owner;
 
@@ -191,6 +192,24 @@ public class Movement : MonoBehaviour
     public void SetThrustForceX(float x)
     {        
         body.AddForce(new Vector2(x * 30, 0));
+    }
+
+    public void EvasionMove(float x)
+    {
+        mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        Vector3 MoveDir = (mousePos - this.gameObject.transform.position).normalized;
+
+        if (mousePos.x > this.transform.position.x) {
+            if (this.transform.rotation.eulerAngles.y != 0)
+                this.transform.Rotate(this.transform.rotation.x, 180, this.transform.rotation.z);
+        }
+
+        else {
+            if (this.transform.rotation.eulerAngles.y == 0)
+                this.transform.Rotate(this.transform.rotation.x, 180, this.transform.rotation.z);
+        }
+        
+        body.AddForce(MoveDir *  x * 100);
     }
 
     public void SetVelocityZero()

@@ -44,6 +44,7 @@ public class HammerBoss : Boss
     #region P2_Skill1
     [SerializeField] private GameObject SnowPref;
     private GameObject RushTrail;
+    private GameObject RushCollider;
     
     private float rushSpeed;
     private float rush_GroundInterval = 2f;
@@ -163,18 +164,19 @@ public class HammerBoss : Boss
         P2Skill1_HitArea = new GameObject[1];
         P2Skill1_HitArea[0] = this.transform.GetChild(12).gameObject;
         RushTrail = this.transform.GetChild(13).gameObject;
+        RushCollider = this.transform.GetChild(14).gameObject;
         
         P2Skill2_HitArea = new GameObject[1];
-        P2Skill2_HitArea[0] = this.transform.GetChild(15).gameObject;
+        P2Skill2_HitArea[0] = this.transform.GetChild(16).gameObject;
         
         P2Skill3_HitArea = new GameObject[1];
         P2Skill3_HitArea[0] = this.transform.GetChild(0).gameObject;
         
-        SnowSponPos = this.transform.GetChild(17).gameObject.transform;
-        StonSponPos = this.transform.GetChild(18).gameObject.transform;
+        SnowSponPos = this.transform.GetChild(18).gameObject.transform;
+        StonSponPos = this.transform.GetChild(19).gameObject.transform;
 
         // 충격파 (강 공격)
-        sW_AttackPower = 10f;
+        sW_AttackPower = 15f;
         
         // 땅 떨구기 Skill1
         FallGrounds = new GameObject[3];
@@ -190,7 +192,7 @@ public class HammerBoss : Boss
         
         // 눈덩이 굴리기 패턴
         rushSpeed = 12f;
-        snowSpeed = 8f;
+        snowSpeed = 12f;
         p2S1_DelayTime = 1.5f;
         rush_GroundInterval = 2f;
         
@@ -199,8 +201,8 @@ public class HammerBoss : Boss
         
         // 고드름 떨구기
         P2S3_SponYPos = GameObject.Find("P2_Skill3_SponYPos").gameObject.transform;
-        p2S3_IceRainTotalCount = 20;
-        p2S3_AttTime = 2f;
+        p2S3_IceRainTotalCount = 40;
+        p2S3_AttTime = 3f;
         isActiveSkill_p2S3 = false;
     }
 
@@ -299,6 +301,9 @@ public class HammerBoss : Boss
         
         isRush_P2S1 = true;
         RushTrail.gameObject.SetActive(true);
+        RushCollider.gameObject.GetComponent<BoxCollider2D>().enabled = true;
+        RushCollider.gameObject.GetComponent<RushHitColl>().isRush = true;
+        
         groundApproachDist = rush_GroundInterval;
 
         this.gameObject.GetComponent<Entity>().DamageBlock = Entity.DefenseStatus.invincible;
@@ -308,6 +313,9 @@ public class HammerBoss : Boss
     {
         RushTrail.gameObject.SetActive(false);
         this.gameObject.GetComponent<Entity>().DamageBlock = Entity.DefenseStatus.Nope;
+        
+        RushCollider.gameObject.GetComponent<BoxCollider2D>().enabled = false;
+        RushCollider.gameObject.GetComponent<RushHitColl>().isRush = false;
     }
     
     public void AttackP2_S1()
@@ -389,9 +397,15 @@ public class HammerBoss : Boss
         {
             isSelect_DAttType = true;
 
-            dAttType_int = Random.Range((int)DAtt_Type.DefaultAtt, (int)DAtt_Type.FullAtt + 1);
-            if (dAttType_int == (int)DAtt_Type.FullAtt) isFullAtt = true;
-            else isFullAtt = false;
+            // dAttType_int = Random.Range((int)DAtt_Type.DefaultAtt, (int)DAtt_Type.FullAtt + 1);
+            // if (dAttType_int == (int)DAtt_Type.FullAtt) isFullAtt = true;
+            // else isFullAtt = false;
+            
+            dAttType_int++;
+            
+            // 시연용 코드
+            if (dAttType_int % 2 == 0) isFullAtt = false;
+            else isFullAtt = true;
 
             animCtrl.SetBool("isFullAtt", isFullAtt);
         }
@@ -446,6 +460,23 @@ public class HammerBoss : Boss
                 p2S3_IceRainCount++;
             }
         }
+    }
+    
+    protected override int EachBoss_SelectedSkill(Boss_State currState)
+    {
+        skill_PlusNumber++;
+        
+        if (bossHP_per >= 0.5f)
+        {
+            iBossSkill = 2 + (skill_PlusNumber % 2);
+        }
+            
+        // 2phaze
+        else
+        {
+            iBossSkill = 4 + (skill_PlusNumber % 3);
+        }
+        return iBossSkill;
     }
     
     #region 엔드 세팅

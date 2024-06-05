@@ -56,6 +56,11 @@ public class BulletCtrl : MonoBehaviour
         //Destroy(this.gameObject);
     }
 
+    public void DestoryBullet()
+    {
+        Destroy(this.gameObject);
+    }
+
     public void Parring(GameObject player)
     {
         m_player = player.gameObject.transform.parent.gameObject;

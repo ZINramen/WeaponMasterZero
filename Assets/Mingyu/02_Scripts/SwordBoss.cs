@@ -50,6 +50,7 @@ public class SwordBoss : Boss
     private Transform Right_MaxXY_SponPos;
     private Transform Left_MinXY_SponPos;
     
+    [SerializeField] private AudioClip LineBreak_Sound;
     private float delete_LineTime;
     private List<GameObject> dummy_LinePref_List = new List<GameObject>();
     
@@ -127,8 +128,8 @@ public class SwordBoss : Boss
         minAngle = -100f;
         maxAngle = -25f;
     
-        minSize = 0.5f;
-        maxSize = 0.7f;
+        minSize = 0.4f;
+        maxSize = 0.9f;
          
         // skill4 칼날 공격 스킬
         p2s2Att_force = 70;
@@ -136,8 +137,8 @@ public class SwordBoss : Boss
         Left_MinXY_SponPos = GameObject.Find("Left_MaxXYPos").gameObject.transform;
 
         delete_LineTime = 0.3f;
-        lineAnim_Time = 0.1f;
-        lineTotalCount = 20;
+        lineAnim_Time = 0.05f;
+        lineTotalCount = 35;
     }
     
     // protected override void MoveSetting()
@@ -304,7 +305,7 @@ public class SwordBoss : Boss
             createLine_Count += Time.deltaTime;
             if (createLine_Count >= lineAnim_Time)
             {
-                if (lineCount < lineTotalCount / 2) LinePref_Type = Horizontal_LinePref;
+                if (lineCount %2 == 0) LinePref_Type = Horizontal_LinePref;
                 else LinePref_Type = Vertical_LinePref;
 
                 GameObject dummy_LinePref = Instantiate(LinePref_Type, new Vector3(0, 0, 0), quaternion.identity);
@@ -340,6 +341,8 @@ public class SwordBoss : Boss
                 foreach (GameObject dummy_LinePref in dummy_LinePref_List)
                     dummy_LinePref.GetComponent<Line_Ctrl>().EndAnimation();
 
+                gameObject.GetComponent<AudioSource>().PlayOneShot(LineBreak_Sound);
+                
                 isReadyCreate_Line = false;
                 lineCount = 0;
             }
@@ -378,5 +381,26 @@ public class SwordBoss : Boss
     {
         this.transform.rotation = Quaternion.Euler(0, this.transform.position.x > player_pos.x ? 0 : 180, 0);
     }
+    #endregion
+
+    #region 시연용 코드
+
+    protected override int EachBoss_SelectedSkill(Boss_State currState)
+    {
+        skill_PlusNumber++;
+        
+        if (bossHP_per >= 0.5f)
+        {
+            iBossSkill = 2 + (skill_PlusNumber % 2);
+        }
+            
+            // 2phaze
+        else
+        {
+            iBossSkill = 4 + (skill_PlusNumber % 3);
+        }
+        return iBossSkill;
+    }
+    
     #endregion
 }

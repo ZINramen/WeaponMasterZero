@@ -11031,12 +11031,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8faf252014a19b942bc4983ce0bcf63a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  NoDamage: 0
   telp: 0
   stunTarget: 0
   flyingAttackForce: 0
   attackForce: 10
   thrustValue: 0.5
   owner: {fileID: 0}
+  attach: 0
   oneHit: 0
   playerIsOwn: 0
   attType: 0
@@ -11271,12 +11273,24 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2104138461300944696, guid: 06e48d987e62bf64fa4daecced7985ac, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2104138461300944696, guid: 06e48d987e62bf64fa4daecced7985ac, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2104138461300944696, guid: 06e48d987e62bf64fa4daecced7985ac, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2104138461300944696, guid: 06e48d987e62bf64fa4daecced7985ac, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 72.01
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2104138461300944696, guid: 06e48d987e62bf64fa4daecced7985ac, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -2.899994
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2104138461300944696, guid: 06e48d987e62bf64fa4daecced7985ac, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -11427,12 +11441,20 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7786220365793647194, guid: 06e48d987e62bf64fa4daecced7985ac, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7786220365793647194, guid: 06e48d987e62bf64fa4daecced7985ac, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7786220365793647194, guid: 06e48d987e62bf64fa4daecced7985ac, type: 3}
       propertyPath: m_SizeDelta.x
       value: 618.04
       objectReference: {fileID: 0}
     - target: {fileID: 7786220365793647194, guid: 06e48d987e62bf64fa4daecced7985ac, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 102.01
+      value: 40
       objectReference: {fileID: 0}
     - target: {fileID: 7786220365793647194, guid: 06e48d987e62bf64fa4daecced7985ac, type: 3}
       propertyPath: m_LocalScale.x
@@ -11448,11 +11470,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7786220365793647194, guid: 06e48d987e62bf64fa4daecced7985ac, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 309.02
       objectReference: {fileID: 0}
     - target: {fileID: 7786220365793647194, guid: 06e48d987e62bf64fa4daecced7985ac, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 1.21
+      value: -20
       objectReference: {fileID: 0}
     - target: {fileID: 9069059727982528558, guid: 06e48d987e62bf64fa4daecced7985ac, type: 3}
       propertyPath: m_Enabled
@@ -13019,12 +13041,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8faf252014a19b942bc4983ce0bcf63a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  NoDamage: 0
   telp: 0
   stunTarget: 0
   flyingAttackForce: 0
   attackForce: 10
   thrustValue: 0.5
   owner: {fileID: 0}
+  attach: 0
   oneHit: 0
   playerIsOwn: 0
   attType: 0
@@ -19329,12 +19353,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8faf252014a19b942bc4983ce0bcf63a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  NoDamage: 0
   telp: 0
   stunTarget: 0
   flyingAttackForce: 0
   attackForce: 10
   thrustValue: 0.5
   owner: {fileID: 0}
+  attach: 0
   oneHit: 0
   playerIsOwn: 0
   attType: 0
@@ -30497,6 +30523,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Alway: 0
+  BlockDash: 0
   owner: {fileID: 0}
   h: 0
   body: {fileID: 0}
@@ -30886,12 +30913,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8faf252014a19b942bc4983ce0bcf63a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  NoDamage: 0
   telp: 0
   stunTarget: 0
   flyingAttackForce: 0
   attackForce: 10
   thrustValue: 0.5
   owner: {fileID: 0}
+  attach: 0
   oneHit: 0
   playerIsOwn: 0
   attType: 0
@@ -37032,7 +37061,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 9.343339e-26, y: -4.376605e-27}
+  m_Offset: {x: 1.4500263, y: 1.5912764}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -37043,7 +37072,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 10.376408, y: 9.014178}
   m_EdgeRadius: 0
 --- !u!114 &551724670
 MonoBehaviour:
@@ -37057,15 +37086,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8faf252014a19b942bc4983ce0bcf63a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  NoDamage: 0
   telp: 0
   stunTarget: 0
   flyingAttackForce: 0
-  attackForce: 5
-  thrustValue: 0.5
+  attackForce: 20
+  thrustValue: 0.1
   owner: {fileID: 0}
+  attach: 0
   oneHit: 0
   playerIsOwn: 0
-  attType: 0
+  attType: 3
   isAbleDestroy: 0
   DestroyEffect: {fileID: 0}
 --- !u!1 &553251971
@@ -38564,12 +38595,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8faf252014a19b942bc4983ce0bcf63a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  NoDamage: 0
   telp: 0
   stunTarget: 0
   flyingAttackForce: 0
   attackForce: 10
   thrustValue: 0.5
   owner: {fileID: 0}
+  attach: 0
   oneHit: 0
   playerIsOwn: 0
   attType: 0
@@ -47631,8 +47664,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 948186675}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: 0.07393696, w: 0.9972629}
-  m_LocalPosition: {x: -0.02, y: 0.28, z: 0.000000031665}
+  m_LocalRotation: {x: 0, y: 0, z: -0.17898835, w: 0.9838512}
+  m_LocalPosition: {x: -1.6077459, y: -2.6461766, z: 0.000000031665}
   m_LocalScale: {x: 1213.0348, y: 20.710527, z: 144.86938}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -53221,7 +53254,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1012984837
 Transform:
   m_ObjectHideFlags: 0
@@ -53231,7 +53264,7 @@ Transform:
   m_GameObject: {fileID: 1012984836}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.026, y: 0.582, z: -3.5797e-10}
+  m_LocalPosition: {x: 0.322, y: 0.807, z: -3.5797e-10}
   m_LocalScale: {x: 0.8959927, y: 0.8959927, z: 0.8959927}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -53278,7 +53311,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 1224277808, guid: a702eb79570c6e7459d7a306da30eb08, type: 3}
+  m_Sprite: {fileID: -1526525953, guid: 63df5636538f64d48bef837eec1fc72f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -53587,12 +53620,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8faf252014a19b942bc4983ce0bcf63a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  NoDamage: 0
   telp: 0
   stunTarget: 0
   flyingAttackForce: 0
   attackForce: 10
   thrustValue: 0.5
   owner: {fileID: 0}
+  attach: 0
   oneHit: 0
   playerIsOwn: 0
   attType: 0
@@ -54273,12 +54308,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8faf252014a19b942bc4983ce0bcf63a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  NoDamage: 0
   telp: 0
   stunTarget: 0
   flyingAttackForce: 0
   attackForce: 10
   thrustValue: 0.5
   owner: {fileID: 0}
+  attach: 0
   oneHit: 0
   playerIsOwn: 0
   attType: 0
@@ -54757,7 +54794,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1080656506
 Transform:
   m_ObjectHideFlags: 0
@@ -54768,7 +54805,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0.04309631, z: 0.0030164558}
-  m_LocalScale: {x: 0.00096317724, y: 0.0011056891, z: 0.0008465432}
+  m_LocalScale: {x: 2.6652422, y: 2.8556175, z: 2.4986658}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 446899993}
@@ -54914,7 +54951,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1089655755
 Transform:
   m_ObjectHideFlags: 0
@@ -55205,7 +55242,7 @@ Transform:
   m_GameObject: {fileID: 1112167531}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 2.8500001, y: -3.78, z: 0}
+  m_LocalPosition: {x: 2.85, y: -3.78, z: 0}
   m_LocalScale: {x: 1.2828, y: 1.2828, z: 1.2828}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -55846,12 +55883,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8faf252014a19b942bc4983ce0bcf63a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  NoDamage: 0
   telp: 0
   stunTarget: 0
   flyingAttackForce: 0
   attackForce: 10
   thrustValue: 0.5
   owner: {fileID: 0}
+  attach: 0
   oneHit: 0
   playerIsOwn: 0
   attType: 0
@@ -57031,12 +57070,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8faf252014a19b942bc4983ce0bcf63a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  NoDamage: 0
   telp: 0
   stunTarget: 0
   flyingAttackForce: 0
   attackForce: 10
   thrustValue: 0.5
   owner: {fileID: 0}
+  attach: 0
   oneHit: 0
   playerIsOwn: 0
   attType: 0
@@ -71238,12 +71279,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8faf252014a19b942bc4983ce0bcf63a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  NoDamage: 0
   telp: 0
   stunTarget: 0
   flyingAttackForce: 0
   attackForce: 10
   thrustValue: 0.5
   owner: {fileID: 0}
+  attach: 0
   oneHit: 0
   playerIsOwn: 0
   attType: 0
@@ -71347,12 +71390,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8faf252014a19b942bc4983ce0bcf63a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  NoDamage: 0
   telp: 0
   stunTarget: 0
   flyingAttackForce: 0
   attackForce: 10
   thrustValue: 0.5
   owner: {fileID: 0}
+  attach: 0
   oneHit: 0
   playerIsOwn: 0
   attType: 0
@@ -72000,12 +72045,24 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2104138461300944696, guid: 06e48d987e62bf64fa4daecced7985ac, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2104138461300944696, guid: 06e48d987e62bf64fa4daecced7985ac, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2104138461300944696, guid: 06e48d987e62bf64fa4daecced7985ac, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2104138461300944696, guid: 06e48d987e62bf64fa4daecced7985ac, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 36.01
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2104138461300944696, guid: 06e48d987e62bf64fa4daecced7985ac, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -2.899994
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2104138461300944696, guid: 06e48d987e62bf64fa4daecced7985ac, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -72089,7 +72146,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2461925021502211775, guid: 06e48d987e62bf64fa4daecced7985ac, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0.317
+      value: 1.3
       objectReference: {fileID: 0}
     - target: {fileID: 2461925021502211775, guid: 06e48d987e62bf64fa4daecced7985ac, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -72156,12 +72213,20 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7786220365793647194, guid: 06e48d987e62bf64fa4daecced7985ac, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7786220365793647194, guid: 06e48d987e62bf64fa4daecced7985ac, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7786220365793647194, guid: 06e48d987e62bf64fa4daecced7985ac, type: 3}
       propertyPath: m_SizeDelta.x
       value: 512.29004
       objectReference: {fileID: 0}
     - target: {fileID: 7786220365793647194, guid: 06e48d987e62bf64fa4daecced7985ac, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 102.01
+      value: 40
       objectReference: {fileID: 0}
     - target: {fileID: 7786220365793647194, guid: 06e48d987e62bf64fa4daecced7985ac, type: 3}
       propertyPath: m_LocalScale.x
@@ -72177,11 +72242,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7786220365793647194, guid: 06e48d987e62bf64fa4daecced7985ac, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 256.14502
       objectReference: {fileID: 0}
     - target: {fileID: 7786220365793647194, guid: 06e48d987e62bf64fa4daecced7985ac, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 1.21
+      value: -20
       objectReference: {fileID: 0}
     - target: {fileID: 9069059727982528558, guid: 06e48d987e62bf64fa4daecced7985ac, type: 3}
       propertyPath: m_Enabled
@@ -77758,7 +77823,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1388390126
 Transform:
   m_ObjectHideFlags: 0
@@ -78666,12 +78731,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8faf252014a19b942bc4983ce0bcf63a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  NoDamage: 0
   telp: 0
   stunTarget: 0
   flyingAttackForce: 0
   attackForce: 10
   thrustValue: 0.5
   owner: {fileID: 0}
+  attach: 0
   oneHit: 0
   playerIsOwn: 0
   attType: 0
@@ -78810,12 +78877,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8faf252014a19b942bc4983ce0bcf63a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  NoDamage: 0
   telp: 0
   stunTarget: 0
   flyingAttackForce: 0
   attackForce: 10
   thrustValue: 0.5
   owner: {fileID: 0}
+  attach: 0
   oneHit: 0
   playerIsOwn: 0
   attType: 0
@@ -79837,12 +79906,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8faf252014a19b942bc4983ce0bcf63a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  NoDamage: 0
   telp: 0
   stunTarget: 0
   flyingAttackForce: 0
   attackForce: 10
   thrustValue: 0.5
   owner: {fileID: 0}
+  attach: 0
   oneHit: 0
   playerIsOwn: 0
   attType: 0
@@ -80298,6 +80369,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 32bf50a30d2fbe244ad305aafa4d14a7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  owner: {fileID: 0}
 --- !u!61 &1573181159
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -80494,7 +80566,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1579505547
 Transform:
   m_ObjectHideFlags: 0
@@ -80869,12 +80941,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8faf252014a19b942bc4983ce0bcf63a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  NoDamage: 0
   telp: 0
   stunTarget: 0
   flyingAttackForce: 0
   attackForce: 10
   thrustValue: 0.5
   owner: {fileID: 0}
+  attach: 0
   oneHit: 0
   playerIsOwn: 0
   attType: 0
@@ -81097,12 +81171,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8faf252014a19b942bc4983ce0bcf63a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  NoDamage: 0
   telp: 0
   stunTarget: 0
   flyingAttackForce: 0
   attackForce: 10
   thrustValue: 0.5
   owner: {fileID: 0}
+  attach: 0
   oneHit: 0
   playerIsOwn: 0
   attType: 0
@@ -81335,12 +81411,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8faf252014a19b942bc4983ce0bcf63a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  NoDamage: 0
   telp: 0
   stunTarget: 0
   flyingAttackForce: 0
   attackForce: 10
   thrustValue: 0.5
   owner: {fileID: 0}
+  attach: 0
   oneHit: 0
   playerIsOwn: 0
   attType: 0
@@ -81726,12 +81804,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8faf252014a19b942bc4983ce0bcf63a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  NoDamage: 0
   telp: 0
   stunTarget: 0
   flyingAttackForce: 0
   attackForce: 10
   thrustValue: 0.5
   owner: {fileID: 0}
+  attach: 0
   oneHit: 0
   playerIsOwn: 0
   attType: 0
@@ -82001,12 +82081,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8faf252014a19b942bc4983ce0bcf63a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  NoDamage: 0
   telp: 0
   stunTarget: 0
   flyingAttackForce: 0
   attackForce: 10
   thrustValue: 0.5
   owner: {fileID: 0}
+  attach: 0
   oneHit: 0
   playerIsOwn: 0
   attType: 0
@@ -83024,12 +83106,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8faf252014a19b942bc4983ce0bcf63a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  NoDamage: 0
   telp: 0
   stunTarget: 0
   flyingAttackForce: 0
   attackForce: 10
   thrustValue: 0.5
   owner: {fileID: 0}
+  attach: 0
   oneHit: 0
   playerIsOwn: 0
   attType: 0
@@ -83946,12 +84030,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8faf252014a19b942bc4983ce0bcf63a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  NoDamage: 0
   telp: 0
   stunTarget: 0
   flyingAttackForce: 0
   attackForce: 10
   thrustValue: 0.5
   owner: {fileID: 0}
+  attach: 0
   oneHit: 0
   playerIsOwn: 0
   attType: 0
@@ -85437,12 +85523,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8faf252014a19b942bc4983ce0bcf63a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  NoDamage: 0
   telp: 0
   stunTarget: 0
   flyingAttackForce: 0
   attackForce: 10
   thrustValue: 0.5
   owner: {fileID: 0}
+  attach: 0
   oneHit: 0
   playerIsOwn: 0
   attType: 0
@@ -85835,12 +85923,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8faf252014a19b942bc4983ce0bcf63a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  NoDamage: 0
   telp: 0
   stunTarget: 0
   flyingAttackForce: 0
   attackForce: 10
   thrustValue: 0.5
   owner: {fileID: 0}
+  attach: 0
   oneHit: 0
   playerIsOwn: 0
   attType: 0
@@ -92307,12 +92397,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8faf252014a19b942bc4983ce0bcf63a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  NoDamage: 0
   telp: 0
   stunTarget: 0
   flyingAttackForce: 0
   attackForce: 10
   thrustValue: 0.5
   owner: {fileID: 0}
+  attach: 0
   oneHit: 0
   playerIsOwn: 0
   attType: 0
@@ -103568,7 +103660,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0.043049105, z: 0.0030135643}
-  m_LocalScale: {x: 0.0010234361, y: 0.0010965391, z: 0.0009594717}
+  m_LocalScale: {x: 0.0010196739, y: 0.0010947733, z: 0.0009539627}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 446899993}
@@ -103671,12 +103763,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8faf252014a19b942bc4983ce0bcf63a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  NoDamage: 0
   telp: 0
   stunTarget: 0
   flyingAttackForce: 0
   attackForce: 10
   thrustValue: 0.5
   owner: {fileID: 0}
+  attach: 0
   oneHit: 0
   playerIsOwn: 0
   attType: 0

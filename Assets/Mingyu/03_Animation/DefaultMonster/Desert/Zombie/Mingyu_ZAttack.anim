@@ -40,7 +40,7 @@ AnimationClip:
         inWeight: 0
         outWeight: 0
       - serializedVersion: 3
-        time: 1.1666666
+        time: 1.5
         value: 0
         inSlope: Infinity
         outSlope: Infinity
@@ -61,11 +61,11 @@ AnimationClip:
     curve:
     - time: 0
       value: {fileID: -3083797204854299636, guid: 963ded53fc02e7f4299f6e9dd78e34cb, type: 3}
-    - time: 0.5833333
+    - time: 0.9166667
       value: {fileID: -3083797204854299636, guid: 963ded53fc02e7f4299f6e9dd78e34cb, type: 3}
-    - time: 0.6666667
+    - time: 1
       value: {fileID: 8762002660294841320, guid: 963ded53fc02e7f4299f6e9dd78e34cb, type: 3}
-    - time: 1.0833334
+    - time: 1.4166666
       value: {fileID: -732216037755190969, guid: 963ded53fc02e7f4299f6e9dd78e34cb, type: 3}
     attribute: m_Sprite
     path: 
@@ -107,7 +107,7 @@ AnimationClip:
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 1.1666667
+    m_StopTime: 1.5
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0
@@ -146,7 +146,7 @@ AnimationClip:
         inWeight: 0
         outWeight: 0
       - serializedVersion: 3
-        time: 1.1666666
+        time: 1.5
         value: 0
         inSlope: Infinity
         outSlope: Infinity
@@ -173,42 +173,42 @@ AnimationClip:
     floatParameter: 0
     intParameter: 1
     messageOptions: 0
-  - time: 0.5833333
+  - time: 0.9166667
     functionName: ParringCheck
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
-  - time: 0.5833333
+  - time: 0.9166667
     functionName: MoveXPos_Mingyu
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: -15
     intParameter: 0
     messageOptions: 0
-  - time: 0.6666667
+  - time: 1
     functionName: SetMovementForceX
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: -100
     intParameter: 0
     messageOptions: 0
-  - time: 0.6666667
+  - time: 1
     functionName: Check_AttackHitCol
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 1
     messageOptions: 0
-  - time: 0.75
+  - time: 1.0833334
     functionName: Check_AttackHitCol
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
-  - time: 1.0833334
+  - time: 1.4166666
     functionName: EndAttack
     data: 
     objectReferenceParameter: {fileID: 0}

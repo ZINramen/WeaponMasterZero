@@ -159,49 +159,13 @@ MonoBehaviour:
     m_BlendOutDuration: 1
     m_MixInCurve:
       serializedVersion: 2
-      m_Curve:
-      - serializedVersion: 3
-        time: 0
-        value: 0
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 0
-        weightedMode: 0
-        inWeight: 0
-        outWeight: 0
-      - serializedVersion: 3
-        time: 1
-        value: 1
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 0
-        weightedMode: 0
-        inWeight: 0
-        outWeight: 0
+      m_Curve: []
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
     m_MixOutCurve:
       serializedVersion: 2
-      m_Curve:
-      - serializedVersion: 3
-        time: 0
-        value: 1
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 0
-        weightedMode: 0
-        inWeight: 0
-        outWeight: 0
-      - serializedVersion: 3
-        time: 1
-        value: 0
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 0
-        weightedMode: 0
-        inWeight: 0
-        outWeight: 0
+      m_Curve: []
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
@@ -219,7 +183,7 @@ MonoBehaviour:
     m_Start: 3
     m_ClipIn: 0
     m_Asset: {fileID: 8457398552546543188}
-    m_Duration: 8.399999999999999
+    m_Duration: 8.2
     m_TimeScale: 1
     m_ParentTrack: {fileID: -5379261925810654142}
     m_EaseInDuration: 0
@@ -452,7 +416,7 @@ MonoBehaviour:
   m_Name: DialogueBubbleClip(Clone)
   m_EditorClassIdentifier: 
   template:
-    text: "\uBE59\uAF41 \uC5BC\uC74C \uC0B0\uB9E5\uC774 \uB098\uC62C \uAC70\uC57C"
+    text: "\uC5BC\uC74C \uC0B0\uB9E5\uC774 \uB098\uC62C \uAC70\uC57C"
     objectName: APO
 --- !u!74 &3319685593142512981
 AnimationClip:
@@ -687,7 +651,7 @@ MonoBehaviour:
     m_Start: 4.5
     m_ClipIn: 0
     m_Asset: {fileID: 8095669754279932834}
-    m_Duration: 2
+    m_Duration: 1.5
     m_TimeScale: 1
     m_ParentTrack: {fileID: 3970142284050137393}
     m_EaseInDuration: 0
@@ -753,7 +717,7 @@ MonoBehaviour:
     m_PreExtrapolationTime: 0
     m_DisplayName: DialogueBubbleClip
   - m_Version: 1
-    m_Start: 6.5
+    m_Start: 6
     m_ClipIn: 0
     m_Asset: {fileID: 2500306095612760572}
     m_Duration: 1.8999999999999986
@@ -822,7 +786,7 @@ MonoBehaviour:
     m_PreExtrapolationTime: 0
     m_DisplayName: DialogueBubbleClip
   - m_Version: 1
-    m_Start: 8.399999999999999
+    m_Start: 7.899999999999999
     m_ClipIn: 0
     m_Asset: {fileID: 7567090261749369993}
     m_Duration: 2
@@ -891,10 +855,10 @@ MonoBehaviour:
     m_PreExtrapolationTime: 0
     m_DisplayName: DialogueBubbleClip
   - m_Version: 1
-    m_Start: 10.399999999999999
+    m_Start: 9.899999999999999
     m_ClipIn: 0
     m_Asset: {fileID: -6344461295924680562}
-    m_Duration: 1
+    m_Duration: 1.3000000000000007
     m_TimeScale: 1
     m_ParentTrack: {fileID: 3970142284050137393}
     m_EaseInDuration: 0
@@ -973,7 +937,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 15c38f6fa1940124db1ab7f6fe7268d1, type: 3}
   m_Name: Signal Emitter
   m_EditorClassIdentifier: 
-  m_Time: 11.399999999999999
+  m_Time: 11.2
   m_Retroactive: 0
   m_EmitOnce: 0
   m_Asset: {fileID: 11400000, guid: 158a8a2b07d333c49a81ebd7d6ede837, type: 2}
