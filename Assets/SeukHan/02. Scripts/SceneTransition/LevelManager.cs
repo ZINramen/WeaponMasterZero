@@ -54,7 +54,7 @@ public class LevelManager : MonoBehaviour
 
         if (Input.GetKey(KeyCode.L))
         {
-            Time.timeScale = 2f;
+            Time.timeScale = 3f;
         }
         
         if (Input.GetKeyUp(KeyCode.L))

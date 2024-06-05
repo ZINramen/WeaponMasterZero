@@ -233,7 +233,7 @@ public class LastBoss_Ctrl : Boss
     {
         state.defaultAtt_dist = 5000f;      // 손날 치기
 
-        state.skill_CoolTime = 3f;
+        state.skill_CoolTime = 1.5f;
     
         state.p1_Skill1_dist = 5000f;       // 중력
         state.p1_Skill2_dist = 5000f;       // 탄막 발싸
