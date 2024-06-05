@@ -58,6 +58,8 @@ public class BulletCtrl : MonoBehaviour
 
     public void DestoryBullet()
     {
+        if (m_player)
+            m_player.gameObject.GetComponent<StopTime>().PlayALLTime();
         Destroy(this.gameObject);
     }
 
