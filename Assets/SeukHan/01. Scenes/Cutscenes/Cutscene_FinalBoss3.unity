@@ -11454,7 +11454,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7786220365793647194, guid: 06e48d987e62bf64fa4daecced7985ac, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 40
+      value: 56.01
       objectReference: {fileID: 0}
     - target: {fileID: 7786220365793647194, guid: 06e48d987e62bf64fa4daecced7985ac, type: 3}
       propertyPath: m_LocalScale.x
@@ -11474,7 +11474,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7786220365793647194, guid: 06e48d987e62bf64fa4daecced7985ac, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -20
+      value: -28.005
       objectReference: {fileID: 0}
     - target: {fileID: 9069059727982528558, guid: 06e48d987e62bf64fa4daecced7985ac, type: 3}
       propertyPath: m_Enabled
@@ -30524,6 +30524,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Alway: 0
   BlockDash: 0
+  mousePos: {x: 0, y: 0, z: 0}
   owner: {fileID: 0}
   h: 0
   body: {fileID: 0}
@@ -30620,7 +30621,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.5
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -36414,7 +36415,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &498519804
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -53024,7 +53025,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 21391e47f3892984e8b06a0c3f2e34f6, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.7
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -82495,7 +82496,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1699328683
 RectTransform:
   m_ObjectHideFlags: 0
