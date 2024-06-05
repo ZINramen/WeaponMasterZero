@@ -448,6 +448,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Alway: 0
   BlockDash: 0
+  mousePos: {x: 0, y: 0, z: 0}
   owner: {fileID: 0}
   h: 0
   body: {fileID: 0}
@@ -470,10 +471,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a1045773e672824daf99f5c8b2edde4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  shield: {fileID: 0}
   hitMat: {fileID: 0}
   activeDesireWeapon: 0
   playerFinalBoss: {fileID: 0}
   desireWeaponFinalBoss: 0
+  triggerObj_HitType: 0
   stun: 0
   hp: 0
   mp: 0
@@ -676,8 +679,9 @@ MonoBehaviour:
   move_Speed: 2
   isFall_Monster: 1
   distFrom_Player: 0
-  Exclamation: {fileID: 8391314663403983471, guid: 95921e6fd65263841b25156c8e0aa124, type: 3}
+  Exclamation: {fileID: 8391314663403983471, guid: 5be287446c81f21459f6bb88a9308b3c, type: 3}
   isDie: 0
   m_dAtt_dist: 1.4
   m_traceDist: 6
+  Parring_Exc: {fileID: 719645088804361089, guid: 6f3b1e9a8c6cd364d9a329e4d6fd9451, type: 3}
   hitMat: {fileID: 2100000, guid: 9a312534a97aeb14e89b5c7cc149b470, type: 2}

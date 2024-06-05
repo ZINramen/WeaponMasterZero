@@ -6,6 +6,8 @@ public class Skeleton : Default_Monster
 {
     [SerializeField] private float m_dAtt_dist;
     [SerializeField] private float m_traceDist;
+    [SerializeField] private GameObject Parring_Exc;
+    private GameObject dummy_ParringExc;
     
     [SerializeField] private Material hitMat;
     private Material originMat;
@@ -51,6 +53,20 @@ public class Skeleton : Default_Monster
 
     public void ParringHit()
     {
+        if (dummy_ParringExc == null)
+        {
+            Vector3 spawnPos = new Vector3(this.transform.position.x, 
+                this.transform.position.y + 0.8f,
+                this.transform.position.z);
+
+            dummy_ParringExc = GameObject.Instantiate(Parring_Exc, spawnPos, Quaternion.identity);
+            dummy_ParringExc.transform.parent = this.gameObject.transform;
+        }
+        else
+        {
+            dummy_ParringExc.gameObject.GetComponent<ParticleSystem>().Play();
+        }
+        
         this.gameObject.GetComponent<SpriteRenderer>().material = hitMat;
         Invoke("ReturnMat", 0.1f);
     }
