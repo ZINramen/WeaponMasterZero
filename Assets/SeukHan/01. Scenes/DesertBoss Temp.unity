@@ -2445,6 +2445,14 @@ PrefabInstance:
       propertyPath: maxHP
       value: 500
       objectReference: {fileID: 0}
+    - target: {fileID: 2453434323063826008, guid: e2f03ac0e90d84f4083d3f9121ad8f5f, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2453434323063826008, guid: e2f03ac0e90d84f4083d3f9121ad8f5f, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4898871073350778536, guid: e2f03ac0e90d84f4083d3f9121ad8f5f, type: 3}
       propertyPath: attType
       value: 1
@@ -3897,7 +3905,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7786220365793647194, guid: 06e48d987e62bf64fa4daecced7985ac, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 56.01
+      value: 42.010002
       objectReference: {fileID: 0}
     - target: {fileID: 7786220365793647194, guid: 06e48d987e62bf64fa4daecced7985ac, type: 3}
       propertyPath: m_AnchoredPosition.x
@@ -3905,7 +3913,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7786220365793647194, guid: 06e48d987e62bf64fa4daecced7985ac, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -28.005
+      value: -21.005001
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -4124,6 +4132,7 @@ MonoBehaviour:
   activeDesireWeapon: 0
   playerFinalBoss: {fileID: 0}
   desireWeaponFinalBoss: 0
+  triggerObj_HitType: 0
   stun: 0
   hp: 50
   mp: 0
@@ -4282,6 +4291,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Alway: 0
   BlockDash: 0
+  mousePos: {x: 0, y: 0, z: 0}
   owner: {fileID: 819132794}
   h: 0
   body: {fileID: 0}
@@ -4526,7 +4536,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7786220365793647194, guid: 06e48d987e62bf64fa4daecced7985ac, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 56.01
+      value: 40.010002
       objectReference: {fileID: 0}
     - target: {fileID: 7786220365793647194, guid: 06e48d987e62bf64fa4daecced7985ac, type: 3}
       propertyPath: m_AnchoredPosition.x
@@ -4534,7 +4544,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7786220365793647194, guid: 06e48d987e62bf64fa4daecced7985ac, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -28.005
+      value: -20.005001
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

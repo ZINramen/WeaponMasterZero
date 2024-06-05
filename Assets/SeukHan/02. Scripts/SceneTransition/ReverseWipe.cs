@@ -11,13 +11,13 @@ public class ReverseWipe : SceneTransition
     public override IEnumerator AnimateTransitionIn()
     {
         img.rectTransform.anchoredPosition = new Vector2(2400f, 0f);
-        var tweener = img.rectTransform.DOAnchorPosX(0f, 2f);
+        var tweener = img.rectTransform.DOAnchorPosX(0f, 1.5f);
         yield return tweener.WaitForCompletion();
     }
  
     public override IEnumerator AnimateTransitionOut()
     {
-        var tweener = img.rectTransform.DOAnchorPosX(-2400f, 2f);
+        var tweener = img.rectTransform.DOAnchorPosX(-2400f, 1.5f);
         yield return tweener.WaitForCompletion();
     }
 }

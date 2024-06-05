@@ -90,10 +90,9 @@ public abstract class Default_Monster : MonoBehaviour
             UpdateSetting();
         }
 
-        if (isMoveEnd)
+        if (this.gameObject.GetComponent<Entity>().GetHp() <= 0)
         {
-            //StartCoroutine(StopMove());
-            isMoveEnd = false;
+            this.gameObject.GetComponent<Rigidbody2D>().simulated = false;
         }
     }
 

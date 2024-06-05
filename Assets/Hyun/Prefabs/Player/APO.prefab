@@ -63010,6 +63010,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Alway: 0
   BlockDash: 0
+  mousePos: {x: 0, y: 0, z: 0}
   owner: {fileID: 0}
   h: 0
   body: {fileID: 0}
@@ -63086,6 +63087,7 @@ MonoBehaviour:
   activeDesireWeapon: 0
   playerFinalBoss: {fileID: 0}
   desireWeaponFinalBoss: 0
+  triggerObj_HitType: 0
   stun: 0
   hp: 100
   mp: 100
@@ -86146,7 +86148,7 @@ GameObject:
   - component: {fileID: 8105312422903608257}
   m_Layer: 0
   m_Name: GroundChecker
-  m_TagString: Untagged
+  m_TagString: Camera
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

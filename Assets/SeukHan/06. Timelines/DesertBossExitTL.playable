@@ -25,7 +25,7 @@ MonoBehaviour:
     m_Start: 0
     m_ClipIn: 0
     m_Asset: {fileID: 1343952671006884170}
-    m_Duration: 27.75
+    m_Duration: 28.78333333333333
     m_TimeScale: 1
     m_ParentTrack: {fileID: -8984918326633639835}
     m_EaseInDuration: 0
@@ -105,8 +105,8 @@ MonoBehaviour:
   m_Name: DialogueBubbleClip(Clone)(Clone)(Clone)(Clone)
   m_EditorClassIdentifier: 
   template:
-    text: "\uB09C \uADF8\uB0E5 \uAC15\uD55C \uB188\uACFC \uC2F8\uC6B0\uB294\uAC8C
-      \uC88B\uC744 \uBFD0\uC774\uC57C"
+    text: "\uD558\uC9C0\uB9CC \uC694\uC998 \uC131 \uCABD\uC774 \uC2DC\uB044\uB7FD\uB2E4\uB294
+      \uAC74 \uC54C\uC9C0."
     objectName: BossActor
 --- !u!114 &-8550733831304882560
 MonoBehaviour:
@@ -247,7 +247,7 @@ MonoBehaviour:
   m_Children: []
   m_Clips:
   - m_Version: 1
-    m_Start: 16.65
+    m_Start: 20.866666666666667
     m_ClipIn: 0
     m_Asset: {fileID: 168763261027156290}
     m_Duration: 1.916666666666595
@@ -312,11 +312,11 @@ MonoBehaviour:
     m_Recordable: 0
     m_PostExtrapolationMode: 1
     m_PreExtrapolationMode: 1
-    m_PostExtrapolationTime: 6.78333333333341
-    m_PreExtrapolationTime: 16.65
+    m_PostExtrapolationTime: 3.933333333333408
+    m_PreExtrapolationTime: 20.866666666666667
     m_DisplayName: APO_Idle
   - m_Version: 1
-    m_Start: 25.35
+    m_Start: 26.71666666666667
     m_ClipIn: 0
     m_Asset: {fileID: -8500073850069555041}
     m_Duration: 2.066666666666663
@@ -426,7 +426,7 @@ MonoBehaviour:
   m_Children: []
   m_Clips:
   - m_Version: 1
-    m_Start: 21.233333333333334
+    m_Start: 2.0333333333333314
     m_ClipIn: 0
     m_Asset: {fileID: 2140687507551681493}
     m_Duration: 3.683333333333333
@@ -492,7 +492,7 @@ MonoBehaviour:
     m_PostExtrapolationMode: 1
     m_PreExtrapolationMode: 1
     m_PostExtrapolationTime: Infinity
-    m_PreExtrapolationTime: 21.233333333333334
+    m_PreExtrapolationTime: 2.0333333333333314
     m_DisplayName: getGun
   m_Markers:
     m_Objects: []
@@ -551,7 +551,7 @@ MonoBehaviour:
     m_Start: 0
     m_ClipIn: 0
     m_Asset: {fileID: -2354242589359278391}
-    m_Duration: 21.233333333333334
+    m_Duration: 2.0333333333333314
     m_TimeScale: 1
     m_ParentTrack: {fileID: -2229737379061098078}
     m_EaseInDuration: 0
@@ -617,10 +617,10 @@ MonoBehaviour:
     m_PreExtrapolationTime: 0
     m_DisplayName: Active
   - m_Version: 1
-    m_Start: 24.95
+    m_Start: 5.716666666666665
     m_ClipIn: 0
     m_Asset: {fileID: 4516773117247658058}
-    m_Duration: 2.466666666666665
+    m_Duration: 22.96666666666667
     m_TimeScale: 1
     m_ParentTrack: {fileID: -2229737379061098078}
     m_EaseInDuration: 0
@@ -744,7 +744,7 @@ MonoBehaviour:
   m_Children: []
   m_Clips:
   - m_Version: 1
-    m_Start: 21.233333333333334
+    m_Start: 2.0333333333333314
     m_ClipIn: 0
     m_Asset: {fileID: -6572232413812041232}
     m_Duration: 3.6833333333333336
@@ -837,7 +837,7 @@ MonoBehaviour:
   m_Children: []
   m_Clips:
   - m_Version: 1
-    m_Start: 1.5
+    m_Start: 5.716666666666664
     m_ClipIn: 0
     m_Asset: {fileID: -2107908757761569863}
     m_Duration: 3.0166666666666666
@@ -866,11 +866,11 @@ MonoBehaviour:
     m_Recordable: 0
     m_PostExtrapolationMode: 1
     m_PreExtrapolationMode: 1
-    m_PostExtrapolationTime: 9.983333333333334
-    m_PreExtrapolationTime: 1.5
+    m_PostExtrapolationTime: 9.983333333333338
+    m_PreExtrapolationTime: 5.716666666666664
     m_DisplayName: GunBossSmoke
   - m_Version: 1
-    m_Start: 14.5
+    m_Start: 18.71666666666667
     m_ClipIn: 1.466666666666665
     m_Asset: {fileID: 8338664016559003378}
     m_Duration: 1.5500000000000016
@@ -922,6 +922,21 @@ MonoBehaviour:
   m_OpenClipOffsetRotation: {x: 0, y: 0, z: 0, w: 1}
   m_Rotation: {x: 0, y: 0, z: 0, w: 1}
   m_ApplyOffsets: 0
+--- !u!114 &-54451923859923486
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b0dca6aeeb51dbd4a9c2665f5576da68, type: 3}
+  m_Name: DialogueBubbleClip(Clone)(Clone)(Clone)
+  m_EditorClassIdentifier: 
+  template:
+    text: "\uC124\uB9C8...?!"
+    objectName: APOActor
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -986,7 +1001,7 @@ MonoBehaviour:
   m_Name: DialogueBubbleClip(Clone)(Clone)(Clone)
   m_EditorClassIdentifier: 
   template:
-    text: "\uB098\uB3C4 \uC798 \uBAA8\uB974\uACA0\uB294 \uAC78"
+    text: "\uB098\uB3C4 \uC798 \uBAA8\uB974\uACA0\uB294 \uAC78?"
     objectName: BossActor
 --- !u!114 &1108347542296683396
 MonoBehaviour:
@@ -1161,7 +1176,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 15c38f6fa1940124db1ab7f6fe7268d1, type: 3}
   m_Name: Signal Emitter
   m_EditorClassIdentifier: 
-  m_Time: 27.416666666666664
+  m_Time: 27.783333333333335
   m_Retroactive: 0
   m_EmitOnce: 0
   m_Asset: {fileID: 11400000, guid: a955bbc6acd8e1f4f8adf97945349078, type: 2}
@@ -1199,7 +1214,7 @@ MonoBehaviour:
   m_Children: []
   m_Clips:
   - m_Version: 1
-    m_Start: 3
+    m_Start: 7.216666666666666
     m_ClipIn: 0
     m_Asset: {fileID: -8550733831304882560}
     m_Duration: 2
@@ -1268,7 +1283,7 @@ MonoBehaviour:
     m_PreExtrapolationTime: 0
     m_DisplayName: DialogueBubbleClip
   - m_Version: 1
-    m_Start: 5.499999999999998
+    m_Start: 9.716666666666665
     m_ClipIn: 0
     m_Asset: {fileID: 3278389411367511912}
     m_Duration: 2
@@ -1337,7 +1352,7 @@ MonoBehaviour:
     m_PreExtrapolationTime: 0
     m_DisplayName: DialogueBubbleClip
   - m_Version: 1
-    m_Start: 11
+    m_Start: 15.216666666666669
     m_ClipIn: 0
     m_Asset: {fileID: 5874300278478737151}
     m_Duration: 2
@@ -1406,7 +1421,7 @@ MonoBehaviour:
     m_PreExtrapolationTime: 0
     m_DisplayName: DialogueBubbleClip
   - m_Version: 1
-    m_Start: 13.5
+    m_Start: 17.71666666666667
     m_ClipIn: 0
     m_Asset: {fileID: 1108347542296683396}
     m_Duration: 1
@@ -1475,7 +1490,7 @@ MonoBehaviour:
     m_PreExtrapolationTime: 0
     m_DisplayName: DialogueBubbleClip
   - m_Version: 1
-    m_Start: 15.5
+    m_Start: 19.71666666666667
     m_ClipIn: 0
     m_Asset: {fileID: 324383004448604550}
     m_Duration: 2
@@ -1544,7 +1559,7 @@ MonoBehaviour:
     m_PreExtrapolationTime: 0
     m_DisplayName: DialogueBubbleClip
   - m_Version: 1
-    m_Start: 18.5
+    m_Start: 22.71666666666667
     m_ClipIn: 0
     m_Asset: {fileID: -8592877656607970452}
     m_Duration: 2.5000000000000018
@@ -1613,10 +1628,79 @@ MonoBehaviour:
     m_PreExtrapolationTime: 0
     m_DisplayName: DialogueBubbleClip
   - m_Version: 1
-    m_Start: 8
+    m_Start: 12.216666666666669
     m_ClipIn: 0
     m_Asset: {fileID: -4927244499159735458}
     m_Duration: 2
+    m_TimeScale: 1
+    m_ParentTrack: {fileID: 5148221239360894559}
+    m_EaseInDuration: 0
+    m_EaseOutDuration: 0
+    m_BlendInDuration: 0
+    m_BlendOutDuration: 0
+    m_MixInCurve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      - serializedVersion: 3
+        time: 1
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    m_MixOutCurve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      - serializedVersion: 3
+        time: 1
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    m_BlendInCurveMode: 0
+    m_BlendOutCurveMode: 0
+    m_ExposedParameterNames: []
+    m_AnimationCurves: {fileID: 0}
+    m_Recordable: 0
+    m_PostExtrapolationMode: 0
+    m_PreExtrapolationMode: 0
+    m_PostExtrapolationTime: 0
+    m_PreExtrapolationTime: 0
+    m_DisplayName: DialogueBubbleClip
+  - m_Version: 1
+    m_Start: 25.71666666666667
+    m_ClipIn: 0
+    m_Asset: {fileID: -54451923859923486}
+    m_Duration: 1
     m_TimeScale: 1
     m_ParentTrack: {fileID: 5148221239360894559}
     m_EaseInDuration: 0

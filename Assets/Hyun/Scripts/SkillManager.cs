@@ -42,7 +42,7 @@ public class SkillManager : MonoBehaviour
             {
                 ChangeWeaponSkill(false);
             }
-            if (owner.GetHp() > 0 && Input.GetKeyDown(KeyCode.S)) // 체력 회복
+            if (owner.GetHp() > 0 && Input.GetKeyDown(KeyCode.W)) // 체력 회복
             {
                 int curGauge = owner.aManager.ani.GetInteger("Gauge");
                 if (curGauge > 0)
