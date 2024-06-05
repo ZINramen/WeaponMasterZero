@@ -133,7 +133,7 @@ public abstract class Default_Monster : MonoBehaviour
         distFrom_Player = Mathf.Abs(player_pos.x - transform.position.x);
         
         // 상황에 따른 동작 구현 FSM
-        if (distFrom_Player >= monsterState.traceDistance && !isNot_ChangeState)
+        if (monsterState != null && distFrom_Player >= monsterState.traceDistance && !isNot_ChangeState)
         {
             monsterState.currentState = Default_MonsterState.State.idle;
             Move(0,1);
