@@ -160,8 +160,8 @@ public class LastBoss_Ctrl : Boss
         Init_ValueData();
 
         LastBoss_Entity = this.gameObject.GetComponent<Entity>();
-        //changeAttack_AbleHP = LastBoss_Entity.maxHP / 2;
-        changeAttack_AbleHP = LastBoss_Entity.maxHP;        // Test
+        changeAttack_AbleHP = LastBoss_Entity.maxHP / 2;
+        //changeAttack_AbleHP = LastBoss_Entity.maxHP;        // Test
         
         /* 체력의 60%와 30% 일때, 자물쇠 패턴을 사용 */
         //firstLockHP = LastBoss_Entity.maxHP * 0.9f;           // Test
@@ -612,7 +612,7 @@ public class LastBoss_Ctrl : Boss
         while(beforeAttType == random_AttAbleType)
             random_AttAbleType = Random.Range((int)PlayerAttackType.Sword, (int)PlayerAttackType.Hammer + 1);
         
-        random_AttAbleType = (int)PlayerAttackType.Gun; // test
+        //random_AttAbleType = (int)PlayerAttackType.Gun; // test
         
         beforeAttType = random_AttAbleType;
         attAble_AttType = AttAbleSkill_ToEnum(random_AttAbleType);

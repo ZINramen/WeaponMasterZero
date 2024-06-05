@@ -2155,7 +2155,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1868984683984232959, guid: e2f03ac0e90d84f4083d3f9121ad8f5f, type: 3}
       propertyPath: maxHP
-      value: 500
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 4898871073350778536, guid: e2f03ac0e90d84f4083d3f9121ad8f5f, type: 3}
       propertyPath: attType
@@ -2774,7 +2774,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &569461836
 Transform:
   m_ObjectHideFlags: 0
@@ -3723,6 +3723,7 @@ MonoBehaviour:
   activeDesireWeapon: 0
   playerFinalBoss: {fileID: 0}
   desireWeaponFinalBoss: 0
+  triggerObj_HitType: 0
   stun: 0
   hp: 50
   mp: 0
@@ -3881,6 +3882,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Alway: 0
   BlockDash: 0
+  mousePos: {x: 0, y: 0, z: 0}
   owner: {fileID: 819132794}
   h: 0
   body: {fileID: 0}
