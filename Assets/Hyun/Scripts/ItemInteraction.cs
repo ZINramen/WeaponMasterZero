@@ -56,7 +56,7 @@ public class ItemInteraction : MonoBehaviour
     private void Update()
     {
         if(!isEnd)
-        if (itemName == "Hammer" && Mathf.Abs((int)transform.position.y - (int)Entity.Player.aManager.groundCheck.transform.position.y) < 5)
+        if (itemName == "Hammer" && Mathf.Abs((int)transform.position.y - (int)Entity.Player.aManager.groundCheck.transform.position.y) < 3)
         {
             isEnd = true;
             Rigidbody2D rb = GetComponent<Rigidbody2D>();
