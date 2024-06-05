@@ -159,7 +159,7 @@ public class GunBoss : Boss
     {
         state.defaultAtt_dist = 1f;
 
-        state.skill_CoolTime = 5.0f;
+        state.skill_CoolTime = 2.0f;
     
         state.p1_Skill1_dist = 5000f;
         state.p1_Skill2_dist = 4.5f;

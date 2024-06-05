@@ -79,7 +79,7 @@ public class SwordBoss : Boss
     {
         state.defaultAtt_dist = 1f;
 
-        state.skill_CoolTime = 4f;
+        state.skill_CoolTime = 2f;
     
         state.p1_Skill1_dist = 1.5f;
         state.p1_Skill2_dist = 1.8f;
