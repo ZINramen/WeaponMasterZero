@@ -244,6 +244,12 @@ public class AnimationManager : MonoBehaviour
 
     void PlayerAnimation() // 조종하는 플레이어 캐릭터의 애니메이션 관리 -> 입력에 반응
     {
+        if (Input.GetKeyDown(Punch))
+        {
+            ani.SetTrigger("Punch");
+            ani.SetBool("waitLinkAttack", true);
+            StartCoroutine(WaitLink(1f));
+        }
         if (ani.GetInteger("Weapon") != 2 &&
                     (groundCheck.GetOnGround || !additionalJump) && Input.GetKeyDown(Jump) && !Input.GetKey(DownArrow))
         {
@@ -269,12 +275,6 @@ public class AnimationManager : MonoBehaviour
             {
                 State = AnimationState.Emotion;
                 ani.SetTrigger("Breaktime");
-            }
-            if (Input.GetKeyDown(Punch))
-            {
-                ani.SetTrigger("Punch");
-                ani.SetBool("waitLinkAttack", true);
-                StartCoroutine(WaitLink(1f));
             }
             if (Input.GetKeyDown(Kick) && ani.GetInteger("Gauge") > 0)
             {
