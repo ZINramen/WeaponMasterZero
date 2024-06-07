@@ -330,12 +330,12 @@ public class Entity : MonoBehaviour
         if (Mathf.Abs(damageValue) > 30)
         {
             if (actionCam)
-                actionCam.ShakeScreen(1f);
+                actionCam.ShakeScreen(0.3f);
         }
         else
         {
             if (actionCam)
-                actionCam.ShakeScreen(0.5f);
+                actionCam.ShakeScreen(0.2f);
         }
 
         if (gameObject.CompareTag("Boss")) 

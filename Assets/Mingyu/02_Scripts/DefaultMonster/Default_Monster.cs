@@ -155,6 +155,7 @@ public abstract class Default_Monster : MonoBehaviour
                     
                     GameObject dummyEx = GameObject.Instantiate(Exclamation, spawnPos, Quaternion.identity);
                     dummyEx.gameObject.transform.parent = this.gameObject.transform;
+                    dummyEx.gameObject.transform.localScale = Vector3.one;
                 }
             }
             else
