@@ -44,7 +44,7 @@ public class ShootingControl : MonoBehaviour
         if(!owner.isDie)
         if (WhenTargeting)
         {
-            Cursor.SetCursor(targetingImage, Vector2.zero, CursorMode.Auto);
+            Cursor.SetCursor(targetingImage, new Vector2(targetingImage.width/3f, targetingImage.height / 3f), CursorMode.Auto);
             AtargetingPos = Camera.main.ScreenToWorldPoint(Input.mousePosition + new Vector3(20, -20, 0));
 
             var dir = Input.mousePosition - Camera.main.WorldToScreenPoint(transform.position);
