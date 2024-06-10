@@ -1,110 +1,77 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using Vector2 = System.Numerics.Vector2;
 
-public class ShieldMon_Ctrl : Default_Monster
+public class ShieldMon_Ctrl : MonoBehaviour
 {
-    [SerializeField] private float m_dAtt_dist;
-    [SerializeField] private float m_traceDist;
-    [SerializeField] private float rushSpeed;
-
-    public bool NoRush = false;
-    public Shield_HitCol hit;
-
-    [SerializeField] private bool isRush = false;
-        
-    void Start()
-    {
-        base.Start();
-        monsterState = new Default_MonsterState();
-        Init_StateValueData(ref monsterState);
+    private GameObject player;
+    private bool isExplosionHit = false;
     
-        stopDelayTime = 1.5f;
-        groundApproachDist = 0.5f;
-    
-        AttHitCol = this.gameObject.transform.GetChild(0).gameObject;
-        AttHitCol.gameObject.GetComponent<BoxCollider2D>().enabled = false;
-    }
-    protected override void Init_StateValueData(ref Default_MonsterState state)
+    private void Start()
     {
-        state.defaultAtt_dist = m_dAtt_dist;
-        state.traceDistance = m_traceDist;
+        GameObject[] playerTagObjects = GameObject.FindGameObjectsWithTag("Player");
+        foreach (GameObject playerTagObj in playerTagObjects)
+        {
+            if (playerTagObj.name == "APO")
+                player = playerTagObj;
+        }
     }
 
-    protected override void UpdateSetting()
+    private void Update()
     {
-        if (isRush)
+        if (player)
         {
-            if (rayHit.collider != null)
+            if (this.gameObject.transform.eulerAngles.y == 180)
             {
-                Move(rushSpeed, rushSpeed > 0 ? 1 : -1);
+                if ((this.gameObject.transform.position - player.gameObject.transform.position).normalized.x < 0.3f && !isExplosionHit)
+                    this.gameObject.GetComponent<Entity>().DamageBlock = Entity.DefenseStatus.invincible;
+                else 
+                    this.gameObject.GetComponent<Entity>().DamageBlock = Entity.DefenseStatus.Nope;
             }
             else
             {
-                EndRush();
-            }
-        }
-
-        //Debug.Log((this.gameObject.transform.position - player.gameObject.transform.position).normalized.x);
-
-        if (this.gameObject.transform.eulerAngles.y == 180)
-        {
-            if ((this.gameObject.transform.position - player.gameObject.transform.position).normalized.x < 0)
-                this.gameObject.GetComponent<Entity>().DamageBlock = Entity.DefenseStatus.invincible;
-            else
-            {
-                if(!NoRush)
-                    this.gameObject.transform.eulerAngles = new Vector3(0, 0, 0);
-                this.gameObject.GetComponent<Entity>().DamageBlock = Entity.DefenseStatus.Nope;
-            }
-        }
-        else
-        {
-            if ((this.gameObject.transform.position - player.gameObject.transform.position).normalized.x > 0)
-                this.gameObject.GetComponent<Entity>().DamageBlock = Entity.DefenseStatus.invincible;
-            else
-            {
-                if (!NoRush)
-                    this.gameObject.transform.eulerAngles = new Vector3(0, 180, 0);
-                this.gameObject.GetComponent<Entity>().DamageBlock = Entity.DefenseStatus.Nope;
+                if ((this.gameObject.transform.position - player.gameObject.transform.position).normalized.x > -0.3f && !isExplosionHit)
+                    this.gameObject.GetComponent<Entity>().DamageBlock = Entity.DefenseStatus.invincible;
+                else 
+                    this.gameObject.GetComponent<Entity>().DamageBlock = Entity.DefenseStatus.Nope;
             }
         }
     }
 
-    public void Rush()
+    private void OnTriggerEnter2D(Collider2D other)
     {
-        if (NoRush) return;
-        RaycastHit2D hit2D = Physics2D.Raycast(transform.position - transform.right * 1f, -transform.right, 20, LayerMask.GetMask("Entity"));
-        if (hit2D)
+        if (other.gameObject.name.Contains("Explosion"))
         {
-            Debug.Log(hit2D.transform.gameObject);
-
-        }
-        if (hit2D && hit2D.transform.CompareTag("Player"))
-        {
-            if (!isNot_ChangeState)
+            if (this.gameObject.transform.eulerAngles.y == 180)
             {
-                hit.targetPosX = player.transform.position.x - transform.right.x * 2;
+                if ((this.gameObject.transform.position - other.gameObject.transform.position).normalized.x > 0.3f)
+                {
+                    isExplosionHit = true;
+                    this.gameObject.GetComponent<Entity>().DamageBlock = Entity.DefenseStatus.Nope;
+                    this.gameObject.GetComponent<Entity>().Damaged(other.gameObject.GetComponent<HitColider>().attackForce);
+                }
             }
-
-            isNot_ChangeState = true;
-            this.gameObject.GetComponent<Animator>().SetBool("isEndRush", false);
-
-            rushSpeed = this.transform.rotation.eulerAngles.y == 180 ? Mathf.Abs(rushSpeed) : -Mathf.Abs(rushSpeed);
-            Move(0, this.transform.position.x > player_pos.x ? 1 : -1);
-
-            isRush = true;
+                
+            else
+            {
+                if ((this.gameObject.transform.position - other.gameObject.transform.position).normalized.x < -0.3f)
+                {
+                    isExplosionHit = true;
+                    this.gameObject.GetComponent<Entity>().DamageBlock = Entity.DefenseStatus.Nope;
+                    this.gameObject.GetComponent<Entity>().Damaged(other.gameObject.GetComponent<HitColider>().attackForce);
+                }
+            }
         }
     }
 
-    public void EndRush()
+    private void OnTriggerExit2D(Collider2D other)
     {
-        isNot_ChangeState = false;
-        
-        Move(0, nextMove > 0 ? 1 : -1);
-        this.gameObject.GetComponent<Animator>().SetBool("isEndRush", true);
-        
-        EndAttack();
+        if (other.gameObject.name.Contains("Explosion"))
+        {
+            isExplosionHit = false;
+        }
     }
 }

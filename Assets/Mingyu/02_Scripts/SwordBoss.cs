@@ -79,7 +79,7 @@ public class SwordBoss : Boss
     {
         state.defaultAtt_dist = 1f;
 
-        state.skill_CoolTime = 2f;
+        state.skill_CoolTime = 2.5f;
     
         state.p1_Skill1_dist = 1.5f;
         state.p1_Skill2_dist = 1.8f;
@@ -383,24 +383,4 @@ public class SwordBoss : Boss
     }
     #endregion
 
-    #region 시연용 코드
-
-    protected override int EachBoss_SelectedSkill(Boss_State currState)
-    {
-        skill_PlusNumber++;
-        
-        if (bossHP_per >= 0.5f)
-        {
-            iBossSkill = 2 + (skill_PlusNumber % 2);
-        }
-            
-            // 2phaze
-        else
-        {
-            iBossSkill = 4 + (skill_PlusNumber % 3);
-        }
-        return iBossSkill;
-    }
-    
-    #endregion
 }

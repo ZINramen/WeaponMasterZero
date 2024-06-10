@@ -17,7 +17,7 @@ public class Shield_HitCol : HitColider
     {
         if (Mathf.Abs(owner.transform.position.x - targetPosX) < 1f)
         {
-            owner.GetComponent<ShieldMon_Ctrl>().EndRush();
+            //owner.GetComponent<ShieldMon_Ctrl>().EndRush();
         }
     }
 
@@ -26,7 +26,7 @@ public class Shield_HitCol : HitColider
         base.OnTriggerEnter2D(collision);
         if(collision.gameObject.layer == 10)
         {
-            smc.EndRush();
+            //smc.EndRush();
             owner.transform.rotation = Quaternion.Euler(0, owner.transform.localEulerAngles.x == 0 ? 180 : 0, 0);
         }
     }

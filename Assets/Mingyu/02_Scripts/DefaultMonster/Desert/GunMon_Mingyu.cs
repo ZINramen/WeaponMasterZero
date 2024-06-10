@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq.Expressions;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GunMon_Mingyu : Default_Monster
 {
@@ -23,7 +24,10 @@ public class GunMon_Mingyu : Default_Monster
         monsterState = new Default_MonsterState();
         Init_StateValueData(ref monsterState);
 
-        shootingPos = this.gameObject.transform.GetChild(0).gameObject.transform;
+        if(SceneManager.GetActiveScene().name.Contains("Practice"))
+            shootingPos = this.gameObject.transform.GetChild(1).gameObject.transform;
+        else
+            shootingPos = this.gameObject.transform.GetChild(0).gameObject.transform;
     }
 
     protected override void Init_StateValueData(ref Default_MonsterState state)

@@ -29,6 +29,9 @@ public class GunBoss : Boss
     [SerializeField] private GameObject SignPref;
     Transform SignSpon_Pos;
     private List<GameObject> SignPref_dummyObjList = new List<GameObject>();
+
+    private int signAttackTotalCount;
+    private int signAttackCount;
     
     private int totalsignCount = 6;
     private int signCount = 0;
@@ -116,9 +119,11 @@ public class GunBoss : Boss
         videoEffect = GameObject.Find("SandWind_Effect").gameObject;
 
         // 표식 공격 관련 변수
-        totalsignCount = 20;
-        signSpon_DelayTime = 0.12f;
-        signDeleteTime = 0.2f;
+        totalsignCount = 5;
+        signSpon_DelayTime = 0.05f;
+        signDeleteTime = 0.05f;
+        
+        signAttackTotalCount = 3;
         
         // 다이너 마이트 공격 관련 변수
         Dynamite_SponPos = this.transform.GetChild(3).gameObject.transform;
@@ -159,7 +164,7 @@ public class GunBoss : Boss
     {
         state.defaultAtt_dist = 1f;
 
-        state.skill_CoolTime = 2.0f;
+        state.skill_CoolTime = 3.0f;
     
         state.p1_Skill1_dist = 5000f;
         state.p1_Skill2_dist = 4.5f;
@@ -187,14 +192,33 @@ public class GunBoss : Boss
     {
         animCtrl.SetBool("isSignAtt", true);
         isReady_CreateSign = false;
+
+        signAttackCount++;
         
         foreach (GameObject dummy_signPref in SignPref_dummyObjList)
         {
             dummy_signPref.GetComponent<HitColider>().owner = this.gameObject.GetComponent<Entity>();
             dummy_signPref.GetComponent<SignCtrl>().Shoot_Bullet();
         }
-
-        Invoke("End_P1Skill1", 1f);
+    }
+    
+    public void CheckSignAtt_End()
+    {
+        foreach (GameObject dummy_signPref in SignPref_dummyObjList)
+        {
+            Destroy(dummy_signPref, signDeleteTime);
+        }
+        SignPref_dummyObjList.Clear();
+        
+        if (signAttackCount >= signAttackTotalCount)
+        {
+            Invoke("End_P1Skill1", 0.5f);
+            EndSkill();
+        }
+        else
+        {
+            animCtrl.SetBool("isSignAtt", false);
+        }
     }
 
     private void Create_AttSign()
@@ -214,11 +238,7 @@ public class GunBoss : Boss
     {
         animCtrl.SetBool("isSignAtt", false);
 
-        foreach (GameObject dummy_signPref in SignPref_dummyObjList)
-        {
-            Destroy(dummy_signPref, signDeleteTime);
-        }
-
+        signAttackCount = 0;
         SignPref_dummyObjList.Clear();
         signCount = 0;
     }
@@ -421,6 +441,12 @@ public class GunBoss : Boss
                 signCount++;
             }
         }
+        
+        else if (signCount >= totalsignCount)
+        {
+            isReady_CreateSign = false;
+            signCount = 0;
+        }
 
         if (isReady_P2S3 && p2S3_AttackCount < p2S3_AttackTotalCount)
         {
@@ -446,40 +472,13 @@ public class GunBoss : Boss
         {
             isSelect_DAttType = true;
 
-            // dAttType_int = Random.Range((int)DAtt_Type.SpinAtt, (int)DAtt_Type.DownAtt + 1);
-            // if (dAttType_int == 1) isSpinAtt = false;
-            // else isSpinAtt = true;
-
-            dAttType_int++;
-            
-            // 시연용 코드
-            if (dAttType_int % 2 == 0) isSpinAtt = false;
+            dAttType_int = Random.Range((int)DAtt_Type.SpinAtt, (int)DAtt_Type.DownAtt + 1);
+            if (dAttType_int == 1) isSpinAtt = false;
             else isSpinAtt = true;
 
             animCtrl.SetBool("isSpinAtt", isSpinAtt);
         }
     }
-    
-    #region 시연용 코드
-
-    protected override int EachBoss_SelectedSkill(Boss_State currState)
-    {
-        skill_PlusNumber++;
-        
-        if (bossHP_per >= 0.5f)
-        {
-            iBossSkill = 2 + (skill_PlusNumber % 2);
-        }
-            
-        // 2phaze
-        else
-        {
-            iBossSkill = 4 + (skill_PlusNumber % 3);
-        }
-        return iBossSkill;
-    }
-    
-    #endregion
     
     #region 엔드 세팅
     protected override void EachBoss_EndAttack()

@@ -49,12 +49,12 @@ public class LevelManager : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.P))
         {
-            LoadNextScene();
+            //LoadNextScene();
         }
 
         if (Input.GetKey(KeyCode.L))
         {
-            Time.timeScale = 3f;
+            //Time.timeScale = 3f;
         }
         
         if (Input.GetKeyUp(KeyCode.L))

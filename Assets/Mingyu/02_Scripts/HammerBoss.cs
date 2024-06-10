@@ -188,7 +188,7 @@ public class HammerBoss : Boss
         shakePower = 1f;
 
         // 뱅글 뱅글 패턴 Skill2
-        p1_Skill2_MoveSpeed = 7f;
+        p1_Skill2_MoveSpeed = 4f;
         
         // 눈덩이 굴리기 패턴
         rushSpeed = 12f;
@@ -397,15 +397,9 @@ public class HammerBoss : Boss
         {
             isSelect_DAttType = true;
 
-            // dAttType_int = Random.Range((int)DAtt_Type.DefaultAtt, (int)DAtt_Type.FullAtt + 1);
-            // if (dAttType_int == (int)DAtt_Type.FullAtt) isFullAtt = true;
-            // else isFullAtt = false;
-            
-            dAttType_int++;
-            
-            // 시연용 코드
-            if (dAttType_int % 2 == 0) isFullAtt = false;
-            else isFullAtt = true;
+            dAttType_int = Random.Range((int)DAtt_Type.DefaultAtt, (int)DAtt_Type.FullAtt + 1);
+            if (dAttType_int == (int)DAtt_Type.FullAtt) isFullAtt = true;
+            else isFullAtt = false;
 
             animCtrl.SetBool("isFullAtt", isFullAtt);
         }
@@ -460,23 +454,6 @@ public class HammerBoss : Boss
                 p2S3_IceRainCount++;
             }
         }
-    }
-    
-    protected override int EachBoss_SelectedSkill(Boss_State currState)
-    {
-        skill_PlusNumber++;
-        
-        if (bossHP_per >= 0.5f)
-        {
-            iBossSkill = 2 + (skill_PlusNumber % 2);
-        }
-            
-        // 2phaze
-        else
-        {
-            iBossSkill = 4 + (skill_PlusNumber % 3);
-        }
-        return iBossSkill;
     }
     
     #region 엔드 세팅

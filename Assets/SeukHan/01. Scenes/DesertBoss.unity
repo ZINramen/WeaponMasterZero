@@ -2238,6 +2238,10 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8277564249013538250, guid: e2f03ac0e90d84f4083d3f9121ad8f5f, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8420422611764709252, guid: e2f03ac0e90d84f4083d3f9121ad8f5f, type: 3}
       propertyPath: currentWeapon
       value: 1
@@ -3959,13 +3963,13 @@ MonoBehaviour:
   desireWeaponFinalBoss: 0
   triggerObj_HitType: 0
   stun: 0
-  hp: 50
+  hp: 600
   mp: 0
   movement: {fileID: 0}
   ai: {fileID: 0}
   waitTime: 0
   mpLock: 0
-  maxHP: 200
+  maxHP: 50
   maxMp: 100
   target:
     serializedVersion: 2
@@ -6384,7 +6388,6 @@ MonoBehaviour:
   - {fileID: 410720790}
   - {fileID: 819132786}
   - {fileID: 457927525}
-  - {fileID: 439454321}
 --- !u!4 &1946360749
 Transform:
   m_ObjectHideFlags: 0
