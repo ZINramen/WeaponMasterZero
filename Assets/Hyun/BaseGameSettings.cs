@@ -10,4 +10,8 @@ public class BaseGameSettings : MonoBehaviour
         Screen.SetResolution(1920, 1080, true);
         Application.targetFrameRate = 60;
     }
+    public void ExitGame()
+    {
+        Application.Quit();
+    }
 }
