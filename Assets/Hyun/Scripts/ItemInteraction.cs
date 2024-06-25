@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Events;
+using static HitColider;
 
 public class ItemInteraction : MonoBehaviour
 {
@@ -84,6 +85,7 @@ public class ItemInteraction : MonoBehaviour
                 eTarget = coll.GetComponent<HitColider>().owner;
             if (eTarget)
             {
+                InteractionEvent?.Invoke();
                 eTarget.SetHp(0);
             }
         }
@@ -98,6 +100,7 @@ public class ItemInteraction : MonoBehaviour
         {
             HitColider hitC =  coll.GetComponent<HitColider>();
             if (hitC == null) return;
+            InteractionEvent?.Invoke();
             Instantiate(Effect, transform.position, Quaternion.identity);
             isEnd = true;
             Destroy(gameObject);
@@ -112,6 +115,17 @@ public class ItemInteraction : MonoBehaviour
         if (itemName == "Event")
         {
             InteractionEvent.Invoke();
+        }
+        if(itemName == "BulletParrying")
+        {
+            if (this.gameObject.GetComponent<BulletCtrl>())
+            {
+                if (coll.gameObject.GetComponent<HitColider>() &&
+                    coll.gameObject.GetComponent<HitColider>().attType == AttackType.Player_SwordAtt)
+                {
+                    InteractionEvent?.Invoke();
+                }
+            }
         }
         //switch (item) 
         //{

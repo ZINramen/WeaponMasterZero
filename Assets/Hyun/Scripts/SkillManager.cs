@@ -47,6 +47,7 @@ public class SkillManager : MonoBehaviour
                 int curGauge = owner.aManager.ani.GetInteger("Gauge");
                 if (curGauge > 0)
                 {
+                    MedalControlSystem.hpBeforeChange = (int)owner.GetHp();
                     Instantiate(healEffect, owner.transform.position, Quaternion.identity).transform.parent = owner.transform;
                     owner.SetHp(owner.GetHp() + owner.maxHP * 0.3f); // 체력 회복 퍼센테이지 0.3
                     isHealthEvent = true;

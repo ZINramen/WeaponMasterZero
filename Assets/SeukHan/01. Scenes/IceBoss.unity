@@ -4464,6 +4464,53 @@ Transform:
   - {fileID: 1734809109}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &695078785
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 695078787}
+  - component: {fileID: 695078786}
+  m_Layer: 0
+  m_Name: AchievementChecker
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &695078786
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 695078785}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 416b3e3a3295341449c0163eee92b4a1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  medalNum: 1
+  medalPrefab: {fileID: 5039123853394457503, guid: 0e26afe046aa3ef4ca8893f746aa1900, type: 3}
+  target: {fileID: 819132794}
+--- !u!4 &695078787
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 695078785}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -13.429789, y: -1.438069, z: -0.03448784}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &712600082
 GameObject:
   m_ObjectHideFlags: 0
@@ -10216,3 +10263,4 @@ SceneRoots:
   - {fileID: 546303653}
   - {fileID: 444653358}
   - {fileID: 3166586571162028259}
+  - {fileID: 695078787}

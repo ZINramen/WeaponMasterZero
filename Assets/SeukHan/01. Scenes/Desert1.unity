@@ -10489,6 +10489,7 @@ GameObject:
   - component: {fileID: 437445232}
   - component: {fileID: 437445231}
   - component: {fileID: 437445230}
+  - component: {fileID: 437445237}
   m_Layer: 0
   m_Name: FullP Item
   m_TagString: Untagged
@@ -10775,6 +10776,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 437445237}
+        m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
+        m_MethodName: set_enabled
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 99999
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
   isEnd: 0
   Effect: {fileID: 0}
   pos: {x: 0, y: 0}
@@ -10839,6 +10852,21 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &437445237
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 437445229}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 416b3e3a3295341449c0163eee92b4a1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  medalNum: 12
+  medalPrefab: {fileID: 5039123853394457503, guid: 0e26afe046aa3ef4ca8893f746aa1900, type: 3}
+  target: {fileID: 0}
 --- !u!1 &442074384
 GameObject:
   m_ObjectHideFlags: 0
@@ -17523,8 +17551,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2e5e9226673d8b14baa75a0e23e93239, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  medalList: 
+  MedalShow: {fileID: 0}
   chapterButtonLock: []
   progress: 2
+  medalContent: {fileID: 0}
 --- !u!1 &1111367358
 GameObject:
   m_ObjectHideFlags: 0
@@ -19267,6 +19298,8 @@ GameObject:
   - component: {fileID: 1505176332}
   - component: {fileID: 1505176334}
   - component: {fileID: 1505176333}
+  - component: {fileID: 1505176335}
+  - component: {fileID: 1505176336}
   m_Layer: 0
   m_Name: Die
   m_TagString: Untagged
@@ -19359,6 +19392,54 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 12.962559, y: 2.3857288}
   m_EdgeRadius: 0
+--- !u!114 &1505176335
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1505176331}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6431b494ee8368b4295dbe7e7408336f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerTaget: 1
+  donHit: 0
+  InteractionEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1505176336}
+        m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
+        m_MethodName: set_enabled
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+  isEnd: 0
+  Effect: {fileID: 0}
+  pos: {x: 0, y: 0}
+  itemName: Event
+--- !u!114 &1505176336
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1505176331}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 416b3e3a3295341449c0163eee92b4a1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  medalNum: 5
+  medalPrefab: {fileID: 5039123853394457503, guid: 0e26afe046aa3ef4ca8893f746aa1900, type: 3}
+  target: {fileID: 0}
 --- !u!1 &1519996530
 GameObject:
   m_ObjectHideFlags: 0
