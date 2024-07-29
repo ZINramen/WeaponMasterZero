@@ -22,8 +22,8 @@ public class Achievement : MonoBehaviour
         {
             if (medal_Code < dataTable.lines.Count)
             {
-                medal_name.text = medal_Code + ". " + dataTable.lines[medal_Code][1];
-                medal_description.text = dataTable.lines[medal_Code][3];
+                medal_name.text = medal_Code + ". " + dataTable.lines[medal_Code][1 + LanguageSetting.country_Code];
+                medal_description.text = dataTable.lines[medal_Code][3 + LanguageSetting.country_Code];
             }
             if (image)
             {
