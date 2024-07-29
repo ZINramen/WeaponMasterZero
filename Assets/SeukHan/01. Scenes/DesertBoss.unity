@@ -6202,6 +6202,52 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &1850303865
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1850303867}
+  - component: {fileID: 1850303866}
+  m_Layer: 0
+  m_Name: Load
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!114 &1850303866
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1850303865}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5dce2aad1fc484b4abd851ae418a38e3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  delaytime: 0
+  sname: DesertBoss_OC
+--- !u!4 &1850303867
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1850303865}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1859033779
 GameObject:
   m_ObjectHideFlags: 0
@@ -6518,6 +6564,8 @@ PlayableDirector:
     value: {fileID: 518831121}
   - key: {fileID: -7471463270913093648, guid: b020bad6e370d034db99a031a820a2ad, type: 2}
     value: {fileID: 0}
+  - key: {fileID: 2049239692295262025, guid: b020bad6e370d034db99a031a820a2ad, type: 2}
+    value: {fileID: 1850303865}
   m_ExposedReferences:
     m_References:
     - 84623d895c2700749a5a64b098f7e8a6: {fileID: 650737220}
@@ -6728,7 +6776,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 44668923398830e4cacf8a8c4bc5c49a, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 8f72dae01fe1d5249b3e1a171ad92aab, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 0.793
   m_Pitch: 1
@@ -7262,3 +7310,4 @@ SceneRoots:
   - {fileID: 2104535115}
   - {fileID: 1197498309}
   - {fileID: 662364293}
+  - {fileID: 1850303867}

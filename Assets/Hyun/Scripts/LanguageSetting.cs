@@ -6,10 +6,8 @@ using static UnityEditor.Experimental.AssetDatabaseExperimental.AssetDatabaseCou
 public class LanguageSetting : MonoBehaviour
 {
     public GameObject[] relevant_Obj;
-    public static int country_Code;
     public void Change_Lang(int code)
     {
-        country_Code = code;
         PlayerPrefs.SetInt("Country_Code", code);
         foreach (var obj in relevant_Obj)
         {
@@ -17,12 +15,11 @@ public class LanguageSetting : MonoBehaviour
         }
         if (relevant_Obj.Length > 0)
         {
-            relevant_Obj[country_Code].SetActive(true);
+            relevant_Obj[PlayerPrefs.GetInt("Country_Code")].SetActive(true);
         }
     }
     private void Start()
     {
-        country_Code = PlayerPrefs.GetInt("Country_Code");
-        relevant_Obj[country_Code].SetActive(true);
+        relevant_Obj[PlayerPrefs.GetInt("Country_Code")].SetActive(true);
     }
 }

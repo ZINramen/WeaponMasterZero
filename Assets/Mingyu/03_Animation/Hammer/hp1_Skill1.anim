@@ -161,6 +161,13 @@ AnimationClip:
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
+  - time: 0.5833333
+    functionName: PlaySound
+    data: 
+    objectReferenceParameter: {fileID: 8300000, guid: 98274dee541dc4390b6daa1591d75db6, type: 3}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
   - time: 0.6666667
     functionName: On_HitArea
     data: 
@@ -172,6 +179,13 @@ AnimationClip:
     functionName: Off_HitArea
     data: 
     objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 1.4166666
+    functionName: PlaySound
+    data: 
+    objectReferenceParameter: {fileID: 8300000, guid: 6a22459460e494b1d88e4f8d024d23bd, type: 3}
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
@@ -196,6 +210,13 @@ AnimationClip:
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
+  - time: 2.5
+    functionName: PlaySound
+    data: 
+    objectReferenceParameter: {fileID: 8300000, guid: 67df4abede00e46d8867bbfb9303271f, type: 3}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
   - time: 2.5833333
     functionName: On_HitArea
     data: 
@@ -211,23 +232,23 @@ AnimationClip:
     intParameter: 2
     messageOptions: 0
   - time: 3.6666667
-    functionName: MoveXPos_Mingyu
-    data: 
-    objectReferenceParameter: {fileID: 0}
-    floatParameter: -40
-    intParameter: 0
-    messageOptions: 0
-  - time: 3.6666667
     functionName: Jump_Mingyu
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0.5
     intParameter: 0
     messageOptions: 0
-  - time: 4
-    functionName: Attack_HP1S1
+  - time: 3.6666667
+    functionName: MoveXPos_Mingyu
     data: 
     objectReferenceParameter: {fileID: 0}
+    floatParameter: -40
+    intParameter: 0
+    messageOptions: 0
+  - time: 3.75
+    functionName: PlaySound
+    data: 
+    objectReferenceParameter: {fileID: 8300000, guid: fd093ee524e53491fb5e82cca4d5dd2e, type: 3}
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
@@ -237,6 +258,20 @@ AnimationClip:
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 3
+    messageOptions: 0
+  - time: 4
+    functionName: Attack_HP1S1
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 4.0833335
+    functionName: PlaySound
+    data: 
+    objectReferenceParameter: {fileID: 8300000, guid: 43df7380da170de48b553991d5bd62f1, type: 3}
+    floatParameter: 0
+    intParameter: 0
     messageOptions: 0
   - time: 4.3333335
     functionName: Off_HitArea
