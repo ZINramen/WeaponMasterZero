@@ -12,6 +12,7 @@ public class Entity : MonoBehaviour
     public Transform shield;
     DefenseStatus EarlyStatus;
     public Material hitMat;
+    public AudioClip hitSound;
     Material oringMat;
     SpriteRenderer sp;
 
@@ -19,7 +20,7 @@ public class Entity : MonoBehaviour
     public bool activeDesireWeapon = false; 
     public Entity playerFinalBoss;
     public int desireWeaponFinalBoss = 0;
-
+    AudioSource auso;
     public int triggerObj_HitType = 0;
     ////////////////////////////////////////
 
@@ -81,6 +82,7 @@ public class Entity : MonoBehaviour
 
     private void Awake()
     {
+        auso = GetComponent<AudioSource>();
         // keyValues = (int[])System.Enum.GetValues(typeof(KeyCode));
         if (tag == "Player")
             Player = this;
@@ -311,7 +313,12 @@ public class Entity : MonoBehaviour
     public void Damaged(float damageValue, float thrustValue = 0.5f)
     {
         Debug.Log("AttType : "  + triggerObj_HitType);
-        
+
+        if (auso)
+        {
+            if (hitSound != null) auso.PlayOneShot(hitSound);
+        }
+
         if (activeDesireWeapon && 
             playerFinalBoss && 
             (triggerObj_HitType != desireWeaponFinalBoss && 

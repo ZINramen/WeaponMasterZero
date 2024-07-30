@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Mathematics;
 using UnityEngine;
 //using static UnityEditor.PlayerSettings;
 using static UnityEngine.Rendering.DebugUI.Table;
@@ -23,6 +24,7 @@ public class FBossMoveAttack : Chaser
     public Transform MoveTr;
     public GameObject EnergyBall;
     public GameObject Minion;
+    public GameObject Fist;
 
     [SerializeField]
     Transform[] MoveTrs; // 이동과 관련된 트랜스폼
@@ -54,6 +56,12 @@ public class FBossMoveAttack : Chaser
     {
         if (owner.isDie)
             return;
+        if(owner.GetHp() < 100 && 50 < owner.GetHp())
+        {
+            ani.SetTrigger("Heal");
+            if(Fist)
+                Fist.SetActive(true);
+        }
         if (phase == 2 && isMove)
         {
             GoToDestination();
