@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class FollowWorldTr : MonoBehaviour
 {
+    bool trackEnd = false;
     public bool targetIsPlayer;
     public Transform target;
     RectTransform rectTr;
@@ -12,10 +13,26 @@ public class FollowWorldTr : MonoBehaviour
     {
         rectTr = GetComponent<RectTransform>();
         if (targetIsPlayer)
+        {
             target = Entity.Player.transform;
+        }
     }
     private void Update()
     {
-        transform.position = Camera.main.WorldToScreenPoint(target.position);
+        if (!trackEnd)
+            transform.position = Camera.main.WorldToScreenPoint(target.position);
+        if (targetIsPlayer)
+        {
+            if (Entity.Player.isDie)
+            {
+                StartCoroutine(EndScreenTrack());
+                targetIsPlayer = false;
+            }
+        }
+    }
+    IEnumerator EndScreenTrack()
+    {
+        yield return new WaitForSeconds(1f);
+        trackEnd = true;
     }
 }
