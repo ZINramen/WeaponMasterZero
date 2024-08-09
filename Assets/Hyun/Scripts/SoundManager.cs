@@ -5,11 +5,16 @@ using UnityEngine;
 public class SoundManager : MonoBehaviour
 {
     public bool isStartToMute;
+    public float delayMusicTime = 0;
     Mingyu_SoundManager master;
     AudioSource sound;
     // Start is called before the first frame update
     void Start()
     {
+        if(delayMusicTime > 0)
+        {
+            StartCoroutine(DelayPlayMusic(delayMusicTime));
+        }
         master = FindObjectOfType<Mingyu_SoundManager>();
         sound = GetComponent<AudioSource>();
         if (master) 
@@ -43,5 +48,10 @@ public class SoundManager : MonoBehaviour
             sound.PlayOneShot(clip);
         }
             
+    }
+    IEnumerator DelayPlayMusic(float delay)
+    {
+        yield  return new WaitForSeconds(delay);
+        sound.Play();
     }
 }

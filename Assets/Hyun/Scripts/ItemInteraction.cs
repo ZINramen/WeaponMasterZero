@@ -23,6 +23,7 @@ public class ItemInteraction : MonoBehaviour
 
     //public GameObject effect;
 
+    public bool entityTarget = false;
     public bool playerTaget = false;
     public bool donHit = false;
 
@@ -114,6 +115,10 @@ public class ItemInteraction : MonoBehaviour
         }
         if (itemName == "Event")
         {
+            if (entityTarget && coll.GetComponent<Entity>() == null)
+            {
+                return;
+            }
             InteractionEvent.Invoke();
         }
         if(itemName == "BulletParrying")

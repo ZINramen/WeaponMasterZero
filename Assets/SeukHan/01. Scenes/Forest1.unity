@@ -314,6 +314,7 @@ GameObject:
   m_Component:
   - component: {fileID: 67147858}
   - component: {fileID: 67147859}
+  - component: {fileID: 67147860}
   m_Layer: 10
   m_Name: Walls
   m_TagString: Untagged
@@ -349,10 +350,10 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 2918b5e20a893254e91ae6a295b43488, type: 3}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -434,6 +435,20 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &67147860
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 67147857}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 372e54ac4cda7584585ba6ddcf03b087, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isStartToMute: 0
+  delayMusicTime: 0.2
 --- !u!1 &80673016
 GameObject:
   m_ObjectHideFlags: 0
@@ -977,6 +992,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6431b494ee8368b4295dbe7e7408336f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  entityTarget: 0
   playerTaget: 0
   donHit: 1
   InteractionEvent:
@@ -10829,6 +10845,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6431b494ee8368b4295dbe7e7408336f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  entityTarget: 0
   playerTaget: 0
   donHit: 0
   InteractionEvent:
@@ -20824,6 +20841,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isStartToMute: 0
+  delayMusicTime: 0
 --- !u!82 &1261381422
 AudioSource:
   m_ObjectHideFlags: 0
@@ -20978,6 +20996,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a1045773e672824daf99f5c8b2edde4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  testMode: 0
   shield: {fileID: 0}
   hitMat: {fileID: 0}
   hitSound: {fileID: 0}
@@ -21532,6 +21551,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6431b494ee8368b4295dbe7e7408336f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  entityTarget: 0
   playerTaget: 1
   donHit: 0
   InteractionEvent:

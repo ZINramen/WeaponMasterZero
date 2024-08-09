@@ -117,7 +117,8 @@ public class Movement : MonoBehaviour
         {
             Debug.Log("target : " + targetPosition);
             Debug.Log(Mathf.Abs((int)transform.position.x - (int)targetPosition.x));
-            if (Mathf.Abs((int)transform.position.x - (int)targetPosition.x) > 0) 
+            if (!(Mathf.Abs(owner.transform.position.x - targetPosition.x) < 1f || ((owner.transform.localEulerAngles.y == 0 && owner.transform.position.x < targetPosition.x)
+            || (owner.transform.localEulerAngles.y == 180 && owner.transform.position.x > targetPosition.x))))
             {
                 transform.position = Vector3.MoveTowards(transform.position, new Vector3(targetPosition.x, transform.position.y), Time.deltaTime * speed);
             }

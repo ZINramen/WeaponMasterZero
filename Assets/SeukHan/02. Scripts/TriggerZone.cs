@@ -6,11 +6,19 @@ public class TriggerZone : MonoBehaviour
     public bool oneShot = false;
     private bool alreadyEntered = false;
     private bool alreadyExited = false;
- 
+    bool triggerStart = false;
+
     public string collisionTag;
     public UnityEvent onTriggerEnter;
     public UnityEvent onTriggerExit;
- 
+
+    public void Update()
+    {
+        if (triggerStart)
+        {
+
+        }
+    }
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (alreadyEntered)
@@ -18,9 +26,8 @@ public class TriggerZone : MonoBehaviour
  
         if (!string.IsNullOrEmpty(collisionTag) && !collision.CompareTag(collisionTag))
             return;
- 
+
         onTriggerEnter.Invoke();
- 
         if (oneShot)
             alreadyEntered = true;
     }
