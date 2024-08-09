@@ -19,7 +19,7 @@ public class TriggerZone : MonoBehaviour
         if (!string.IsNullOrEmpty(collisionTag) && !collision.CompareTag(collisionTag))
             return;
  
-        onTriggerEnter?.Invoke();
+        onTriggerEnter.Invoke();
  
         if (oneShot)
             alreadyEntered = true;
@@ -33,7 +33,7 @@ public class TriggerZone : MonoBehaviour
         if (!string.IsNullOrEmpty(collisionTag) && !collision.CompareTag(collisionTag))
             return;
  
-        onTriggerExit?.Invoke();
+        onTriggerExit.Invoke();
  
         if (oneShot)
             alreadyExited = true;

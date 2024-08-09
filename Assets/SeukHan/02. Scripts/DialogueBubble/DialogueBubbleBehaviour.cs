@@ -16,24 +16,31 @@ public class DialogueBubbleBehaviour : PlayableBehaviour
     public override void OnBehaviourPlay(Playable playable, FrameData info)
     {
         fancySpeechBubbleCanvas = GameObject.Find(objectName).transform.GetChild(0).gameObject;
-        fancySpeechBubbleScaler = fancySpeechBubbleCanvas.transform.GetChild(0).gameObject;
         
         if (fancySpeechBubbleCanvas != null)
         {
-            fancySpeechBubble = fancySpeechBubbleScaler.transform.GetChild(0).gameObject;
-            fancySpeechBubbleText = fancySpeechBubble.transform.GetChild(0).gameObject;
-            
-            // Enable the fancySpeechBubble GameObject
-            fancySpeechBubble.SetActive(true);
-            fancySpeechBubbleText.SetActive(true);
+            if (fancySpeechBubbleCanvas.transform.childCount != 0)
+                fancySpeechBubbleScaler = fancySpeechBubbleCanvas.transform.GetChild(0).gameObject;
 
-            if(fancySpeechBubbleText.GetComponent<FancySpeechBubble>() == null)
-            {
-                Debug.LogError("FancySpeechBubble does not have FancySpeechBubble component");
+            if (fancySpeechBubbleScaler != null && fancySpeechBubbleScaler.transform.childCount != 0) 
+            { 
+                fancySpeechBubble = fancySpeechBubbleScaler.transform.GetChild(0).gameObject;
+                fancySpeechBubbleText = fancySpeechBubble.transform.GetChild(0).gameObject;
+            
+                // Enable the fancySpeechBubble GameObject
+                fancySpeechBubble.SetActive(true);
+                fancySpeechBubbleText.SetActive(true);
             }
-            else
+            if (fancySpeechBubbleText)
             {
-                fancySpeechBubbleText.GetComponent<FancySpeechBubble>().Set(text);
+                if (fancySpeechBubbleText.GetComponent<FancySpeechBubble>() == null)
+                {
+                    Debug.LogError("FancySpeechBubble does not have FancySpeechBubble component");
+                }
+                else
+                {
+                    fancySpeechBubbleText.GetComponent<FancySpeechBubble>().Set(text);
+                }
             }
         }
         else

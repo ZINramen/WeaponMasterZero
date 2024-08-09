@@ -9,6 +9,7 @@ using static UnityEngine.EventSystems.EventTrigger;
 
 public class Entity : MonoBehaviour
 {
+    public bool testMode = false;
     public Transform shield;
     DefenseStatus EarlyStatus;
     public Material hitMat;
@@ -103,10 +104,10 @@ public class Entity : MonoBehaviour
     private void Update()
     {
         // 테스트용
-        //if (Input.GetKeyDown(KeyCode.Z))
-        //{
-        //    SetMp(maxMp);
-        //}
+        if (testMode && Input.GetKeyDown(KeyCode.Z))
+        {
+            SetMp(maxMp);
+        }
         if (isDie)
             return;
         if (ultScreen)
