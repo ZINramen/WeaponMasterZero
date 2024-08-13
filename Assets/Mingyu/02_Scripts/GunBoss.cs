@@ -491,5 +491,31 @@ public class GunBoss : Boss
         animCtrl.SetBool("isAppear_p2s3", false);
         isSelect_DAttType = false;
     }
+
+    protected virtual void DieSkillEnd()
+    {
+        // 사망시 스킬 종료
+        /*1. 모래 바람 삭제
+         2. 총탄 삭제
+         3. 설치기 삭제*/
+        
+        //1. 모래 바람 삭제
+        videoEffect.SetActive(false);
+        
+        //2. 총탄 삭제
+        foreach (GameObject dummy_signPref in SignPref_dummyObjList)
+        {
+            Destroy(dummy_signPref, signDeleteTime);
+        }
+        
+        //3. 설치기 삭제
+        for (int i = 0; i < 3; i++)
+        {
+            if(Install_PrefArr[i].gameObject.activeSelf)
+                Install_PrefArr[i].gameObject.GetComponent<Install_Ctrl>().EndSetting();
+        }
+        
+        EndSkill();
+    }
     #endregion
 }

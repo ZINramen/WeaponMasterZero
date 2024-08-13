@@ -246,7 +246,6 @@ public abstract class Boss : MonoBehaviour
         int selectedNumber;
         selectedNumber = Random.Range(0, 100);      // 0 ~ 99
         
-        // 1phaze
         if (bossHP_per >= 0.5f)
         {
             if (selectedNumber >= currState.p1S2_PossibilityNumber)
@@ -268,6 +267,8 @@ public abstract class Boss : MonoBehaviour
             else
                 iBossSkill = (int)Boss_State.State.p2_Skill1;
         }
+        
+        iBossSkill = (int)Boss_State.State.p2_Skill3;
         return iBossSkill;
     }
 
@@ -582,5 +583,8 @@ public abstract class Boss : MonoBehaviour
     {
         bossState.isStopTurn = true;
     }
+    
+    // 죽은 후, 
+    protected virtual void DieSkillEnd() { }
     #endregion
 }

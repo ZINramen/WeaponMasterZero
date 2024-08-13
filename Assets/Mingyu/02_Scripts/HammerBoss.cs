@@ -470,5 +470,12 @@ public class HammerBoss : Boss
         this.gameObject.GetComponent<Animator>().SetBool("isEndRush_P2S1", false);
         Stop_Trail();
     }
+    
+    protected virtual void DieSkillEnd()
+    {
+        // 사망시 스킬 종료
+        /*1. 눈덩이 떨어지는거 삭제*/
+        isActiveSkill_p2S3 = false;
+    }
     #endregion
 }
