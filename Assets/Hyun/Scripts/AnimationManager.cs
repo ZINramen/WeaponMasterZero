@@ -178,7 +178,7 @@ public class AnimationManager : MonoBehaviour
             }
             else 
             {
-                ani.SetTrigger("Stun");
+                //ani.SetTrigger("Stun");
                 owner.stun = false;
             }
         }
@@ -190,7 +190,7 @@ public class AnimationManager : MonoBehaviour
             }
             else
             {
-                ani.SetTrigger("Stun");
+                //ani.SetTrigger("Stun");
                 owner.stun = false;
             }
         }
