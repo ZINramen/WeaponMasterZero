@@ -267,8 +267,6 @@ public abstract class Boss : MonoBehaviour
             else
                 iBossSkill = (int)Boss_State.State.p2_Skill1;
         }
-        
-        iBossSkill = (int)Boss_State.State.p2_Skill3;
         return iBossSkill;
     }
 
