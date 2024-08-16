@@ -13,7 +13,7 @@ public class CsvReader : MonoBehaviour
 
     private void Start()
     {
-        StreamReader sr = new StreamReader(Application.dataPath + filename);
+        StreamReader sr = new StreamReader(Path.Combine(Application.streamingAssetsPath, filename));
         bool eof = false;
         
         while (!eof) // 끝 도달까지 계속 진행
