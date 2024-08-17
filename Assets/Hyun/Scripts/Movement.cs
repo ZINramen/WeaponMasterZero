@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using static UnityEngine.RuleTile.TilingRuleOutput;
 
@@ -67,6 +68,10 @@ public class Movement : MonoBehaviour
     {
         if (Entity.Player.aManager.groundCheck.GetOnGround)
         {
+            if(Mathf.Abs(owner.transform.position.x - Entity.Player.transform.position.x) > 5f)
+            {
+                return;
+            }
             animator.SetBool("EndRush", false);
             animator.SetTrigger("isRush");
             isTrace = true;
@@ -117,10 +122,12 @@ public class Movement : MonoBehaviour
         {
             Debug.Log("target : " + targetPosition);
             Debug.Log(Mathf.Abs((int)transform.position.x - (int)targetPosition.x));
-            if (!(Mathf.Abs(owner.transform.position.x - targetPosition.x) < 1f || ((owner.transform.localEulerAngles.y == 0 && owner.transform.position.x < targetPosition.x)
-            || (owner.transform.localEulerAngles.y == 180 && owner.transform.position.x > targetPosition.x))))
+            RaycastHit2D rh = Physics2D.Raycast(owner.transform.position, transform.right, 10);
+            
+            if (Mathf.Abs(owner.transform.position.x - Entity.Player.transform.position.x) <= 5f && Mathf.Abs(owner.transform.position.x - targetPosition.x) > 1f && ((owner.transform.localEulerAngles.y == 0 && owner.transform.position.x > Entity.Player.transform.position.x)
+            || (owner.transform.localEulerAngles.y == 180 && owner.transform.position.x < Entity.Player.transform.position.x)))
             {
-                transform.position = Vector3.MoveTowards(transform.position, new Vector3(targetPosition.x, transform.position.y), Time.deltaTime * speed);
+                transform.position = Vector3.MoveTowards(transform.position, new Vector3(targetPosition.x, transform.position.y), Time.deltaTime * speed);                
             }
             else
             {

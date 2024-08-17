@@ -41,6 +41,7 @@ public class ShootingControl : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(owner.movement.PlayerType)
         if(!owner.isDie)
         if (WhenTargeting)
         {
