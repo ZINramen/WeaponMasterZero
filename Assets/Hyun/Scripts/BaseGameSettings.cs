@@ -7,8 +7,15 @@ using UnityEngine.SceneManagement;
 
 public class BaseGameSettings : MonoBehaviour
 {
+    public static BaseGameSettings bs;
+    public bool menu = false;
     private void Start()
     {
+        if (bs == null)
+        {
+            bs = this;
+            DontDestroyOnLoad(bs);
+        }
         Screen.SetResolution(1920, 1080, true);
         Application.targetFrameRate = 60;
     }
@@ -19,8 +26,14 @@ public class BaseGameSettings : MonoBehaviour
 
     private void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Escape))
+        if(menu)
+        {
+            Cursor.SetCursor(null, Vector2.zero, CursorMode.Auto);
+        }
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
             SceneManager.LoadScene("Title_Prologue", LoadSceneMode.Single);
+        }
         if (Input.GetKeyDown(KeyCode.P))
         {
             PlayerPrefs.SetInt("cur_chapter", 4);
