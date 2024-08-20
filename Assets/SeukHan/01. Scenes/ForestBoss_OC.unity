@@ -158,7 +158,7 @@ MonoBehaviour:
   telp: 0
   stunTarget: 0
   flyingAttackForce: 0
-  attackForce: 10
+  attackForce: 40
   thrustValue: 0.5
   owner: {fileID: 563375698}
   attach: 0
@@ -2830,6 +2830,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isStartToMute: 0
+  delayMusicTime: 0
 --- !u!95 &563375697
 Animator:
   serializedVersion: 5
@@ -2878,7 +2879,7 @@ MonoBehaviour:
   ai: {fileID: 0}
   waitTime: 0
   mpLock: 0
-  maxHP: 250
+  maxHP: 180
   maxMp: 100
   target:
     serializedVersion: 2

@@ -2902,6 +2902,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isStartToMute: 0
+  delayMusicTime: 0
 --- !u!95 &563375697
 Animator:
   serializedVersion: 5
@@ -2935,8 +2936,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a1045773e672824daf99f5c8b2edde4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  testMode: 0
   shield: {fileID: 0}
   hitMat: {fileID: 0}
+  hitSound: {fileID: 0}
   activeDesireWeapon: 0
   playerFinalBoss: {fileID: 0}
   desireWeaponFinalBoss: 0
@@ -2948,7 +2951,7 @@ MonoBehaviour:
   ai: {fileID: 0}
   waitTime: 0
   mpLock: 0
-  maxHP: 250
+  maxHP: 180
   maxMp: 100
   target:
     serializedVersion: 2
