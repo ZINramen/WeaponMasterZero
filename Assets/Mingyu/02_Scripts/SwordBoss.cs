@@ -132,7 +132,7 @@ public class SwordBoss : Boss
         maxSize = 0.9f;
          
         // skill4 칼날 공격 스킬
-        p2s2Att_force = 70;
+        p2s2Att_force = 50;
         Right_MaxXY_SponPos = GameObject.Find("Right_MaxXYPos").gameObject.transform;
         Left_MinXY_SponPos = GameObject.Find("Left_MaxXYPos").gameObject.transform;
 

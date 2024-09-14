@@ -119,8 +119,8 @@ public class GunBoss : Boss
         videoEffect = GameObject.Find("SandWind_Effect").gameObject;
 
         // 표식 공격 관련 변수
-        totalsignCount = 5;
-        signSpon_DelayTime = 0.05f;
+        totalsignCount = 7;
+        signSpon_DelayTime = 0.02f;
         signDeleteTime = 0.05f;
         
         signAttackTotalCount = 3;
