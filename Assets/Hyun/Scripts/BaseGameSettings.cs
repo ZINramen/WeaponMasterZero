@@ -30,7 +30,7 @@ public class BaseGameSettings : MonoBehaviour
         {
             Cursor.SetCursor(null, Vector2.zero, CursorMode.Auto);
         }
-        if (Input.GetKeyDown(KeyCode.Escape))
+        /*if (Input.GetKeyDown(KeyCode.Escape))
         {
             SceneManager.LoadScene("Title_Prologue", LoadSceneMode.Single);
         }
@@ -41,6 +41,6 @@ public class BaseGameSettings : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.O))
         {
             PlayerPrefs.DeleteAll();
-        }
+        }*/
     }
 }
