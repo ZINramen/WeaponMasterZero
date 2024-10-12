@@ -1,10 +1,11 @@
-﻿using System.Collections;
+using System.Collections;
 using UnityEngine;
 using TMPro;
 
 [RequireComponent(typeof(TextMeshProUGUI))]
 public class FancySpeechBubble : MonoBehaviour
 {
+    AudioSource soundPlayer;
     public int characterStartSize = 1;
     public float characterAnimateSpeed = 1000f;
 
@@ -13,6 +14,12 @@ public class FancySpeechBubble : MonoBehaviour
 
     private string _processedText;
     public string processedText { get { return _processedText; } }
+
+    private void Start()
+    {
+        soundPlayer = gameObject.AddComponent<AudioSource>();
+        soundPlayer.volume = 1;
+    }
 
     public void Set(string text)
     {
@@ -42,6 +49,7 @@ public class FancySpeechBubble : MonoBehaviour
                 label.text = prefix + "<size=" + size + ">" + c + "</size>";
                 yield return new WaitForEndOfFrame();
             }
+            soundPlayer.PlayOneShot(Resources.Load("text-Typing") as AudioClip);
             prefix += c;
         }
 
