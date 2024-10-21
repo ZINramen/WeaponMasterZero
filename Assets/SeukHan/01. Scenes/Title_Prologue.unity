@@ -1135,12 +1135,12 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1903734918}
         m_TargetAssemblyTypeName: FancySpeechBubble, Assembly-CSharp
-        m_MethodName: Set
-        m_Mode: 5
+        m_MethodName: Set_Int
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
+          m_IntArgument: 7
           m_FloatArgument: 0
           m_StringArgument: "\uC624\uB79C\uB9CC\uC774\uB2E4.. APO"
           m_BoolArgument: 0
@@ -1888,6 +1888,7 @@ GameObject:
   - component: {fileID: 267674942}
   - component: {fileID: 267674943}
   - component: {fileID: 267674944}
+  - component: {fileID: 267674945}
   m_Layer: 0
   m_Name: Cam
   m_TagString: MainCamera
@@ -2183,30 +2184,6 @@ MonoBehaviour:
           m_StringArgument: Next
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
-        m_MethodName: Stop
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: Next
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: Next
-          m_BoolArgument: 0
-        m_CallState: 2
   - m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1768642529}
@@ -2338,6 +2315,19 @@ MonoBehaviour:
   shakePowerTemp: 0
   shakeReductionSpeed: 5
   moveSpeed: 1
+--- !u!114 &267674945
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 267674935}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 47a048d3b2e7c75498e2667342c33f99, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  filename: DialogueData.csv
 --- !u!1 &271454377
 GameObject:
   m_ObjectHideFlags: 0
@@ -5907,12 +5897,12 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 84337192}
         m_TargetAssemblyTypeName: FancySpeechBubble, Assembly-CSharp
-        m_MethodName: Set
-        m_Mode: 5
+        m_MethodName: Set_Int
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
+          m_IntArgument: 2
           m_FloatArgument: 0
           m_StringArgument: "\uC218\uB9AC \uC911\uC778 \uC7A5\uBE44\uB4E4\uC774 \uBAA8\uB450
             \uC0AC\uB77C\uC84C\uC5B4\uC5B4\uC5B4\uC5B4\uC5B4\uC5C9"
@@ -6717,7 +6707,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\uC911\uACE0 \uC0C1\uD488 \uAC70\uB798"
+  m_Text: Trading Place
 --- !u!222 &640078891
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -8921,7 +8911,9 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\uC7A5\uBE44 \uC218\uB9AC"
+  m_Text: 'Repair Shop
+
+'
 --- !u!222 &846705543
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -10705,12 +10697,12 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 411955338}
         m_TargetAssemblyTypeName: FancySpeechBubble, Assembly-CSharp
-        m_MethodName: Set
-        m_Mode: 5
+        m_MethodName: Set_Int
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
+          m_IntArgument: 6
           m_FloatArgument: 0
           m_StringArgument: "\uC0C1\uC810\uAC00\uAC00 \uBAA8\uB450 \uB3C4\uB451\uD55C\uD14C
             \uD138\uB838\uB098\uBD10!"
@@ -14137,6 +14129,10 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7438687899143156238, guid: 06e48d987e62bf64fa4daecced7985ac, type: 3}
+      propertyPath: csv_origin
+      value: 
+      objectReference: {fileID: 267674945}
     - target: {fileID: 7786220365793647194, guid: 06e48d987e62bf64fa4daecced7985ac, type: 3}
       propertyPath: m_AnchorMax.y
       value: 1
@@ -15331,6 +15327,18 @@ MonoBehaviour:
         m_TargetAssemblyTypeName: NextMap, Assembly-CSharp
         m_MethodName: GoToRoom
         m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 7741245454751678460}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -17062,12 +17070,12 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 976082160}
         m_TargetAssemblyTypeName: FancySpeechBubble, Assembly-CSharp
-        m_MethodName: Set
-        m_Mode: 5
+        m_MethodName: Set_Int
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
+          m_IntArgument: 3
           m_FloatArgument: 0
           m_StringArgument: "\uB0B4 \uC7A5\uBE44\uAC00 \uC0AC\uB77C\uC84C\uC5B4...."
           m_BoolArgument: 0
@@ -17457,12 +17465,12 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1485162793}
         m_TargetAssemblyTypeName: FancySpeechBubble, Assembly-CSharp
-        m_MethodName: Set
-        m_Mode: 5
+        m_MethodName: Set_Int
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
+          m_IntArgument: 5
           m_FloatArgument: 0
           m_StringArgument: "\uB0B4 \uBAA8\uB4E0 \uB9C8\uBC95 \uB3C4\uAD6C\uAC00
             \uC0AC\uB77C\uC84C\uC5B4;;"
@@ -18028,7 +18036,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1731792211
 RectTransform:
   m_ObjectHideFlags: 0
@@ -18666,12 +18674,12 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1388205997}
         m_TargetAssemblyTypeName: FancySpeechBubble, Assembly-CSharp
-        m_MethodName: Set
-        m_Mode: 5
+        m_MethodName: Set_Int
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
+          m_IntArgument: 4
           m_FloatArgument: 0
           m_StringArgument: "\uB09C \uC774\uC81C \uB05D\uC774\uC57C..."
           m_BoolArgument: 0
@@ -20806,7 +20814,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\uB9C8\uBC95 \uB3C4\uAD6C \uC0C1\uC810"
+  m_Text: Magic Tool Shop
 --- !u!222 &1931874234
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -22664,7 +22672,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\uBB34\uAE30 \uC0C1\uC810"
+  m_Text: Weapon Shop
 --- !u!222 &2043842379
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -39607,7 +39615,7 @@ Tilemap:
       - {fileID: -796497015, guid: f9f7058e586b66d44ab1291f03753b89, type: 3}
       - {fileID: -1169859660, guid: f9f7058e586b66d44ab1291f03753b89, type: 3}
       - {fileID: -998861704, guid: f9f7058e586b66d44ab1291f03753b89, type: 3}
-      m_AnimationSpeed: 6.611537
+      m_AnimationSpeed: 8.953995
       m_AnimationTimeOffset: 0
       m_Flags: 0
   - first: {x: -32, y: -3, z: 0}
@@ -39634,7 +39642,7 @@ Tilemap:
       - {fileID: 2088802746, guid: 782acb8bab50c304ba83a8017a28b021, type: 3}
       - {fileID: -1474085390, guid: 782acb8bab50c304ba83a8017a28b021, type: 3}
       - {fileID: 503239994, guid: 782acb8bab50c304ba83a8017a28b021, type: 3}
-      m_AnimationSpeed: 8.3411
+      m_AnimationSpeed: 8.6886
       m_AnimationTimeOffset: 0
       m_Flags: 0
   - first: {x: -31, y: -3, z: 0}
@@ -39661,7 +39669,7 @@ Tilemap:
       - {fileID: -1354144349, guid: faeb3892ed25bd54d94100e0d8e07de4, type: 3}
       - {fileID: 950688914, guid: faeb3892ed25bd54d94100e0d8e07de4, type: 3}
       - {fileID: 831051416, guid: faeb3892ed25bd54d94100e0d8e07de4, type: 3}
-      m_AnimationSpeed: 6.9816303
+      m_AnimationSpeed: 8.815027
       m_AnimationTimeOffset: 0
       m_Flags: 0
   - first: {x: -29, y: -3, z: 0}
@@ -39688,7 +39696,7 @@ Tilemap:
       - {fileID: -796497015, guid: f9f7058e586b66d44ab1291f03753b89, type: 3}
       - {fileID: -1169859660, guid: f9f7058e586b66d44ab1291f03753b89, type: 3}
       - {fileID: -998861704, guid: f9f7058e586b66d44ab1291f03753b89, type: 3}
-      m_AnimationSpeed: 7.3271813
+      m_AnimationSpeed: 6.294435
       m_AnimationTimeOffset: 0
       m_Flags: 0
   - first: {x: -19, y: -3, z: 0}
@@ -39715,7 +39723,7 @@ Tilemap:
       - {fileID: -796497015, guid: f9f7058e586b66d44ab1291f03753b89, type: 3}
       - {fileID: -1169859660, guid: f9f7058e586b66d44ab1291f03753b89, type: 3}
       - {fileID: -998861704, guid: f9f7058e586b66d44ab1291f03753b89, type: 3}
-      m_AnimationSpeed: 7.791648
+      m_AnimationSpeed: 8.925838
       m_AnimationTimeOffset: 0
       m_Flags: 0
   - first: {x: -17, y: -3, z: 0}
@@ -39742,7 +39750,7 @@ Tilemap:
       - {fileID: 2088802746, guid: 782acb8bab50c304ba83a8017a28b021, type: 3}
       - {fileID: -1474085390, guid: 782acb8bab50c304ba83a8017a28b021, type: 3}
       - {fileID: 503239994, guid: 782acb8bab50c304ba83a8017a28b021, type: 3}
-      m_AnimationSpeed: 8.931508
+      m_AnimationSpeed: 8.343519
       m_AnimationTimeOffset: 0
       m_Flags: 0
   - first: {x: -16, y: -3, z: 0}
@@ -39769,7 +39777,7 @@ Tilemap:
       - {fileID: -1354144349, guid: faeb3892ed25bd54d94100e0d8e07de4, type: 3}
       - {fileID: 950688914, guid: faeb3892ed25bd54d94100e0d8e07de4, type: 3}
       - {fileID: 831051416, guid: faeb3892ed25bd54d94100e0d8e07de4, type: 3}
-      m_AnimationSpeed: 8.483969
+      m_AnimationSpeed: 7.5484285
       m_AnimationTimeOffset: 0
       m_Flags: 0
   - first: {x: -5, y: -3, z: 0}
@@ -39796,7 +39804,7 @@ Tilemap:
       - {fileID: 2088802746, guid: 782acb8bab50c304ba83a8017a28b021, type: 3}
       - {fileID: -1474085390, guid: 782acb8bab50c304ba83a8017a28b021, type: 3}
       - {fileID: 503239994, guid: 782acb8bab50c304ba83a8017a28b021, type: 3}
-      m_AnimationSpeed: 7.951146
+      m_AnimationSpeed: 6.790848
       m_AnimationTimeOffset: 0
       m_Flags: 0
   - first: {x: -4, y: -3, z: 0}
@@ -39823,7 +39831,7 @@ Tilemap:
       - {fileID: -1354144349, guid: faeb3892ed25bd54d94100e0d8e07de4, type: 3}
       - {fileID: 950688914, guid: faeb3892ed25bd54d94100e0d8e07de4, type: 3}
       - {fileID: 831051416, guid: faeb3892ed25bd54d94100e0d8e07de4, type: 3}
-      m_AnimationSpeed: 8.426592
+      m_AnimationSpeed: 8.112234
       m_AnimationTimeOffset: 0
       m_Flags: 0
   - first: {x: -2, y: -3, z: 0}
@@ -39850,7 +39858,7 @@ Tilemap:
       - {fileID: -796497015, guid: f9f7058e586b66d44ab1291f03753b89, type: 3}
       - {fileID: -1169859660, guid: f9f7058e586b66d44ab1291f03753b89, type: 3}
       - {fileID: -998861704, guid: f9f7058e586b66d44ab1291f03753b89, type: 3}
-      m_AnimationSpeed: 7.147858
+      m_AnimationSpeed: 8.147551
       m_AnimationTimeOffset: 0
       m_Flags: 0
   - first: {x: 1, y: -3, z: 0}
@@ -39877,7 +39885,7 @@ Tilemap:
       - {fileID: 2088802746, guid: 782acb8bab50c304ba83a8017a28b021, type: 3}
       - {fileID: -1474085390, guid: 782acb8bab50c304ba83a8017a28b021, type: 3}
       - {fileID: 503239994, guid: 782acb8bab50c304ba83a8017a28b021, type: 3}
-      m_AnimationSpeed: 7.3668447
+      m_AnimationSpeed: 6.6963887
       m_AnimationTimeOffset: 0
       m_Flags: 0
   - first: {x: 2, y: -3, z: 0}
@@ -39904,7 +39912,7 @@ Tilemap:
       - {fileID: -1354144349, guid: faeb3892ed25bd54d94100e0d8e07de4, type: 3}
       - {fileID: 950688914, guid: faeb3892ed25bd54d94100e0d8e07de4, type: 3}
       - {fileID: 831051416, guid: faeb3892ed25bd54d94100e0d8e07de4, type: 3}
-      m_AnimationSpeed: 8.952524
+      m_AnimationSpeed: 7.4072957
       m_AnimationTimeOffset: 0
       m_Flags: 0
   - first: {x: 17, y: -3, z: 0}
@@ -39931,7 +39939,7 @@ Tilemap:
       - {fileID: 2088802746, guid: 782acb8bab50c304ba83a8017a28b021, type: 3}
       - {fileID: -1474085390, guid: 782acb8bab50c304ba83a8017a28b021, type: 3}
       - {fileID: 503239994, guid: 782acb8bab50c304ba83a8017a28b021, type: 3}
-      m_AnimationSpeed: 8.344119
+      m_AnimationSpeed: 6.6425614
       m_AnimationTimeOffset: 0
       m_Flags: 0
   - first: {x: 18, y: -3, z: 0}
@@ -39958,7 +39966,7 @@ Tilemap:
       - {fileID: -1354144349, guid: faeb3892ed25bd54d94100e0d8e07de4, type: 3}
       - {fileID: 950688914, guid: faeb3892ed25bd54d94100e0d8e07de4, type: 3}
       - {fileID: 831051416, guid: faeb3892ed25bd54d94100e0d8e07de4, type: 3}
-      m_AnimationSpeed: 7.1202297
+      m_AnimationSpeed: 7.6826963
       m_AnimationTimeOffset: 0
       m_Flags: 0
   - first: {x: 28, y: -3, z: 0}
@@ -39985,7 +39993,7 @@ Tilemap:
       - {fileID: 2088802746, guid: 782acb8bab50c304ba83a8017a28b021, type: 3}
       - {fileID: -1474085390, guid: 782acb8bab50c304ba83a8017a28b021, type: 3}
       - {fileID: 503239994, guid: 782acb8bab50c304ba83a8017a28b021, type: 3}
-      m_AnimationSpeed: 7.6312537
+      m_AnimationSpeed: 8.12533
       m_AnimationTimeOffset: 0
       m_Flags: 0
   - first: {x: 29, y: -3, z: 0}
@@ -40012,7 +40020,7 @@ Tilemap:
       - {fileID: -1354144349, guid: faeb3892ed25bd54d94100e0d8e07de4, type: 3}
       - {fileID: 950688914, guid: faeb3892ed25bd54d94100e0d8e07de4, type: 3}
       - {fileID: 831051416, guid: faeb3892ed25bd54d94100e0d8e07de4, type: 3}
-      m_AnimationSpeed: 8.885823
+      m_AnimationSpeed: 8.67712
       m_AnimationTimeOffset: 0
       m_Flags: 0
   - first: {x: 30, y: -3, z: 0}
@@ -40039,7 +40047,7 @@ Tilemap:
       - {fileID: -796497015, guid: f9f7058e586b66d44ab1291f03753b89, type: 3}
       - {fileID: -1169859660, guid: f9f7058e586b66d44ab1291f03753b89, type: 3}
       - {fileID: -998861704, guid: f9f7058e586b66d44ab1291f03753b89, type: 3}
-      m_AnimationSpeed: 7.506535
+      m_AnimationSpeed: 7.7520823
       m_AnimationTimeOffset: 0
       m_Flags: 0
   - first: {x: 41, y: -3, z: 0}
@@ -40066,7 +40074,7 @@ Tilemap:
       - {fileID: -796497015, guid: f9f7058e586b66d44ab1291f03753b89, type: 3}
       - {fileID: -1169859660, guid: f9f7058e586b66d44ab1291f03753b89, type: 3}
       - {fileID: -998861704, guid: f9f7058e586b66d44ab1291f03753b89, type: 3}
-      m_AnimationSpeed: 6.922498
+      m_AnimationSpeed: 7.6104026
       m_AnimationTimeOffset: 0
       m_Flags: 0
   - first: {x: 15, y: 1, z: 0}
@@ -40103,7 +40111,7 @@ Tilemap:
       - {fileID: -176008854, guid: f9d6d0c608d178d4b9fef693a0515ce7, type: 3}
       - {fileID: 139034702, guid: f9d6d0c608d178d4b9fef693a0515ce7, type: 3}
       - {fileID: 11277775, guid: f9d6d0c608d178d4b9fef693a0515ce7, type: 3}
-      m_AnimationSpeed: 7.273654
+      m_AnimationSpeed: 6.779051
       m_AnimationTimeOffset: 0
       m_Flags: 0
   m_TileAssetArray:
@@ -121282,6 +121290,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   owner: {fileID: 2660770775846374985}
+  jumpSound: {fileID: 0}
 --- !u!23 &8912950538477740983
 MeshRenderer:
   m_ObjectHideFlags: 0

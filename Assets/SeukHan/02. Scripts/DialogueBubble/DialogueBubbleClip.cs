@@ -1,4 +1,5 @@
 using System;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Playables;
 using UnityEngine.Timeline;
@@ -7,6 +8,7 @@ using UnityEngine.Timeline;
 public class DialogueBubbleClip : PlayableAsset, ITimelineClipAsset
 {
     public DialogueBubbleBehaviour template = new DialogueBubbleBehaviour ();
+
 
     public ClipCaps clipCaps
     {

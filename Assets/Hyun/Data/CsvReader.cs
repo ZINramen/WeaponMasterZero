@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -11,8 +12,10 @@ public class CsvReader : MonoBehaviour
     public string filename;
     public List<List<string>> lines = new List<List<string>>();
 
-    private void Start()
+    private void Awake()
     {
+        if(filename == "DialogueData.csv")
+            FancySpeechBubble.csv = this;
         StreamReader sr = new StreamReader(Path.Combine(Application.streamingAssetsPath, filename));
         bool eof = false;
         
@@ -31,6 +34,7 @@ public class CsvReader : MonoBehaviour
                 valueList.Add(values[i].ToString());
             }
             lines.Add(valueList);
+
         }
     }
 }

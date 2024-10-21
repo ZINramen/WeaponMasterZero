@@ -1,11 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.TextCore.Text;
 
 public class CutSceneEditor : MonoBehaviour
 {
+    CsvReader csv;
     public UnityEvent[] dialogueEndActions;
     public FancySpeechBubble dialogue;
     // public ButtonInstant dialogueStartButton;
@@ -13,7 +15,6 @@ public class CutSceneEditor : MonoBehaviour
 
     [SerializeField]
     int currentActionNum = -1;
-
     public void Start_Player_Animator()
     {
         player.speed = 1;
@@ -38,8 +39,9 @@ public class CutSceneEditor : MonoBehaviour
         // dialogueStartButton.Restart_Text(pos);
     }
 
-    public void DialogueShowUP(string text) 
+    public void DialogueShowUP(int textNum) 
     {
+        string text = csv.lines[textNum][PlayerPrefs.GetInt("Country_Code", 0)];
         dialogue.transform.parent.gameObject.SetActive(true);
         dialogue.Set(text);
     }
@@ -47,6 +49,7 @@ public class CutSceneEditor : MonoBehaviour
     {
         if(Entity.Player)
             player = Entity.Player.aManager.ani;
+        csv = GetComponent<CsvReader>();
     }
     private void Update()
     {

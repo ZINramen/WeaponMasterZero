@@ -14,11 +14,11 @@ public class LanguageSetting : MonoBehaviour
         }
         if (relevant_Obj.Length > 0)
         {
-            relevant_Obj[PlayerPrefs.GetInt("Country_Code")].SetActive(true);
+            relevant_Obj[PlayerPrefs.GetInt("Country_Code", 0)].SetActive(true);
         }
     }
     private void Start()
     {
-        relevant_Obj[PlayerPrefs.GetInt("Country_Code")].SetActive(true);
+        relevant_Obj[PlayerPrefs.GetInt("Country_Code", 0)].SetActive(true);
     }
 }

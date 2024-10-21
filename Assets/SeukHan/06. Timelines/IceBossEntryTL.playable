@@ -952,7 +952,7 @@ MonoBehaviour:
   m_Name: DialogueBubbleClip(Clone)(Clone)(Clone)
   m_EditorClassIdentifier: 
   template:
-    text: "\uB0A9\uC791\uD558\uAC8C \uB9CC\uB4E4\uC5B4 \uC8FC\uC9C0!!"
+    text: 70
     objectName: BossActor
 --- !u!114 &-1452209024424482434
 MonoBehaviour:
@@ -983,7 +983,7 @@ MonoBehaviour:
   m_Name: DialogueBubbleClip(Clone)
   m_EditorClassIdentifier: 
   template:
-    text: "\uC544\uC8FC \uADF8\uB0E5 \uBC15\uC0B4\uC744 \uB0B4\uC8FC\uC9C0!"
+    text: 68
     objectName: APOActor
 --- !u!114 &-931573642483144154
 MonoBehaviour:
@@ -1064,7 +1064,7 @@ MonoBehaviour:
   m_Name: DialogueBubbleClip
   m_EditorClassIdentifier: 
   template:
-    text: "\uB108\uAC00 \uD3B8\uC9C0\uC758 \uBC94\uC778\uC774\uB0D0!?"
+    text: 67
     objectName: APOActor
 --- !u!114 &11400000
 MonoBehaviour:
@@ -1180,13 +1180,49 @@ MonoBehaviour:
     m_BlendOutDuration: 0.5
     m_MixInCurve:
       serializedVersion: 2
-      m_Curve: []
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      - serializedVersion: 3
+        time: 1
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
     m_MixOutCurve:
       serializedVersion: 2
-      m_Curve: []
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      - serializedVersion: 3
+        time: 1
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
@@ -1213,49 +1249,13 @@ MonoBehaviour:
     m_BlendOutDuration: 1
     m_MixInCurve:
       serializedVersion: 2
-      m_Curve:
-      - serializedVersion: 3
-        time: 0
-        value: 0
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 0
-        weightedMode: 0
-        inWeight: 0
-        outWeight: 0
-      - serializedVersion: 3
-        time: 1
-        value: 1
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 0
-        weightedMode: 0
-        inWeight: 0
-        outWeight: 0
+      m_Curve: []
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
     m_MixOutCurve:
       serializedVersion: 2
-      m_Curve:
-      - serializedVersion: 3
-        time: 0
-        value: 1
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 0
-        weightedMode: 0
-        inWeight: 0
-        outWeight: 0
-      - serializedVersion: 3
-        time: 1
-        value: 0
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 0
-        weightedMode: 0
-        inWeight: 0
-        outWeight: 0
+      m_Curve: []
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
@@ -1317,7 +1317,7 @@ MonoBehaviour:
   m_Name: DialogueBubbleClip(Clone)(Clone)
   m_EditorClassIdentifier: 
   template:
-    text: "\u314B\u314B \uB0A0 \uC774\uAE38 \uC218\uB098 \uC788\uB0D0?"
+    text: 69
     objectName: BossActor
 --- !u!114 &1997578417128712344
 MonoBehaviour:
@@ -1398,10 +1398,10 @@ MonoBehaviour:
   m_Children: []
   m_Clips:
   - m_Version: 1
-    m_Start: 1.0000000000000004
+    m_Start: 0.5
     m_ClipIn: 0
     m_Asset: {fileID: -268829012449000141}
-    m_Duration: 1.9999999999999996
+    m_Duration: 2.4999999999999996
     m_TimeScale: 1
     m_ParentTrack: {fileID: 3360443214791228116}
     m_EaseInDuration: 0
@@ -1536,10 +1536,10 @@ MonoBehaviour:
     m_PreExtrapolationTime: 0
     m_DisplayName: DialogueBubbleClip
   - m_Version: 1
-    m_Start: 7
+    m_Start: 6.5
     m_ClipIn: 0
     m_Asset: {fileID: 1092033593220835061}
-    m_Duration: 2
+    m_Duration: 3.9833333333333325
     m_TimeScale: 1
     m_ParentTrack: {fileID: 3360443214791228116}
     m_EaseInDuration: 0
@@ -1608,7 +1608,7 @@ MonoBehaviour:
     m_Start: 13.5
     m_ClipIn: 0
     m_Asset: {fileID: -1523576683881382793}
-    m_Duration: 2
+    m_Duration: 2.5
     m_TimeScale: 1
     m_ParentTrack: {fileID: 3360443214791228116}
     m_EaseInDuration: 0

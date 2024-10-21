@@ -39,7 +39,13 @@ public class DialogueBubbleBehaviour : PlayableBehaviour
                 }
                 else
                 {
-                    fancySpeechBubbleText.GetComponent<FancySpeechBubble>().Set(text);
+                    if (FancySpeechBubble.csv)
+                    {
+                        int textNum = Int32.Parse(text);
+                        fancySpeechBubbleText.GetComponent<FancySpeechBubble>().Set(FancySpeechBubble.csv.lines[textNum][PlayerPrefs.GetInt("Country_Code", 0)]);
+                    }
+                    else
+                        fancySpeechBubbleText.GetComponent<FancySpeechBubble>().Set(text);
                 }
             }
         }

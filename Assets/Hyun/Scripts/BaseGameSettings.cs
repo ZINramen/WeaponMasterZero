@@ -14,7 +14,8 @@ public class BaseGameSettings : MonoBehaviour
         if (bs == null)
         {
             bs = this;
-            DontDestroyOnLoad(bs);
+            if(!GetComponent<Entity>())
+                DontDestroyOnLoad(bs);
         }
         Screen.SetResolution(1920, 1080, true);
         Application.targetFrameRate = 60;

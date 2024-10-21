@@ -5,6 +5,7 @@ using TMPro;
 [RequireComponent(typeof(TextMeshProUGUI))]
 public class FancySpeechBubble : MonoBehaviour
 {
+    public static CsvReader csv;
     AudioSource soundPlayer;
     public int characterStartSize = 1;
     public float characterAnimateSpeed = 1000f;
@@ -19,6 +20,12 @@ public class FancySpeechBubble : MonoBehaviour
     {
         soundPlayer = gameObject.AddComponent<AudioSource>();
         soundPlayer.volume = 1;
+    }
+    public void Set_Int(int textNum)
+    {
+        string text = csv.lines[textNum][PlayerPrefs.GetInt("Country_Code", 0)];
+        StopAllCoroutines();
+        StartCoroutine(SetRoutine(text));
     }
 
     public void Set(string text)
@@ -49,7 +56,8 @@ public class FancySpeechBubble : MonoBehaviour
                 label.text = prefix + "<size=" + size + ">" + c + "</size>";
                 yield return new WaitForEndOfFrame();
             }
-            soundPlayer.PlayOneShot(Resources.Load("text-Typing") as AudioClip);
+            if(transform.parent.parent.parent.GetComponentInChildren<Canvas>().enabled)
+                soundPlayer.PlayOneShot(Resources.Load("text-Typing") as AudioClip);
             prefix += c;
         }
 
