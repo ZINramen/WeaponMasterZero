@@ -100,6 +100,7 @@ public class AnimationManager : MonoBehaviour
                     {
                         ani.ResetTrigger("Jump");
                         ani.SetTrigger("Landing");
+                        owner.aManager.ani.ResetTrigger("fall");
                     }
                 }
             }

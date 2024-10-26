@@ -154,12 +154,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 905aa2faf2d078d43a6cc4c8ef7d0ead, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  NoDamage: 0
   telp: 0
   stunTarget: 0
   flyingAttackForce: 0
   attackForce: 10
   thrustValue: 0.5
   owner: {fileID: 563375698}
+  attach: 0
   oneHit: 0
   playerIsOwn: 0
   attType: 0
@@ -353,12 +355,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8faf252014a19b942bc4983ce0bcf63a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  NoDamage: 0
   telp: 0
   stunTarget: 0
   flyingAttackForce: 5
   attackForce: 5
   thrustValue: 5
   owner: {fileID: 563375698}
+  attach: 0
   oneHit: 0
   playerIsOwn: 0
   attType: 0
@@ -1754,12 +1758,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8faf252014a19b942bc4983ce0bcf63a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  NoDamage: 0
   telp: 0
   stunTarget: 0
   flyingAttackForce: 5
   attackForce: 5
   thrustValue: 5
   owner: {fileID: 563375698}
+  attach: 0
   oneHit: 0
   playerIsOwn: 0
   attType: 0
@@ -2722,6 +2728,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Alway: 0
   BlockDash: 0
+  mousePos: {x: 0, y: 0, z: 0}
   owner: {fileID: 563375698}
   h: 0
   body: {fileID: 0}
@@ -2746,12 +2753,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   groundApproachDist: 0
   move_Speed: 0.2
-  DA_HitArea: []
-  P1Skill1_HitArea: []
-  P1Skill2_HitArea: []
-  P2Skill1_HitArea: []
-  P2Skill2_HitArea: []
-  P2Skill3_HitArea: []
+  DashBan_Obj: {fileID: 0}
   hit_Mat: {fileID: 2100000, guid: 9a312534a97aeb14e89b5c7cc149b470, type: 2}
   bossType: 0
   isDie: 0
@@ -2761,6 +2763,7 @@ MonoBehaviour:
   bossHit_Area: {fileID: 5380510675326920505, guid: 7367002df9ae4044da5c2033429bad56, type: 3}
   Horizontal_LinePref: {fileID: 400998881470783629, guid: a5680686b98b6d24081ad9582ed94a87, type: 3}
   Vertical_LinePref: {fileID: 400998881470783629, guid: 311382d06d142d846920b85ba56ed94b, type: 3}
+  LineBreak_Sound: {fileID: 0}
 --- !u!114 &563375696
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2774,6 +2777,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isStartToMute: 0
+  delayMusicTime: 0
 --- !u!95 &563375697
 Animator:
   serializedVersion: 5
@@ -2807,10 +2811,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a1045773e672824daf99f5c8b2edde4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  testMode: 0
+  shield: {fileID: 0}
   hitMat: {fileID: 0}
+  hitSound: {fileID: 0}
   activeDesireWeapon: 0
   playerFinalBoss: {fileID: 0}
   desireWeaponFinalBoss: 0
+  triggerObj_HitType: 0
   stun: 0
   hp: 50
   mp: 0
@@ -3484,12 +3492,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8faf252014a19b942bc4983ce0bcf63a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  NoDamage: 0
   telp: 0
   stunTarget: 0
   flyingAttackForce: 5
   attackForce: 5
   thrustValue: 5
   owner: {fileID: 563375698}
+  attach: 0
   oneHit: 0
   playerIsOwn: 0
   attType: 0
@@ -4642,12 +4652,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8faf252014a19b942bc4983ce0bcf63a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  NoDamage: 0
   telp: 0
   stunTarget: 0
   flyingAttackForce: 5
   attackForce: 5
   thrustValue: 5
   owner: {fileID: 563375698}
+  attach: 0
   oneHit: 0
   playerIsOwn: 0
   attType: 0
@@ -7158,6 +7170,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2453434323063826008, guid: e2f03ac0e90d84f4083d3f9121ad8f5f, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2453434323063826008, guid: e2f03ac0e90d84f4083d3f9121ad8f5f, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6227755902309650506, guid: e2f03ac0e90d84f4083d3f9121ad8f5f, type: 3}
       propertyPath: m_Name
       value: APO
@@ -9869,12 +9889,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8faf252014a19b942bc4983ce0bcf63a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  NoDamage: 0
   telp: 0
   stunTarget: 0
   flyingAttackForce: 5
   attackForce: 5
   thrustValue: 0.5
   owner: {fileID: 563375698}
+  attach: 0
   oneHit: 0
   playerIsOwn: 0
   attType: 0
@@ -10107,12 +10129,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8faf252014a19b942bc4983ce0bcf63a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  NoDamage: 0
   telp: 0
   stunTarget: 0
   flyingAttackForce: 5
   attackForce: 5
   thrustValue: 0.5
   owner: {fileID: 563375698}
+  attach: 0
   oneHit: 0
   playerIsOwn: 0
   attType: 0

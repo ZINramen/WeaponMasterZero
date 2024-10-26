@@ -24,8 +24,9 @@ public class Movement : MonoBehaviour
 
     // Public Area
     [Header("Movement Value")]
-    [Tooltip("이동 속도")]
+    [Tooltip("캐릭터의 이동 속도")]
     public float speed = 5f;
+
     public bool super = false;
  
     [Tooltip("점프력")]
@@ -170,7 +171,7 @@ public class Movement : MonoBehaviour
             h = Input.GetAxisRaw("Horizontal_2P");
         else 
             h = Input.GetAxisRaw("Horizontal");
-        body.velocity = new Vector2(h * 100 * speed * Time.deltaTime, body.velocity.y);
+        body.velocity = new Vector2(h * speed, body.velocity.y);
 
         if (h != 0)
         {

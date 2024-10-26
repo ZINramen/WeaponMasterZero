@@ -63207,7 +63207,7 @@ MonoBehaviour:
   owner: {fileID: 0}
   h: 0
   body: {fileID: 0}
-  speed: 3
+  speed: 5
   super: 0
   JumpPower: 4
   PlayerType: 1
@@ -63275,8 +63275,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a1045773e672824daf99f5c8b2edde4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  testMode: 0
   shield: {fileID: 0}
   hitMat: {fileID: 0}
+  hitSound: {fileID: 0}
   activeDesireWeapon: 0
   playerFinalBoss: {fileID: 0}
   desireWeaponFinalBoss: 0
@@ -63439,6 +63441,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isStartToMute: 0
+  delayMusicTime: 0
 --- !u!114 &1704247545529518219
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -63493,6 +63496,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 929f93c785c1c1242bc20580f423f5e9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  menu: 0
 --- !u!1 &6235406941165070141
 GameObject:
   m_ObjectHideFlags: 0
@@ -64261,6 +64265,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   owner: {fileID: 1868984683984232959}
+  jumpSound: {fileID: 0}
 --- !u!95 &6426122297221488867
 Animator:
   serializedVersion: 5
