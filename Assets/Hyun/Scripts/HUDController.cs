@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -26,6 +27,12 @@ public class HUDController : MonoBehaviour
     {
         StartCoroutine(CheckHP());
         StartCoroutine(CheckMP());
+
+        if (PlayerPrefs.GetInt("key1", (int)KeyCode.Q) != (int)KeyCode.Q)
+            transform.GetChild(1).GetChild(1).GetComponentInChildren<TextMeshProUGUI>().text = "";
+
+        if (PlayerPrefs.GetInt("key2", (int)KeyCode.E) != (int)KeyCode.E)
+            transform.GetChild(1).GetChild(2).GetComponentInChildren<TextMeshProUGUI>().text = "";
     }
 
     // Update is called once per frame
