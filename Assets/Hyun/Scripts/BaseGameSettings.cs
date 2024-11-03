@@ -25,6 +25,12 @@ public class BaseGameSettings : MonoBehaviour
         Application.Quit();
     }
 
+    public void ResetGameData()
+    {
+        PlayerPrefs.DeleteAll(); 
+        SceneManager.LoadScene("Title_Prologue", LoadSceneMode.Single);
+    }
+
     private void Update()
     {
         if(menu)
