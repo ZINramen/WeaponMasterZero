@@ -33,16 +33,16 @@ public class SkillManager : MonoBehaviour
         
         if (hudControl)
         {
-            if (Input.GetKeyDown(KeyCode.Q))
+            if (Input.GetKeyDown((KeyCode)PlayerPrefs.GetInt("key1", (int)KeyCode.Q)))
             {
                 ChangeWeaponSkill(true); // 왼쪽무기와 현재무기교체 (현재 무기는 왼쪽으로 이동)
             }
 
-            if (Input.GetKeyDown(KeyCode.E))
+            if (Input.GetKeyDown((KeyCode)PlayerPrefs.GetInt("key2", (int)KeyCode.E)))
             {
                 ChangeWeaponSkill(false); // 오른쪽무기와 현재무기교체 (현재 무기는 오른쪽으로 이동)
             }
-            if (owner.GetHp() > 0 && Input.GetKeyDown(KeyCode.W)) // 체력 회복
+            if (owner.GetHp() > 0 && Input.GetKeyDown((KeyCode)PlayerPrefs.GetInt("key3", (int)KeyCode.W))) // 체력 회복
             {
                 int curGauge = owner.aManager.ani.GetInteger("Gauge"); // 애니메이터에서 Gauge 값을 가져옴. Gauge는 스킬, 필살기 사용에 필요한 값이다.
                 if (curGauge > 0) // Gauge 값이 0보다 크면 게이지 값 1을 소모하여 체력 회복이 가능하다.

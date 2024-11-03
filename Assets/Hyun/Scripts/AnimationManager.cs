@@ -64,6 +64,8 @@ public class AnimationManager : MonoBehaviour
     // Start is called before the first frame update
     void Awake()
     {
+        Dash = (KeyCode)PlayerPrefs.GetInt("key4", (int)KeyCode.LeftShift);
+
         ani = GetComponent<Animator>();
         skillManager = GetComponent<SkillManager>();
     }

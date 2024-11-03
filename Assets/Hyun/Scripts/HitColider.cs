@@ -18,7 +18,7 @@ public class HitColider : MonoBehaviour
     public bool oneHit = false;
     public bool playerIsOwn = false;
 
-    public enum AttackType
+    public enum AttackType // 공격 타입 : 각 공격의 효과가 다르기에 구분한다.
     {
         none,
         Player_SwordAtt,
@@ -35,9 +35,9 @@ public class HitColider : MonoBehaviour
     {
         if (owner == other.gameObject.GetComponent<Entity>())
             return;
-        if (other.CompareTag("Camera"))
+        if (other.CompareTag("Camera")) // 카메라의 경우 무시
             return;
-        if (playerIsOwn && (other.CompareTag("Player")))
+        if (playerIsOwn && (other.CompareTag("Player"))) // 플레이어의 공격은 플레이어 무시
             return;
 
         EachObj_HitSetting(other);
@@ -113,10 +113,10 @@ public class HitColider : MonoBehaviour
                         entity.stun = stunTarget;
                         entity.flyingDamagedPower = flyingAttackForce;
 
-                        if (owner.transform.position.x > entity.transform.position.x)
+                        if (owner.transform.position.x > entity.transform.position.x) // 상대를 공격 방향으로 날린다.
                         {
                             if (!owner || owner.movement.PlayerType || entity.movement.PlayerType)
-                                entity.Damaged(attackForce, (-attackForce) * thrustValue);
+                                entity.Damaged(attackForce, (-attackForce) * thrustValue); 
                         }
                         else
                         {
