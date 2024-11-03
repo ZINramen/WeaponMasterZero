@@ -15,6 +15,11 @@ public class ShootingControl : MonoBehaviour
     public GameObject gun;
     public Animator gunAnimator;
     public GameObject bullet;
+    public GameObject bullet_Super;
+
+    public AudioClip bulletClip;
+    public AudioClip bulletClip2;
+
     public float bulletSpeed = 10;
 
     public GameObject shootingPrefab;
@@ -29,7 +34,10 @@ public class ShootingControl : MonoBehaviour
 
     public Image GunGauge;
 
+    float bulletEnergy = 0;
     int bulletCount = 0;
+    bool bulletEnergyFull = false;
+
     public int bulletMaxCount = 6;
 
     // Start is called before the first frame update
@@ -60,8 +68,28 @@ public class ShootingControl : MonoBehaviour
 
             if (bulletCount < bulletMaxCount) // 총의 발사 횟수 제한이 있고, 해당 횟수를 넘어서면 일정 시간 동안 재장전이 이뤄진다.
             {
-                if (Input.GetKeyUp(KeyCode.Mouse0)) 
+                if (Input.GetKey(KeyCode.Mouse0))
                 {
+                    if (bulletEnergy <= 0.3f)
+                        bulletEnergy += Time.deltaTime;
+                    else if(!bulletEnergyFull)
+                    {
+                        bulletEnergyFull = true;
+                        gunAnimator.SetTrigger("Full");
+                    }
+                }
+                if (Input.GetKeyUp(KeyCode.Mouse0)) 
+                {    
+                    GameObject bulletTemp = bullet;
+                    if (bulletEnergy > 0.3f)
+                    {
+                        bullet = bullet_Super;
+                        GetComponent<AudioSource>().PlayOneShot(bulletClip2);
+                    }
+                    else 
+                    {
+                        GetComponent<AudioSource>().PlayOneShot(bulletClip);
+                    }
                     // 아래는 총을 발사하는 과정을 나타낸 코드이다.
 
                     bulletCount++;
@@ -86,6 +114,10 @@ public class ShootingControl : MonoBehaviour
                         gunAnimator.SetTrigger("Shoot");
                     }
                     owner.aManager.ResetAttackTriggerEvent();
+
+                    bulletEnergyFull = false;
+                    bulletEnergy = 0;
+                    bullet = bulletTemp;
                 }
                 if (bulletCount == bulletMaxCount)
                     StartCoroutine(Reload()); // 재장전을 담당하는 코루틴 호출
@@ -95,6 +127,10 @@ public class ShootingControl : MonoBehaviour
         {
             if (GunGauge)
             {
+                // 총알 에너지 초기화
+                bulletEnergyFull = false;
+                bulletEnergy = 0;
+
                 Cursor.SetCursor(null, Vector2.zero, CursorMode.Auto);
                 bulletCount = 0;
                 GunGauge.fillAmount = 1.0f;

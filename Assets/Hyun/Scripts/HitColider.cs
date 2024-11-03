@@ -33,6 +33,7 @@ public class HitColider : MonoBehaviour
 
     protected void OnTriggerEnter2D(Collider2D other)
     {
+        Debug.Log(other);
         if (owner == other.gameObject.GetComponent<Entity>())
             return;
         if (other.CompareTag("Camera")) // 카메라의 경우 무시
@@ -46,7 +47,7 @@ public class HitColider : MonoBehaviour
         {
             if (DestroyEffect)
             {
-               Instantiate(DestroyEffect, transform.position, Quaternion.identity);
+                Instantiate(DestroyEffect, transform.position, Quaternion.identity);
             }
             EachObj_DeleteSetting(this.gameObject);
             if (NoDamage)

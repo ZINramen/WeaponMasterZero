@@ -9831,6 +9831,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b8982125c5cfa9b4faccc3fb1bc827e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  collDestroy: 0
   haveDestroyArea: 0
   haveTarget: 0
   moveSpeed: 0
@@ -10222,7 +10223,7 @@ ParticleSystem:
     startSize:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 2.5
+      scalar: 1.5
       minScalar: 1.5
       maxCurve:
         serializedVersion: 2

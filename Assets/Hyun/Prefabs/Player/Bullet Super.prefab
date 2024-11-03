@@ -106,7 +106,7 @@ TrailRenderer:
     colorGradient:
       serializedVersion: 2
       key0: {r: 1, g: 0.75332725, b: 0, a: 1}
-      key1: {r: 1, g: 0.5615012, b: 0, a: 1}
+      key1: {r: 1, g: 0.08880368, b: 0, a: 1}
       key2: {r: 0, g: 0, b: 0, a: 0}
       key3: {r: 0, g: 0, b: 0, a: 0}
       key4: {r: 0, g: 0, b: 0, a: 0}
@@ -162,7 +162,7 @@ GameObject:
   - component: {fileID: 5624070514580631125}
   - component: {fileID: 8255733922380801740}
   m_Layer: 0
-  m_Name: Bullet
+  m_Name: Bullet Super
   m_TagString: Particle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -178,7 +178,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -0.0403, y: -0.2275, z: 0}
-  m_LocalScale: {x: 0.24734578, y: 0.5043275, z: 0.65529}
+  m_LocalScale: {x: 0.559718, y: 1.1412411, z: 1.4828537}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 7602681084223333927}
@@ -295,7 +295,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.007834405, y: 0.009181358}
+  m_Offset: {x: -0.009581685, y: 0.0031826869}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -306,7 +306,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.29759568, y: 0.1469457}
+  m_Size: {x: 0.7134508, y: 0.38517857}
   m_EdgeRadius: 0
 --- !u!114 &6783703744436339927
 MonoBehaviour:
@@ -5152,7 +5152,7 @@ MonoBehaviour:
   telp: 0
   stunTarget: 0
   flyingAttackForce: 0
-  attackForce: 10
+  attackForce: 20
   thrustValue: 0.5
   owner: {fileID: 0}
   attach: 0
@@ -5160,4 +5160,4 @@ MonoBehaviour:
   playerIsOwn: 1
   attType: 2
   isAbleDestroy: 1
-  DestroyEffect: {fileID: 1569492714287620744, guid: 257b7eaa59975ff4282d70eb433c22c6, type: 3}
+  DestroyEffect: {fileID: 2925904628258830275, guid: 41a37368ece6e054cbdb8e21086b29b7, type: 3}
