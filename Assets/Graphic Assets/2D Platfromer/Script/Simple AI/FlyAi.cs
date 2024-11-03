@@ -95,7 +95,9 @@ namespace Venogear2DPlatformer
                 m_Animator.SetTrigger("Attack");
             }
 
-            // Reset attack trigger
+            //
+            //
+            // attack trigger
             if (distance > 1 && AttackOrFlee == false)
             {
                 m_Animator.ResetTrigger("Attack");

@@ -251,7 +251,7 @@ public class AnimationManager : MonoBehaviour
         {
             ani.SetTrigger("Punch");
             ani.SetBool("waitLinkAttack", true);
-            StartCoroutine(WaitLink(1f));
+            StartCoroutine(WaitLink(2f));
         }
         if (ani.GetInteger("Weapon") != 2 &&
                     (groundCheck.GetOnGround || !additionalJump) && Input.GetKeyDown(Jump) && !Input.GetKey(DownArrow))
