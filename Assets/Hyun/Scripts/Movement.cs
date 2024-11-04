@@ -193,12 +193,9 @@ public class Movement : MonoBehaviour
     }
     public void SetMovementForceX(float x)
     {
-        if (Alway || !boss)
-        {
-            int plus = 1;
-            if (transform.localEulerAngles.y == 180) plus = -1;
-            body.AddForce(new Vector2(x * 100 * plus, 0));
-        }
+        int plus = 1;
+        if (transform.localEulerAngles.y == 180) plus = -1;
+        body.AddForce(new Vector2(x * 100 * plus, 0));
     }
     public void SetThrustForceX(float x)
     {        

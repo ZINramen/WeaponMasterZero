@@ -359,13 +359,6 @@ public class GunBoss : Boss
         isReady_P2S3 = true;
         this.gameObject.GetComponent<Rigidbody2D>().simulated = false;
         p2S3_Plate.gameObject.SetActive(true);
-        // 낙타 생성
-        for(int i = 2; i < 5; i++) 
-        { 
-            Destroyer camel = Instantiate(prefabMob, prefabMobPos.position, Quaternion.Euler(new Vector3(0,180,0))).GetComponent<Destroyer>();
-            camel.GetComponent<HitColider>().owner = this.gameObject.GetComponent<Entity>();
-            camel.moveSpeed = i;
-        }
     }
     
     public void Attack_P2Skill3()

@@ -17,9 +17,6 @@ public class ShootingControl : MonoBehaviour
     public GameObject bullet;
     public GameObject bullet_Super;
 
-    public AudioClip bulletClip;
-    public AudioClip bulletClip2;
-
     public float bulletSpeed = 10;
 
     public GameObject shootingPrefab;
@@ -84,12 +81,12 @@ public class ShootingControl : MonoBehaviour
                     if (bulletEnergy > 0.3f)
                     {
                         bullet = bullet_Super;
-                        GetComponent<AudioSource>().PlayOneShot(bulletClip2);
+                        GetComponent<AudioSource>().PlayOneShot(Resources.Load("Bullet Super") as AudioClip);
                     }
                     else 
                     {
-                        GetComponent<AudioSource>().PlayOneShot(bulletClip);
-                    }
+                                GetComponent<AudioSource>().PlayOneShot(Resources.Load("Bullet") as AudioClip);
+                            }
                     // 아래는 총을 발사하는 과정을 나타낸 코드이다.
 
                     bulletCount++;
