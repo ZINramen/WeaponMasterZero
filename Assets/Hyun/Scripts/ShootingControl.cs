@@ -15,7 +15,7 @@ public class ShootingControl : MonoBehaviour
     public GameObject gun;
     public Animator gunAnimator;
     public GameObject bullet;
-    public GameObject bullet_Super;
+    GameObject bullet_Super;
 
     public float bulletSpeed = 10;
 
@@ -40,6 +40,7 @@ public class ShootingControl : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        bullet_Super = Resources.Load("Bullet Super") as GameObject;
         owner = transform.GetComponent<Entity>();
     }
 
@@ -81,7 +82,7 @@ public class ShootingControl : MonoBehaviour
                     if (bulletEnergy > 0.3f)
                     {
                         bullet = bullet_Super;
-                        GetComponent<AudioSource>().PlayOneShot(Resources.Load("Bullet Super") as AudioClip);
+                        GetComponent<AudioSource>().PlayOneShot(Resources.Load("Bullet Upgrade") as AudioClip);
                     }
                     else 
                     {

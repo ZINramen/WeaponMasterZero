@@ -20477,6 +20477,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a1045773e672824daf99f5c8b2edde4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  testMode: 0
   shield: {fileID: 0}
   hitMat: {fileID: 2100000, guid: 9a312534a97aeb14e89b5c7cc149b470, type: 2}
   hitSound: {fileID: 8300000, guid: a4e07cea845ad4171a4cacb8398f2f4d, type: 3}
@@ -20723,6 +20724,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isStartToMute: 0
+  delayMusicTime: 0
 --- !u!114 &1571440472 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1868984683984232959, guid: e2f03ac0e90d84f4083d3f9121ad8f5f, type: 3}
@@ -23738,6 +23740,14 @@ PrefabInstance:
       propertyPath: m_LocalPosition.x
       value: -0.005
       objectReference: {fileID: 0}
+    - target: {fileID: 1044067328411607424, guid: e2f03ac0e90d84f4083d3f9121ad8f5f, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1044067328411607424, guid: e2f03ac0e90d84f4083d3f9121ad8f5f, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1150237071432153140, guid: e2f03ac0e90d84f4083d3f9121ad8f5f, type: 3}
       propertyPath: m_TagString
       value: Untagged
@@ -23806,6 +23816,10 @@ PrefabInstance:
       propertyPath: bulletSpeed
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 1876698464267050599, guid: e2f03ac0e90d84f4083d3f9121ad8f5f, type: 3}
+      propertyPath: bullet_Super
+      value: 
+      objectReference: {fileID: 3720463374832119540, guid: ad76da2216bf76c44b7c0e88030c117c, type: 3}
     - target: {fileID: 2362614814991186259, guid: e2f03ac0e90d84f4083d3f9121ad8f5f, type: 3}
       propertyPath: m_TagString
       value: Untagged
