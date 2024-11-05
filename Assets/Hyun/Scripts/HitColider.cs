@@ -33,7 +33,7 @@ public class HitColider : MonoBehaviour
 
     protected void OnTriggerEnter2D(Collider2D other)
     {
-        Debug.Log(other);
+         Debug.Log(other);
         if (owner == other.gameObject.GetComponent<Entity>())
             return;
         if (other.CompareTag("Camera")) // 카메라의 경우 무시
