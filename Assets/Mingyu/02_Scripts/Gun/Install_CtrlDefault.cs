@@ -4,19 +4,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UIElements;
 
-public enum Bullet_Type
-{
-    up = 0,
-    right = 1,
-    down = 2,
-    left = 3
-}
-
-public class Install_Ctrl : MonoBehaviour
+public class Install_CtrlDefault : MonoBehaviour
 {
     private Animator myAnim;
-    public bool isActive = false;
-    public Entity BossObj;
+    public bool isAttackAble = false;
 
     private float attack_Delay = 0.5f;
     private float attackCount = 0f;
@@ -27,8 +18,9 @@ public class Install_Ctrl : MonoBehaviour
     private Bullet_Type bulletType;
     
     private GameObject dummy_GeneralBullet;
-    private int MaxHP = 9999;
-    public bool isDefaultMap = false;
+    private int MaxHP = 9000;
+    private GameObject player;
+    private float distFromPlayer;
 
     public void SetMaxHP(int input_MaxHP)
     {
@@ -38,11 +30,16 @@ public class Install_Ctrl : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        GameObject[] playerTagObjects = GameObject.FindGameObjectsWithTag("Player");
+        foreach (GameObject playerTagObj in playerTagObjects)
+        {
+            if (playerTagObj.name == "APO")
+                player = playerTagObj;
+        }
+
+        this.gameObject.GetComponent<Entity>().SetHp(9000f);
         myAnim = this.gameObject.GetComponent<Animator>();
         InitValue();
-        
-        this.gameObject.SetActive(false);
-        
     }
 
     private void InitValue()
@@ -58,7 +55,18 @@ public class Install_Ctrl : MonoBehaviour
 
     private void Update()
     {
-        if (isActive)
+        distFromPlayer = Mathf.Abs(player.gameObject.transform.position.x 
+                                   - this.transform.position.x);
+        Debug.Log(distFromPlayer);
+
+        if (distFromPlayer <= 3.0f)
+        {
+            isAttackAble = true;
+            myAnim.SetBool("isActive", true);
+        }
+            
+        
+        if (isAttackAble)
         {
             myAnim.SetBool("is_Attack", false);
             attackCount += Time.deltaTime;
@@ -71,11 +79,12 @@ public class Install_Ctrl : MonoBehaviour
         }
 
         Entity thisEntity = this.gameObject.GetComponent<Entity>();
+        
         if (thisEntity && thisEntity.GetHp() != MaxHP)
         {
             myAnim.SetTrigger("Hit");
+            Destroy(this.gameObject, myAnim.GetCurrentAnimatorClipInfo(0).Length);
         }
-        myAnim.SetBool("isActive", isActive);
     }
 
     private void Attack()
@@ -96,11 +105,6 @@ public class Install_Ctrl : MonoBehaviour
         dummy_GeneralBullet = Instantiate(General_Bullet_Pref, BulletSpon_Pos, Quaternion.identity);
         dummy_GeneralBullet.GetComponent<BulletCtrl>().install_ZValue = (this.transform.rotation.eulerAngles.z) - (90 * index);
         
-        dummy_GeneralBullet.gameObject.GetComponent<HitColider>().owner = BossObj;
-    }
-
-    public void EndSetting()
-    {
-        BossObj.gameObject.GetComponent<GunBoss>().Broken_InstallObj(this.gameObject);
+        dummy_GeneralBullet.gameObject.GetComponent<HitColider>().owner = this.GetComponent<Entity>();
     }
 }
