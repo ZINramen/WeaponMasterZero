@@ -57,7 +57,6 @@ public class Install_CtrlDefault : MonoBehaviour
     {
         distFromPlayer = Mathf.Abs(player.gameObject.transform.position.x 
                                    - this.transform.position.x);
-        Debug.Log(distFromPlayer);
 
         if (distFromPlayer <= 3.0f)
         {
