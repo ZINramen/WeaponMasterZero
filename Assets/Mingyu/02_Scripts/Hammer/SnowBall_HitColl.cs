@@ -10,7 +10,9 @@ public class SnowBall_HitColl : HitColider
     
     public float moveSpeed;
     private float rollingAngle;
-    private float rollingPower = -50f;
+    public float rollingPower = -50f;
+
+    public bool isDefaultMap = false;
     
     private void Start()
     {
@@ -26,7 +28,10 @@ public class SnowBall_HitColl : HitColider
         else
             rollingPower = Mathf.Abs(rollingPower);
         
-        this.gameObject.transform.parent.transform.Translate(Vector3.right * Time.deltaTime * moveSpeed);
+        if(isDefaultMap)
+            this.gameObject.transform.parent.transform.Translate(Vector3.left * Time.deltaTime * moveSpeed);
+        else
+            this.gameObject.transform.parent.transform.Translate(Vector3.right * Time.deltaTime * moveSpeed);
 
         rollingAngle += Time.deltaTime * rollingPower; 
         this.gameObject.transform.rotation = Quaternion.Euler(0, 0, rollingAngle);
@@ -34,7 +39,6 @@ public class SnowBall_HitColl : HitColider
 
     protected override void EachObj_HitSetting(Collider2D other)
     {
-        
         if (other.gameObject.GetComponent<HitColider>())
         {
             HP--;
@@ -62,7 +66,9 @@ public class SnowBall_HitColl : HitColider
     {
         Debug.Log("삭제");
         
-        owner.gameObject.GetComponent<HammerBoss>().Destroy_SnowBall();
+        if(!isDefaultMap)
+            owner.gameObject.GetComponent<HammerBoss>().Destroy_SnowBall();
+            
         Destroy(deleteObj.transform.parent.gameObject);
     }
 

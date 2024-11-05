@@ -82,12 +82,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34194569ef3e6a442810468dc531beb1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  NoDamage: 0
   telp: 0
   stunTarget: 0
   flyingAttackForce: 0
   attackForce: 10
   thrustValue: 0.5
   owner: {fileID: 0}
+  attach: 0
   oneHit: 0
   playerIsOwn: 0
   attType: 0
@@ -95,6 +97,7 @@ MonoBehaviour:
   DestroyEffect: {fileID: 1245487429816736, guid: 9f6904c71c126e4409c840914c58193f, type: 3}
   HP: 0
   moveSpeed: 0
+  isDefaultMap: 0
 --- !u!114 &2955158954142693220
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -177,7 +180,7 @@ GameObject:
   - component: {fileID: 3046617266877794024}
   - component: {fileID: 2386614059248061666}
   m_Layer: 12
-  m_Name: DefaultMapSnow
+  m_Name: Default_SnowBall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -261,7 +264,7 @@ Animator:
   m_GameObject: {fileID: 5863413222475620570}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 3a8a00731858ddc479f68747436c9a4d, type: 2}
+  m_Controller: {fileID: 9100000, guid: 52c7825346b26aa4290e294d2dbe8b9d, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -346,10 +349,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a1045773e672824daf99f5c8b2edde4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  testMode: 0
+  shield: {fileID: 0}
   hitMat: {fileID: 0}
+  hitSound: {fileID: 0}
   activeDesireWeapon: 0
   playerFinalBoss: {fileID: 0}
   desireWeaponFinalBoss: 0
+  triggerObj_HitType: 0
   stun: 0
   hp: 0
   mp: 0
@@ -396,6 +403,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Alway: 0
   BlockDash: 0
+  mousePos: {x: 0, y: 0, z: 0}
   owner: {fileID: 0}
   h: 0
   body: {fileID: 0}
