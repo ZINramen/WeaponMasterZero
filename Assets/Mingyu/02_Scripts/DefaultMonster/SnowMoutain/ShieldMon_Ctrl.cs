@@ -27,14 +27,14 @@ public class ShieldMon_Ctrl : MonoBehaviour
             if (this.gameObject.transform.eulerAngles.y == 180)
             {
                 if ((this.gameObject.transform.position - player.gameObject.transform.position).normalized.x < 0.3f && !isExplosionHit)
-                    this.gameObject.GetComponent<Entity>().DamageBlock = Entity.DefenseStatus.invincible;
+                    this.gameObject.GetComponent<Entity>().DamageBlock = Entity.DefenseStatus.Nope;
                 else 
                     this.gameObject.GetComponent<Entity>().DamageBlock = Entity.DefenseStatus.Nope;
             }
             else
             {
                 if ((this.gameObject.transform.position - player.gameObject.transform.position).normalized.x > -0.3f && !isExplosionHit)
-                    this.gameObject.GetComponent<Entity>().DamageBlock = Entity.DefenseStatus.invincible;
+                    this.gameObject.GetComponent<Entity>().DamageBlock = Entity.DefenseStatus.Nope;
                 else 
                     this.gameObject.GetComponent<Entity>().DamageBlock = Entity.DefenseStatus.Nope;
             }
@@ -43,6 +43,12 @@ public class ShieldMon_Ctrl : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
+        HitColider hit = other.GetComponent<HitColider>();
+        if (hit)
+        {
+            if (hit.attType == HitColider.AttackType.Player_FinishdAtt)
+                GetComponent<Entity>().SetHp(0);
+        }
         if (other.gameObject.name.Contains("Explosion"))
         {
             if (this.gameObject.transform.eulerAngles.y == 180)

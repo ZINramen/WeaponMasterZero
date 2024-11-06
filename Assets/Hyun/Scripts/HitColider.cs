@@ -33,7 +33,6 @@ public class HitColider : MonoBehaviour
 
     protected void OnTriggerEnter2D(Collider2D other)
     {
-         Debug.Log(other);
         if (owner == other.gameObject.GetComponent<Entity>())
             return;
         if (other.CompareTag("Camera")) // 카메라의 경우 무시
@@ -131,7 +130,17 @@ public class HitColider : MonoBehaviour
             {
                 entity.stun = stunTarget;
                 entity.flyingDamagedPower = flyingAttackForce;
-                entity.Damaged(attackForce, (-attackForce) * thrustValue);
+                
+                if (transform.position.x > entity.transform.position.x) // 상대를 공격 방향으로 날린다.
+                {
+                    if (entity.movement.PlayerType)
+                        entity.Damaged(attackForce, (-attackForce) * thrustValue);
+                }
+                else
+                {
+                    if (entity.movement.PlayerType)
+                        entity.Damaged(attackForce, attackForce * thrustValue);
+                }
             }
 
             if (oneHit == true)

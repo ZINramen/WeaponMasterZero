@@ -97,6 +97,9 @@ public class Entity : MonoBehaviour
 
         if (movement)
             movement.owner = this;
+        
+        maxHP += PlayerPrefs.GetInt("MaxHP-Desert", 0) + PlayerPrefs.GetInt("MaxHP-Ice", 0);
+
         hp = maxHP;
         mp = 0;
     }

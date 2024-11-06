@@ -18,6 +18,10 @@ public class SaveService : MonoBehaviour
 
     private void Awake()
     {
+        if (chapterButtonLock.Count > 0)
+        {
+            SavePoint.save = false;
+        }
         // 도전 과제 데이터 불러오기
         for(int i = 0; i < number_of_medals; i++)
         {
@@ -30,7 +34,7 @@ public class SaveService : MonoBehaviour
 
         if (MedalShow)
         {
-            MedalShow.text = "Achievements (" + medalList.Count + "/15)";
+            MedalShow.text = "Achievements (" + medalList.Count + "/18)";
         }
 
         // 챕터 데이터 저장하기

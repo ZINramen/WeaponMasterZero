@@ -66,7 +66,7 @@ public class ShootingControl : MonoBehaviour
 
             if (bulletCount < bulletMaxCount) // 총의 발사 횟수 제한이 있고, 해당 횟수를 넘어서면 일정 시간 동안 재장전이 이뤄진다.
             {
-                if (Input.GetKey(KeyCode.Mouse0))
+                if (Input.GetKey(KeyCode.Mouse0) && PlayerPrefs.GetInt("GunSkill", 0) != 0)
                 {
                     if (bulletEnergy <= 0.3f)
                         bulletEnergy += Time.deltaTime;
@@ -86,8 +86,8 @@ public class ShootingControl : MonoBehaviour
                     }
                     else 
                     {
-                                GetComponent<AudioSource>().PlayOneShot(Resources.Load("Bullet") as AudioClip);
-                            }
+                        GetComponent<AudioSource>().PlayOneShot(Resources.Load("Bullet") as AudioClip);
+                    }
                     // 아래는 총을 발사하는 과정을 나타낸 코드이다.
 
                     bulletCount++;

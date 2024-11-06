@@ -36,7 +36,70 @@ public class ItemInteraction : MonoBehaviour
     public string itemName;
 
     GameObject target;
-    
+
+    public int EffectCode = -1;
+
+    private void Awake()
+    {
+        switch (EffectCode)
+        {
+            case 0: // Hp Upgrade
+                if (PlayerPrefs.GetInt("MaxHP-Desert", 0) != 0) 
+                {
+                    Destroy(gameObject);
+                };
+                break;
+            case 1: // Sword Skill
+                if (PlayerPrefs.GetInt("SwordSkill", 0) != 0)
+                {
+                    Destroy(gameObject);
+                };
+                break;
+            case 2: // Gun Skill
+                if (PlayerPrefs.GetInt("GunSkill", 0) != 0)
+                {
+                    Destroy(gameObject);
+                };
+                break;
+            case 3: // Hammer Skill
+                if (PlayerPrefs.GetInt("HammerSkill", 0) != 0)
+                {
+                    Destroy(gameObject);
+                };
+                break;
+            case 4: // Hp Upgrade
+                if (PlayerPrefs.GetInt("MaxHP-Ice", 0) != 0)
+                {
+                    Destroy(gameObject);
+                };
+                break;
+        }
+    }
+
+    public void GetSpecialEffect(int code) 
+    {
+        switch (code)
+        {
+            case 0: // Hp Upgrade
+                PlayerPrefs.SetInt("MaxHP-Desert", 20);
+                Entity.Player.SetHp(Entity.Player.maxHP + PlayerPrefs.GetInt("MaxHP-Desert", 0) + PlayerPrefs.GetInt("MaxHP-Ice", 0));
+                break;
+            case 1: // Sword Skill
+                PlayerPrefs.SetInt("SwordSkill", 1);
+                break;
+            case 2: // Gun Skill
+                PlayerPrefs.SetInt("GunSkill", 1);
+                break;
+            case 3: // Hammer Skill
+                PlayerPrefs.SetInt("HammerSkill", 1);
+                break;
+            case 4: // Hp Upgrade
+                PlayerPrefs.SetInt("MaxHP-Ice", 20);
+                Entity.Player.SetHp(Entity.Player.maxHP + PlayerPrefs.GetInt("MaxHP-Desert", 0) + PlayerPrefs.GetInt("MaxHP-Ice", 0));
+                break;
+        }
+    }
+
     public void Jumping(float value)
     {
         Movement move = null;
