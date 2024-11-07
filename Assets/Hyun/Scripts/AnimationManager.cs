@@ -73,14 +73,17 @@ public class AnimationManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (PlayerPrefs.GetInt("SwordSkill", 0) != 0)
+        if (isPlayer)
         {
-            ani.SetBool("swordSkill", true);
-        };
-        if (PlayerPrefs.GetInt("HammerSkill", 0) != 0)
-        {
-            ani.SetBool("hammerSkill", true);
-        };
+            if (PlayerPrefs.GetInt("SwordSkill", 0) != 0)
+            {
+                ani.SetBool("swordSkill", true);
+            };
+            if (PlayerPrefs.GetInt("HammerSkill", 0) != 0)
+            {
+                ani.SetBool("hammerSkill", true);
+            };
+        }
         if (owner && owner.movement.PlayerType)
         {
             isPlayer = true;

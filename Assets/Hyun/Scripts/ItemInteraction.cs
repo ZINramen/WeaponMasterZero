@@ -169,7 +169,33 @@ public class ItemInteraction : MonoBehaviour
             isEnd = true;
             Destroy(gameObject);
         }
-        if(itemName == "Teleport")
+
+        if (itemName == "HammerTrigger")
+        {
+            HitColider hitC = coll.GetComponent<HitColider>();
+            if (hitC == null) return;
+            else if (hitC.attType == AttackType.Player_Hammer)
+            {
+                InteractionEvent?.Invoke();
+            }
+        }
+        if (itemName == "HammerDestroy")
+        {
+            HitColider hitC = coll.GetComponent<HitColider>();
+            if (hitC == null) return;
+            else if (hitC.attType == AttackType.Player_Hammer)
+            {
+                InteractionEvent?.Invoke();
+                Instantiate(Effect, transform.position, Quaternion.identity);
+                isEnd = true;
+                Destroy(gameObject);
+            }
+            else
+            {
+                return;
+            }
+        }
+        if (itemName == "Teleport")
         {
             if(coll.gameObject == Entity.Player.gameObject)
             {
