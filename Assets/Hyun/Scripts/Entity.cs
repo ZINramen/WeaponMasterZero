@@ -475,8 +475,10 @@ public class Entity : MonoBehaviour
     {
         if (damageValue < 35)
         {
-            Instantiate(HitEffect).transform.position = transform.position;
-            Instantiate(HitTextEffect).transform.position = transform.position;
+            if(HitEffect)
+                Instantiate(HitEffect).transform.position = transform.position;
+            if (HitTextEffect)
+                Instantiate(HitTextEffect).transform.position = transform.position;
         }
         else
         {

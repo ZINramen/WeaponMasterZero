@@ -10,6 +10,7 @@ public class NextMap : MonoBehaviour
     
     public void GoToRoom()
     {
+        SavePoint.save = false;
         LevelManager.Instance.LoadScene(nextRoom, transitionName);
     }
 }

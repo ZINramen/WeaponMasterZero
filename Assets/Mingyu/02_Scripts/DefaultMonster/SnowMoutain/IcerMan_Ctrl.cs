@@ -54,20 +54,17 @@ public class IcerMan_Ctrl : Default_Monster
                      Vector3 StartPoint = new Vector3(this.transform.position.x + 0.1f, this.transform.position.y - 0.1f,
                          this.transform.position.z);
                      
-                     GameObject dummyBullet = GameObject.Instantiate(Parringbullet, this.transform.position, Quaternion.identity);
-                     dummyBullet.gameObject.GetComponent<HitColider>().owner = icerEntity;
+                     //GameObject dummyBullet = GameObject.Instantiate(Parringbullet, this.transform.position, Quaternion.identity);
+                     //dummyBullet.gameObject.GetComponent<HitColider>().owner = icerEntity;
                      
-                     float randomX_Angle = Random.Range(-0.05f, 0.05f);
-                     float randomY_Angle = Random.Range(-0.05f, 0.05f);
+                     //float randomX_Angle = Random.Range(-0.05f, 0.05f);
+                     //float randomY_Angle = Random.Range(-0.05f, 0.05f);
                      
-                     Vector3 EndPoint = new Vector3(other.transform.position.x + randomX_Angle,
-                         other.transform.position.y + randomY_Angle,
-                         other.transform.position.z);
+                     ///Vector3 EndPoint = new Vector3(other.transform.position.x + randomX_Angle, other.transform.position.y + randomY_Angle, other.transform.position.z);
                      
-                     Vector3 AttackDir = ( StartPoint - EndPoint).normalized;
+                     // Vector3 AttackDir = ( StartPoint - EndPoint).normalized;
                      
-                    dummyBullet.gameObject.GetComponent<Rigidbody2D>()
-                        .AddForce(parringSpeed * -AttackDir, ForceMode2D.Impulse);
+                    //dummyBullet.gameObject.GetComponent<Rigidbody2D>().AddForce(parringSpeed * -AttackDir, ForceMode2D.Impulse);
                 }
             }
         }

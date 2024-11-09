@@ -6,7 +6,7 @@ using UnityEngine.UIElements;
 
 public class Install_CtrlDefault : MonoBehaviour
 {
-    private Animator myAnim;
+    public Animator myAnim;
     public bool isAttackAble = false;
 
     private float attack_Delay = 0.5f;
@@ -38,7 +38,7 @@ public class Install_CtrlDefault : MonoBehaviour
         }
 
         this.gameObject.GetComponent<Entity>().SetHp(9000f);
-        myAnim = this.gameObject.GetComponent<Animator>();
+        myAnim = gameObject.GetComponent<Animator>();
         InitValue();
     }
 
