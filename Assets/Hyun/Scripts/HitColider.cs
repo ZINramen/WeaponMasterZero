@@ -31,7 +31,7 @@ public class HitColider : MonoBehaviour
     
     public GameObject DestroyEffect;
 
-    private void Start()
+    protected void Start()
     {
         if(Entity.Player && playerIsOwn)
             owner = Entity.Player;

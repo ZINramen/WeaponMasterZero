@@ -7,6 +7,7 @@ public class StonHitColl : HitColider
 {
     private void Start()
     {
+        base.Start();
         Destroy(this.gameObject, 3f);
     }
 
