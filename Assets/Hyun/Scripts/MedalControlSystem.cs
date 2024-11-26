@@ -19,7 +19,7 @@ public class MedalControlSystem : MonoBehaviour
         switch (medalNum)
         {
             case 1:
-                if (Entity.Player.GetHp() <= Entity.Player.maxHP/2 && target.GetHp() <= 0)
+                if (target && Entity.Player.GetHp() <= Entity.Player.maxHP/2 && target.GetHp() <= 0)
                 {
                     eventEnd = true;
                 }
@@ -44,7 +44,7 @@ public class MedalControlSystem : MonoBehaviour
                 break;
 
             case 7:
-                if (target.GetHp() <= target.maxHP / 2 && Entity.Player.GetHp() <= 0)
+                if (target && target.GetHp() <= target.maxHP / 2 && Entity.Player.GetHp() <= 0)
                 {
                     eventEnd = true;
                 }
