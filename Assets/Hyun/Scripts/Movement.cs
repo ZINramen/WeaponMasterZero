@@ -204,20 +204,17 @@ public class Movement : MonoBehaviour
 
     public void EvasionMove(float x)
     {
-        mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        Vector3 MoveDir = (mousePos - this.gameObject.transform.position).normalized;
-
-        if (mousePos.x > this.transform.position.x) {
-            if (this.transform.rotation.eulerAngles.y != 0)
-                this.transform.Rotate(this.transform.rotation.x, 180, this.transform.rotation.z);
+        if (this.transform.rotation.eulerAngles.y != 0) 
+        {
+            this.transform.localEulerAngles = new Vector3(this.transform.localEulerAngles.x, 180, this.transform.localEulerAngles.z);
+            
         }
-
-        else {
-            if (this.transform.rotation.eulerAngles.y == 0)
-                this.transform.Rotate(this.transform.rotation.x, 180, this.transform.rotation.z);
+        else
+        {
+            this.transform.localEulerAngles = new Vector3(this.transform.localEulerAngles.x, 0, this.transform.localEulerAngles.z);
+            
         }
-        
-        body.AddForce(MoveDir *  x * 100);
+        body.AddForce(transform.right * x * 100);
     }
 
     public void SetVelocityZero()

@@ -56,7 +56,7 @@ public class FBossMoveAttack : Chaser
     {
         if (owner.isDie)
             return;
-        if(owner.GetHp() < 100 && 50 < owner.GetHp())
+        if(owner.GetHp() < 500 && !Fist.activeSelf)
         {
             ani.SetTrigger("Heal");
             if(Fist)

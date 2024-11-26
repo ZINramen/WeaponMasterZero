@@ -9,7 +9,8 @@ using static UnityEngine.EventSystems.EventTrigger;
 
 public class Entity : MonoBehaviour
 {
-    public bool testMode = false;
+    public bool NODESTROY = false;
+    public bool test = false;
     public Transform shield;
     DefenseStatus EarlyStatus;
     public Material hitMat;
@@ -107,7 +108,7 @@ public class Entity : MonoBehaviour
     private void Update()
     {
         // 테스트용
-        if (testMode && Input.GetKeyDown(KeyCode.Z))
+        if (test && Input.GetKeyDown(KeyCode.Z))
         {
             SetMp(maxMp);
         }
@@ -167,7 +168,8 @@ public class Entity : MonoBehaviour
 
             if (CompareTag("Player") == false && CompareTag("Boss") == false)
             {
-                Destroy(gameObject, 2);
+                if(!NODESTROY)
+                    Destroy(gameObject, 2);
             }
             OnDie.Invoke();
         }

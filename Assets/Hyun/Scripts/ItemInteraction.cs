@@ -129,7 +129,8 @@ public class ItemInteraction : MonoBehaviour
             rb.constraints = RigidbodyConstraints2D.FreezeAll;
 
             GetComponent<AudioSource>().Play();
-            cam.ShakeScreen(3);
+            if(cam)
+                cam.ShakeScreen(3);
             Effect.SetActive(true);
         }
     }

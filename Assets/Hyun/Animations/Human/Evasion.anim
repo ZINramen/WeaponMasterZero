@@ -2227,11 +2227,11 @@ AnimationClip:
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
-  - time: 0.05
+  - time: 0.016666668
     functionName: EvasionMove
     data: 
     objectReferenceParameter: {fileID: 0}
-    floatParameter: -300
+    floatParameter: -500
     intParameter: 0
     messageOptions: 0
   - time: 0.083333336
@@ -2251,6 +2251,13 @@ AnimationClip:
   - time: 0.48333332
     functionName: ResetTriggerEvent
     data: Dodge
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 0.51666665
+    functionName: SetVelocityZero
+    data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 0

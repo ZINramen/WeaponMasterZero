@@ -2990,7 +2990,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a1045773e672824daf99f5c8b2edde4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  testMode: 0
+  NODESTROY: 0
+  test: 0
   shield: {fileID: 0}
   hitMat: {fileID: 0}
   hitSound: {fileID: 0}
@@ -11949,7 +11950,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a1045773e672824daf99f5c8b2edde4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  testMode: 0
+  NODESTROY: 0
+  test: 0
   shield: {fileID: 0}
   hitMat: {fileID: 0}
   hitSound: {fileID: 0}
@@ -14096,7 +14098,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a1045773e672824daf99f5c8b2edde4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  testMode: 0
+  NODESTROY: 0
+  test: 0
   shield: {fileID: 0}
   hitMat: {fileID: 0}
   hitSound: {fileID: 0}
@@ -15663,7 +15666,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a1045773e672824daf99f5c8b2edde4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  testMode: 0
+  NODESTROY: 0
+  test: 0
   shield: {fileID: 0}
   hitMat: {fileID: 0}
   hitSound: {fileID: 0}
@@ -30260,6 +30264,18 @@ PrefabInstance:
     - target: {fileID: 1044067328411607424, guid: e2f03ac0e90d84f4083d3f9121ad8f5f, type: 3}
       propertyPath: m_SizeDelta.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1868984683984232959, guid: e2f03ac0e90d84f4083d3f9121ad8f5f, type: 3}
+      propertyPath: hp
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 1868984683984232959, guid: e2f03ac0e90d84f4083d3f9121ad8f5f, type: 3}
+      propertyPath: test
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1868984683984232959, guid: e2f03ac0e90d84f4083d3f9121ad8f5f, type: 3}
+      propertyPath: maxHP
+      value: 9999
       objectReference: {fileID: 0}
     - target: {fileID: 2453434323063826008, guid: e2f03ac0e90d84f4083d3f9121ad8f5f, type: 3}
       propertyPath: m_SizeDelta.x

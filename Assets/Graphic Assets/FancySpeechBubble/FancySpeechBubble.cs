@@ -23,7 +23,7 @@ public class FancySpeechBubble : MonoBehaviour
     }
     public void Set_Int(int textNum)
     {
-        string text = csv.lines[textNum][PlayerPrefs.GetInt("Country_Code", 0)];
+        string text = csv.lines[textNum][PlayerPrefs.GetInt("Country_Code", 1)];
         StopAllCoroutines();
         StartCoroutine(SetRoutine(text));
     }

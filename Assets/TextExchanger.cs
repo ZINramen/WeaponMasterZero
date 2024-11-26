@@ -11,7 +11,7 @@ public class TextExchanger : MonoBehaviour
 
     void Start()
     {
-       if(PlayerPrefs.GetInt("Country_Code", 0) > 0)
+       if(PlayerPrefs.GetInt("Country_Code", 1) > 0)
        {
             textBlockEng.enabled = true;
             textBlock.enabled = false;

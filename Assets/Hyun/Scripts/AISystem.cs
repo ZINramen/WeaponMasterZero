@@ -89,10 +89,6 @@ public class AISystem : MonoBehaviour
         // 플레이어와의 거리가 detectionRange 이상이면 이동 멈춤
         if (distanceToPlayer > detectionRange)
         {
-            if (enableSpeedControl)
-            {
-                //movement.speed = 0;
-            }
             move.h = 0;
             if (WalkName != "")
             {
@@ -130,25 +126,32 @@ public class AISystem : MonoBehaviour
         if (Mathf.Abs(player.transform.position.x - transform.position.x) < detectionRange && !exclamationPointShown)
         {
             // 느낌표 프리팹 인스턴스화 코드 (Exclamation Point Prefab)
-            exclamationPointInstance = Instantiate(exclamationPointPrefab, transform.position, Quaternion.identity);
+            if (exclamationPointPrefab)
+            {
+                exclamationPointInstance = Instantiate(exclamationPointPrefab, transform.position, Quaternion.identity);
+            }
             exclamationPointShown = true; // 느낌표가 표시되었음을 표시합니다.
         }
 
         // 플레이어가 탐지 범위 밖에 있고 느낌표가 표시되어 있다면 느낌표 인스턴스를 제거하고 표시 플래그를 리셋합니다.
         if (Mathf.Abs(player.transform.position.x - transform.position.x) > detectionRange && exclamationPointShown)
         {
-            Destroy(exclamationPointInstance);
+            if (exclamationPointPrefab)
+            {
+                Destroy(exclamationPointInstance);
+            }
             exclamationPointShown = false;
         }
 
-        
-        if (owner.ai.player.transform.position.x < transform.position.x)
-            move.h = -1;
-        else if (owner.ai.player.transform.position.x > transform.position.x)
-            owner.movement.h = 1;
 
-        move.body.velocity = new Vector2(move.h * 100 * move.speed * Time.deltaTime, move.body.velocity.y);
-
+        if (!move.StopMove)
+        {
+            if (owner.ai.player.transform.position.x < transform.position.x)
+                move.h = -1;
+            else if (owner.ai.player.transform.position.x > transform.position.x)
+                owner.movement.h = 1;
+            move.body.velocity = new Vector2(move.h * move.speed, move.body.velocity.y);
+        }
         if (move.h != 0)
         {
             if (WalkName != "")

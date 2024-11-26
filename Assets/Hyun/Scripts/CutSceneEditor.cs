@@ -41,7 +41,7 @@ public class CutSceneEditor : MonoBehaviour
 
     public void DialogueShowUP(int textNum) 
     {
-        string text = csv.lines[textNum][PlayerPrefs.GetInt("Country_Code", 0)];
+        string text = csv.lines[textNum][PlayerPrefs.GetInt("Country_Code", 1)];
         dialogue.transform.parent.gameObject.SetActive(true);
         dialogue.Set(text);
     }

@@ -12,5 +12,11 @@ public class NextMap : MonoBehaviour
     {
         SavePoint.save = false;
         LevelManager.Instance.LoadScene(nextRoom, transitionName);
+
+        if (Entity.Player)
+        {
+            Entity.Player.movement.Freeze();
+            Entity.Player.DamageBlock = Entity.DefenseStatus.invincible;
+        }
     }
 }
