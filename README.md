@@ -3,7 +3,7 @@
 Unity(URP, 2D)로 제작 중인 도트 그래픽 액션 게임입니다. 플레이어는 여러 무기를 전환해 가며 스테이지를 돌파하고, 각 지역 보스와 최종 보스를 상대합니다.
 
 - Product Name: `TriAPO`
-- Company: `Team Ragtag`
+- Team Name : `Team Ragtag`
 - Engine: Unity (Universal Render Pipeline, Cinemachine, Post Processing, DOTween, TextMesh Pro)
 
 ## 게임 개요
